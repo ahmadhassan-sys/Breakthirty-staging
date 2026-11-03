@@ -3,7 +3,11 @@
  * One page per case study: /work/<file name>, built from src/content/case-studies/<file name>.yaml.
  * The file's `template` picks the design: a = ChartSight's layout, b = the layout with free-form sections
  * (Construction Check, The Coupon Chaser, Weldon Brewster, Ethical Narrative).
+<<<<<<< HEAD
  * Shared with the other pages: header, closing call to action, closing band, footer (no dashed-letter strip on case studies).
+=======
+ * Shared with the other pages: header, closing strip and call to action, closing band, footer.
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
  */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/pages/case-study.css";   // all case study page styles, in order
@@ -11,12 +15,19 @@ import "../../styles/pages/case-study.css";   // all case study page styles, in 
 import TemplateA from "../../components/case-study/TemplateA.astro";
 import TemplateB from "../../components/case-study/TemplateB.astro";
 import { caseStudyCss } from "../../styles/case-study-sets.js";
+<<<<<<< HEAD
+=======
+import Strip from "../../components/closing/Strip.astro";
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 import ClosingCta from "../../components/closing/ClosingCta.astro";
 import Contact from "../../components/Contact.astro";
 import Footer from "../../components/Footer.astro";
 
 import { caseStudies, nextCase } from "../../lib/case-studies.js";
+<<<<<<< HEAD
 import { caseStudySchema } from "../../lib/schema.js";
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 import { labels, seo as seoBase } from "../../data/case-study.js";
 import { nav, closing, contact, footer } from "../../data/site.js";
 
@@ -37,8 +48,11 @@ const seo = {
   ogDescription: data.seo.description,
   themeColor: seoBase.themeColor,
   image: data.hero.image,   // the case study's cover as its share picture
+<<<<<<< HEAD
   imageAlt: data.hero.label || data.name,
   schema: caseStudySchema(entry, Astro.site),   // the project as a creative work (src/lib/schema.js)
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 };
 
 /* what the page scripts (public/js) read */
@@ -54,6 +68,7 @@ const scripts = [
   "contact",
   "footer",
   "details",
+<<<<<<< HEAD
   ...(data.template === "b" ? [`${dir}/videos`] : []),   // videos inside pictures (before images: it listens for the hero hand-off)
   ...["images", "hero", "numbers", "how", "output"].map((f) => `${dir}/${f}`),   // pictures, hero, numbers, how we worked, tabs
   "contact-closing",         // (must run last: it sits on top of the closing band)
@@ -65,6 +80,17 @@ const scripts = [
 
 <BaseLayout seo={seo} content={scriptContent} scripts={scripts} caseTransition pageCss={caseStudyCss(data.template, entry.id)} crumbs={[{ name: "Work", path: "/work" }, { name: data.name, path: `/work/${entry.id}` }]}>
   <Template data={data} next={next} nav={nav} labels={labels}>
+=======
+  "strip",                   // the dashed-letter strip's hover reveal
+  ...["images", "hero", "numbers", "how", "output"].map((f) => `${dir}/${f}`),   // pictures, hero, numbers, how we worked, tabs
+  "contact-closing",         // (must run last: it sits on top of the closing band)
+];
+---
+
+<BaseLayout seo={seo} content={scriptContent} scripts={scripts} pageCss={caseStudyCss(data.template, entry.id)} crumbs={[{ name: "Work", path: "/work" }, { name: data.name, path: `/work/${entry.id}` }]}>
+  <Template data={data} next={next} nav={nav} labels={labels}>
+    <Strip {...closing.strip} />
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     <ClosingCta {...closing.cta} />
     <Contact {...contact} />
   </Template>

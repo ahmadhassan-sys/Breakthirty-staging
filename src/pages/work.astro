@@ -22,7 +22,10 @@ import Footer from "../components/Footer.astro";
 import { seo, hero, filters, featured, selected, hello, strip } from "../data/work.js";
 import { workCases } from "../lib/case-studies.js";
 import { nav, partnersStrip, testimonials, closing, contact, footer } from "../data/site.js";
+<<<<<<< HEAD
 import { workListSchema } from "../lib/schema.js";
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 
 /* The list: the case studies in src/content/case-studies/ first, then the entries in src/data/work.js */
 const cases = await workCases();
@@ -54,6 +57,7 @@ const scripts = [
   "work-hero",       // the hero's drift as the page scrolls over it
   "strip",           // the dashed-letter strip's hover reveal
   "contact-closing", // the closing words (must run last: it sits on top of the contact panel)
+<<<<<<< HEAD
   "work-mobile"   // phones only (≤ 899px)
 ];
 /* structured data: this page lists the case studies (src/lib/schema.js) */
@@ -61,6 +65,12 @@ const pageSeo = { ...seo, pageType: "CollectionPage", schema: workListSchema(cas
 ---
 
 <BaseLayout seo={pageSeo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Work", path: "/work" }]}>
+=======
+];
+---
+
+<BaseLayout seo={seo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Work", path: "/work" }]}>
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   <WorkHero {...hero} nav={nav} />
 
   <main class="b30-main" id="main">

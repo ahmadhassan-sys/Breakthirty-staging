@@ -120,6 +120,7 @@ Canonical and share links use `site` in `astro.config.mjs` (`https://www.breakth
 - Legal pages: `src/content/legal/*.md` → `/legal/privacy-policy`, `/legal/terms-of-service` (the old URLs).
 - `src/pages/404.astro` is the page shown for addresses that don't exist (kept out of search results).
 
+<<<<<<< HEAD
 ### Structured data, verification, analytics (added in the full SEO pass)
 
 - Every page: the company (Organization, with contact point), the website, the page itself (WebPage / CollectionPage / ContactPage) and its breadcrumb — `src/layouts/BaseLayout.astro`.
@@ -138,18 +139,23 @@ Spam: the hidden `website` field (honeypot) plus Netlify's own spam filter. On `
 the form opens the visitor's email app instead. Keep `name="contact"`, `data-netlify` and the hidden fields in
 `src/components/contact/ContactForm.astro`. (An AWS Lambda alternative is in `aws/contact-form/`: set `PUBLIC_FORM_ENDPOINT`.)
 
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 ## Case study pages
 
 Each case study is one file in `src/content/case-studies/` and becomes a page at `/work/<file name>`
 (`chartsight.yaml` → `/work/chartsight`). The build checks every file against `src/content.config.ts` and tells you if
 a field is missing or misspelled. After adding a new file, restart `npm run dev`.
 
+<<<<<<< HEAD
 Videos (template b): any picture — the hero, demo, before/after, the brand picture, `wide`, `pair` and `stack` items —
 can take `video: /assets/videos/<case>/<name>.mp4`, with `image:` set to the video's first frame. The picture reveals as
 usual, then the video fades in and plays muted on a loop while it's on screen (`public/js/case-study-b/videos.js`).
 Make the files with: `ffmpeg -i in.mp4 -an -vf "scale=1600:-2,format=yuv420p" -c:v libx264 -crf 25 -movflags +faststart out.mp4`
 and the poster with `ffmpeg -i out.mp4 -frames:v 1 -q:v 3 out.jpg`. A feature can also have a `link:` ("Visit Website").
 
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 Two layouts, picked by `template:` in the file:
 
 - `a` — ChartSight's layout, a fixed set of sections (ChartSight, Kind Over Matter Creative, Promescent, Rivas Pro
@@ -176,6 +182,15 @@ The list is `cases` in `src/data/work.js` (entries with a case study file link t
 the two descriptions and its pictures (the first one is the cover). The filter counts, the grid,
 the index list and the spinning pages in the hero all update from that one list.
 
+<<<<<<< HEAD
+=======
+## The contact form
+
+The form checks the name, email and phone, then opens the visitor's email app with the message
+filled in, addressed to `company.email`. To send it from the site instead (Formspree, Netlify Forms,
+your own API…), change the submit part of `public/js/contact-page.js`.
+
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 ## Notes
 
 - The homepage intro loader (a dot globe that turns into the logo, then a pixel wave opens the page) is
@@ -206,6 +221,7 @@ the index list and the spinning pages in the hero all update from that one list.
   separately and unoptimised).
 - CSS minification is off in `astro.config.mjs` on purpose: the minifier merges some duplicate
   rules and changes which one wins in the dark theme.
+<<<<<<< HEAD
 
 ## Phones: shared sections are components
 
@@ -224,3 +240,5 @@ Every section that appears on more than one page has **one** phone version, kept
 
 The page files (`styles/home-mobile.css`, `styles/mobile/*.css`, `public/js/*-mobile.js`, `mobile-layer.js`, `mobile-m5.js`)
 only hold what belongs to that page — don't restyle a shared section there; change its component file instead.
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

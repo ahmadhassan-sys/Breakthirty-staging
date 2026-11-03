@@ -152,7 +152,11 @@ void main(){
           gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, m.tex[k]);
           gl.uniform2f(m.U.uRes, cw, ch); gl.uniform2f(m.U.uS, ...m.size[k]); gl.uniform1f(m.U.uR, e);
           gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, m.tex[nk]); gl.uniform2f(m.U.uSN, ...m.size[nk]); gl.activeTexture(gl.TEXTURE0);
+<<<<<<< HEAD
           gl.uniform2f(m.U.uM, M.sx, M.sy); gl.uniform1f(m.U.uHv, 0); /* the hover patch is off everywhere: the picture never changes under the cursor (only the black label follows it) */ gl.uniform1f(m.U.uK, Math.round(12 * cw / 609));
+=======
+          gl.uniform2f(m.U.uM, M.sx, M.sy); gl.uniform1f(m.U.uHv, m.hv); gl.uniform1f(m.U.uK, Math.round(12 * cw / 609));
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
           gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
           gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         }

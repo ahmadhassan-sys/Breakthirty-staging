@@ -38,7 +38,11 @@ const pills = s.type === "overview" ? s.links || [s.link] : [];   // the "Visit 
 {s.type === "demo" && (
   <section class={c("cz-demo", s.mods)} id="demo" aria-label={s.label}>
     {s.kicker && <p class="cz-demo__k">{s.kicker}</p>}
+<<<<<<< HEAD
     <div class="cz-demo__media"><Picture class="cz-fill" image={s.image} alt={s.alt} video={s.video} /></div>
+=======
+    <div class="cz-demo__media"><Picture class="cz-fill" image={s.image} alt={s.alt} /></div>
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     <Corners />
   </section>
 )}
@@ -80,6 +84,7 @@ const pills = s.type === "overview" ? s.links || [s.link] : [];   // the "Visit 
     </div>
   </section>
 )}
+<<<<<<< HEAD
 {s.type === "beforeAfter" && s.single && (
   <section class={c("cz-ba cz-ba--one", s.mods)} aria-label={s.label}>
     <p class="wb-ba__cap" data-reveal>{s.caption}</p>
@@ -87,12 +92,20 @@ const pills = s.type === "overview" ? s.links || [s.link] : [];   // the "Visit 
   </section>
 )}
 {s.type === "beforeAfter" && !s.single && (
+=======
+{s.type === "beforeAfter" && (
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   <section class={c("cz-ba", s.mods)} aria-label={s.label}>
     {s.kicker && <p class="cz-ba__k" data-reveal>{s.kicker}</p>}
     {s.labels && s.labelsTop && <div class="cz-ba__lbl cz-ba__lbl--top">{s.labels.map((l) => <span class={s.labelsMono ? "cz-mono16" : undefined} data-reveal>{l}</span>)}</div>}
     <div class="cz-ba__frame">
+<<<<<<< HEAD
       <Picture class="cz-ba__img a" image={s.before.image} alt={s.before.alt} video={s.before.video} />
       <Picture class="cz-ba__img b" image={s.after.image} alt={s.after.alt} video={s.after.video} />
+=======
+      <Picture class="cz-ba__img a" image={s.before.image} alt={s.before.alt} />
+      <Picture class="cz-ba__img b" image={s.after.image} alt={s.after.alt} />
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     </div>
     {s.labels && !s.labelsTop && <div class="cz-ba__lbl">{s.labels.map((l) => <span class={s.labelsMono ? "cz-mono16" : undefined} data-reveal>{l}</span>)}</div>}
   </section>
@@ -126,7 +139,11 @@ const pills = s.type === "overview" ? s.links || [s.link] : [];   // the "Visit 
       <h2 class="cz-h71" id="cz-out-h" data-heading><Rich text={s.heading} /></h2>
     </div>
     <nav class={c("cz-tabs", s.tabsMods)} aria-label={s.navLabel}>{s.parts.map((p, i) => (
+<<<<<<< HEAD
       <a class="cz-tab" href={`#part-${i + 1}`} data-i={i}><span>{pad(i)}.&nbsp; {p.tab}</span></a>
+=======
+      <a class="cz-tab" href={`#part-${i + 1}`} data-i={i}><i class="cz-tab__bar" aria-hidden="true"></i><span>{pad(i)}.&nbsp; {p.tab}</span></a>
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     ))}</nav>
     <div class="cz-parts">{s.parts.map((p, i) => (
       <article class="cz-part" id={`part-${i + 1}`}><p class="cz-part__k">{p.kicker}</p>
@@ -148,7 +165,11 @@ const pills = s.type === "overview" ? s.links || [s.link] : [];   // the "Visit 
         <div><h2 class="cz-h71" id="cz-brand-h" data-heading><Rich text={s.heading} /></h2>
           <div class="cz-body cz-mt72" data-reveal>{s.body.map((p) => <p><Rich text={p} /></p>)}</div></div>
       </div>
+<<<<<<< HEAD
       <Picture class={["cz-wide cz-mt104", s.image.h ? `cz-h${s.image.h}` : ""].join(" ").trim()} image={s.image.image} alt={s.image.alt} video={s.image.video} />
+=======
+      <Picture class="cz-wide cz-mt104" image={s.image.image} alt={s.image.alt} />
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
       <div class="cz-feats">{s.features.map((f) => (
         <article class="cz-f">
           <Head {...f} feature />

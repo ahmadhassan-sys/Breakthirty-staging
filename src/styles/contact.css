@@ -180,6 +180,7 @@ html.dark .tw1{color:#F2F1EE}
 @media (max-width:899px){#contact.b30c.wk-cta-proof,#contact.b30c{height:40px!important}}
 #contact.b30c.wk-cta-proof,#contact.b30c{height:calc(90*var(--u))!important}
 #contact.b30c.wk-cta-proof,#contact.b30c{height:calc(10*var(--u))!important}
+<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): the closing band — one version for every page
@@ -189,3 +190,5 @@ html.dark .tw1{color:#F2F1EE}
   html body .b30-main > #contact.b30c:not(#_z),
 html body .b30-main > #contact.b30c.wk-cta-proof:not(#_z){height:44px!important;min-height:0!important;margin-top:0!important;padding:0!important}
 }
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

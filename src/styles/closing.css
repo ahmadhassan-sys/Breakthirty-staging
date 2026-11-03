@@ -42,6 +42,7 @@
 .mq__fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
 .cta3__h .b30-alt{display:inline-block;text-align:center}
 .cta3__btns > [data-btn]{width:max-content!important;flex:none}
+<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): the "Sketch…" strip and the call to action — one version for every page
@@ -68,3 +69,5 @@
 @media (min-width:900px){
   html body .b30-main > section.cta3:not(#_z):not(#_y),html body section.cta3:not(#_z):not(#_y){margin-top:210px!important;padding-bottom:0!important}
 }
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

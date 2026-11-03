@@ -37,12 +37,18 @@ export async function homeWorkItems() {
   const linked = new Set(homeWork.items.map((it) => it.case).filter(Boolean));
   const extra = files.filter((c) => c.data.cards.home && !linked.has(c.id)).map((c) => {
     const h = c.data.cards.home;
+<<<<<<< HEAD
     return { kicker: h.kicker, year: h.year, title: h.title, body: h.body, href: caseHref(c.id), img: h.image, alt: h.alt, focus: h.focus, hero: c.data.hero && c.data.hero.image };
   });
   const byId = new Map(files.map((c) => [c.id, c]));
   // hero: the case study's own hero picture (the homepage zoom turns into it on the way, see public/js/core.js)
   const items = homeWork.items.map(({ case: id, ...it }) => ({ ...it, href: it.href || (id && ids.has(id) ? caseHref(id) : "/work"),
     hero: id && byId.get(id) && byId.get(id).data.hero ? byId.get(id).data.hero.image : undefined }));
+=======
+    return { kicker: h.kicker, year: h.year, title: h.title, body: h.body, href: caseHref(c.id), img: h.image, alt: h.alt, focus: h.focus };
+  });
+  const items = homeWork.items.map(({ case: id, ...it }) => ({ ...it, href: it.href || (id && ids.has(id) ? caseHref(id) : "/work") }));
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   return [...extra, ...items];
 }
 

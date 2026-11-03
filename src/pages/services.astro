@@ -21,7 +21,10 @@ import Footer from "../components/Footer.astro";
 import { seo, hero, disciplines, list, hello, strip } from "../data/services.js";
 import { serviceIcons } from "../data/services-icons.js";
 import { nav, partnersStrip, testimonials, closing, contact, footer } from "../data/site.js";
+<<<<<<< HEAD
 import { servicesSchema } from "../lib/schema.js";
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 
 /* What the page scripts (public/js) read. */
 const heroImages = { default: [hero.media.cover] };
@@ -46,6 +49,7 @@ const scripts = [
   "services-hero",   // the hero picture and the hero's drift
   "strip",           // the dashed-letter strip's hover reveal
   "contact-closing", // the closing words (must run last: it sits on top of the contact panel)
+<<<<<<< HEAD
   "mobile-layer",
   "mobile-m5",
   "services-mobile"   // phones only (≤ 899px)
@@ -55,6 +59,12 @@ const pageSeo = { ...seo, schema: servicesSchema(disciplines, Astro.site) };
 ---
 
 <BaseLayout seo={pageSeo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Services", path: "/services" }]}>
+=======
+];
+---
+
+<BaseLayout seo={seo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Services", path: "/services" }]}>
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   <ServicesHero {...hero} nav={nav} disciplines={disciplines} />
 
   <main class="b30-main" id="main">

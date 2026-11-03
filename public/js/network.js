@@ -1745,12 +1745,18 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
     ['Twilio'], ['SendGrid'], ['Vercel'], ['AWS', null, 1], ['GCP', 'Google Cloud'], ['Azure'], ['MongoDB'], ['Zapier'], ['Meta Ads', 'Meta'], ['Google Ads']];
   // 7 columns × 4 rows; in every row two cells (chosen at random) stay empty, the other five hold a partner
   const COLS = 5, ROWS = 4, EMPTY = 0, LIST7 = []; { let li = 0; for (let r = 0; r < ROWS; r++) { const e = new Set(); while (e.size < EMPTY) e.add((Math.random() * COLS) | 0); for (let c = 0; c < COLS; c++) LIST7.push(e.has(c) ? null : LIST[li++]); } }
+<<<<<<< HEAD
   const KIND = { Webflow: 'Websites', Shopify: 'Commerce', HubSpot: 'CRM', Klaviyo: 'Email & SMS', Salesforce: 'CRM', Framer: 'Websites', WordPress: 'Websites',
     BigCommerce: 'Commerce', WooCommerce: 'Commerce', Mailchimp: 'Email', Twilio: 'Messaging', SendGrid: 'Email', Vercel: 'Hosting', AWS: 'Cloud', GCP: 'Cloud',
     Azure: 'Cloud', MongoDB: 'Database', Zapier: 'Automation', 'Meta Ads': 'Paid social', 'Google Ads': 'Paid search' };   // what each partner is for, shown in its cell
   cellsEl.innerHTML = LIST7.map((it, ix) => { if (!it) return '<div class="nx__c is-empty" aria-hidden="true"></div>'; const [n, label, mk] = it; const p = PARTNERS.find((q) => q.name === n); const name = label || n;
     const svg = `<svg viewBox="${p.mark.vb || '0 0 24 24'}" aria-hidden="true">${p.mark.body || `<path d="${p.mark.d}"/>`}</svg>`;
     return `<div class="nx__c" role="listitem"><i class="nx__no" aria-hidden="true">${String(ix + 1).padStart(2, '0')}</i><i class="nx__ty">${KIND[n] || ''}</i><span class="nx__lg${mk ? ' mk' : ''}${n === 'WooCommerce' ? ' woo' : ''}" title="${name}">${svg}${mk ? `<span class="sr">${name}</span>` : `<span>${name}</span>`}</span></div>`; }).join('');
+=======
+  cellsEl.innerHTML = LIST7.map((it) => { if (!it) return '<div class="nx__c is-empty" aria-hidden="true"></div>'; const [n, label, mk] = it; const p = PARTNERS.find((q) => q.name === n); const name = label || n;
+    const svg = `<svg viewBox="${p.mark.vb || '0 0 24 24'}" aria-hidden="true">${p.mark.body || `<path d="${p.mark.d}"/>`}</svg>`;
+    return `<div class="nx__c" role="listitem"><span class="nx__lg${mk ? ' mk' : ''}${n === 'WooCommerce' ? ' woo' : ''}" title="${name}">${svg}${mk ? `<span class="sr">${name}</span>` : `<span>${name}</span>`}</span></div>`; }).join('');
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   document.querySelectorAll('.nx__lg.mk svg').forEach((sv) => { try { const b = sv.getBBox(); if (b.width) sv.setAttribute('viewBox', `${b.x - .1} ${b.y - .1} ${b.width + .2} ${b.height + .2}`); } catch (e) {} });
   cellsEl.querySelectorAll(':scope > .nx__c').forEach((c, n) => { const it = LIST7[n]; if (!it) return; const pp = PARTNERS.find((q) => q.name === it[0]); if (!pp) return;
     c.style.setProperty('--c', pp.bg); c.style.setProperty('--k', pp.ink && pp.ink.toUpperCase() === '#000000' ? '#000' : '#fff'); });   // each cell knows its partner's colour
@@ -1776,6 +1782,7 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
   // scrolling the page speeds the rows up; when the page is still they ease back to their own slow pace
   let boost = 0, lastY = scrollY, lastT = performance.now();
   addEventListener('scroll', () => { const now = performance.now(), v = Math.abs(scrollY - lastY) / Math.max(8, now - lastT) * 1000; lastY = scrollY; lastT = now; boost = Math.max(boost, Math.min(14, v / 140)); }, { passive: true });
+<<<<<<< HEAD
   const NX_STILL = false;   // the rows drift, one way then the other, and can be dragged along their line (true: a still grid)
   let mqLast = 0;
   requestAnimationFrame(function mq(now) {
@@ -1807,6 +1814,21 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
       t.drag = null; t.el.classList.remove('is-drag'); };
     t.el.addEventListener('pointerup', end); t.el.addEventListener('pointercancel', end);
     t.el.addEventListener('click', (ev) => { if (Math.abs(t.vel) > 20) ev.preventDefault(); }, true); });
+=======
+  let mqLast = 0;
+  requestAnimationFrame(function mq(now) {
+    requestAnimationFrame(mq); const dt = Math.min(.05, (now - (mqLast || now)) / 1000); mqLast = now;
+    const setW = grid.clientWidth, cw = setW / 5, speed = setW / 140;      // one row's width every ~140 s
+    boost *= Math.pow(.18, dt);
+    tracks.forEach((t) => {
+      const still = mode !== 'partner' || P > 0;
+      if (still) { /* frozen where it is — the logos turn into pixels exactly where they stand */ }
+      else if (!matchMedia('(prefers-reduced-motion: reduce)').matches) t.off += t.dir * speed * dt;   // (a steady drift — scrolling no longer speeds it up)
+      const x = ((t.off % setW) + setW) % setW;
+      t.el.style.transform = `translate3d(${(x - setW).toFixed(2)}px,0,0)`;
+    });
+  });
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   let lines = ''; for (let k = 0; k <= COLS; k++) lines += `<i class="nx__ln v${k % COLS ? ' in' : ''}" style="left:${(k / COLS * 100).toFixed(4)}%"></i>`; for (let k = 0; k <= 4; k++) lines += `<i class="nx__ln h${k % 4 ? ' in' : ''}" style="top:${k * 25}%"></i>`;
   ['0% 0%', '100% 0%', '0% 100%', '100% 100%'].forEach((q) => { const [x, y] = q.split(' '); lines += `<i class="nx__px" style="left:${x};top:${y}"></i>`; });
   grid.insertAdjacentHTML('beforeend', lines);
@@ -1826,7 +1848,11 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
   const pickC = () => { let r = rnd() * PW; for (const [c, w] of PAL) { if ((r -= w) <= 0) return c; } return PAL[0][0]; };
   let D = [], R = 300, CX = 0, CY = 0, W = 0, H = 0, rot = -0.6, tilt = 20 * Math.PI / 180, spin = 0;
   function build() {
+<<<<<<< HEAD
     W = grid.clientWidth; H = grid.clientHeight; R = Math.min(H * .43, W * (W < 700 ? .42 : .2)) * .88; CX = W / 2; CY = H / 2; try { ORB.built = 0; } catch (e) {}   // centred (10% up on the last size)
+=======
+    W = grid.clientWidth; H = grid.clientHeight; R = Math.min(H * .43, W * .2) * .88; CX = W / 2; CY = H / 2; try { ORB.built = 0; } catch (e) {}   // centred (10% up on the last size)
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     const dpr = Math.min(2, devicePixelRatio || 1); [gcv, fx].forEach((c) => { c.width = W * dpr; c.height = H * dpr; });
     g.setTransform(dpr, 0, 0, dpr, 0, 0); fctx.setTransform(dpr, 0, 0, dpr, 0, 0); fxs.setAttribute('viewBox', `0 0 ${W} ${H}`);
     const pitch = Math.max(4.5, 6 * u()) / R; D = []; sd = 11;
@@ -1847,7 +1873,11 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
     g.clearRect(0, 0, W, H); if (globeA <= .001) { LOC.forEach((o) => (o.e.style.opacity = 0)); return; }
     if ((opt === 8 || opt === 9) && disc7) { const a = Math.max(0, disc7.a), b = Math.min(W, disc7.b); if (b > a) { g.save(); g.beginPath(); g.rect(a, 0, b - a, H); g.clip();
       g.beginPath(); g.arc(CX, CY, R * 1.03, 0, Math.PI * 2); g.fillStyle = root.classList.contains('dark') ? '#000' : '#fff'; g.globalAlpha = disc7.al === undefined ? 1 : disc7.al; g.fill(); g.restore(); } }
+<<<<<<< HEAD
     const k = Math.max(u(), W < 700 ? .5 : 0);   // (phones: the dots stay big enough to read as a globe)
+=======
+    const k = u();
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     // the repel: dots near the cursor are pushed gently aside (and ease back when it leaves)
     const RR = 64 * k, RR2 = RR * RR, kE = Math.min(1, dtG / .06), hov = mx > -1e4 && mode === 'global';
     for (const d of D) { let [x, y, z] = proj(d.la, d.lo); if (z <= 0) { d.ox = d.oy = 0; continue; }
@@ -1883,7 +1913,11 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
       el.textContent = out; if (q < 1.05) requestAnimationFrame(tick); else el.textContent = text; })(performance.now());
   };
   const clock = (tz) => new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: tz }).replace(' ', '');
+<<<<<<< HEAD
   let shown = null, lastCell = -1, cardTimer = 0, shownAt = 0;
+=======
+  let shown = null, lastCell = -1, cardTimer = 0;
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   function showCard(o) {
     const info = OFFICE[o.l.city]; if (!info) return;
     if (shown === o.l.city) return;
@@ -1893,8 +1927,13 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
       const hr = R * 1.3 * 1.18 * .98, nx = Math.max(r.left - gr.left, Math.min(CX, r.left - gr.left + r.width)), ny = Math.max(r.top - gr.top, Math.min(CY, r.top - gr.top + r.height));
       return { n, r, far: Math.hypot(nx - CX, ny - CY) > hr && (n % 5 === 0 || n % 5 === 4) && n > 4 }; }).filter((q) => q.far && q.n !== lastCell);   // clear of the glow, only in the outer columns, and never in the top row (where the buttons are)
     const emp = free.filter((q) => vc[q.n].classList.contains('is-empty')), pool = emp.length ? emp : free;   // an empty cell first, if one is clear of the globe
+<<<<<<< HEAD
     const pick = gr.width < 700 ? { n: -1, r: { left: gr.left, top: gr.top + gr.height * .75, width: gr.width, height: gr.height * .25 } } : (pool[(Math.random() * pool.length) | 0] || { n: 5, r: vc[5].getBoundingClientRect() });
     lastCell = pick.n; shown = o.l.city; shownAt = performance.now();
+=======
+    const pick = pool[(Math.random() * pool.length) | 0] || { n: 5, r: vc[5].getBoundingClientRect() };
+    lastCell = pick.n; shown = o.l.city;
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     Object.assign(card.style, { left: pick.r.left - gr.left + 'px', top: pick.r.top - gr.top + 'px', width: pick.r.width + 'px', height: pick.r.height + 'px' });
     card.classList.remove('on'); void card.offsetWidth; card.classList.add('on');
     const [c1, c2, c3, c4] = card.children;
@@ -1907,7 +1946,11 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
     // hover shows the office (and hovering another city moves it); leaving lets it go after a moment; tap/Enter for touch and keys
     o.e.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse' && mode === 'global') { clearTimeout(o._t); clearTimeout(window.__nxHide); showCard(o); } });
     o.e.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') window.__nxHide = setTimeout(() => { if (shown === o.l.city) hideCard(); }, 450); });
+<<<<<<< HEAD
     o.e.addEventListener('click', (e) => { e.stopPropagation(); if (mode !== 'global') return; if (shown === o.l.city && e.pointerType !== 'mouse' && performance.now() - shownAt > 400) hideCard(); else showCard(o); });   // (a tap focuses and clicks at once: don't close what it just opened)
+=======
+    o.e.addEventListener('click', (e) => { e.stopPropagation(); if (mode !== 'global') return; if (shown === o.l.city && e.pointerType !== 'mouse') hideCard(); else showCard(o); });
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     o.e.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (mode === 'global') { if (shown === o.l.city) hideCard(); else showCard(o); } } });
     o.e.addEventListener('focus', () => { if (mode === 'global') showCard(o); }); o.e.addEventListener('blur', () => { if (shown === o.l.city) hideCard(); }); });
   // drag the globe (global view)
@@ -2167,6 +2210,7 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
   const NS = 'http://www.w3.org/2000/svg', mkEl = (t, a = {}) => { const e = document.createElementNS(NS, t); Object.entries(a).forEach(([k2, v]) => e.setAttribute(k2, v)); return e; };
   const meas = document.createElement('canvas').getContext('2d');
   function buildOrbit() {
+<<<<<<< HEAD
     const k = W < 700 ? Math.max(u(), .45) : u(), keep = ORB.rings.map((r2) => r2.off); orb.innerHTML = ''; ORB.rings = [];   // (phones: the rings at a readable size — the frame shows the top of them, as on desktop)
     // every box is the same size: the same arc length (L) on every ring, and the rings touch (band = the step between them)
     // taller boxes (110), all the same size (the same arc length on every ring), the rings touching, and the outer
@@ -2178,24 +2222,41 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
       radii = NS4.map((n, i) => Rg + GAP + band / 2 + i * band), cx = W / 2,
       SETS = [[0, 4], [4, 5], [9, 4], [13, 7]],   // four rings; each ring's own partners (4 · 5 · 4 · 7 = all 20) fit its boxes exactly (8 · 10 · 12 · 14), so the pattern runs round with no seam and no partner twice side by side
       cy = radii[3] + band / 2 + GAP, speeds = [.05, -.04, .032, -.026];
+=======
+    const k = u(), keep = ORB.rings.map((r2) => r2.off); orb.innerHTML = ''; ORB.rings = [];
+    // every box is the same size: the same arc length (L) on every ring, and the rings touch (band = the step between them)
+    // taller boxes (110), all the same size (the same arc length on every ring), the rings touching, and the outer
+    // edge 32 below the top line
+    const L = 392 * k, NS4 = [8, 10, 12, 14], band = 2 * L / (2 * Math.PI), radii = NS4.map((n) => n * L / (2 * Math.PI)), cx = W / 2,
+      cy = radii[3] + band / 2 + 72 * k, Rg = radii[0] - band / 2 - 40 * k, speeds = [.05, -.04, .032, -.026];   // (the globe fills up to 40 below the first ring: bigger, sitting higher)
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     ORB.cx = cx; ORB.cy = cy; ORB.Rg = Rg; ORB.band = band;
     const sv = mkEl('svg', { class: 'nx-orbit__g', viewBox: `0 0 ${W} ${H}`, 'aria-hidden': 'true' }), defs = mkEl('defs'); sv.appendChild(defs); orb.appendChild(sv);
     meas.font = `400 ${21 * k}px "BDO Grotesk", sans-serif`;
     let li = 0;
     radii.forEach((r, ri) => {
       // the band's edges (they stay put)
+<<<<<<< HEAD
       const eg = mkEl('g', { class: 'edges' }); sv.appendChild(eg); if (ri === 0) eg.appendChild(mkEl('circle', { cx, cy, r: r - band / 2, class: 'edge' })); eg.appendChild(mkEl('circle', { cx, cy, r: r + band / 2, class: 'edge' }));   // each ring's outer edge, plus the inner edge of the ring by the globe: where two rings meet there is one dashed line, not two drawn on top of each other
+=======
+      const eg = mkEl('g', { class: 'edges' }); sv.appendChild(eg); eg.appendChild(mkEl('circle', { cx, cy, r: r - band / 2, class: 'edge' })); eg.appendChild(mkEl('circle', { cx, cy, r: r + band / 2, class: 'edge' }));   // both edges, every ring (the row by the globe included)
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
       // the path the names ride: a circle starting at the top, clockwise; the baseline sits a little below the band's middle
       const rr = r, id = `nxr${ri}`;
       defs.appendChild(mkEl('path', { id, d: `M ${cx} ${cy - rr} A ${rr} ${rr} 0 1 1 ${cx} ${cy + rr} A ${rr} ${rr} 0 1 1 ${cx} ${cy - rr}` }));
       const g = mkEl('g', { class: 'ring' }); sv.appendChild(g);
       const n = NS4[ri], seg = 2 * Math.PI / n;
       for (let q = 0; q < n; q++) {
+<<<<<<< HEAD
         const it = LIST[SETS[ri][0] + (q % SETS[ri][1])], pp = it && PARTNERS.find((x) => x.name === it[0]); if (!pp) continue; const name = it[1] || it[0], mkOnly = !!it[2];   // this ring's own set, in turn
         const a0 = q * seg;                                        // this box spans a0 … a0 + seg (clockwise from the top)
         { const ro = r + band / 2, ri2 = r - band / 2, a1 = a0 + seg, P2 = (rad, a) => `${(cx + rad * Math.sin(a)).toFixed(2)} ${(cy - rad * Math.cos(a)).toFixed(2)}`;
           const cell = mkEl('path', { class: 'cell', d: `M ${P2(ro, a0)} A ${ro} ${ro} 0 0 1 ${P2(ro, a1)} L ${P2(ri2, a1)} A ${ri2} ${ri2} 0 0 0 ${P2(ri2, a0)} Z` });
           const tt = mkEl('title'); tt.textContent = it[1] || it[0]; cell.appendChild(tt); g.appendChild(cell); }   // (and names itself on hover)
+=======
+        const it = LIST[ri * 5 + (q % 5)], pp = it && PARTNERS.find((x) => x.name === it[0]); if (!pp) continue; const name = it[1] || it[0], mkOnly = !!it[2];   // this row's own five, in turn
+        const a0 = q * seg;                                        // this box spans a0 … a0 + seg (clockwise from the top)
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
         const sep = mkEl('line', { x1: cx, y1: cy - (r - band / 2), x2: cx, y2: cy - (r + band / 2), transform: `rotate(${(a0 * 180 / Math.PI).toFixed(3)} ${cx} ${cy})`, class: 'sep' }); g.appendChild(sep);
         const mid = a0 + seg / 2, iw = mkOnly ? 0 : meas.measureText(name).width, icon = (mkOnly ? (it[0] === 'WooCommerce' ? 140 : 66) : 26) * k, gap = 10 * k, tot = icon + (mkOnly ? 0 : gap + iw);
         // the mark, turned to the curve, at the start of the label
@@ -2224,6 +2285,7 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
   const oend = () => { odrag = null; orb.classList.remove('is-drag'); }; orb.addEventListener('pointerup', oend); orb.addEventListener('pointercancel', oend);
   function spinOrbit(now, open) {
     const dt = Math.min(.05, orbLast ? (now - orbLast) / 1000 : 0); orbLast = now;
+<<<<<<< HEAD
     const ts = now / 1000;
     ORB.rings.forEach((rg, i) => { if (odrag && odrag.i === i) return; if (!RED) rg.off += rg.w * (1 + .22 * Math.sin(ts * .3 + i * 1.7)) * dt;   // each row's own pace, breathing slowly faster and slower (held while it's being dragged)
       if (rg.vel) { rg.off += rg.vel * dt; rg.vel *= Math.pow(.08, dt); if (Math.abs(rg.vel) < .002) rg.vel = 0; } });   // and the glide after letting go
@@ -2236,12 +2298,24 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
       ring.eg.setAttribute('transform', `translate(${ORB.cx} ${ORB.cy}) scale(${sc.toFixed(4)}) translate(${-ORB.cx} ${-ORB.cy})`); });
   }
   { const io10 = new IntersectionObserver((en) => { if (en.some((e) => e.intersectionRatio > .25) && !ORB.seenAt) { ORB.seenAt = performance.now(); io10.disconnect(); } }, { threshold: [0, .25, .5] }); io10.observe(grid); }
+=======
+    ORB.rings.forEach((rg, i) => { if (odrag && odrag.i === i) return; if (!RED) rg.off += rg.w * dt;   // each row's own pace (held while it's being dragged)
+      if (rg.vel) { rg.off += rg.vel * dt; rg.vel *= Math.pow(.08, dt); if (Math.abs(rg.vel) < .002) rg.vel = 0; } });   // and the glide after letting go
+    ORB.rings.forEach((ring, ri) => { const d = (3 - ri) * .11, q2 = Math.max(0, Math.min(1, (open - d) / (1 - .33))), o2 = q2 * q2 * q2 * (q2 * (q2 * 6 - 15) + 10),   /* a smootherstep: it eases in and out with no hard start or stop */ sc = 1 + o2 * (2.3 + ri * .3);   // each ring sweeps right out past the frame, a beat after the one outside it
+      ring.g.setAttribute('transform', `translate(${ORB.cx} ${ORB.cy}) scale(${sc.toFixed(4)}) rotate(${((ring.off || 0) * 180 / Math.PI).toFixed(3)}) translate(${-ORB.cx} ${-ORB.cy})`);
+      ring.eg.setAttribute('transform', `translate(${ORB.cx} ${ORB.cy}) scale(${sc.toFixed(4)}) translate(${-ORB.cx} ${-ORB.cy})`); });
+  }
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   requestAnimationFrame(function orbLoop(now) { requestAnimationFrame(orbLoop); if (opt === 10 && W) { if (ORB.built !== W + 'x' + H) buildOrbit(); spinOrbit(now, Math.min(1, P / .9)); } });
   OPT[10] = { dur: 2500, apply(P) {
     grid.dataset.opt = '10'; reveal = null; gfly = null; disc7 = null; iris.style.opacity = 0; gl.style.transform = ''; gl.style.opacity = ''; gl.style.webkitMaskImage = gl.style.maskImage = 'none'; gl.style.visibility = 'visible';
     if (ORB.built !== W + 'x' + H) buildOrbit();
     // the globe waits until the row beside it is well on its way out (so it never crosses that row), then glides up
+<<<<<<< HEAD
     const gp = sm(.46, 1, P), e = (1 - Math.cos(Math.PI * gp)) / 2, Rn = Math.min(H * .43, W * (W < 700 ? .42 : .2)) * .88;   // a gentle sine ease (the globe glides up rather than snapping)
+=======
+    const gp = sm(.46, 1, P), e = (1 - Math.cos(Math.PI * gp)) / 2, Rn = Math.min(H * .43, W * .2) * .88;   // a gentle sine ease (the globe glides up rather than snapping)
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     // the globe: from a fifth showing at the bottom (big, low) to its usual place and size
     R = ORB.Rg + (Rn - ORB.Rg) * e; CY = ORB.cy + (H / 2 - ORB.cy) * e; CX = W / 2; spinOff = 0;
     globeA = 1; locA = sm(.85, 1, P);
@@ -2285,7 +2359,11 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
     const taken = new Set(pieces.map((p) => p.j));
     PX9 = { pieces: pieces.filter((p) => p.j !== undefined), logos9, taken };
   }
+<<<<<<< HEAD
   OPT[9] = { get dur() { return 2600; }, ease: (x) => (x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2), apply(P) {
+=======
+  OPT[9] = { get dur() { return 3000; }, ease: (x) => (x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2), apply(P) {
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     grid.dataset.opt = '7'; spinOff = 0; reveal = null; gfly = null; gl.style.transform = ''; gl.style.opacity = '';
     if (root.clientWidth !== DW || grid.clientHeight !== DH) { buildDots7(); vfixKey = ''; }
     buildVfix();
@@ -2449,6 +2527,7 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
   const reset = () => { grid.dataset.opt = ''; halo.style.opacity = 0; spinOff = 0; logos.forEach((l) => (l.style.clipPath = '')); logos.forEach((l) => (l.style.transform = '')); D.forEach((d) => (d.ink = 0)); picks5 = null; layer.style.cssText = ''; gl.style.cssText = ''; inner.forEach((l) => (l.style.opacity = '')); cells.forEach((c) => c.style.removeProperty('--cv'));
     logos.forEach((l) => l.style.removeProperty('--lo')); fctx.clearRect(0, 0, W, H); iris.style.opacity = 0; reveal = null; };
 
+<<<<<<< HEAD
 
   // ===== 11 · the simple grid ⇄ the globe. "Partners": the partners' rows drift, one row one way, the next the other,
   //       and each row can be dragged along its line. "Global": the grid softens and sinks back while the globe comes
@@ -2559,6 +2638,8 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
     // the frame's grid: hidden behind the constellation, drawn in behind the globe
     const gq = sm(.55, 1, P); inner.forEach((l) => (l.style.opacity = gq.toFixed(3))); grid.style.setProperty('--vg', gq.toFixed(3));
   } };
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   /* ---------------- the switch + timeline ---------------- */
   let opt = 10, mode = 'partner', P = 0, from = 0, to = 0, t0 = 0;
   const SLOW = /[?&]slow\b/.test(location.search) ? 8 : 1;   // (add ?slow to the address to watch any option in slow motion)
@@ -2624,6 +2705,11 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
     top.style.setProperty('--swb', (base - top.getBoundingClientRect().top) + 'px'); };
   place(); addEventListener('resize', place); (document.fonts ? document.fonts.ready : Promise.resolve()).then(place); })();
 
+<<<<<<< HEAD
+=======
+/* move the Partners/Global switch into the frame */
+(() => { const sw = document.querySelector('.nx__switch'), g = document.getElementById('nx-grid'); if (sw && g && !matchMedia('(max-width: 899px)').matches) g.appendChild(sw); })();
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 
 (() => { const sec = document.querySelector('.nx-sec'), h = sec && sec.querySelector('.nx__h'); if (!sec || !h) return;
   new IntersectionObserver(([e]) => { if (e.isIntersecting) sec.classList.add('is-seen'); else if (e.boundingClientRect.top > 0) sec.classList.remove('is-seen'); }, { threshold: .35 }).observe(h); })();
@@ -2640,6 +2726,7 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
   const go = () => { if (!add()) setTimeout(go, 250); else { const o = document.querySelector('.nx-orbit'); new MutationObserver(() => add()).observe(o, { childList: true }); } };
   if (document.readyState === 'loading') addEventListener('DOMContentLoaded', go); else go();
 })();
+<<<<<<< HEAD
 
 /* Our network: the switch floats at the bottom of the screen from the moment the section comes into view until you are 60% through it */
 (() => {
@@ -2667,3 +2754,5 @@ document.querySelectorAll('.pn__lg.mk svg').forEach((sv) => { try { const b = sv
     if (on !== was) { was = on; sw.classList.toggle('is-on', on); sw.inert = !on; if (on) place(); } };
   addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(check); }, { passive: true }); addEventListener('resize', check); sw.inert = true; check();
 })();
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

@@ -30,7 +30,11 @@
       if (now > autoUntil) setActive(which());
       const br = bar.getBoundingClientRect(), inside = br.top <= innerHeight * 0.5 && parts[parts.length - 1].getBoundingClientRect().bottom > br.bottom + 40;
       const idle = now - userAt > 900 && now > autoUntil;
+<<<<<<< HEAD
       prog = 0;   // no timer line, no auto-advance: the tabs jump on click and follow the scroll
+=======
+      if (!RED && inside && idle && active < parts.length - 1) prog += dt; else if (!inside) prog = 0;
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
       tabs.forEach((t, k) => t.style.setProperty("--p", k === active ? clamp(prog / DUR).toFixed(4) : 0));
       if (prog >= DUR) goTo(active + 1);
       raf = requestAnimationFrame(loop);

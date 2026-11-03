@@ -2,7 +2,10 @@
 title: "Terms of Service"
 seoTitle: "Terms of Service | Break Thirty™ Policies & User Guidelines"
 description: "Our terms of service provide a clear framework for collaboration, ensuring a smooth and transparent experience for all clients."
+<<<<<<< HEAD
 lead: "The terms that apply when you use the Break Thirty website."
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 company: "Breakthirty LLC"
 updated: "January 14, 2025"
 ---

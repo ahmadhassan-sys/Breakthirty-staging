@@ -36,9 +36,13 @@
   const C = { rate: 0.4, dim: 0.16, dimOver: 0.75 }, RED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let raf = 0;
   const frame = () => { raf = 0;
+<<<<<<< HEAD
     if (innerWidth < 900) { stage.style.translate = ''; const dm = Math.max(0, Math.min(hero.offsetHeight / 2, scrollY));   // phones: no drift, the overlay rises to 10 %
       hero.style.setProperty('--wk-dim', (Math.min(1, dm / (hero.offsetHeight / 2 * C.dimOver)) * 0.1).toFixed(4)); return; }
     if (RED) { stage.style.translate = ''; hero.style.removeProperty('--wk-dim'); return; }
+=======
+    if (RED || innerWidth < 900) { stage.style.translate = ''; hero.style.removeProperty('--wk-dim'); return; }
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     const d = Math.max(0, Math.min(innerHeight, scrollY));
     stage.style.translate = d > 0 ? `0 ${(-d * C.rate).toFixed(1)}px` : '';
     hero.style.setProperty('--wk-dim', (Math.min(1, d / (innerHeight * C.dimOver)) * C.dim).toFixed(4)); };

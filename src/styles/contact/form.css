@@ -130,5 +130,8 @@ html.dark .ctf__hand canvas{filter:invert(1)}
 .ctf__send > span span,.b30h__btn > span span{display:inline!important;height:auto!important;width:auto!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;color:inherit!important}
 .ctf__legal{flex:none}
 html.dark .b30-main > section.ctf,html.dark section.ctf{background:var(--night)!important}
+<<<<<<< HEAD
 /* the spam trap: off-screen for people (not display:none — some bots skip those) */
 .ctf__hp{position:absolute!important;left:-10000px!important;top:auto;width:1px;height:1px;overflow:hidden}
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

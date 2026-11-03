@@ -1,7 +1,13 @@
 ---
 /** The heading and paragraphs of a part or feature (with the optional top space and heading width). */
 import Rich from "../../ui/Rich.astro";
+<<<<<<< HEAD
 import Pill from "./Pill.astro";
 const { title, body, headMt, titleStyle, feature = false, link } = Astro.props;   // link: an optional "Visit …" button under the text
 ---
 <div class={headMt ? `cz-f__head cz-mt${headMt}` : "cz-f__head"}><h3 class="cz-h36" data-heading style={titleStyle}><Rich text={title} /></h3><div class={feature ? "cz-body cz-f__body" : "cz-body"} data-reveal>{body.map((p) => <p><Rich text={p} /></p>)}{link && <p class="cz-f__link"><Pill l={link} /></p>}</div></div>
+=======
+const { title, body, headMt, titleStyle, feature = false } = Astro.props;
+---
+<div class={headMt ? `cz-f__head cz-mt${headMt}` : "cz-f__head"}><h3 class="cz-h36" data-heading style={titleStyle}><Rich text={title} /></h3><div class={feature ? "cz-body cz-f__body" : "cz-body"} data-reveal>{body.map((p) => <p><Rich text={p} /></p>)}</div></div>
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

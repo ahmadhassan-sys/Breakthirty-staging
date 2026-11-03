@@ -119,6 +119,7 @@ html.dark .tq__face{border-color:rgba(255,255,255,.15)}
 .b30-logo-px{position:absolute;pointer-events:none;opacity:0}
 @keyframes b30-live{0%,70%{opacity:1}71%,100%{opacity:.15}}
 .b30-cx{position:fixed;inset:0;z-index:9996;overflow:hidden;pointer-events:none;will-change:clip-path}
+<<<<<<< HEAD
 .b30-cx img{position:absolute;left:0;top:0;max-width:none;display:block;transform-origin:0 0;will-change:transform}
 .b30-cxw{position:fixed;inset:0;z-index:9995;background:#fff;opacity:0;pointer-events:none}   /* the page fading to white behind it */
 /* arriving with that picture (BaseLayout → core.js): the copy sits over the white, the white leaves a hole where the
@@ -130,6 +131,9 @@ html.pt-cs .cz-hero__img{clip-path:none!important;transition:none!important}
 html.pt-cs .cz-step,html.pt-cs .cz-px{opacity:0}
 html.pt-wait{background:#fff}
 html.pt-wait body,html.pt-wait .b30-cx.is-arr{visibility:hidden}
+=======
+.b30-cx img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transform-origin:50% 50%;will-change:transform}
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 html.pt-img::after{content:"";position:fixed;inset:0;background:#fff;z-index:9999;transition:opacity .7s cubic-bezier(.22,1,.36,1)}
 html.pt-img.pt-img-out::after{opacity:0}
 .b30-alt.is-mono .hw{overflow:visible}

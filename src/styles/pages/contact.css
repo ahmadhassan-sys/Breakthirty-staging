@@ -15,4 +15,7 @@
 @import "../theme.css";
 @import "../dark.css";
 @import "../contact/page.css";       /* Oct 2026: the hero colour, the office card, the chips' hover, the closing spacing (last) */
+<<<<<<< HEAD
 @import "../mobile/contact.css";    /* phones (≤ 899px): the contact page (last) */
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

@@ -13,20 +13,30 @@ interface Props {
     keywords?: string[];
     published?: string; modified?: string;   // articles: ISO dates
     jsonLd?: Record<string, unknown>;  // extra structured data for this page (blog posts)
+<<<<<<< HEAD
     pageType?: string;                 // schema.org type of the page: "WebPage" (default), "CollectionPage", "ContactPage"…
     schema?: Record<string, unknown>[];  // extra nodes for the page's structured data graph (services, case studies, posts…)
     imageAlt?: string;                 // the share picture's description
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     noindex?: boolean;                 // keep this page out of search results (the 404 page)
   };
   crumbs?: { name: string; path: string }[];   // breadcrumb trail after "Home" (for search results)
   content: Record<string, unknown>;   // data the page scripts read (lists they build on the page)
   scripts: string[];                  // page scripts from public/js, in the order they run
   pageCss?: string;                   // page-only styles (case studies)
+<<<<<<< HEAD
   loader?: boolean;                   // the intro loader (public/js/b30-loader.js, which every page loads for its page transitions) — the homepage
   caseTransition?: boolean;           // the case-study image transition (public/js/b30-case-transition.js) — the homepage and every case study
 }
 import { company, searchSetup } from "../data/site.js";
 const { seo, content, scripts, pageCss, loader = false, caseTransition = false, crumbs = [] } = Astro.props;
+=======
+  loader?: boolean;                   // the intro loader (public/js/b30-loader.js) — the homepage
+}
+import { company } from "../data/site.js";
+const { seo, content, scripts, pageCss, loader = false, crumbs = [] } = Astro.props;
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 /* canonical: this page on the live domain (astro.config.mjs `site`), without a trailing slash — as the old site's URLs */
 const canonical = new URL(Astro.url.pathname.replace(/(.)\/$/, "$1"), Astro.site).href;
 /* share picture: the page's own, else the site's (public/assets/images/og-default.jpg, 1200 × 630) */
@@ -45,6 +55,7 @@ const graph = [
     email: company.email,
     telephone: company.phoneHref.replace("tel:", ""),
     address: { "@type": "PostalAddress", streetAddress: company.street, addressLocality: company.city, addressRegion: company.region, postalCode: company.postalCode, addressCountry: company.country },
+<<<<<<< HEAD
     description: searchSetup.description,
     image: new URL("/assets/images/og-default.jpg", Astro.site).href,
     contactPoint: { "@type": "ContactPoint", contactType: "sales", email: company.email, telephone: company.phoneHref.replace("tel:", ""), areaServed: searchSetup.areaServed, availableLanguage: "English" },
@@ -76,12 +87,23 @@ if (crumbs.length) graph.push({
 });
 /* the page's own nodes (services, case studies, posts, FAQs…) join the same graph */
 (seo.schema || []).forEach((n) => graph.push(n));
+=======
+    sameAs: company.social,
+  },
+  { "@type": "WebSite", "@id": `${site}/#website`, url: `${site}/`, name: company.name, publisher: { "@id": `${site}/#organization` } },
+];
+if (crumbs.length) graph.push({
+  "@type": "BreadcrumbList",
+  itemListElement: [{ name: "Home", path: "/" }, ...crumbs].map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: new URL(c.path, Astro.site).href })),
+});
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 const ld = { "@context": "https://schema.org", "@graph": graph };
 ---
 
 <!doctype html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 {searchSetup.gtm && <script is:inline define:vars={{ id: searchSetup.gtm }}>
@@ -110,6 +132,21 @@ const ld = { "@context": "https://schema.org", "@graph": graph };
 </script>
 <script is:inline src="/js/b30-loader.js"></script>
 {caseTransition && <script is:inline src="/js/b30-case-transition.js"></script>}   {/* right after the loader, blocking: the clicked image grows full screen, then settles into the case study's hero */}
+=======
+{loader && <script is:inline>
+  /* the intro loader: when this page is opened fresh (typed, bookmarked, from another site) or reloaded —
+     not when you come from another page of this site, and not on the browser's back / forward */
+  (function () {
+    var pt = "", nav = "";
+    try { pt = sessionStorage.getItem("b30-pt") || ""; } catch (e) {}
+    try { nav = performance.getEntriesByType("navigation")[0].type; } catch (e) {}
+    var inSite = false; try { inSite = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) {}
+    window.B30_LOADER = nav === "reload" || (!pt && nav !== "back_forward" && !inSite);
+    window.B30_PX = false;   // page transitions stay the site's own (public/js/core.js)
+  })();
+</script>}
+{loader && <script is:inline src="/js/b30-loader.js"></script>}
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 <script is:inline>
   /* theme: light only (the dark theme is retired). B30T gives scripts the current ink and paper colours */
   (function () {
@@ -124,12 +161,21 @@ const ld = { "@context": "https://schema.org", "@graph": graph };
     };
   })();
 </script>
+<<<<<<< HEAD
+=======
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 <script is:inline>
   /* the hero stays hidden until its script has laid it out: otherwise the raw markup (the monitor
      full-size) shows for a moment while the page is still loading, then jumps to the real design */
   document.documentElement.classList.add("b30h-pre"); setTimeout(() => document.documentElement.classList.remove("b30h-pre"), 6000);
 </script>
+<<<<<<< HEAD
 <script is:inline>try{if(sessionStorage.getItem("b30-pt")==="__img")document.documentElement.classList.add("pt-img")}catch(e){}</script>   {/* (the pixel transition holds its own white: b30-loader.js) */}
+=======
+<script is:inline>try{var v=sessionStorage.getItem("b30-pt");if(v)document.documentElement.classList.add(v==="__img"?"pt-img":"pt-px")}catch(e){}</script>
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 <style is:inline>html.pt-px::after{content:"";position:fixed;inset:0;background:#fff;z-index:10000}
 html:not(.b30l-on) [data-b30-loader],html:not(.b30l-on) .b30l-cur{display:none!important}   /* loader off: never flash its markup */
 html.b30h-pre .b30h{opacity:0!important}
@@ -144,6 +190,7 @@ html.b30h-pre .b30h{opacity:0!important}
 <meta property="og:site_name" content={company.name} />
 <meta property="og:locale" content="en_US" />
 <meta property="og:image" content={shareImage} />
+<<<<<<< HEAD
 <meta property="og:image:alt" content={seo.imageAlt || seo.ogTitle || seo.title} />
 {!seo.image && <meta property="og:image:width" content="1200" />}
 {!seo.image && <meta property="og:image:height" content="630" />}
@@ -153,20 +200,33 @@ html.b30h-pre .b30h{opacity:0!important}
 {searchSetup.googleVerification && <meta name="google-site-verification" content={searchSetup.googleVerification} />}
 <link rel="alternate" type="application/rss+xml" title="The Break Thirty blog" href={new URL("/rss.xml", Astro.site).href} />
 <link rel="manifest" href="/site.webmanifest" />
+=======
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@breakthirty" />
+{seo.noindex && <meta name="robots" content="noindex, follow" />}
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 {seo.keywords && seo.keywords.length > 0 && <meta name="keywords" content={seo.keywords.join(", ")} />}
 {seo.published && <meta property="article:published_time" content={seo.published} />}
 {seo.modified && <meta property="article:modified_time" content={seo.modified} />}
 <script is:inline type="application/ld+json" set:html={JSON.stringify(ld).replace(/</g, "\\u003c")} />
 {seo.jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(seo.jsonLd).replace(/</g, "\\u003c")} />}
+<<<<<<< HEAD
 <link rel="icon" href="/favicon.ico" sizes="48x48" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+=======
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/assets/images/breakthirty-logo.png" />
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 <meta name="description" content={seo.description} />
 <link rel="preload" href="/assets/fonts/bdo-grotesk.woff2" as="font" type="font/woff2" crossorigin />
 </head>
 <body>
+<<<<<<< HEAD
 {searchSetup.gtm && <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${searchSetup.gtm}`} height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>}
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 {pageCss && <style is:inline set:html={pageCss}></style>}   {/* page-only styles (case studies), after the bundled ones */}
 <slot />
 

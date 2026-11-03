@@ -1,5 +1,9 @@
 /* =====================================================================
+<<<<<<< HEAD
    The legal pages (/legal/<page>) and the 404 page, in cascade order: the blog post's template — the services page's frame, then the blog's own.
+=======
+   The legal pages (/legal/<page>) styles, in cascade order — the services page's frame, then the blog's own.
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
    ===================================================================== */
 @import "../global.css";
 @import "../hero.css";               /* the shared hero frame + header */
@@ -14,7 +18,11 @@
 @import "../dark.css";
 @import "../services/page.css";      /* the hero's light, light only */
 @import "../blog/post.css";
+<<<<<<< HEAD
 @import "../blog/content.css";
 @import "../legal/page.css";         /* (the 404 page) */
 @import "../mobile/layer.css";      /* phones (≤ 899px): the shared phone layer */
 @import "../mobile/m5.css";         /* phones: type, sides, buttons, footer (on top of the layer) */
+=======
+@import "../legal/page.css";
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

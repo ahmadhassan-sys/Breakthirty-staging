@@ -221,7 +221,10 @@ function makeSlotGL(slot, i){
 
   // hover input (mouse only)
   slot.addEventListener("pointermove", e=>{
+<<<<<<< HEAD
     return;   // the picture stays still under the cursor: only the black View button follows it
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     if (e.pointerType !== "mouse") return;
     const r = slot.getBoundingClientRect(), m = S.mouse;
     const x = (e.clientX - r.left)/r.width, y = (e.clientY - r.top)/r.height;
@@ -285,7 +288,11 @@ function frame(now){
     { const m = S.mouse; m.sx += (m.x - m.sx) * .22; m.sy += (m.y - m.sy) * .22;
       S.hv += (((m.inside && S.ntex && S.r >= 1) ? 1 : 0) - S.hv) * Math.min(1, dt * 7);
       if (S.ntex) { gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, S.ntex); gl.uniform2f(S.U.uSN, ...S.nsize); gl.activeTexture(gl.TEXTURE0); }
+<<<<<<< HEAD
       gl.uniform2f(S.U.uM, m.sx, m.sy); gl.uniform1f(S.U.uHv, 0); /* the hover patch is off everywhere: the picture never changes under the cursor (only the black label follows it) */ gl.uniform1f(S.U.uK, Math.round(12 * cw / 609));
+=======
+      gl.uniform2f(S.U.uM, m.sx, m.sy); gl.uniform1f(S.U.uHv, reduce ? 0 : S.hv); gl.uniform1f(S.U.uK, Math.round(12 * cw / 609));
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
       S.word.classList.toggle("on", m.inside);
       S.word.style.translate = `calc(${(m.sx * rect.width).toFixed(1)}px - 50%) calc(${(m.sy * rect.height).toFixed(1)}px - 50%)`; }
     gl.uniform2f(S.U.uRes, cw, ch); gl.uniform2f(S.U.uS, ...S.size); gl.uniform2f(S.U.uF, ...WORK[S.i].focus);
@@ -329,7 +336,11 @@ B30.bindHover && B30.bindHover(WROOT);
     el.addEventListener("pointerdown", () => { down = true; kick(); });
   };
   document.querySelectorAll(".work .row").forEach((r) => { bind(r, "View"); r.addEventListener("click", (e) => { if (!e.target.closest("a")) r.querySelector(".cta")?.click(); });
+<<<<<<< HEAD
     r.addEventListener("pointermove", (e) => { if (e.pointerType !== "mouse") return; const img = !!e.target.closest("a:not(:has(.slot)), button");   /* over the picture too: the big View button stays */ if (img !== r._img) { r._img = img; want = img ? 0 : 1; kick(); } }); });   // the black View cursor on the whole case study row, its picture included
+=======
+    r.addEventListener("pointermove", (e) => { if (e.pointerType !== "mouse") return; const img = !!e.target.closest(".slot, a, button"); if (img !== r._img) { r._img = img; want = img ? 0 : 1; kick(); } }); });   // the black View cursor on the case study, not over its picture (the picture has its own peek and word)
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   // the orbit box is square, but only its ring band (where the words travel, upper arc) is draggable:
   // "Drag" shows only while the pointer is on that band
   let onRingF = null, clearRing = () => {};
@@ -366,7 +377,11 @@ B30.bindHover && B30.bindHover(WROOT);
   const recheck = () => {
     if (!want) return;
     const at = document.elementFromPoint(tx, ty);
+<<<<<<< HEAD
     let ok = !!(at && at.closest(".work .row") && !at.closest("a:not(:has(.slot)), button"));   // the picture counts as the row
+=======
+    let ok = !!(at && at.closest(".work .row") && !at.closest(".slot, a, button"));
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     if (!ok && orbit && at && orbit.contains(at) && onRingF) ok = onRingF({ clientX: tx, clientY: ty }) && parseFloat(getComputedStyle(orbit).opacity) > .4;
     if (!ok) { want = 0; clearRing(); kick(); }
   };

@@ -4,7 +4,10 @@
  * Content: `footer` in src/data/site.js · Script: public/js/footer.js
  * `page` is the current page key, so the links point to the right place.
  * Styles: src/styles/footer.css (loaded in order by the page's style list in src/styles/pages/)
+<<<<<<< HEAD
  * The heading has no hover animation (its highlighted word doesn't swap).
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
  */
 import Button from "./ui/Button.astro";
 import { hrefFor } from "./ui/links.js";
@@ -25,7 +28,11 @@ const { wordmark, heading, columns, cta, copyright, legal, page } = Astro.props;
       <div class="bt-fallback" aria-hidden="true"></div>
     </div>
     <div class="b30f__c">
+<<<<<<< HEAD
       <h2 class="b30f__h" data-heading="manual">{heading.before}<span>{heading.highlight}</span>{heading.after}<span class="b30f__h2">{heading.second}</span></h2>
+=======
+      <h2 class="b30f__h" data-heading="manual">{heading.before}<span class="b30-alt">{heading.highlight}</span>{heading.after}<span class="b30f__h2">{heading.second}</span></h2>
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
       {columns.map((col) => {
         const Tag = col.nav ? "nav" : "div";
         const pos = `left:calc(${col.x}*var(--u));top:calc(${col.y}*var(--u))`;

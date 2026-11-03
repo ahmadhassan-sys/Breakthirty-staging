@@ -311,18 +311,27 @@ Z
     requestAnimationFrame(frame);
   })();
 
+<<<<<<< HEAD
   /* ---------- form: validation, then off to the contact form API (emails ahmad.hassan@breakthirty.com);
      sends with Netlify Forms (or the PUBLIC_FORM_ENDPOINT API); off Netlify it falls back to a pre-filled email ---------- */
   (function form() {
     const STARTED = Date.now();   // the API drops forms sent in under 3 seconds (bots)
+=======
+  /* ---------- form: validation, then a pre-filled email to hello@breakthirty.com ---------- */
+  (function form() {
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     const f = document.querySelector(".ctf__form"); if (!f) return;
     // where the message goes and what the form says: src/data/contact.js (form)
     const FORM = (window.B30_CONTENT.contactPage || {}).form || {}, MSG = FORM.messages || {};
     const status = f.querySelector(".ctf__status"), btn = f.querySelector(".ctf__send"), lbl = btn.querySelector("[data-lbl]");
     const need = f.querySelector(".ctf__need"), hand = document.querySelector(".ctf__hand");
     const field = (n) => f.elements[n];
+<<<<<<< HEAD
     // (a scramble still running puts its own text back when it ends, so a new message waits for it to finish)
     const say = (t, err) => { if (status._scr) { setTimeout(() => say(t, err), 60); return; } status.textContent = t; status.classList.toggle("is-err", !!err); if (window.B30 && B30.scramble && t) B30.scramble(status, { mode: "reveal", duration: 600, stagger: 0.6 }); };
+=======
+    const say = (t, err) => { status.textContent = t; status.classList.toggle("is-err", !!err); if (window.B30 && B30.scramble && t) B30.scramble(status, { mode: "reveal", duration: 600, stagger: 0.6 }); };
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     f.addEventListener("input", (e) => { const l = e.target.closest(".ctf__f"); l && l.classList.remove("is-err"); if (e.target.name === "need") need.classList.remove("is-err"); });
     f.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -334,6 +343,7 @@ Z
       const badPhone = phone && phone.replace(/\D/g, "").length < 7; if (badPhone) bad.push(field("phone"));
       bad.forEach((x) => x.closest(".ctf__f").classList.add("is-err"));
       if (bad.length) { bad[0].focus(); say(!name ? MSG.noName : bad[0] === field("email") ? MSG.badEmail : MSG.badPhone, true); return; }
+<<<<<<< HEAD
       const subject = `${FORM.subject} — ${company || name}`;
       const mailto = () => {
         const body = [`Name: ${name}`, `Email: ${email}`, phone ? `Phone: ${phone}` : null, company ? `Company: ${company}` : null, needs.length ? `Needs: ${needs.join(", ")}` : null, "", details || MSG.noDetails].filter((x) => x !== null).join("\n");
@@ -387,6 +397,17 @@ Z
           done(0);
         })
         .catch(() => { clearTimeout(timer); say(MSG.failed, true); done(0); });
+=======
+      const body = [`Name: ${name}`, `Email: ${email}`, phone ? `Phone: ${phone}` : null, company ? `Company: ${company}` : null, needs.length ? `Needs: ${needs.join(", ")}` : null, "", details || MSG.noDetails].filter((x) => x !== null).join("\n");
+      const subject = `${FORM.subject} — ${company || name}`;
+      say(MSG.sending);
+      hand && hand.classList.add("is-sent");
+      btn.disabled = true;
+      setTimeout(() => {
+        location.href = `mailto:${FORM.to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        setTimeout(() => { btn.disabled = false; hand && hand.classList.remove("is-sent"); }, 1600);
+      }, REDUCED ? 0 : 650);
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     });
   })();
 })();

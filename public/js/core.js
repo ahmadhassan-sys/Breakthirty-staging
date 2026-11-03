@@ -271,7 +271,11 @@ window.B30_CONTENT = (() => { try { return JSON.parse(document.getElementById("b
     alignNav();
     document.fonts && document.fonts.load('48px "Departure Mono"');   // ready before the first hover, so the fit is measured right
     /* headings: hovering the heading decodes its one marked word (.b30-alt) into Departure Mono, and back */
+<<<<<<< HEAD
     if (matchMedia("(hover: hover)").matches || matchMedia("(max-width: 899px)").matches) {   // phones: a tap plays the word swap
+=======
+    if (matchMedia("(hover: hover)").matches) {
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
       // On hover the marked word is swapped for a cheekier one, set in Departure Mono. The new word sits on
       // top of the old one (which keeps its space, invisibly), so nothing in the heading moves or wraps.
       const SWAP = { "sketch": "Spark", "work ®": "Proof ®", "work": "Proof", "solutions": "Answers", "four agencies": "Everyone",
@@ -489,7 +493,11 @@ window.B30_CONTENT = (() => { try { return JSON.parse(document.getElementById("b
   }
   addEventListener("pageshow", (e) => { if (e.persisted) { document.querySelectorAll(".b30-ptx").forEach((c) => c.remove()); html.classList.remove("pt-px"); } });
 
+<<<<<<< HEAD
   if (!window.B30PX) window.B30PX = { go, arrive, config: W };   // (b30-loader.js, loaded on every page, brings its own: one wave per page change)
+=======
+  window.B30PX = { go, arrive, config: W };
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 })();
 
 /* =====================================================================
@@ -516,7 +524,12 @@ window.B30_CONTENT = (() => { try { return JSON.parse(document.getElementById("b
     const a = e.target.closest("a[data-pt]");
     if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
     e.preventDefault();
+<<<<<<< HEAD
     // (case-study rows on the homepage: public/js/b30-case-transition.js takes those clicks first)
+=======
+    const row = a.closest(".work .row");
+    if (row && !reduced && expandCase(row, a)) return;
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     if (window.B30PX) { B30PX.go(a.href); return; }   // pixel transition in Flash yellow
     const label = a.dataset.ptLabel || "Breakthirty";
     try { sessionStorage.setItem(KEY, label); } catch (_) {}
@@ -529,6 +542,7 @@ window.B30_CONTENT = (() => { try { return JSON.parse(document.getElementById("b
     p.finished.then(() => setTimeout(() => { location.href = a.href; }, 120));
   });
 
+<<<<<<< HEAD
   /* case studies: the image glides to the middle of the screen at its own size, then grows into the exact
      frame the case study's hero has on the next page (under the header, full width) while the rest of the
      page fades to white. The frame is saved, so the next page opens with the very same picture in the very
@@ -646,6 +660,48 @@ window.B30_CONTENT = (() => { try { return JSON.parse(document.getElementById("b
       const t = setTimeout(() => { if (!shown) go(); }, 400);
       (hp.decode ? hp.decode() : Promise.resolve()).then(() => { if (shown) return; clearTimeout(t); showHero(); setTimeout(go, 280); }, () => {});
     });
+=======
+  /* case studies: the image grows to fill the screen out of its bottom corner (bottom-right when the
+     image sits on the right, bottom-left when it sits on the left) while the row's text slips away */
+  function expandCase(row, a) {
+    const slot = row.querySelector(".slot"), im = slot && slot.querySelector("img");
+    if (!im || !im.naturalWidth) return false;
+    const r = slot.getBoundingClientRect(), W = innerWidth, H = innerHeight;
+    const right = r.left + r.width / 2 > W / 2;
+    window.B30 && B30.lenis && B30.lenis.stop();
+    // A fixed layer over the page (nothing in the page moves): the image is laid out at its final,
+    // full-screen size and starts scaled + clipped so it looks exactly like it does in its slot.
+    const ov = document.createElement("div");
+    ov.className = "b30-cx"; ov.setAttribute("aria-hidden", "true");
+    const pic = document.createElement("img");
+    pic.src = im.currentSrc || im.src; pic.alt = "";
+    ov.appendChild(pic); html.appendChild(ov);
+    slot.style.visibility = "hidden";                              // the moving copy is the only one on screen
+    const nw = im.naturalWidth, nh = im.naturalHeight;
+    const sF = Math.max(W / nw, H / nh), sI = Math.max(r.width / nw, r.height / nh);
+    const k = sI / sF, dx = r.left + r.width / 2 - W / 2, dy = r.top + r.height / 2 - H / 2;
+    const ins = (t, rr, b, l) => `inset(${t}px ${rr}px ${b}px ${l}px)`;
+    const i0 = [r.top, W - r.right, H - r.bottom, r.left];
+    // first it glides, at its own size, to the centre of the screen; then it scales up to fill it
+    const cT = (H - r.height) / 2, cL = (W - r.width) / 2;
+    const iC = [cT, cL, cT, cL];
+    const D = 1300, o1 = 0.42;
+    ov.animate([
+      { clipPath: ins(...i0), easing: "cubic-bezier(.65,0,.35,1)" },
+      { clipPath: ins(...iC), offset: o1, easing: "cubic-bezier(.7,0,.2,1)" },
+      { clipPath: ins(0, 0, 0, 0) },
+    ], { duration: D, fill: "forwards" });
+    const last = pic.animate([
+      { transform: `translate(${dx}px,${dy}px) scale(${k})`, easing: "cubic-bezier(.65,0,.35,1)" },
+      { transform: `translate(0px,0px) scale(${k})`, offset: o1, easing: "cubic-bezier(.7,0,.2,1)" },
+      { transform: "translate(0,0) scale(1)" },
+    ], { duration: D, fill: "forwards" });
+    // the row's words simply fade where they are
+    row.querySelectorAll(".kicker, .desc, h3, .cta, .mhead, .year, .num").forEach((el) =>
+      el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 420, easing: "ease-out", fill: "forwards" }));
+    try { sessionStorage.setItem(KEY, "__img"); } catch (_) {}
+    last.finished.then(() => setTimeout(() => { location.href = a.href; }, 80));
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     return true;
   }
 
@@ -654,6 +710,7 @@ window.B30_CONTENT = (() => { try { return JSON.parse(document.getElementById("b
   try { label = sessionStorage.getItem(KEY); sessionStorage.removeItem(KEY); } catch (_) {}
   if ((label && label !== "__img") || html.classList.contains("pt-px")) {
     window.B30PX && B30PX.arrive();
+<<<<<<< HEAD
   } else if (window.B30Case && (label === "__img" || html.classList.contains("pt-img"))) {
     // arriving from a case-study image: public/js/b30-case-transition.js settles it into the hero
   } else if (label === "__img" || html.classList.contains("pt-img")) {
@@ -698,6 +755,11 @@ window.B30_CONTENT = (() => { try { return JSON.parse(document.getElementById("b
       document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", fixPlace, { once: true }) : fixPlace();
       setTimeout(handoff, 6000);                                   // if something went wrong: never hold the page longer than this
     }
+=======
+  } else if (label === "__img" || html.classList.contains("pt-img")) {
+    // arriving from an expanded case-study image: a soft white lift instead of the panel
+    requestAnimationFrame(() => { html.classList.add("pt-img-out"); setTimeout(() => html.classList.remove("pt-img", "pt-img-out"), 750); });
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   } else if (label || html.classList.contains("pt-hold")) {
     panel.style.transform = "translate3d(0,0,0)";
     lbl.textContent = label || "";
@@ -713,7 +775,11 @@ window.B30_CONTENT = (() => { try { return JSON.parse(document.getElementById("b
     if (!e.persisted) return;
     anims.forEach((x) => x.cancel()); anims.length = 0;
     panel.style.transform = ""; html.classList.remove("pt-hold", "pt-img", "pt-img-out");
+<<<<<<< HEAD
     document.querySelectorAll(".b30-cx, .b30-cxw").forEach((n) => n.remove()); html.classList.remove("pt-cs", "pt-cxh");
+=======
+    document.querySelectorAll(".b30-cx").forEach((n) => n.remove());
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     document.querySelectorAll(".work .slot").forEach((s) => (s.style.visibility = ""));
     window.B30 && B30.lenis && B30.lenis.start();
   });

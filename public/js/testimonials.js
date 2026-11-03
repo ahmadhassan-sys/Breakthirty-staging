@@ -156,7 +156,11 @@ void main(){
     gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, dTex); gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, GW, GH, gl.RG, gl.FLOAT, disp);
     gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, tex[nI]);
     gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex[i]);
+<<<<<<< HEAD
     gl.uniform2f(U.uRes, cw, ch); gl.uniform2f(U.uS, ...size[i]); gl.uniform2f(U.uSN, ...size[nI]); gl.uniform2f(U.uM, m.sx, m.sy); gl.uniform1f(U.uHv, 0); /* the hover patch is off everywhere: the picture never changes under the cursor (only the black label follows it) */ gl.uniform1f(U.uK, Math.round(12 * cw / 609));
+=======
+    gl.uniform2f(U.uRes, cw, ch); gl.uniform2f(U.uS, ...size[i]); gl.uniform2f(U.uSN, ...size[nI]); gl.uniform2f(U.uM, m.sx, m.sy); gl.uniform1f(U.uHv, hv); gl.uniform1f(U.uK, Math.round(12 * cw / 609));
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     if (word) { word.classList.toggle('on', m.inside); word.style.translate = `calc(${(m.sx * r.width).toFixed(1)}px - 50%) calc(${(m.sy * r.height).toFixed(1)}px - 50%)`; }
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     if (active || hv > .01) raf = requestAnimationFrame(frame);
@@ -246,6 +250,7 @@ void main(){
   const go = () => { if (!prep()) setTimeout(go, 200); };
   go(); new MutationObserver(() => prep()).observe(S, { childList: true, subtree: true });
 })();
+<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): the testimonials deck (swipe cards with dots, each review cut at 120 words) — one version for every page (from the Our Work
@@ -298,3 +303,5 @@ void main(){
     fit(); addEventListener('resize', fit); setTimeout(fit, 800);
   }
 })();
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

@@ -15,5 +15,8 @@
 @import "../services/page.css";      /* the hero's light, light only */
 @import "../blog/index.css";
 @import "../blog/content.css";
+<<<<<<< HEAD
 @import "../mobile/layer.css";      /* phones (≤ 899px): the shared phone layer */
 @import "../mobile/m5.css";         /* phones: type, sides, buttons, footer (on top of the layer) */
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

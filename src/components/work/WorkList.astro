@@ -1,7 +1,12 @@
 ---
 /**
+<<<<<<< HEAD
  * Work page · 2. The list — the "Selected work" heading, then the filter tabs + grid/index switch, and every
  * case study as a grid card and an index row. (The featured project above the list is retired.)
+=======
+ * Work page · 2. The list — filter tabs + grid/index switch, the featured project,
+ * the "Selected work" heading, and every case study as a grid card and an index row.
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
  * Content: `filters`, `featured`, `selected`, `cases` in src/data/work.js · Script: public/js/work-page.js
  * Styles: src/styles/work-page/list.css
  */
@@ -16,6 +21,7 @@ const pad = (n) => String(n).padStart(2, "0");
 const tagLabel = Object.fromEntries(filters.items.map((f) => [f.key, f.tag]));
 const count = (key) => pad(key === "all" ? cases.length : cases.filter((c) => c.tags.includes(key)).length);
 const tabs = [{ key: "all", tab: filters.allLabel }, ...filters.items];
+<<<<<<< HEAD
 const caseLink = { "data-pt": "", "data-pt-label": "Case study" };   // page transition into the case study
 ---
 <div class="wk-list" id="work">
@@ -24,6 +30,12 @@ const caseLink = { "data-pt": "", "data-pt-label": "Case study" };   // page tra
     <h2 id="wk-sel-t" data-heading data-speed="1.04"><Rich text={selected.heading} /></h2>
   </section>
 
+=======
+const featuredCase = cases.find((c) => c.id === featured.moreFrom);
+const caseLink = { "data-pt": "", "data-pt-label": "Case study" };   // page transition into the case study
+---
+<div class="wk-list" id="work">
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   <div class="wk-fbar"><div class="wk-fbar__in">
     <ul class="wk-tabs" aria-label={filters.label}>
       {tabs.map((t, i) => (
@@ -37,12 +49,41 @@ const caseLink = { "data-pt": "", "data-pt-label": "Case study" };   // page tra
     </div>
   </div></div>
 
+<<<<<<< HEAD
+=======
+  <section class="wk-feat" aria-labelledby="wk-feat-t">
+    <p class="wk-feat__k" data-reveal data-pair>{featured.kicker}</p>
+    <div class="wk-feat__row">
+      <div>
+        <h2 class="wk-feat__t" id="wk-feat-t" data-heading>{featured.title}</h2>
+        <p class="wk-feat__meta" data-reveal data-pair style="--rd:240ms">{featured.meta}</p>
+      </div>
+      <div>
+        <p class="wk-feat__name" data-reveal data-pair style="--rd:160ms">{featured.name}</p>
+        <p class="wk-feat__p" data-reveal data-pair style="--rd:260ms">{featured.text}</p>
+        <a class="b30btn b30btn--line wk-vcs" href={featured.href} data-btn {...caseLink} data-reveal data-pair style="--rd:360ms"><span class="b30btn__ic"><ArrowIcon /><ArrowIcon /></span><span class="b30btn__lbl" data-lbl>{featured.cta}</span></a>
+      </div>
+      <span class="wk-feat__yr" data-reveal data-pair style="--rd:200ms">{featured.year}</span>
+    </div>
+    <a class="wk-media" href={featured.href} {...caseLink} aria-label={featured.mediaLabel}><span class="wk-media__in"><img data-src="featured" src={featured.cover} alt={featured.mediaLabel} class="is-on" loading="lazy" decoding="async" />{featuredCase ? featuredCase.images.slice(1).map((_, i) => <img data-src={imageKey(featuredCase.id, i + 1)} alt="" decoding="async" />) : null}</span></a>
+  </section>
+
+  <section class="wk-sel" aria-labelledby="wk-sel-t">
+    <p data-reveal data-pair data-speed="0.97">{selected.intro}</p>
+    <h2 id="wk-sel-t" data-heading data-speed="1.04"><Rich text={selected.heading} /></h2>
+  </section>
+
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   <div class="wk-views-box" data-view="grid">
     <div class="wk-grid">
       {cases.map((c, n) => (
         <article class="wk-card" data-tags={c.tags.join(" ")}>
           <p class="wk-card__n">{pad(n + 1)}</p>
+<<<<<<< HEAD
           <a class="wk-media" data-cur="View" href={c.href} {...caseLink} aria-label={`${c.name} case study`}><span class="wk-media__in">{c.images.map((src, i) => i === 0
+=======
+          <a class="wk-media" href={c.href} {...caseLink} aria-label={`${c.name} case study`}><span class="wk-media__in">{c.images.map((src, i) => i === 0
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
             ? <img data-src={imageKey(c.id, i)} src={src} alt={c.name} class="is-on" loading="lazy" decoding="async" />
             : <img data-src={imageKey(c.id, i)} alt="" decoding="async" />)}</span></a>
           <div class="wk-card__b">

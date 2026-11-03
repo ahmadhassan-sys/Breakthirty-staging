@@ -19,8 +19,11 @@ import Footer from "../components/Footer.astro";
 import { seo, hero, form, sending, strip } from "../data/contact.js";
 import { nav, company, partnersStrip, closing, contact, footer } from "../data/site.js";
 import { partners, locations } from "../data/partners.js";
+<<<<<<< HEAD
 import { contactSchema } from "../lib/schema.js";
 import { company as companyInfo } from "../data/site.js";
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 
 /* What the page scripts (public/js) read. */
 const scriptContent = {
@@ -44,6 +47,7 @@ const scripts = [
   "contact-office",  // the office card: hovering a city on the globe
   "strip",           // the dashed-letter strip's hover reveal
   "contact-closing", // the closing words (must run last: it sits on top of the contact panel)
+<<<<<<< HEAD
   "contact-mobile"   // phones only (≤ 899px)
 ];
 /* structured data: a contact page, and how to reach us (src/lib/schema.js) */
@@ -51,6 +55,12 @@ const pageSeo = { ...seo, pageType: "ContactPage", schema: contactSchema(company
 ---
 
 <BaseLayout seo={pageSeo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Contact", path: "/contact" }]}>
+=======
+];
+---
+
+<BaseLayout seo={seo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Contact", path: "/contact" }]}>
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   <ContactHero {...hero} nav={nav} />
 
   <main class="b30-main" id="main">

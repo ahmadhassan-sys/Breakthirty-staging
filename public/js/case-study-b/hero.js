@@ -64,13 +64,17 @@
       }, { passive: true });
     }
     let qs = null, sp = null, last = performance.now(), vis = true;
+<<<<<<< HEAD
     const FIX = RED;   // the steps draw in and the dots settle on scroll on every case study (still pages too: only their pictures are still)
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     new IntersectionObserver(([e]) => (vis = e.isIntersecting)).observe(hero);
     (function frame(now) {
       const dt = Math.min(0.05, (now - last) / 1000); last = now;
       if (vis) {
         const vh = innerHeight, top = stepA.getBoundingClientRect().top, k = U();
         // the pattern's rows settle into place as the strip rises (on load they're already on their way)
+<<<<<<< HEAD
         const goal = FIX ? 1 : easeOut(clamp((vh * 1.35 - top) / (vh * 0.75)));
         qs = qs === null ? (FIX ? goal : goal * 0.35) : qs + (goal - qs) * (1 - Math.exp(-dt * 4));
         const mid = clamp((top - vh * .5) / vh, -1, 1);
@@ -78,6 +82,15 @@
         // the steps draw in from full width
         const spT = FIX ? 1 : clamp((vh * 1.25 - top) / (vh * 0.75)), spG = ease(spT);
         sp = sp === null ? (FIX ? spG : spG * 0.2) : sp + (spG - sp) * (1 - Math.exp(-dt * 5));
+=======
+        const goal = RED ? 1 : easeOut(clamp((vh * 1.35 - top) / (vh * 0.75)));
+        qs = qs === null ? goal * 0.35 : qs + (goal - qs) * (1 - Math.exp(-dt * 4));
+        const mid = clamp((top - vh * .5) / vh, -1, 1);
+        rows.forEach((r, i) => { const par = RED ? 0 : mid * (6 + i * 5) * k; r.style.transform = `translate3d(0,${((1 - qs) * (22 + i * 20) * k + par).toFixed(2)}px,0)`; });
+        // the steps draw in from full width
+        const spT = RED ? 1 : clamp((vh * 1.25 - top) / (vh * 0.75)), spG = ease(spT);
+        sp = sp === null ? spG * 0.2 : sp + (spG - sp) * (1 - Math.exp(-dt * 5));
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
         hero.style.setProperty("--sp", (Math.abs(spG - sp) < 0.001 ? spG : sp).toFixed(4));
       }
       requestAnimationFrame(frame);

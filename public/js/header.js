@@ -124,6 +124,7 @@
   };
   place(); addEventListener('resize', place); addEventListener('load', place);
 })();
+<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): the Menu (one button; the menu opens full screen: links, Get in touch, new business) — one version for every page (from the Our Work
@@ -174,3 +175,5 @@
     MQ.addEventListener && MQ.addEventListener('change', () => { if (!MQ.matches) set(false); });
   }
 })();
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

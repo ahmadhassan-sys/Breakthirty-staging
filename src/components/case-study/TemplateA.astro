@@ -24,6 +24,7 @@ import CaseNext from "./sections/CaseNext.astro";
 import Rule from "./parts/Rule.astro";
 
 const { data, next, nav, labels } = Astro.props;
+<<<<<<< HEAD
 const still = data.still !== false;   // pictures simply show (no reveal animation), as on every case study
 const n = (i) => `(${String(i).padStart(2, "0")})`;
 ---
@@ -31,6 +32,14 @@ const n = (i) => `(${String(i).padStart(2, "0")})`;
 <CaseHero {...data.hero} still={still} />
 
 <main class="b30-main" id="main" data-still={still ? "" : undefined}>
+=======
+const n = (i) => `(${String(i).padStart(2, "0")})`;
+---
+<CaseTop nav={nav} />
+<CaseHero {...data.hero} />
+
+<main class="b30-main" id="main">
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   <CaseIntro name={data.name} intro={data.intro} labels={labels} />
   <CaseDemo {...data.demo} sectionLabel={labels.demo} />
   <CaseOverview n={n(1)} labels={labels} {...data.overview} />

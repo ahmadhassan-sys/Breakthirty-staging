@@ -12,7 +12,11 @@ const pad = (i) => String(i + 1).padStart(2, "0");
     <h2 class="cz-h71" id="cz-out-h" data-heading><Rich text={heading} /></h2>
   </div>
   <nav class="cz-tabs" aria-label={navLabel}>{parts.map((p, i) => (
+<<<<<<< HEAD
     <a class="cz-tab" href={`#part-${i + 1}`} data-i={i}><span>{pad(i)}.&nbsp; {p.tab}</span></a>
+=======
+    <a class="cz-tab" href={`#part-${i + 1}`} data-i={i}><i class="cz-tab__bar" aria-hidden="true"></i><span>{pad(i)}.&nbsp; {p.tab}</span></a>
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   ))}</nav>
   <div class="cz-parts">{parts.map((p, i) => (
     <article class="cz-part" id={`part-${i + 1}`}><p class="cz-part__k">{labels.part} {i + 1}</p><div class="cz-part__row"><h3 class="cz-h36" data-heading>{p.title}</h3><p class="cz-body" data-reveal>{p.text}</p></div><Picture class="cz-part__img" image={p.image} alt={p.alt} /></article>

@@ -31,6 +31,7 @@
 @media (max-width:899px){.cz-mt56,.cz-mt109,.cz-mt112{margin-top:24px}}
 @media (max-width:899px){.cz-say--wb .cz-say__t{width:calc(100% - 40px)}}
 .cz-ava--wb{background-image:url(/assets/images/testimonial-weldon-brewster.jpg)!important;background-position:50% 20%!important}
+<<<<<<< HEAD
 /* ===== Weldon Brewster design (Nov 2026) ===== */
 /* the logos, centred on their brand colour */
 .wb-logo{display:flex;align-items:center;justify-content:center;background:#313F3F;overflow:hidden}
@@ -61,3 +62,5 @@
 }
 /* the logo tiles are not pictures: they show as they are too */
 [data-still] .wb-logo{clip-path:none!important;transition:none!important}
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313

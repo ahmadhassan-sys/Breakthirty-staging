@@ -6,8 +6,11 @@
   const ease = (t) => t * t * (3 - 2 * t);
   const easeOut = (t) => 1 - Math.pow(1 - t, 3);
   const U = () => document.documentElement.clientWidth / 1920;
+<<<<<<< HEAD
   // opened from the homepage's case-study zoom: the hero's picture is already on screen, so it starts revealed
   const HANDOFF = document.documentElement.classList.contains("pt-cs") || document.documentElement.classList.contains("b30c-arrive");   // arriving through a case transition: the hero is already revealed
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 
   /* ---------- rules draw in; images fall back to a CSS wipe when WebGL isn't there ---------- */
   const once = (els, cls, th) => { const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add(cls); io.unobserve(e.target); } }), { threshold: th }); els.forEach((el) => io.observe(el)); };
@@ -41,12 +44,20 @@ void main(){
   const GW = CFG.grid, GH = Math.round(CFG.grid * 480 / 784);
   const pics = [];
   if (!RED) document.querySelectorAll(".ph[data-gl]").forEach((el) => {
+<<<<<<< HEAD
     if (el.closest("[data-still]")) return;   // still pages: no WebGL reveal, the picture just shows
     const src = (getComputedStyle(el).backgroundImage.match(/url\(["']?(.*?)["']?\)$/) || [])[1]; if (!src) return;
     const canvas = document.createElement("canvas"); canvas.setAttribute("aria-hidden", "true");
     const gl = canvas.getContext("webgl2", { alpha: true, antialias: true, premultipliedAlpha: false }); if (!gl) { if (el.dataset.gl === "hero") document.dispatchEvent(new Event("b30:hero-ready")); return; }
     const sh = (t, s) => { const x = gl.createShader(t); gl.shaderSource(x, s); gl.compileShader(x); if (!gl.getShaderParameter(x, gl.COMPILE_STATUS)) throw gl.getShaderInfoLog(x); return x; };
     const S = { el, canvas, gl, hero: el.dataset.gl === "hero", ready: false, go: (el.dataset.gl === "hero" && HANDOFF) ? -1e9 : 0, r: 0, disp: new Float32Array(GW * GH * 2), m: { x: .5, y: .5, vx: 0, vy: 0, inside: false, px: null, py: null }, U: {} };
+=======
+    const src = (getComputedStyle(el).backgroundImage.match(/url\(["']?(.*?)["']?\)$/) || [])[1]; if (!src) return;
+    const canvas = document.createElement("canvas"); canvas.setAttribute("aria-hidden", "true");
+    const gl = canvas.getContext("webgl2", { alpha: true, antialias: true, premultipliedAlpha: false }); if (!gl) return;
+    const sh = (t, s) => { const x = gl.createShader(t); gl.shaderSource(x, s); gl.compileShader(x); if (!gl.getShaderParameter(x, gl.COMPILE_STATUS)) throw gl.getShaderInfoLog(x); return x; };
+    const S = { el, canvas, gl, hero: el.dataset.gl === "hero", ready: false, go: 0, r: 0, disp: new Float32Array(GW * GH * 2), m: { x: .5, y: .5, vx: 0, vy: 0, inside: false, px: null, py: null }, U: {} };
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     try {
       const prog = gl.createProgram(); gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(prog); gl.useProgram(prog);
       const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
@@ -61,11 +72,17 @@ void main(){
         gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im); S.size = [im.naturalWidth, im.naturalHeight];
         el.appendChild(canvas); el.classList.add("is-gl"); S.ready = true; };
       im.src = src;
+<<<<<<< HEAD
     } catch (err) { if (S.hero) document.dispatchEvent(new Event("b30:hero-ready")); return; }
     pics.push(S);
   });
   // no WebGL picture for the hero (reduced motion, no WebGL, no picture): core.js hands over to its plain picture
   if (!pics.some((S) => S.hero)) document.dispatchEvent(new Event("b30:hero-ready"));
+=======
+    } catch (err) { return; }
+    pics.push(S);
+  });
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   const stepDisp = (S) => {
     const { disp, m, gl } = S, rad = CFG.gridRadius * GW; let active = m.inside;
     for (let j = 0; j < GH; j++) for (let i = 0; i < GW; i++) { const k = (j * GW + i) * 2;
@@ -94,7 +111,10 @@ void main(){
       const sharp = easeOut(clamp(S.r / CFG.resolveBy));
       gl.uniform1f(S.U.uB, Math.max(1, CFG.pixelFrom * dpr * (1 - sharp)));
       gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+<<<<<<< HEAD
       if (S.hero && !S.told) { S.told = true; document.dispatchEvent(new Event("b30:hero-ready")); }   // core.js hands over to it
+=======
+>>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     }
     requestAnimationFrame(frame);
   })(performance.now());
