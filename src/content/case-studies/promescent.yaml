@@ -1,0 +1,133 @@
+# Promescent case study → /work/promescent
+# Layout: ChartSight's layout (template a).
+# Headings: *word* = the highlighted word, a line break in the text = a line break on the page.
+# Its card on the Our Work page is the "promescent" entry in src/data/work.js.
+
+template: a
+name: Promescent
+seo:
+  title: Promescent case study | Breakthirty
+  description: Great product, awkward category, ad accounts that kept getting flagged. We rebuilt the funnel and message so
+    people could say yes.
+hero:
+  image: /assets/images/work-onboarding.webp
+  label: Promescent
+next: ethical-narrative
+intro:
+  type: Consumer health · DTC
+  roles:
+  - Funnel & landing pages
+  - Paid media
+  - Creative & messaging
+  - Engagement — Ongoing
+  lede: Great product, awkward category, ad accounts that kept getting flagged. We rebuilt the funnel and message so people
+    could say yes.
+  crumbTight: true
+demo:
+  label: (Preview)
+  image: /assets/images/work-checkout.webp
+  alt: Product demo
+overview:
+  heading: The full story is on its way.
+  body:
+  - This is a placeholder page for our work with Promescent. The full case study, with the brief, the process and the results,
+    is being written now.
+  - Until then, get in touch and we’ll walk you through the project ourselves.
+  details:
+  - label: Client
+    value: Promescent
+  - label: Industry
+    value: Consumer health · DTC
+  - label: Year
+    value: TBC
+  demoButton: View preview
+services:
+  heading: We rebuilt the funnel, the message and the media behind it.
+  list:
+  - Paid Social
+  - Paid Search
+  - Landing Pages
+  - Conversion Rate Optimization
+  - Creative Strategy
+  - Email & SMS
+  - Analytics & Tracking
+challenge:
+  heading: The challenge, in the client’s words, is coming soon.
+  body:
+  - This section will set out where things stood before we started and what was getting in the way.
+  - Placeholder copy. Final text to follow.
+beforeAfter:
+  before:
+    image: /assets/images/work-agent.webp
+    label: Before
+    alt: Before
+  after:
+    image: /assets/images/work-checkout.webp
+    label: After
+    alt: After
+stat:
+  value: TBC
+  count: 1079
+  from: 1072
+  text: The headline number for this project will go here once it’s confirmed.
+how:
+  heading: How we got there, in five steps.
+  steps:
+  - title: Listen
+    text: Learned how the team works today.
+  - title: Plan
+    text: Agreed what to fix first, and what success looks like.
+  - title: Design
+    text: Designed it with the people who use it.
+  - title: Build
+    text: Built and tested it against real use.
+  - title: Launch
+    text: Shipped it, then kept improving it.
+output:
+  heading: What we built, in four parts.
+  navLabel: The four parts
+  parts:
+  - tab: Part one
+    title: Detail coming soon
+    text: A short description of this part of the project will go here.
+    image: /assets/images/work-launch.webp
+    alt: part 1
+  - tab: Part two
+    title: Detail coming soon
+    text: A short description of this part of the project will go here.
+    image: /assets/images/work-onboarding.webp
+    alt: part 2
+  - tab: Part three
+    title: Detail coming soon
+    text: A short description of this part of the project will go here.
+    image: /assets/images/work-checkout.webp
+    alt: part 3
+  - tab: Part four
+    title: Detail coming soon
+    text: A short description of this part of the project will go here.
+    image: /assets/images/work-agent.webp
+    alt: part 4
+statement: Promescent. Full case study coming soon.
+impact:
+  heading: What changed, once it’s confirmed.
+  rows:
+  - value: TBC
+    count: 74000
+    from: 73993
+    suffix: +
+    text: result to be added with the full case study
+  - value: TBC
+    text: result to be added with the full case study
+  - value: TBC
+    count: 2234
+    from: 2197
+    text: result to be added with the full case study
+  - value: TBC
+    text: result to be added with the full case study
+outcome:
+  quote: “Client quote coming soon.”
+  more: We’re collecting a few words from the team for this page.
+  person:
+    name: Client name
+    role: Role
+    photo: /assets/images/testimonial-evan-goldsmith.jpg

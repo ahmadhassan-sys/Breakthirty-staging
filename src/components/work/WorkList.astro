@@ -1,0 +1,70 @@
+---
+/**
+ * Work page · 2. The list — the "Selected work" heading, then the filter tabs + grid/index switch, and every
+ * case study as a grid card and an index row. (The featured project above the list is retired.)
+ * Content: `filters`, `featured`, `selected`, `cases` in src/data/work.js · Script: public/js/work-page.js
+ * Styles: src/styles/work-page/list.css
+ */
+import Rich from "../ui/Rich.astro";
+import ArrowIcon from "../ui/ArrowIcon.astro";
+import RowArrow from "./RowArrow.astro";
+import { imageKey } from "./image-key.js";
+
+const { filters, featured, selected, cases } = Astro.props;
+
+const pad = (n) => String(n).padStart(2, "0");
+const tagLabel = Object.fromEntries(filters.items.map((f) => [f.key, f.tag]));
+const count = (key) => pad(key === "all" ? cases.length : cases.filter((c) => c.tags.includes(key)).length);
+const tabs = [{ key: "all", tab: filters.allLabel }, ...filters.items];
+const caseLink = { "data-pt": "", "data-pt-label": "Case study" };   // page transition into the case study
+---
+<div class="wk-list" id="work">
+  <section class="wk-sel" aria-labelledby="wk-sel-t">
+    <p data-reveal data-pair data-speed="0.97">{selected.intro}</p>
+    <h2 id="wk-sel-t" data-heading data-speed="1.04"><Rich text={selected.heading} /></h2>
+  </section>
+
+  <div class="wk-fbar"><div class="wk-fbar__in">
+    <ul class="wk-tabs" aria-label={filters.label}>
+      {tabs.map((t, i) => (
+        <li><button type="button" class="wk-tab" data-f={t.key} aria-pressed={i === 0 ? "true" : "false"}>{`${t.tab} `}<sup>{count(t.key)}</sup></button></li>
+      ))}
+    </ul>
+    <div class="wk-views" role="group" aria-label={filters.views.label}>
+      <button type="button" class="wk-view" data-view="grid" aria-pressed="true"><svg class="wk-view__ic" viewBox="0 0 12 12" aria-hidden="true"><rect x="0" y="0" width="5" height="5" /><rect x="7" y="0" width="5" height="5" /><rect x="0" y="7" width="5" height="5" /><rect x="7" y="7" width="5" height="5" /></svg>{filters.views.grid}</button>
+      <i aria-hidden="true"></i>
+      <button type="button" class="wk-view" data-view="index" aria-pressed="false"><svg class="wk-view__ic" viewBox="0 0 12 12" aria-hidden="true"><rect x="0" y="1" width="12" height="4" /><rect x="0" y="7" width="12" height="4" /></svg>{filters.views.index}</button>
+    </div>
+  </div></div>
+
+  <div class="wk-views-box" data-view="grid">
+    <div class="wk-grid">
+      {cases.map((c, n) => (
+        <article class="wk-card" data-tags={c.tags.join(" ")}>
+          <p class="wk-card__n">{pad(n + 1)}</p>
+          <a class="wk-media" data-cur="View" href={c.href} {...caseLink} aria-label={`${c.name} case study`}><span class="wk-media__in">{c.images.map((src, i) => i === 0
+            ? <img data-src={imageKey(c.id, i)} src={src} alt={c.name} class="is-on" loading="lazy" decoding="async" />
+            : <img data-src={imageKey(c.id, i)} alt="" decoding="async" />)}</span></a>
+          <div class="wk-card__b">
+            <h3 class="wk-card__t" data-heading><a href={c.href} {...caseLink}>{c.name}</a></h3>
+            <div class="wk-card__r"><p data-reveal style="--rd:180ms">{c.summary}</p><div data-reveal style="--rd:300ms"><ul class="wk-tags">{c.tags.map((t) => <li>{tagLabel[t] || t}</li>)}</ul></div></div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <ol class="wk-index">
+      {cases.map((c, n) => (
+        <li class="wk-row" data-tags={c.tags.join(" ")}>
+          <a href={c.href} {...caseLink}>
+            <span class="wk-row__n">{pad(n + 1)}</span>
+            <h3 class="wk-row__t">{c.name}</h3>
+            <p class="wk-row__d">{c.short}</p>
+            <ul class="wk-tags">{c.tags.map((t) => <li>{tagLabel[t] || t}</li>)}</ul>
+            <span class="wk-row__ar" aria-hidden="true"><RowArrow /><RowArrow /></span>
+            <span class="wk-row__imgs" aria-hidden="true">{c.images.slice(0, 4).map((_, i) => <span><img data-src={imageKey(c.id, i)} alt="" style={`--k:${i}`} decoding="async" /></span>)}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</div>

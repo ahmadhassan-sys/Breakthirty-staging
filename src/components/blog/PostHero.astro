@@ -1,0 +1,37 @@
+---
+/**
+ * Blog post · 1. Hero — header, Back, the title, then tags / summary / date · read time, and the cover below.
+ * Styles: src/styles/blog/post.css · Script: public/js/blog-post.js
+ */
+import Header from "../Header.astro";
+import Tags from "./Tags.astro";
+import Meta from "./Meta.astro";
+import ArrowButton from "./ArrowButton.astro";
+import { hero as svHero } from "../../data/services.js";
+
+const { nav, post, lead, back } = Astro.props;
+---
+<section class="b30h wk-hero bp-hero" aria-labelledby="bp-title">
+  <div class="b30h__pin">
+    <div class="b30h__stage">
+      <span class="b30h__vline b30h__vline--34" aria-hidden="true"></span>
+      <i class="b30h__px" style="--x:82" aria-hidden="true"></i><i class="b30h__px b30h__px--c" style="--x:960" aria-hidden="true"></i><i class="b30h__px" style="--x:1838" aria-hidden="true"></i>
+      <span class="b30h__vline b30h__vline--27" aria-hidden="true"></span>
+      <div class="svh__sky" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+      <img class="b30h__glow" src={svHero.glow} alt="" aria-hidden="true" decoding="async" /><div class="b30h__glowx" aria-hidden="true"></div>
+
+      <Header {...nav} page="blog" />
+
+      <ArrowButton class="bp-back" label={back.label} href={back.href} back data-pt="" />
+      <h1 class="bp-title" id="bp-title" data-heading>{post.title}</h1>
+      <div class="bp-meta">
+        <Tags tags={post.tags} rd={100} />
+        <p class="bp-desc" data-reveal style="--rd:180ms">{lead}</p>
+        <Meta iso={post.iso} date={post.dateLabel} minutes={post.minutes} rd={260} />
+      </div>
+      <figure class="bp-hero__img blg-img"><img class="blg-img__in" src={post.entry.data.image} alt={post.imageAlt} decoding="async" fetchpriority="high" /></figure>
+      <span class="b30h__vline b30h__vline--26" aria-hidden="true"></span>
+    </div>
+    <div class="wk-hero__dim" aria-hidden="true"></div>
+  </div>
+</section>

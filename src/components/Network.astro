@@ -1,0 +1,46 @@
+---
+/**
+ * 7. Our network — partner logo grid that turns into a globe of our offices.
+ * The visible block (heading, switch, logo grid, globe) is built by the script from:
+ *   `network.copy` in src/data/home.js and partners / locations in src/data/partners.js
+ * Script: public/js/network.js
+ *
+ * The markup below is an older version of this section. It is hidden by the CSS, but the
+ * scripts still hook into its elements (canvas, switch, globe), so keep it in place.
+ * Styles: src/styles/network.css (loaded in order by the page's style list in src/styles/pages/)
+ */
+---
+<section class="pg" id="partners-network" data-mode="partner" aria-labelledby="pg-h">
+  <div class="pg__head">
+    <p class="pg__eye" data-reveal data-pair><span class="sw on" data-for="partner">Official Partners</span><span class="sw" data-for="global">Globally Connected</span></p>
+    <div class="pg__row">
+      <h2 class="pg__h" id="pg-h" aria-live="polite"><span class="sw on" data-for="partner">A strong network makes good work better.</span><span class="sw" data-for="global">Wherever you are, we’re already awake.</span></h2>
+      <div class="pg__tabs" role="group" aria-label="Show">
+        <button class="pg__tab" type="button" data-to="partner" aria-pressed="true" title="Official partners"><canvas data-ico="partner" aria-hidden="true"></canvas><span class="sr">Official partners</span></button>
+        <button class="pg__tab" type="button" data-to="global" aria-pressed="false" title="Globally connected"><canvas data-ico="global" aria-hidden="true"></canvas><span class="sr">Globally connected</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="pg__stage" data-speed="0.98">
+    <div class="pg__grid"></div>
+    <div class="pg__globe">
+<section class="og" id="one-globe" data-mode="partner" aria-labelledby="og-title">
+  <h2 class="og__title" id="og-title" aria-live="polite" data-heading><span class="h on" data-for="partner">A strong network makes good work better.</span><span class="h" data-for="global">Wherever you are, we’re already awake.</span></h2>
+  <p class="og__body"><span class="b" data-for="partner">We team up with platforms that share our love for building better digital experiences. Together, we turn good ideas into work that works.</span><span class="b" data-for="global">Our people work across time zones, so your project keeps moving while you sleep. Somewhere, someone on the team is already on it.</span></p>
+  <div class="og__seg" role="group" aria-label="Perspective"><span class="og__knob" aria-hidden="true"></span><button type="button" data-to="partner" title="Official partners" aria-pressed="true"><canvas class="og__ico" data-ico="partner" aria-hidden="true"></canvas>Official partners</button><button type="button" data-to="global" title="Globally connected" aria-pressed="false"><canvas class="og__ico" data-ico="global" aria-hidden="true"></canvas>Globally connected</button></div>
+  <canvas class="og__canvas" aria-hidden="true"></canvas>
+  <div class="locs"></div>
+
+  <ul class="partner-links" aria-label="Official partners" style="margin:0;padding:0;list-style:none"></ul>
+
+  <div class="og__switch" role="radiogroup" aria-label="Perspective">
+    <button class="tab" role="radio" aria-checked="true" data-mode="partner">Official Partners</button>
+    <button class="chip" type="button" data-target="partner" tabindex="-1" aria-hidden="true">Click</button>
+    <span class="sep" aria-hidden="true">/</span>
+    <button class="tab" role="radio" aria-checked="false" data-mode="global" tabindex="-1">Globally Connected</button>
+    <button class="chip" type="button" data-target="global" tabindex="-1" aria-hidden="true">Click</button>
+  </div>
+</section>
+    </div>
+  </div>
+</section>

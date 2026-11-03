@@ -1,0 +1,70 @@
+.mq{position:relative;overflow:hidden;padding:0;margin:0}
+.mq__t{display:flex;width:max-content;animation:mqRun var(--mq-dur,46s) linear infinite;will-change:transform}
+.mq__s{display:block;flex:none;width:calc(var(--mq-w,4258.36)*var(--u));height:calc(var(--mq-h,228)*var(--u));overflow:visible}   /* each page's drawing sets its own size and loop time (components/closing/Strip.astro) */
+.mq__s path{fill:none;stroke:rgba(0,0,0,.3);stroke-width:1;stroke-dasharray:2 2;vector-effect:non-scaling-stroke;shape-rendering:crispEdges}
+@media (prefers-reduced-motion:reduce){.mq__t{animation:none}}
+.cta3{position:relative;padding:0 calc(164*var(--u));display:flex;flex-direction:column;gap:calc(48*var(--u))}
+.cta3__h{margin:0;font-weight:400;font-size:calc(50*var(--u));letter-spacing:calc(-1*var(--u));line-height:1.2}
+@media (max-width:899px){.cta3{padding:0 20px}}
+@media (max-width:899px){.cta3__h{font-size:34px}}
+@media (max-width:899px){.mq__s{height:110px;width:auto}}
+.mq{margin-top:calc(120*var(--u))!important}
+.cta3{margin-top:calc(164*var(--u))!important}
+@media (max-width:899px){.mq{margin-top:48px!important}}
+@media (max-width:899px){.cta3{margin-top:64px!important}}
+.cta3{align-items:center;text-align:center;padding:calc(120*var(--u)) calc(164*var(--u))!important;gap:0!important}
+.cta3__rule{position:absolute;left:0;right:0;height:1px;background:repeating-linear-gradient(90deg,rgba(0,0,0,.15) 0 2px,transparent 2px 4px)}
+.cta3__rule.t{top:0}
+.cta3__rule.b{bottom:0}
+.cta3__px{position:absolute;width:6px;height:6px;margin:-2.5px;background:#000}
+.cta3__eye{margin:0 0 calc(28*var(--u));font:400 calc(13*var(--u))/1 var(--mono,"Geist Mono",monospace);letter-spacing:.04em;text-transform:uppercase;color:#0D1432}
+.cta3__h{text-align:center}
+.cta3__btns{display:flex;gap:calc(8*var(--u));margin-top:calc(40*var(--u))}
+.cta3__meta{display:flex;flex-wrap:wrap;justify-content:center;gap:calc(12*var(--u));margin:calc(48*var(--u)) 0 0;font:400 calc(12*var(--u))/1.4 var(--mono,"Geist Mono",monospace);letter-spacing:.04em;text-transform:uppercase;color:rgba(13,20,50,.5)}
+.cta3__meta a{color:inherit;text-decoration:none;transition:color .2s ease}
+.cta3__meta a:hover{color:#000}
+@media (max-width:899px){.cta3{padding:56px 20px!important}}
+@media (max-width:899px){.cta3__px{display:none}}
+@media (max-width:899px){.cta3__meta{font-size:11px}}
+.cta3{margin-top:calc(240*var(--u))!important}
+.cta3__btns{gap:calc(12*var(--u))!important}
+.cta3__btns .ts__btn{align-self:auto}
+.cta3__v{position:absolute;top:calc(-160*var(--u));bottom:calc(-160*var(--u));width:1px;pointer-events:none;
+  background:repeating-linear-gradient(180deg,rgba(0,0,0,.15) 0 2px,transparent 2px 4px);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 calc(160*var(--u)),#000 calc(100% - 160*var(--u)),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 calc(160*var(--u)),#000 calc(100% - 160*var(--u)),transparent 100%)}
+.cta3__v.l{left:calc(164*var(--u))}
+.cta3__v.r{right:calc(164*var(--u))}
+@media (max-width:899px){.cta3__v{display:none}}
+.cta3{padding:0 calc(164*var(--u)) calc(120*var(--u))!important}
+.cta3__eye.ts__eye{margin:0 0 calc(28*var(--u))!important;justify-content:center;letter-spacing:normal!important;font:400 calc(14*var(--u))/1.2 var(--mono)!important;color:var(--mid)!important}
+@media (max-width:899px){.cta3{padding:0 20px 72px!important}}
+.cta3__btns .b30btn{height:max(38px,calc(48*var(--u)))}
+.mq__fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.cta3__h .b30-alt{display:inline-block;text-align:center}
+.cta3__btns > [data-btn]{width:max-content!important;flex:none}
+
+/* =====================================================================
+   Phones (≤ 899px): the "Sketch…" strip and the call to action — one version for every page
+   (from the Our Work mobile design). Desktop is untouched: everything sits in the media queries below.
+   ===================================================================== */
+@media (max-width:899px){
+  html body .b30-main > section.cta3:not(#_z){margin-top:56px!important;padding-top:0!important}
+  .cta3 .cta3__eye.ts__eye{font-size:12px!important;margin-bottom:20px!important}
+  .cta3.cta3{margin-top:24px!important;padding-top:40px!important}
+  .cta3 .cta3__eye.ts__eye{margin-bottom:6px!important}
+  .cta3 .cta3__btns{margin-top:28px!important}
+  .cta3 .cta3__h{font-size:32px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+  .cta3 .cta3__eye.ts__eye{font:400 12px/1.2 var(--mono,"Geist Mono",monospace)!important;color:rgba(13,20,50,.56)!important;margin-bottom:12px!important}
+  html body .cta3__h:not(#_z){font-size:26px!important;line-height:1.2!important;letter-spacing:-.02em!important;max-width:311px;margin-left:auto!important;margin-right:auto!important}
+  html body .cta3__eye:not(#_z){font-size:12px!important;opacity:.6}
+  html body :is(#services .b30s__mobile,section.b30sb,section.ts .ts__top,.nx-sec .nx__top,section.cta3):not(#_z){padding-left:20px!important;padding-right:20px!important}
+  html body section.cta3:not(#_z){margin-top:-62px!important}
+  html body section.cta3:not(#_z){margin-top:-45px!important}
+  html body section.cta3:not(#_z){margin-top:-38px!important}
+  html body section.cta3:not(#_z){margin-top:-6px!important;padding-bottom:104px!important}
+}
+/* desktop: the closing call to action ("Building something? Or fixing something broken?") sits 210 px under the
+   section above it, with no space under it — on every page */
+@media (min-width:900px){
+  html body .b30-main > section.cta3:not(#_z):not(#_y),html body section.cta3:not(#_z):not(#_y){margin-top:210px!important;padding-bottom:0!important}
+}

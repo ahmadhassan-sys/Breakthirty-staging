@@ -1,0 +1,18 @@
+---
+/**
+ * Work page · 3. One team — the big line, the hand, the short paragraph and the button.
+ * Content: `hello` in src/data/work.js · Script: public/js/work-page.js
+ * Styles: src/styles/work-page/hello.css
+ */
+import Button from "../ui/Button.astro";
+
+const { heading, text, hand, cta } = Astro.props;
+---
+<section class="wk-s wk-hello" aria-labelledby="wk-hello-h">
+  <div class="wk-hello__f" aria-hidden="true"></div>
+  <canvas class="wk-hello__px" aria-hidden="true"></canvas>
+  <h2 class="wk-hello__h" id="wk-hello-h" data-heading>{heading}</h2>
+  <div class="wk-hello__hand" aria-hidden="true"><img src={hand} alt="" width="1009" height="520" loading="lazy" decoding="async" /></div>
+  <p class="wk-hello__p" data-reveal data-pair>{text}</p>
+  <Button label={cta.label} href={cta.href} icon={cta.icon} class="wk-hello__btn" data-reveal="" data-pair="" style="--rd:220ms" />
+</section>

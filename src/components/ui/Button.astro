@@ -1,0 +1,11 @@
+---
+/**
+ * The site's pill button: a square pixel icon + a label.
+ * Any other attributes (data-reveal, style, …) are passed straight to the link.
+ */
+import Icon from "./Icon.astro";
+
+interface Props { label: string; href: string; icon?: string; class?: string; [attr: string]: unknown }
+const { label, href, icon = "target24", class: extraClass = "", ...rest } = Astro.props;
+---
+<a class={`b30btn b30btn--solid${extraClass ? ` ${extraClass}` : ""}`} href={href} data-btn data-anim={icon === "phone" ? "phone" : "target"} {...rest}><span class="b30btn__ic"><Icon name={icon} /></span><span class="b30btn__lbl" data-lbl>{label}</span></a>

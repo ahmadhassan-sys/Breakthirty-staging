@@ -1,0 +1,335 @@
+/* Our Work page on phones (from the Work mobile design, block wk-mobile).
+   Phones only (≤ 899px): every rule sits inside max-width:899px, so desktop is untouched. */
+/* ===== Work — phones (≤ 899 px), per the Figma "Work Grid" mobile frame (B30 · node 5493:2596, 390 wide).
+   Every rule sits inside max-width:899px, so desktop is untouched. ===== */
+
+@media (max-width:899px){
+
+  /* --- nav: 80 tall, dashed hairline; logo 28 tall at 20; Menu = 32 icon square + black label (13 mono, 10 %) --- */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  /* --- buttons: the Figma pair (icon square + label), 36 tall --- */
+  
+  
+  
+
+  
+  /* --- hero (726, pinned while the page rises over it): title 32 centred at 157 · the spine of pages in the middle
+     (329 × 202 at 273) · intro 14 / 1.3 at 515 · "Scroll to the results" at 624 --- */
+  html body .b30h.wk-hero:not(#_z){height:1452px!important;--wh:726px}
+  html body .wk-hero .b30h__pin:not(#_z){position:sticky!important;top:0!important;height:726px!important;overflow:hidden!important}
+  html body .wk-hero .b30h__stage:not(#_z){position:absolute!important;inset:0!important;padding:0!important;transform:none!important}
+  html body .wk-hero + .b30-main:not(#_z){margin-top:-726px!important;position:relative;z-index:2}
+  html body .wk-hero .b30h__glow:not(#_z){top:auto!important;bottom:-260px!important;left:-60%!important;width:220%!important;height:auto!important}
+  html body .wk-hero .wk-hero__title:not(#_z){position:absolute!important;left:50%!important;right:auto!important;top:157px!important;width:313px!important;max-width:calc(100% - 40px);margin:0!important;transform:translateX(-50%);text-align:center!important;white-space:normal!important;font-size:32px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+  html body .wk-hero .wk-hero__title > span:not(#_z){display:inline!important}
+  html body .wk-hero .wk-rig:not(#_z){position:absolute!important;left:0!important;right:0!important;top:273px!important;width:auto!important;height:202px!important;margin:0!important;perspective:720px!important;perspective-origin:50% 40%!important}
+  html body .wk-hero .wk-rig__spin:not(#_z){top:50%!important}
+  html body .wk-hero .wk-shadow:not(#_z){display:none!important}
+  html body .wk-hero .wk-hero__intro:not(#_z){position:absolute!important;left:50%!important;right:auto!important;top:515px!important;width:273px!important;max-width:calc(100% - 40px);margin:0!important;transform:translateX(-50%);text-align:center;font-size:14px!important;line-height:1.3!important;letter-spacing:-.02em!important}
+  html body .wk-hero .wk-hero__scroll:not(#_z){position:absolute!important;left:50%!important;right:auto!important;top:624px!important;margin:0!important;transform:translateX(-50%);white-space:nowrap;font-size:10px!important;line-height:1.2!important;letter-spacing:-.02em!important;color:rgba(0,0,0,.5)!important}
+  html body .wk-hero .wk-hero__name:not(#_z){display:none!important}
+  html body .wk-hero .wk-hero__dim:not(#_z){opacity:var(--m-dim,0)!important}
+
+  /* --- the filter bar: sticky, 48 tall between two dashed rules; the categories (10.67, counts 6.9) slide sideways
+     under your finger; a dashed rule, then Grid | Index (10.95) --- */
+  html body .b30-main > .wk-list:not(#_z){padding-top:46px!important;background:#fff}
+  html body .wk-list .wk-fbar:not(#_z){position:sticky!important;top:0!important;z-index:30!important;margin:40px 0 0!important;background:#fff}
+  html body .wk-fbar .wk-fbar__in:not(#_z){height:48px;margin:0 20px!important;padding:0!important;gap:0!important;display:flex!important;align-items:stretch!important}
+  html body .wk-fbar .wk-tabs:not(#_z){flex:1 1 auto;min-width:0;height:48px;display:flex;align-items:center;gap:32px!important;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;padding-right:20px!important;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)!important;mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)!important}
+  html body .wk-fbar .wk-tabs::-webkit-scrollbar{display:none}
+  html body .wk-fbar .wk-tabs li:not(#_z){flex:none}
+  html body .wk-fbar .wk-tab:not(#_z){font:400 10.67px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;white-space:nowrap;color:#000;opacity:.5}
+  html body .wk-fbar .wk-tab[aria-pressed="true"]:not(#_z){opacity:1}
+  html body .wk-fbar .wk-tab sup:not(#_z){font-size:6.88px!important;top:-.15em}
+  html body .wk-fbar .wk-views:not(#_z){flex:none;width:114px;height:48px;display:flex;align-items:center;justify-content:flex-end;gap:20px!important;border-left:1px dashed rgba(0,0,0,.15);box-sizing:border-box}
+  html body .wk-fbar .wk-views i:not(#_z){width:0!important;height:13px!important;background:none!important;border-left:.68px solid rgba(0,0,0,.4)}
+  html body .wk-fbar .wk-view:not(#_z){font:400 10.95px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;opacity:.5;gap:0!important}
+  html body .wk-fbar .wk-view[aria-pressed="true"]:not(#_z){opacity:1}
+  html body .wk-fbar .wk-view__ic:not(#_z){display:none!important}
+
+  /* --- featured project: label · title (26) · services (11 mono) · story (14 / 1.3) · View case study · picture (349 × 220) --- */
+  html body .wk-feat:not(#_z){margin:0 20px!important}
+  html body .wk-feat .wk-feat__k:not(#_z){margin:48px 0 0!important;font:400 11px/1.2 var(--mono,"Geist Mono",monospace)!important;text-transform:uppercase;color:rgba(0,0,0,.5)}
+  html body .wk-feat .wk-feat__row:not(#_z){display:block!important;margin-top:41px!important}
+  html body .wk-feat .wk-feat__t:not(#_z){font-size:26px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+  html body .wk-feat .wk-feat__meta:not(#_z){margin:24px 0 0!important;font:400 11px/1.2 var(--mono,"Geist Mono",monospace)!important;text-transform:uppercase}
+  html body .wk-feat .wk-feat__name:not(#_z),html body .wk-feat .wk-feat__yr:not(#_z){display:none!important}
+  html body .wk-feat .wk-feat__p:not(#_z){margin:24px 0 0!important;font-size:14px!important;line-height:1.3!important;letter-spacing:-.02em!important}
+  html body .wk-feat .wk-vcs:not(#_z){margin-top:32px!important}
+  html body .wk-vcs .b30btn__ic svg:not(#_z){left:50%!important;top:50%!important;margin:-9px 0 0 -9px!important}
+  html body .wk-feat .wk-media:not(#_z){margin-top:40px!important;height:auto!important;aspect-ratio:349 / 220!important}
+
+  /* --- Selected Work (32) and its line (14 / 1.3), 96 under the featured picture --- */
+  html body .wk-sel:not(#_z){width:auto!important;margin:0 20px!important;display:flex!important;flex-direction:column-reverse!important;align-items:flex-start!important;gap:20px!important}
+  html body .wk-sel h2:not(#_z){font-size:32px!important;line-height:1.2!important;letter-spacing:-.02em!important;white-space:nowrap}
+  html body .wk-sel p:not(#_z){width:auto!important;font-size:14px!important;line-height:1.3!important;letter-spacing:-.02em!important}
+
+  /* --- the cards: (01) · picture 350 × 220 · title (21) · story (14 / 1.3) · tags (12 mono at half strength), 64 apart --- */
+  html body .wk-views-box:not(#_z){margin:54px 20px 0!important}
+  html body .wk-views-box[data-view="grid"] .wk-grid:not(#_z){display:grid!important;grid-template-columns:1fr!important;row-gap:64px!important}
+  html body .wk-card .wk-card__n:not(#_z){margin:0 0 24px!important;font-size:13px!important;line-height:1.2!important;letter-spacing:-.01em!important}
+  html body .wk-card .wk-card__n:not(#_z)::before{content:"("}
+  html body .wk-card .wk-card__n:not(#_z)::after{content:")"}
+  html body .wk-card .wk-media:not(#_z){height:auto!important;aspect-ratio:350 / 220!important}
+  html body .wk-card .wk-card__b:not(#_z){display:flex!important;flex-direction:column!important;gap:16px!important;margin-top:36px!important}
+  html body .wk-card .wk-card__t:not(#_z){width:auto!important;font-size:21px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+  html body .wk-card .wk-card__r:not(#_z){width:auto!important;padding:0!important}
+  html body .wk-card .wk-card__r p:not(#_z){font-size:14px!important;line-height:1.3!important;letter-spacing:-.02em!important}
+  html body .wk-card .wk-tags:not(#_z){margin:16px 0 0!important;gap:8px!important}
+  html body .wk-tags li:not(#_z){padding:6px 10px!important;border-radius:8px!important;font:400 12px/1.2 var(--mono,"Geist Mono",monospace)!important;text-transform:uppercase;color:rgba(0,0,0,.5)!important}
+  html body .wk-tags li:not(#_z)::before{border:1px solid rgba(0,0,0,.1)!important}
+  /* the index view on a phone: number · title (21) · line (14) · tags, between dashed rules */
+  html body .wk-row .wk-row__t:not(#_z){font-size:21px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+  html body .wk-row .wk-row__n:not(#_z){font-size:13px!important}
+  html body .wk-row .wk-row__d:not(#_z){font-size:14px!important;line-height:1.3!important;letter-spacing:-.02em!important}
+
+  /* --- "One team behind every project": 777 tall, pink (#FDF) fading to white; heading (32) at 88, the hand and pixel
+     block turned 15° across the middle, the line (15) at 510, Get in touch 32 under it --- */
+  html body .b30-main > .wk-hello:not(#_z){position:relative!important;height:calc(100vw * 804 / 390)!important;min-height:0!important;margin-top:calc(96px + 100vw * 150 / 390)!important;padding:0!important;overflow:visible!important;overflow-x:clip!important;background:linear-gradient(180deg,#FAD7FF 1%,#fff 84%)!important}
+  html body .wk-hello .wk-hello__f:not(#_z){display:block!important;top:0!important;height:1px!important;background:none!important}
+  html body .wk-hello .wk-hello__px:not(#_z){display:none!important}
+  html body .wk-hello .m-hpx:not(#_z){position:absolute;left:0;right:0;top:0;height:0;z-index:1;pointer-events:none}
+  html body .wk-hello .m-hpx i:not(#_z){position:absolute;width:calc(100vw * 50 / 390 + 1px);height:calc(100vw * 50 / 390 + 1px);background:#FAD7FF;opacity:0;transform:scale(.7);transition:opacity .45s ease,transform .6s cubic-bezier(.16,1,.3,1)}
+  html body .wk-hello .m-hpx.is-in i:not(#_z){opacity:1;transform:none}
+  html body .wk-hello .wk-hello__h:not(#_z){position:absolute!important;left:50%!important;top:calc(100vw * 88 / 390)!important;width:calc(100vw * 305 / 390)!important;margin:0!important;transform:translateX(-50%);text-align:center;font-size:32px!important;line-height:1.2!important;letter-spacing:-.02em!important;z-index:3}
+  html body .wk-hello .wk-hello__hand:not(#_z){position:absolute!important;left:calc(100vw * 69.5 / 390)!important;top:calc(100vw * 295.5 / 390)!important;width:calc(100vw * 566 / 390)!important;height:calc(100vw * 272 / 390)!important;margin:0!important;aspect-ratio:auto!important;transform:rotate(15deg)!important;transform-origin:50% 50%!important;opacity:1!important;z-index:2}
+  html body .wk-hello .wk-hello__hand img:not(#_z){object-fit:contain;object-position:50% 100%;transform:none!important}
+  html body .wk-hello .wk-hello__p:not(#_z){position:absolute!important;left:50%!important;top:calc(100vw * 537 / 390)!important;width:calc(100vw * 293 / 390)!important;margin:0!important;transform:translateX(-50%);text-align:center;font-size:15px!important;line-height:1.2!important;letter-spacing:-.01em!important;z-index:3}
+  html body .wk-hello .wk-hello__btn:not(#_z){position:absolute!important;left:50%!important;top:calc(100vw * 641 / 390)!important;margin:0!important;transform:translateX(-50%);z-index:3}
+  html body .wk-hello .wk-hello__btn .b30btn__lbl:not(#_z){width:auto!important;background:#000!important;color:#fff!important;border:0!important;border-radius:8.7px!important}
+  html body .wk-hello .wk-hello__btn .b30btn__ic:not(#_z){background:#fff!important;border:.667px solid #000!important;border-radius:8.7px!important}
+  html body .wk-hello .wk-hello__btn.is-in:not(#_z),html body .wk-hello .wk-hello__p.is-in:not(#_z){transform:translateX(-50%)!important}
+/* --- partners: the label (13 mono, midnight) 40 under the hero, then five rows of 4.5 px brand pixels (from 83, every 16) --- */
+  
+  
+  /* the partner logos tick by beside the label (the homepage's phone ticker) */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  /* --- text reveals: text rises in as it arrives --- */
+  
+  
+
+  
+  /* --- testimonials and the last CTA: the homepage's phone versions --- */
+  
+  
+  
+  /* each review only as tall as its words: the deck follows the card in view */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  html body .b30h__px:not(#_z){width:4px!important;height:4px!important}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+/* --- footer (the homepage's phone footer) --- */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
+
+@media (max-width:899px){ html:root,html body{overflow-x:clip} }   /* (from the design's site block) */

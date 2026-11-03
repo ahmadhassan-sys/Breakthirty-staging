@@ -1,0 +1,21 @@
+/* =====================================================================
+   Services page styles, in cascade order. The shared files are the same
+   ones the homepage uses; the page's own files are in styles/services/.
+   ===================================================================== */
+@import "../global.css";
+@import "../hero.css";               /* the shared hero frame + header */
+@import "../services/hero.css";
+@import "../partners.css";
+@import "../services/list.css";
+@import "../services/say-hello.css";
+@import "../shared.css";
+@import "../testimonials.css";
+@import "../closing.css";       /* after the testimonials: the Sketch/Make/Break/Scale strip and the call to action */
+@import "../contact.css";
+@import "../footer.css";
+@import "../theme.css";
+@import "../dark.css";
+@import "../services/page.css";      /* this page's own dark sky (last) */
+@import "../mobile/layer.css";      /* phones (≤ 899px): the shared phone layer */
+@import "../mobile/m5.css";         /* phones: type, sides, buttons, footer (on top of the layer) */
+@import "../mobile/services.css";   /* phones: the services page (last) */

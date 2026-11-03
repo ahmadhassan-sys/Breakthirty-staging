@@ -1,0 +1,29 @@
+/* Case study page · overview, services and challenge (numbered text sections) */
+.cz-sec{padding-top:calc(164*var(--u))}
+.cz-overview .cz-split,.cz-services .cz-split,.cz-challenge .cz-split{margin-left:calc(163*var(--u))}
+.cz-details{margin-top:calc(62*var(--u))}
+.cz-dt{display:flex;justify-content:space-between;align-items:center;padding:calc(24*var(--u)) 0;border-bottom:1px solid rgba(0,0,0,.2);font-size:max(15px,calc(18*var(--u)));line-height:1.2;letter-spacing:-.01em}
+.cz-dt--h{border-bottom:1px dashed rgba(0,0,0,.15)}
+.cz-pill{display:inline-flex;align-items:center;height:28px;padding:0 8px;box-sizing:border-box;border:1px solid rgba(0,0,0,.1);border-radius:8px;
+  font:400 12px/1.2 var(--mono);text-transform:uppercase;color:rgba(0,0,0,.5);text-decoration:none;transition:color .2s ease,border-color .2s ease}
+.cz-pill:hover{color:#000;border-color:rgba(0,0,0,.3)}
+.cz-wrap--rule{margin:calc(164*var(--u)) 0 0 calc(161*var(--u));width:calc(1598*var(--u))}
+.cz-rule{position:relative;height:6px}
+.cz-rule::before{content:"";position:absolute;left:1px;right:3px;top:2.5px;height:1px;background:rgba(0,0,0,.15);transform-origin:left;transform:scaleX(0);transition:transform 1.4s cubic-bezier(.65,0,.35,1)}
+.cz-rule::after,.cz-rule i{content:"";position:absolute;top:0;width:6px;height:6px;background:#000;opacity:0;transition:opacity .4s ease .9s}
+.cz-rule::after{left:0}
+.cz-rule i{right:0}
+.cz-rule.in::before{transform:none}
+.cz-rule.in::after,.cz-rule.in i{opacity:1}
+.cz-services{padding-top:calc(164*var(--u))}
+.cz-chips{list-style:none;margin:calc(164*var(--u)) 0 0;padding:0;display:flex;flex-wrap:wrap;gap:calc(16*var(--u))}
+.cz-chips li{display:flex;align-items:center;height:max(32px,calc(40*var(--u)));padding:0 calc(12*var(--u));box-sizing:border-box;border:.75px solid rgba(0,0,0,.15);border-radius:10px;
+  font-size:max(11px,calc(14*var(--u)));line-height:1.2;letter-spacing:-.02em;white-space:nowrap}
+@media (max-width:899px){
+  .cz-overview .cz-split,.cz-services .cz-split,.cz-challenge .cz-split{margin:0 20px!important}
+  .cz-sec,.cz-services{padding-top:64px}
+  .cz-wrap--rule{margin:64px 20px 0;width:auto}
+  .cz-chips{margin-top:40px}
+}
+/* (02) services provided: black tags, white text (Weldon Brewster design, on every case study) */
+.cz-services .cz-chips li{background:#000;color:#fff;border-color:#000}

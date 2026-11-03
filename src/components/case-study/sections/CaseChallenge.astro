@@ -1,0 +1,15 @@
+---
+/** (03) The challenge: heading and paragraphs. */
+import Label from "../parts/Label.astro";
+import Rich from "../../ui/Rich.astro";
+const { n, labels, heading, body } = Astro.props;
+---
+<section class="cz-sec cz-challenge">
+  <div class="cz-wrap cz-split">
+    <Label n={n} title={labels.challenge} />
+    <div class="cz-col">
+      <h2 class="cz-h50" data-heading><Rich text={heading} /></h2>
+      <div class="cz-body cz-mt72" data-reveal>{body.map((p) => <p>{p}</p>)}</div>
+    </div>
+  </div>
+</section>

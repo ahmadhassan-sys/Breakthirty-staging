@@ -1,0 +1,11 @@
+---
+/** The big number and its sentence. */
+import Count from "../parts/Count.astro";
+const { value, count, from, suffix, text } = Astro.props;
+---
+<section class="cz-stat">
+  <div class="cz-wrap cz-split">
+    <p class="cz-stat__n"><Count value={value} count={count} from={from} suffix={suffix} /></p>
+    <p class="cz-h50" data-heading>{text}</p>
+  </div>
+</section>

@@ -1,0 +1,183 @@
+---
+/**
+ * One section of a template-B case study, picked by its `type` (see TemplateB.astro for the list).
+ * `n` is the section's number in the labels, e.g. "(04)".
+ */
+import Label from "../parts/Label.astro";
+import Picture from "../parts/Picture.astro";
+import Corners from "../parts/Corners.astro";
+import Count from "../parts/Count.astro";
+import Rich from "../../ui/Rich.astro";
+import Media from "./Media.astro";
+import Head from "./Head.astro";
+import CaseNext from "../sections/CaseNext.astro";
+import Pill from "./Pill.astro";
+
+const { s, n, name, labels, next } = Astro.props;
+const c = (base, mods = []) => [base, ...(mods || [])].join(" ");
+const pad = (i) => String(i + 1).padStart(2, "0");
+const pills = s.type === "overview" ? s.links || [s.link] : [];   // the "Visit …" buttons beside (Details)
+---
+{s.type === "intro" && (
+  <section class="cz-intro">
+    <div class="cz-wrap">
+      <p class="cz-crumb" data-reveal><a href="/" data-hscr>{labels.home}</a>{s.crumbTight ? "/" : " / "}<span class="cz-crumb__on">{name}</span></p>
+      <div class="cz-split">
+        <h1 class="cz-title" data-heading><Rich text={s.title} /></h1>
+        <div class="cz-intro__r">
+          <dl class="cz-meta" data-reveal style="--rd:220ms">
+            <div><dt>{labels.type}</dt><dd>{s.kind}</dd></div>
+            <div><dt>{labels.role}</dt><dd>{s.roles.map((r) => <span>{r}</span>)}</dd></div>
+          </dl>
+          <p class={s.ledeWide ? "cz-lede cz-lede--wide" : "cz-lede"} data-heading>{s.lede}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+{s.type === "demo" && (
+  <section class={c("cz-demo", s.mods)} id="demo" aria-label={s.label}>
+    {s.kicker && <p class="cz-demo__k">{s.kicker}</p>}
+    <div class="cz-demo__media"><Picture class="cz-fill" image={s.image} alt={s.alt} video={s.video} /></div>
+    <Corners />
+  </section>
+)}
+{s.type === "overview" && (
+  <section class="cz-sec cz-overview">
+    <div class="cz-wrap cz-split">
+      <Label n={n} title={s.label} />
+      <div class="cz-col">
+        <h2 class="cz-h50" data-heading><Rich text={s.heading} /></h2>
+        <div class="cz-body cz-mt70" data-reveal>{s.body.map((p) => <p><Rich text={p} /></p>)}</div>
+        <div class="cz-details" data-reveal>
+          <div class="cz-dt cz-dt--h"><span>{s.detailsLabel}</span>{pills.length > 1 ? <span class="cz-pills">{pills.map((l) => <Pill l={l} />)}</span> : pills.map((l) => <Pill l={l} />)}</div>
+          {s.details.map((d) => <div class="cz-dt"><span>{d.label}</span><span>{d.value}</span></div>)}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+{s.type === "rule" && <div class={c("cz-wrap--rule", s.mods)}><div class="cz-rule" aria-hidden="true"><i></i></div></div>}
+{s.type === "services" && (
+  <section class="cz-sec cz-services">
+    <div class="cz-wrap cz-split">
+      <Label n={n} title={s.label} />
+      <div class="cz-col">
+        <h2 class="cz-h50" data-heading><Rich text={s.heading} /></h2>
+        <ul class="cz-chips">{s.list.map((x, i) => <li data-reveal style={`--rd:${140 + i * 60}ms`}>{x}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+)}
+{s.type === "challenge" && (
+  <section class="cz-sec cz-challenge">
+    <div class="cz-wrap cz-split">
+      <Label n={n} title={s.label} />
+      <div class="cz-col">
+        <h2 class="cz-h50" data-heading><Rich text={s.heading} /></h2>
+        <div class="cz-body cz-mt72" data-reveal>{s.body.map((p) => <p><Rich text={p} /></p>)}</div>
+      </div>
+    </div>
+  </section>
+)}
+{s.type === "beforeAfter" && s.single && (
+  <section class={c("cz-ba cz-ba--one", s.mods)} aria-label={s.label}>
+    <p class="wb-ba__cap" data-reveal>{s.caption}</p>
+    <div class="wb-ba__frame"><Picture class="wb-ba__media" image={s.single.image} alt={s.single.alt} video={s.single.video} /></div>
+  </section>
+)}
+{s.type === "beforeAfter" && !s.single && (
+  <section class={c("cz-ba", s.mods)} aria-label={s.label}>
+    {s.kicker && <p class="cz-ba__k" data-reveal>{s.kicker}</p>}
+    {s.labels && s.labelsTop && <div class="cz-ba__lbl cz-ba__lbl--top">{s.labels.map((l) => <span class={s.labelsMono ? "cz-mono16" : undefined} data-reveal>{l}</span>)}</div>}
+    <div class="cz-ba__frame">
+      <Picture class="cz-ba__img a" image={s.before.image} alt={s.before.alt} video={s.before.video} />
+      <Picture class="cz-ba__img b" image={s.after.image} alt={s.after.alt} video={s.after.video} />
+    </div>
+    {s.labels && !s.labelsTop && <div class="cz-ba__lbl">{s.labels.map((l) => <span class={s.labelsMono ? "cz-mono16" : undefined} data-reveal>{l}</span>)}</div>}
+  </section>
+)}
+{s.type === "stat" && (
+  <section class={c("cz-stat", s.mods)}>
+    <div class="cz-wrap cz-split">
+      <p class="cz-stat__n"><Count {...s.number} /></p>
+      {s.source ? <div><p class="cz-h50" data-heading>{s.text}</p><p class="cz-src" data-reveal>{s.source}</p></div> : <p class="cz-h50" data-heading>{s.text}</p>}
+    </div>
+  </section>
+)}
+{s.type === "how" && (
+  <section class={c("cz-how", s.mods)} aria-labelledby="cz-how-h">
+    <canvas class="cz-band" aria-hidden="true"></canvas>
+    <div class={s.headWide ? "cz-how__head cz-how__head--wide" : "cz-how__head"}>
+      <Label n={n} title={s.label} />
+      <h2 class="cz-h71" id="cz-how-h" data-heading><Rich text={s.heading} /></h2>
+    </div>
+    <ol class="cz-steps">{s.steps.map((st, i) => (
+      <li class="cz-st"><div class="cz-st__in"><p class="cz-st__n">({i + 1})</p><h3 class="cz-st__t" data-heading>{st.title}</h3><p class="cz-st__d">{st.text}</p></div></li>
+    ))}</ol>
+    <img class="cz-hand" src={labels.hand} alt="" aria-hidden="true" draggable="false" />
+  </section>
+)}
+{s.type === "note" && <p class="cz-note" data-heading>{s.text}</p>}
+{s.type === "output" && (
+  <section class={c("cz-out", s.mods)} aria-labelledby="cz-out-h">
+    <div class={c("cz-how__head cz-out__head", s.headMods)}>
+      <Label n={n} title={s.label} />
+      <h2 class="cz-h71" id="cz-out-h" data-heading><Rich text={s.heading} /></h2>
+    </div>
+    <nav class={c("cz-tabs", s.tabsMods)} aria-label={s.navLabel}>{s.parts.map((p, i) => (
+      <a class="cz-tab" href={`#part-${i + 1}`} data-i={i}><span>{pad(i)}.&nbsp; {p.tab}</span></a>
+    ))}</nav>
+    <div class="cz-parts">{s.parts.map((p, i) => (
+      <article class="cz-part" id={`part-${i + 1}`}><p class="cz-part__k">{p.kicker}</p>
+        <Head {...p} />
+        <div class="cz-f__media"><Media items={p.media} /></div></article>
+    ))}</div>
+  </section>
+)}
+{s.type === "statement" && (
+  <section class={c("cz-say", s.mods)} aria-label={s.text}>
+    <h2 class="cz-say__t" data-heading>{s.text}</h2>
+  </section>
+)}
+{s.type === "brand" && (
+  <section class="cz-brand" aria-labelledby="cz-brand-h">
+    <div class="cz-wrap">
+      <div class="cz-split cz-brand__head">
+        <Label n={n} title={s.label} />
+        <div><h2 class="cz-h71" id="cz-brand-h" data-heading><Rich text={s.heading} /></h2>
+          <div class="cz-body cz-mt72" data-reveal>{s.body.map((p) => <p><Rich text={p} /></p>)}</div></div>
+      </div>
+      <Picture class={["cz-wide cz-mt104", s.image.h ? `cz-h${s.image.h}` : ""].join(" ").trim()} image={s.image.image} alt={s.image.alt} video={s.image.video} />
+      <div class="cz-feats">{s.features.map((f) => (
+        <article class="cz-f">
+          <Head {...f} feature />
+          <div class="cz-f__media"><Media items={f.media} /></div>
+        </article>
+      ))}</div>
+    </div>
+  </section>
+)}
+{s.type === "impact" && (
+  <section class={c("cz-impact", s.mods)} aria-labelledby="cz-imp-h">
+    <div class="cz-wrap cz-split">
+      <Label n={n} title={s.label} />
+      <h2 class="cz-h71" id="cz-imp-h" data-heading><Rich text={s.heading} /></h2>
+    </div>
+    <div class="cz-imp">{s.rows.map((r) => (
+      <div class="cz-imp__row"><p class="cz-imp__n" data-reveal><Count {...r} /></p><p class="cz-h36" data-heading>{r.text}</p></div>
+    ))}</div>
+  </section>
+)}
+{s.type === "outcome" && (
+  <section class={c("cz-sec cz-outcome", s.mods)}>
+    <div class="cz-wrap cz-split">
+      <Label n={n} title={s.label} />
+      <figure class="cz-quote">
+        <blockquote><p class="cz-q1" data-heading>{s.quote}</p>{s.more && <p class="cz-q2" data-reveal>{s.more}</p>}</blockquote>
+        <figcaption class="cz-by" data-reveal><span class={s.person.style ? `cz-ava cz-ava--${s.person.style}` : "cz-ava"} role="img" aria-label={s.person.name}></span><span class="cz-by__n">{s.person.name}</span><span class="cz-by__r">{s.person.role}</span></figcaption>
+      </figure>
+    </div>
+  </section>
+)}
+{s.type === "next" && next && <CaseNext labels={labels} next={next} />}

@@ -1,0 +1,49 @@
+html.dark{--svx-dash:rgba(255,255,255,.18)}
+html.dark.dark{--night:
+  radial-gradient(75% 60% at 88% 108%,rgba(52,70,170,.24),rgba(52,70,170,0) 70%) fixed,
+  linear-gradient(155deg,#000 0%,#000 30%,#010205 50%,#02040c 62%,#050817 72%,#0a0f2a 88%,#0D1432 100%) fixed}
+html.dark.dark,html.dark.dark body{background:var(--night)!important}
+html.dark .b30-main{position:relative;z-index:2}
+/* the homepage's "every section paints the night" rule doesn't apply here: these sections let the page's own night show through */
+html.dark.dark .b30-main > section.svx,html.dark.dark .b30-main > section.svhello{background:transparent!important}
+
+/* =====================================================================
+   Services page — Oct 2026 update
+   ===================================================================== */
+/* light only: the dark theme and its switch are gone from this page */
+.b30-theme,.b30-stars{display:none!important}
+
+/* hero colour (Figma B30 › 5184:662): white at the top, a soft hill of light rising at the lower right —
+   pale yellow, peach, rose, violet, and the brand blue at its foot — that shifts its colour very slowly, on a loop */
+.wk-hero .b30h__glow,.wk-hero .b30h__glowx{display:none!important}
+.svh__sky{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#fff}
+.svh__sky i{position:absolute;left:calc(1238*var(--u) - 1900*var(--u));top:calc(1060*var(--u) - 960*var(--u));width:calc(3800*var(--u));height:calc(1920*var(--u));
+  border-radius:50%;will-change:transform,opacity;backface-visibility:hidden}
+/* the base light, as drawn in Figma */
+.svh__sky .a{background:radial-gradient(closest-side,
+  #4C5EC3 0%,#5F67C4 5%,#7A70C2 9.5%,#A584BE 14%,#CB9CBA 19%,#E7B9BC 24%,#F5D3C4 30%,#FBE5CD 36%,#FDF2DA 43%,#FFF9EE 52%,#FFFDF8 60%,rgba(255,255,255,0) 70%);
+  animation:svhSkyA 22s ease-in-out infinite alternate}
+/* the same hill, a cooler mix (more violet and blue, less peach) — it breathes in and out over the base */
+.svh__sky .b{background:radial-gradient(closest-side,
+  #3F57C0 0%,#5463C6 6%,#7372C9 11%,#9E86C8 16%,#C6A1C6 21%,#E2C0CC 27%,#F1D8D6 33%,#F8E9E2 40%,#FCF5F0 48%,#FEFBF8 58%,rgba(255,255,255,0) 68%);
+  opacity:0;animation:svhSkyB 15s ease-in-out infinite alternate}
+/* and a warmer one (rose and apricot), out of step with the other */
+.svh__sky .c{background:radial-gradient(closest-side,
+  #5A5DC0 0%,#7468C0 5%,#9774BC 10%,#C185B6 15%,#E3A2B1 20%,#F4C2B6 26%,#FAD9C0 33%,#FDE9CC 40%,#FEF5E0 48%,#FFFBF2 58%,rgba(255,255,255,0) 68%);
+  opacity:0;animation:svhSkyC 19s ease-in-out -6s infinite alternate}
+@keyframes svhSkyA{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(calc(-60*var(--u)),calc(-14*var(--u)),0) scale(1.035)}}
+@keyframes svhSkyB{0%,15%{opacity:0;transform:translate3d(calc(40*var(--u)),0,0) scale(.99)}100%{opacity:.85;transform:translate3d(calc(-30*var(--u)),calc(-10*var(--u)),0) scale(1.03)}}
+@keyframes svhSkyC{0%,20%{opacity:0;transform:translate3d(calc(-50*var(--u)),calc(6*var(--u)),0) scale(1.02)}100%{opacity:.75;transform:translate3d(calc(50*var(--u)),calc(-8*var(--u)),0) scale(.985)}}
+@media (prefers-reduced-motion:reduce){.svh__sky i{animation:none!important}}
+@media (max-width:899px){.svh__sky i{left:calc(50% - 900px);top:auto;bottom:-560px;width:1800px;height:1000px}}
+/* hero: the heading and the picture sit 56 higher; the right-hand upright stays above the hero colour */
+@media (min-width:900px){
+  .wk-hero .svh__title{top:calc(206*var(--u))!important}
+  .wk-hero .svh__media{top:calc(220*var(--u))!important}
+}
+.wk-hero .b30h__vline--27{z-index:6!important}
+/* closing CTA: 80 less air under "Get in touch" */
+@media (min-width:900px){ .cta3{padding-bottom:calc(40*var(--u))!important} }
+
+/* the closing band keeps 90 here (with 40 under "Get in touch": 130 to the footer's steps) */
+@media (min-width:900px){ #contact.b30c.wk-cta-proof,#contact.b30c{height:calc(90*var(--u))!important} }

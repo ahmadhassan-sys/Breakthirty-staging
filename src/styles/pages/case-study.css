@@ -1,0 +1,19 @@
+/* =====================================================================
+   Case study page styles, in cascade order. The shared files are the same
+   ones the homepage uses; the page's own files are in styles/case-study/.
+   ===================================================================== */
+@import "../global.css";
+@import "../hero.css";               /* the shared header */
+@import "../partners.css";           /* (also gives the page sections their white background) */
+@import "../shared.css";
+@import "../testimonials.css";       /* (the eyebrow style the closing call to action reuses) */
+@import "../closing.css";            /* the Sketch/Make/Break/Scale strip and the call to action */
+@import "../contact.css";            /* the closing band before the footer */
+@import "../footer.css";
+@import "../theme.css";
+@import "../dark.css";
+/* The template's own styles (styles/case-study/ for template A, styles/case-study-b/ for template B) are added
+   by the page itself, after these: see src/styles/case-study-sets.js */
+@import "../mobile/layer.css";      /* phones (≤ 899px): the shared phone layer */
+@import "../mobile/m5.css";         /* phones: type, sides, buttons, footer (on top of the layer) */
+@import "../mobile/case-study.css"; /* phones: the case study (both templates) */

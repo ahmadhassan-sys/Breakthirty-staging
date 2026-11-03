@@ -1,0 +1,6 @@
+---
+/** The site's outline button with the pixel arrow (hover: the arrow runs out and back). `back` points it left. */
+import { ARROW } from "../ui/icon-data.js";
+const { label, href, back = false, class: cls = "", ...rest } = Astro.props;
+---
+<a class={`b30btn b30btn--line ${cls}`.trim()} href={href} data-btn data-anim="arrow" {...rest}><span class="b30btn__ic"><span class={back ? "bp-flip" : undefined} style={back ? undefined : "display:contents"}><svg viewBox="0 0 9 9" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">{ARROW.map(([x, y]) => <rect x={x} y={y} width="1" height="1" />)}</svg></span></span><span class="b30btn__lbl" data-lbl>{label}</span></a>

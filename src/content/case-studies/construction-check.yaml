@@ -1,0 +1,227 @@
+# Construction Check® case study → /work/construction-check
+# Layout: a list of sections (template b): see src/components/case-study/TemplateB.astro for the section types.
+# Headings: *word* = the highlighted word, a line break in the text = a line break on the page.
+# Its card on the Our Work page is the "construction-check" entry in src/data/work.js.
+
+template: b
+name: Construction Check®
+seo:
+  title: Construction Check case study | Breakthirty
+  description: "An AI that reads a project’s drawings and drafts the Basis of Estimate, so estimators review and approve it instead of writing it from scratch."
+hero:
+  image: /assets/images/case-studies/construction-check/hero.jpg
+  label: Construction Check®
+next: chartsight
+sections:
+- type: intro
+  title: 'Construction
+
+    Check®'
+  kind: Construction Technology, AI
+  roles:
+  - AI solution design & build
+  - Full-stack engineering
+  - Data standardization
+  - Engagement — Over a year
+  lede: An AI that reads a project’s drawings and drafts the Basis of Estimate, the document every cost estimate starts from.
+    The estimator reviews and approves it, instead of writing it from scratch.
+  ledeWide: true
+- type: demo
+  label: Showreel
+  mods:
+  - cz-demo--in
+  image: /assets/images/case-studies/construction-check/demo.jpg
+  alt: showreel
+- type: overview
+  label: Project Overview
+  heading: An AI that writes the first draft. The expert reviews it, instead of starting from a blank page.
+  body:
+  - 'Construction Check is a platform for construction cost estimating. Before anyone can price a project, an estimator writes
+    a Basis of Estimate: the document that sets out what’s included, what isn’t, and every assumption behind the numbers.
+    Its AI reads a project’s drawings, specs and scopes and drafts that document for the estimator to review and finalize.
+    Break Thirty designed, built and trained the AI, and the app around it.'
+  details:
+  - label: Client
+    value: Construction Check®
+  - label: Industry
+    value: Construction technology · Cost estimating
+  - label: Year
+    value: '2024'
+  detailsLabel: (Details)
+  link:
+    label: Visit Construction Check
+    href: '#'
+    external: true
+- type: rule
+  mods: []
+- type: services
+  label: Services provided
+  heading: We designed, built and trained the AI behind Construction Check.
+  list:
+  - AI Strategy & Readiness
+  - Document AI & NLP
+  - Generative AI & LLM Integration
+  - Knowledge Assistants & RAG
+  - Data Labeling & Training Data
+  - Custom Software Development
+  - Web & Frontend Development
+  - Cloud & DevOps
+- type: rule
+  mods:
+  - cz-rule--wb
+- type: challenge
+  label: The challenge
+  heading: Skilled people are retiring, and the work is still done by hand.
+  body:
+  - Before pricing anything, an estimator reads every drawing, spec and scope, then writes the Basis of Estimate from scratch.
+    On a large project, that alone takes days. Construction Check had 200+ past reports to learn from, but no two were built
+    the same way. Years of expertise sat in documents that software couldn’t read, and that knowledge was leaving with every
+    estimator who retired.
+- type: beforeAfter
+  label: Before and after
+  mods:
+  - cz-ba--wb
+  before:
+    image: /assets/images/case-studies/construction-check/ba-a.jpg
+    alt: before
+  after:
+    image: /assets/images/case-studies/construction-check/ba-b.jpg
+    alt: after
+  labels:
+  - Before
+  - After
+  labelsTop: true
+  labelsMono: true
+- type: stat
+  mods:
+  - cz-stat--en
+  - cz-stat--ck
+  number:
+    value: 40%
+    count: 40
+    from: 33
+    suffix: '%'
+  text: The projected shortage of construction estimators by 2030, as experienced estimators retire faster than they’re replaced.
+- type: how
+  label: How we worked
+  mods:
+  - cz-how--en
+  - cz-how--ck
+  heading: Five steps, from old reports to a live app.
+  steps:
+  - title: Discovery
+    text: Read 200+ past reports and sat with estimators to learn how they work today.
+  - title: Standardize
+    text: Turned 200+ different report styles into one master blueprint.
+  - title: Train
+    text: Trained the AI on real construction documents, so it understands the work, not just the words.
+  - title: Review loop
+    text: Built the step where the estimator checks, edits and approves every draft.
+  - title: Launch
+    text: Launched the app on Microsoft Azure, ready for real projects.
+  headWide: true
+- type: output
+  label: The Work
+  mods:
+  - cz-out--ck
+  headMods:
+  - cz-out__head--ck
+  heading: From messy archive to working AI.
+  navLabel: The four steps
+  tabsMods: []
+  parts:
+  - kicker: Step 1
+    title: One shared foundation
+    body:
+    - 'Every past report was written differently: different sections, different wording, different levels of detail. We worked
+      through 200+ of them and distilled them into one master blueprint. Every estimate now follows the same structure, and
+      the AI has one clear pattern to learn from.'
+    headMt: 32
+    media:
+    - wide:
+        image: /assets/images/case-studies/construction-check/p1w.jpg
+        alt: master blueprint
+        h: 800
+    tab: One shared foundation
+  - kicker: Step 2
+    title: Questions in, a drafted estimate out
+    body:
+    - The app starts each project with a few simple questions, like the type of building and where it is. Then the user uploads
+      the drawings and documents, and the AI drafts the Basis of Estimate. Because we trained it on real construction work,
+      it writes like an estimator would, not like a generic chatbot.
+    headMt: 32
+    media:
+    - pair:
+      - image: /assets/images/case-studies/construction-check/p3a.jpg
+        alt: project questions
+        h: 800
+      - image: /assets/images/case-studies/construction-check/p3b.jpg
+        alt: drafted estimate
+        h: 800
+    tab: Questions in, estimate out
+  - kicker: Step 3
+    title: The estimator stays in control
+    body:
+    - The AI drafts; the estimator decides. Every assumption and exclusion, meaning what the estimate does and doesn’t cover,
+      is flagged for review, so nothing slips through. No more writing from scratch.
+    headMt: 32
+    media:
+    - wide:
+        image: /assets/images/case-studies/construction-check/p2a.jpg
+        alt: review screen
+        h: 800
+    tab: The estimator stays in control
+  - kicker: Step 4
+    title: The app and the intelligence behind it
+    body:
+    - 'One web app, running on Microsoft Azure, handles the whole flow from first question to approved estimate. The clean,
+      standardized data behind it also powers three AI tools: ConceptCheck, EstimateCheck and Agent Louie. The cleanup work
+      is done once, and every tool benefits.'
+    headMt: 32
+    media:
+    - pair:
+      - image: /assets/images/case-studies/construction-check/x1.jpg
+        alt: the app
+        h: 800
+      - image: /assets/images/case-studies/construction-check/x2.jpg
+        alt: AI tools
+        h: 800
+    tab: The app and its AI tools
+- type: statement
+  mods:
+  - cz-say--ck
+  text: The expert’s judgment stays in. The busywork goes out.
+- type: impact
+  label: Impact
+  mods: []
+  heading: Faster drafts. Same expert judgment.
+  rows:
+  - value: Hours
+    roll: true
+    text: to draft a Basis of Estimate, down from days of manual work
+  - value: 15M+
+    count: 15
+    from: 11
+    suffix: M+
+    text: cost data points the AI draws on
+  - value: 200+
+    count: 200
+    from: 193
+    suffix: +
+    text: past projects the AI learned from
+  - value: 98%
+    count: 98
+    from: 91
+    suffix: '%'
+    text: accuracy on risk detection
+- type: outcome
+  label: The outcome
+  mods:
+  - cz-outcome--en
+  quote: '“[Client quote: one line on what changed.]”'
+  person:
+    name: '[Name Surname]'
+    role: '[Title], Construction Check'
+    style: ck
+  more: “[A longer line from the Construction Check team about working with Break Thirty.]”
+- type: next

@@ -1,0 +1,19 @@
+---
+/** Intro: breadcrumb, the big title, type / role and the lede. */
+const { name, intro, labels } = Astro.props;
+---
+<section class="cz-intro">
+  <div class="cz-wrap">
+    <p class="cz-crumb" data-reveal><a href="/" data-hscr>{labels.home}</a>{intro.crumbTight ? "/" : " / "}<span class="cz-crumb__on">{name}</span></p>
+    <div class="cz-split">
+      <h1 class="cz-title" data-heading>{name}</h1>
+      <div class="cz-intro__r">
+        <dl class="cz-meta" data-reveal style="--rd:220ms">
+          <div><dt>{labels.type}</dt><dd>{intro.type}</dd></div>
+          <div><dt>{labels.role}</dt><dd>{intro.roles.map((r) => <span>{r}</span>)}</dd></div>
+        </dl>
+        <p class="cz-lede" data-heading>{intro.lede}</p>
+      </div>
+    </div>
+  </div>
+</section>

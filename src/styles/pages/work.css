@@ -1,0 +1,18 @@
+/* =====================================================================
+   Our Work page styles, in cascade order. The shared files are the same
+   ones the homepage uses; the page's own files are in styles/work-page/.
+   ===================================================================== */
+@import "../global.css";
+@import "../hero.css";               /* the shared hero frame + header */
+@import "../work-page/hero.css";
+@import "../partners.css";
+@import "../work-page/list.css";
+@import "../work-page/hello.css";
+@import "../shared.css";
+@import "../testimonials.css";
+@import "../closing.css";       /* after the testimonials: the Sketch/Make/Break/Scale strip and the call to action */
+@import "../contact.css";            /* the closing line before the footer */
+@import "../footer.css";
+@import "../theme.css";
+@import "../dark.css";
+@import "../mobile/work.css";       /* phones (≤ 899px): the Our Work page (last) */

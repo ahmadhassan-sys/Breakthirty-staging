@@ -1,0 +1,53 @@
+---
+/**
+ * Services page · 2. The four disciplines, each with its services in two columns,
+ * and the holographic sphere that travels down the page.
+ * Content: `disciplines` + `list` in src/data/services.js · Script: public/js/services-list.js
+ * Styles: src/styles/services/list.css (loaded in order by the page's style list in src/styles/pages/)
+ */
+import TargetLink from "../ui/TargetLink.astro";
+
+const { ariaLabel, cta, disciplines } = Astro.props;
+
+/* Each discipline's services in rows of two: left column first (top to bottom), then the right column.
+   Every service also gets a page-wide number (data-i) that the script uses. */
+let start = 0;
+const blocks = disciplines.map((d, n) => {
+  const first = start;
+  start += d.services.length;
+  const half = Math.ceil(d.services.length / 2);
+  const rows = Array.from({ length: half }, (_, k) => ({
+    sides: [["l", k], ["r", half + k]].filter(([, o]) => o < d.services.length),
+    last: k === half - 1,   // the last row has no rule under it
+  }));
+  return { d, first, num: `(${String(n + 1).padStart(2, "0")})`, rows };
+});
+---
+<section class="svx" id="services" aria-label={ariaLabel}>
+  <div class="svx__orb" aria-hidden="true"><div class="svx__glow"></div><div class="svx__px"><canvas></canvas></div></div>
+  {blocks.map(({ d, first, num, rows }) => (
+    <article class="svx__p" id={d.id} data-c={d.color} style={`--c:${d.color}`} aria-labelledby={`svx-${d.id}-h`}>
+      <header class="svx__hd">
+        <div>
+          <p class="svx__k" data-reveal>{num}</p>
+          <h2 class="svx__name" id={`svx-${d.id}-h`} data-heading>{d.name}</h2>
+        </div>
+        <p class="svx__stmt" data-reveal data-pair>{d.statement}</p>
+      </header>
+      <ul class="svx__list" aria-label={`${d.name} services`}>
+        {rows.map((row) => (
+          <li class={row.last ? "svx__row is-last" : "svx__row"}>{row.sides.map(([side, o]) => (
+            <button type="button" class={`svx__s ${side}`} data-i={first + o} style={`--o:${o}`} data-t={d.services[o].title} data-d={d.services[o].desc} aria-pressed="false">{d.services[o].title}</button>
+          ))}{row.last ? null : [
+            <span class="svx__ln l" aria-hidden="true"></span>, <span class="svx__ln r" aria-hidden="true"></span>,
+            <i class="svx__pp l" aria-hidden="true"></i>, <i class="svx__pp r" aria-hidden="true"></i>,
+          ]}</li>
+        ))}
+      </ul>
+      <div class="svx__ft">
+        <TargetLink label={cta.label} href={cta.href} />
+        <p class="svx__desc" aria-live="polite"></p>
+      </div>
+    </article>
+  ))}
+</section>

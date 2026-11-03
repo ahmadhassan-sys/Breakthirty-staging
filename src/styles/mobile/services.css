@@ -1,0 +1,212 @@
+/* Services page on phones (from the Services mobile design, block svm).
+   Phones only (≤ 899px): every rule sits inside max-width:899px, so desktop is untouched. */
+/* ===== SERVICES PAGE — phones (≤ 899 px), from the Figma "Services" mobile frame (5412:12698). Desktop untouched. ===== */
+@media (max-width:899px){
+  /* --- hero: heading, intro, the four disciplines, then the case-study picture full width --- */
+  html body section.wk-hero:not(#_z){height:auto!important;min-height:0!important}
+  html body section.wk-hero .b30h__pin:not(#_z){position:relative!important;height:auto!important;top:auto!important}
+  html body section.wk-hero .b30h__stage:not(#_z){position:relative!important;height:auto!important;min-height:0!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;padding:139px 20px 0!important;transform:none!important;overflow:hidden!important;background:#fff!important}
+  html body section.wk-hero :is(.svh__sky,.b30h__glow,.b30h__glowx,.b30h__vline,.b30h__px,.wk-hero__dim,.b30h__dim):not(#_z){display:none!important}
+  html body section.wk-hero .b30h__nav:not(#_z){position:absolute!important;left:0!important;right:0!important;top:0!important}
+  html body section.wk-hero .svh__title:not(#_z){order:1;position:static!important;margin:0!important;width:auto!important;max-width:313px!important;font:400 32px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;text-align:left!important;color:#000!important;transform:none!important}
+  html body section.wk-hero .svh__title > span:not(#_z){display:block!important}
+  html body section.wk-hero .svh__intro:not(#_z){order:2;position:static!important;margin:16px 0 0!important;max-width:313px!important;font:400 15px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.01em!important;text-align:left!important;color:#000!important;transform:none!important;width:auto!important}
+  html body section.wk-hero .svh__idx:not(#_z){order:3;position:static!important;margin:40px 0 0!important;width:100%!important;transform:none!important}
+  html body section.wk-hero .svh__idx ul:not(#_z){display:flex!important;flex-direction:column!important;gap:0!important;margin:0!important;padding:0!important;list-style:none!important}
+  html body section.wk-hero .svh__idx li:not(#_z){margin:0!important;padding:0!important;border-top:.5px dashed rgba(0,0,0,.15)!important;border-bottom:.5px dashed rgba(0,0,0,.15)!important;height:44px!important;display:flex!important;align-items:center!important}
+  html body section.wk-hero .svh__idx li + li:not(#_z){border-top:0!important}
+  html body section.wk-hero .svh__idx a:not(#_z){display:flex!important;align-items:center!important;gap:8px!important;font:400 14px/1.3 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;color:#000!important;text-transform:none!important;padding:0!important;height:auto!important;background:none!important;border:0!important}
+  html body section.wk-hero .svh__idx a i:not(#_z){display:block!important;width:8px!important;height:8px!important;background:#000!important;border-radius:0!important;flex:none!important;margin:0!important;transform:none!important}
+  html body section.wk-hero .svh__media:not(#_z){order:4;position:relative!important;inset:auto!important;display:block!important;margin:30px -20px 0!important;width:auto!important;height:272px!important;transform:none!important;opacity:1!important;visibility:visible!important;overflow:hidden!important;border:0!important;clip-path:none!important}
+  html body section.wk-hero .svh__media .wk-media__in:not(#_z){clip-path:none!important;position:absolute!important;inset:0!important}
+  html body section.wk-hero .svh__media .wk-media__in img:not(#_z){position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;opacity:0!important}
+  html body section.wk-hero .svh__media .wk-media__in img.is-on:not(#_z){opacity:1!important}
+  html body section.wk-hero .svh__media .wk-media__word:not(#_z){display:none!important}
+
+  /* --- the services --- */
+  html body section.svx:not(#_z){padding:76px 20px 0!important;margin:0!important;height:auto!important}
+  html body section.svx .svx__orb:not(#_z),html body section.svx .svx__list:not(#_z),html body section.svx .svx__ft:not(#_z){display:none!important}
+  html body section.svx .svx__p:not(#_z){position:relative!important;display:block!important;margin:0 0 96px!important;padding:0!important;min-height:0!important;height:auto!important;width:auto!important}
+  html body section.svx .svx__p:last-of-type:not(#_z){margin-bottom:0!important}
+  html body section.svx .svx__hd:not(#_z){position:static!important;display:block!important;margin:0 0 32px!important;padding:0!important;width:auto!important}
+  html body section.svx .svx__k:not(#_z){font:400 12px/1.3 var(--mono,"Geist Mono",monospace)!important;margin:0 0 12px!important;color:#000!important;opacity:1}
+  html body section.svx .svx__name:not(#_z){font:400 26px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0!important;color:#000!important}
+  html body section.svx .svx__stmt:not(#_z){font:400 15px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.01em!important;margin:16px 0 0!important;max-width:341px!important;text-align:left!important;color:#000!important;position:static!important;width:auto!important}
+  /* the picture box: 350 wide, 180 tall, a field of pixels with the service's icon in the middle; it sticks at the top while its list scrolls */
+  html body .svm-box:not(#_z){position:-webkit-sticky;position:sticky;top:0;z-index:3;height:180px;margin:0 0 12px;background:#fff;overflow:hidden}
+  html body .svm-box .svm-rect:not(#_z){position:absolute;inset:0;width:100%;height:100%;display:block}
+  html body .svm-box .sv-px:not(#_z){position:absolute;inset:0}
+  html body .svm-box .sv-px canvas:not(#_z){position:absolute;display:block}
+  html body .svm-list:not(#_z){list-style:none;margin:0;padding:0}
+  html body .svm-list li:not(#_z){margin:0;padding:0}
+  html body .svm-s:not(#_z){all:unset;box-sizing:border-box;display:block;width:100%;padding:13.5px 8px;border-top:.5px dashed rgba(0,0,0,.15);border-bottom:.5px dashed rgba(0,0,0,.15);cursor:pointer;-webkit-tap-highlight-color:transparent}
+  html body .svm-list li + li .svm-s:not(#_z){border-top:0}
+  html body .svm-s .t:not(#_z){display:block;font:400 14px/1.3 var(--sans,"BDO Grotesk",sans-serif);letter-spacing:-.02em;color:#000;transition:color .3s ease}
+  html body .svm-s .d:not(#_z){display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.16,1,.3,1),opacity .4s ease,margin .4s cubic-bezier(.16,1,.3,1);opacity:0;margin-top:0}
+  html body .svm-s .d > span:not(#_z){overflow:hidden;font:400 11px/1.2 var(--sans,"BDO Grotesk",sans-serif);letter-spacing:-.01em;color:#000}
+  html body .svm-p.has-on .svm-s:not(.is-on) .t:not(#_z){color:rgba(0,0,0,.45)}
+  html body .svm-s.is-on .d:not(#_z){grid-template-rows:1fr;opacity:1;margin-top:6px}
+  html body .svm-cta:not(#_z){display:flex;gap:1.45px;margin:32px 0 0;height:36px;text-decoration:none;color:#000}
+  html body .svm-cta .ic:not(#_z){flex:none;width:36px;height:36px;display:grid;place-items:center;border:.67px solid rgba(0,0,0,.15);border-radius:8.7px;box-sizing:border-box}
+  html body .svm-cta .ic svg:not(#_z){width:16px;height:16px;display:block}
+  html body .svm-cta .lb:not(#_z){flex:1;display:flex;align-items:center;justify-content:center;border:.67px solid rgba(0,0,0,.15);border-radius:8.7px;box-sizing:border-box;font:400 13px/1 var(--mono,"Geist Mono",monospace);letter-spacing:.1em;text-transform:uppercase}
+
+  /* --- "Good things happen…": the homepage's pixel band in yellow, the yellow fading to white, the hand from the left --- */
+  html body section.svhello:not(#_z){position:relative!important;height:777px!important;min-height:0!important;margin:225px 0 0!important;padding:0!important;background:linear-gradient(180deg,#F2E907 1%,#fff 84%)!important;overflow:visible!important}
+  html body section.svhello :is(.svhello__bg,.svhello__px):not(#_z){display:none!important}
+  html body section.svhello .svm-yb:not(#_z){position:absolute;left:0;width:100%;pointer-events:none;display:block;z-index:0}
+  html body section.svhello .svhello__h:not(#_z){position:absolute!important;left:20px!important;right:20px!important;top:88px!important;margin:0!important;width:auto!important;font:400 32px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;text-align:center!important;color:#000!important;z-index:2;transform:none!important}
+  html body section.svhello .svhello__hand:not(#_z){position:absolute!important;left:-311px!important;top:243px!important;width:701px!important;height:278px!important;margin:0!important;z-index:1;transform:none!important;overflow:hidden}
+  html body section.svhello .svhello__hand img:not(#_z){position:absolute;left:0;bottom:0;width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 100%!important;max-width:none!important}
+  html body section.svhello .svhello__p:not(#_z){position:absolute!important;left:40px!important;right:40px!important;top:510px!important;margin:0!important;width:auto!important;font:400 15px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.01em!important;text-align:center!important;color:#000!important;z-index:2;transform:none!important}
+  html body section.svhello > .b30h__btn:not(#_z){position:absolute!important;left:50%!important;top:614px!important;margin:0!important;translate:-50% 0;z-index:2}
+}
+@media (max-width:899px){
+  html body section.svhello .svhello__h:not(#_z){height:auto!important;max-height:none!important;overflow:visible!important;white-space:normal!important}
+  html body section.svhello .svhello__h .hw:not(#_z){overflow:visible!important}
+}
+@media (max-width:899px){
+  html body section.svhello > .b30h__btn > span:not(#_z){width:auto!important;min-width:0!important;white-space:nowrap!important}
+  html body section.svhello .svhello__hand:not(#_z){height:auto!important;top:auto!important;bottom:256px!important;overflow:visible!important}
+  html body section.svhello .svhello__hand img:not(#_z){position:relative!important;height:auto!important;object-fit:contain!important}
+}
+@media (max-width:899px){
+  html body section.svhello .svhello__hand:not(#_z){bottom:148px!important}
+  html body section.svhello > .b30h__btn > span:not(#_z){width:max-content!important;padding:0 12px!important}
+}
+@media (max-width:899px){
+  html body section.svhello > .b30h__btn:not(#_z){width:auto!important}
+  html body section.svhello > .b30h__btn > span:not(#_z){flex:none!important;min-width:max-content!important}
+}
+@media (max-width:899px){
+  html:root:not(#_z),html body:not(#_z){overflow-x:clip!important}
+  html body section.svhello:not(#_z){overflow-x:clip!important;overflow-y:visible!important}
+}
+@media (max-width:899px){
+  html body section#services.svx.svx:not(#_z){padding-top:0!important;margin-top:38px!important}   /* 96 under the partners' pixels */
+}
+@media (max-width:899px){
+  /* hero: no picture; the four disciplines on a full screen, with the brand colour rising from the bottom */
+  html body section.wk-hero .svh__media:not(#_z){display:none!important}
+  html body section.wk-hero .b30h__stage:not(#_z){min-height:max(680px,100svh)!important;padding-bottom:48px!important;
+    background:radial-gradient(130% 55% at 72% 104%,rgba(108,102,214,.9) 0%,rgba(160,152,232,.6) 28%,rgba(250,215,255,.45) 50%,rgba(255,236,206,.5) 66%,rgba(255,255,255,0) 86%),radial-gradient(90% 40% at 8% 100%,rgba(176,233,253,.7) 0%,rgba(176,233,253,0) 70%),#fff!important}
+  /* the picture box: soft edges, and a short fade under it so the rows slide away beneath it */
+  html body .svm-stk:not(#_z){position:relative}
+  html body .svm-box:not(#_z){overflow:visible!important;margin-bottom:12px!important}
+  html body .svm-box .svm-rect:not(#_z){-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-composite:intersect}
+  html body .svm-box:not(#_z)::after{content:"";position:absolute;left:0;right:0;top:100%;height:36px;background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 100%);pointer-events:none}
+  html body .svm-tail .svm-s:not(#_z){border-top:0!important}
+  /* buttons: the yellow section's Get in touch in the same outline style as every other button on the page */
+  html body section.svhello > .b30h__btn > i:not(#_z),html body section.svhello > .b30h__btn > span:not(#_z){background:#fff!important;color:#000!important;border:.67px solid rgba(0,0,0,.15)!important;border-radius:8.7px!important;box-sizing:border-box!important}
+  html body section.svhello > .b30h__btn > i svg *:not(#_z){fill:#000!important}
+  html body section.svhello > .b30h__btn:not(#_z){gap:1.45px!important}
+  /* Let's talk: as much air above as below */
+  
+}
+@media (max-width:899px){
+  html body section.wk-hero .b30h__stage:not(#_z){background:radial-gradient(140% 62% at 72% 106%,rgba(98,92,214,.95) 0%,rgba(150,142,232,.75) 26%,rgba(250,215,255,.6) 48%,rgba(255,232,196,.6) 64%,rgba(255,255,255,0) 86%),radial-gradient(95% 45% at 6% 102%,rgba(176,233,253,.85) 0%,rgba(176,233,253,0) 70%),#fff!important}
+}
+@media (max-width:899px){
+  /* hero: pinned; the page slides up over it */
+  html.svm-pin body section.wk-hero:not(#_z){position:-webkit-sticky!important;position:sticky!important;top:0!important;z-index:0!important}
+  html.svm-pin body main.b30-main:not(#_z){position:relative!important;z-index:1!important;background:#fff}
+  html.svm-pin body main.b30-main > section.b30p:not(#_z){background:#fff!important}
+  /* hero: the four disciplines as a 2 × 2 of tiles in the lower half, over the colour */
+  html body section.wk-hero .b30h__stage:not(#_z){height:max(680px,100svh)!important}
+  html body section.wk-hero .svh__idx.svm-tiles:not(#_z){margin-top:auto!important;margin-bottom:0!important}
+  html body section.wk-hero .svm-tiles ul:not(#_z){display:grid!important;grid-template-columns:1fr 1fr!important;gap:0!important;border-top:1px dashed rgba(0,0,0,.15)!important;border-left:1px dashed rgba(0,0,0,.15)!important}
+  html body section.wk-hero .svm-tiles li:not(#_z){height:auto!important;display:block!important;border:0!important;border-right:1px dashed rgba(0,0,0,.15)!important;border-bottom:1px dashed rgba(0,0,0,.15)!important}
+  html body section.wk-hero .svm-tiles a:not(#_z){position:relative!important;display:grid!important;grid-template-columns:1fr auto!important;grid-template-rows:auto 1fr auto!important;align-items:start!important;gap:0!important;height:150px!important;padding:12px!important;box-sizing:border-box!important;background:rgba(255,255,255,.55)!important;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  html body section.wk-hero .svm-tiles a > i:not(#_z){display:none!important}
+  html body section.wk-hero .svm-tiles .k:not(#_z){grid-column:1;grid-row:1;font:400 11px/1.2 var(--mono,"Geist Mono",monospace);opacity:.6}
+  html body section.wk-hero .svm-tiles .ic:not(#_z){grid-column:2;grid-row:1 / span 2;width:72px;height:72px;display:block;animation:svm-float 5s ease-in-out infinite}
+  html body section.wk-hero .svm-tiles li:nth-child(2) .ic:not(#_z){animation-delay:-1.2s}html body section.wk-hero .svm-tiles li:nth-child(3) .ic:not(#_z){animation-delay:-2.5s}html body section.wk-hero .svm-tiles li:nth-child(4) .ic:not(#_z){animation-delay:-3.7s}
+  html body section.wk-hero .svm-tiles .nm:not(#_z){grid-column:1 / span 2;grid-row:3;align-self:end;font:400 15px/1.2 var(--sans,"BDO Grotesk",sans-serif);letter-spacing:-.01em}
+  html body section.wk-hero .svm-tiles .ct:not(#_z){grid-column:1 / span 2;grid-row:4;margin-top:4px;font:400 11px/1.2 var(--mono,"Geist Mono",monospace);text-transform:uppercase;opacity:.6}
+  @keyframes svm-float{0%:not(#_z),100%:not(#_z){transform:translateY(0)}50%:not(#_z){transform:translateY(-4px)}}
+  /* services: one line per service, all black; the one shown in the box gets a black pixel before it */
+  html body .svm-s:not(#_z){display:flex!important;align-items:center;gap:0}
+  html body .svm-s > i:not(#_z){display:block;width:0;height:8px;background:#000;margin-right:0;transition:width .3s cubic-bezier(.16,1,.3,1),margin .3s cubic-bezier(.16,1,.3,1)}
+  html body .svm-s.is-on > i:not(#_z){width:8px;margin-right:8px}
+  html body .svm-p.has-on .svm-s:not(.is-on) .t:not(#_z),html body .svm-s .t:not(#_z){color:#000!important}
+  /* "Good things happen…": its button centred, in the solid style */
+  html body section.svhello > .b30h__btn:not(#_z){left:0!important;right:0!important;margin:0 auto!important;width:max-content!important;translate:none!important}
+  html body section.svhello > .b30h__btn > i:not(#_z){background:#fff!important;border:1px solid #000!important}
+  html body section.svhello > .b30h__btn > span:not(#_z){background:#000!important;color:#fff!important;border:1px solid #000!important}
+  html body section.svhello > .b30h__btn > i svg *:not(#_z){fill:#000!important}
+}
+@media (max-width:899px){
+  html body :is(.b30btn > span,.b30h__btn > i,.b30h__btn > span,.b30f__cta > *,.b30m__btn > *,.svm-cta .ic,.svm-cta .lb,.cta3 .b30btn > *,section.svhello > .b30h__btn > *):not(#_z){border-radius:10px!important}
+}
+@media (max-width:899px){
+  html body section.svhello > .b30h__btn > i:not(#_z),html body section.svhello > .b30h__btn > span:not(#_z){border-radius:10px!important}
+}
+@media (max-width:899px){
+  html body main.b30-main > section#partners.b30p:not(#_z){margin-top:0!important}
+}
+@media (max-width:899px){
+  /* hero tiles: the number with a pixel in the discipline's colour; the services walking through under the name */
+  html body section.wk-hero .svm-tiles .ct:not(#_z){display:none!important}
+  html body section.wk-hero .svm-tiles .k:not(#_z){display:flex;align-items:center;gap:6px}
+  html body section.wk-hero .svm-tiles .k i:not(#_z){display:block;width:5px;height:5px}
+  html body section.wk-hero .svm-tiles .tk:not(#_z){grid-column:1 / span 2;grid-row:4;position:relative;display:block;height:14px;margin-top:6px;overflow:hidden}
+  html body section.wk-hero .svm-tiles .tk__i:not(#_z){position:absolute;left:0;top:0;white-space:nowrap;font:400 11px/14px var(--mono,"Geist Mono",monospace);text-transform:uppercase;letter-spacing:.02em;opacity:.6;transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .5s ease}
+  html body section.wk-hero .svm-tiles .tk__i.is-in:not(#_z){transform:translateY(100%);opacity:0}
+  html body section.wk-hero .svm-tiles .tk__i.is-out:not(#_z){transform:translateY(-100%);opacity:0}
+  /* hero: the shade that comes over it as the page slides up */
+  html body section.wk-hero .svm-ov:not(#_z){position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;z-index:30}
+  html body section.wk-hero :is(.svh__title,.svh__intro,.svh__idx):not(#_z){will-change:transform}
+  /* picture box: two dashed horizontals across the page and two dashed uprights running past the box, fading at their ends */
+  html body .svm-fr:not(#_z){position:absolute;pointer-events:none;z-index:2;display:block}
+  html body .svm-fr.h:not(#_z){left:-20px;right:-20px;height:0;border-top:1px dashed rgba(0,0,0,.15)}
+  html body .svm-fr.h.t:not(#_z){top:0}html body .svm-fr.h.b:not(#_z){bottom:0}
+  html body .svm-fr.v:not(#_z){top:-28px;bottom:-28px;width:1px;background:repeating-linear-gradient(180deg,rgba(0,0,0,.15) 0 3px,transparent 3px 6px);
+    -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%)}
+  html body .svm-fr.v.l:not(#_z){left:0}html body .svm-fr.v.r:not(#_z){right:0}
+  html body .svm-box:not(#_z)::after{top:calc(100% + 1px)!important}
+  /* the pixel that marks the service shown: 5 px */
+  html body .svm-s > i:not(#_z){height:5px!important}
+  html body .svm-s.is-on > i:not(#_z){width:5px!important}
+}
+@media (max-width:899px){
+  html body section.wk-hero .svm-tiles a > .k > i:not(#_z){display:block!important;width:5px!important;height:5px!important;background:var(--pc)!important;opacity:1!important;border-radius:0!important;margin:0!important}
+  html body section.wk-hero .svm-tiles .tk:not(#_z){height:28px!important}
+  html body section.wk-hero .svm-tiles .tk__i:not(#_z){white-space:normal!important;right:0;line-height:14px!important}
+  html body section.wk-hero .svm-tiles a:not(#_z){height:158px!important}
+  html body section.wk-hero :is(.svh__title,.svh__intro,.svh__idx):not(#_z){will-change:translate}
+}
+@media (max-width:899px){
+  /* hero tiles: the discipline's pixel in full colour, 5 × 5 on whole pixels (only the number is greyed) */
+  html body section.wk-hero .svm-tiles .k:not(#_z){opacity:1!important;color:rgba(0,0,0,.6)!important}
+  html body section.wk-hero .svm-tiles a > .k > i:not(#_z){width:5px!important;height:5px!important;flex:none!important}
+  html body section.wk-hero .svm-tiles .ic:not(#_z){image-rendering:pixelated}
+}
+@media (max-width:899px){
+  /* hero (Figma): one screen — heading, intro, the four disciplines (Design active), the active discipline's shots filling the rest */
+  html body section.wk-hero .b30h__stage:not(#_z){height:100svh!important;min-height:600px!important;padding:120px 20px 0!important;background:#fff!important}
+  html body section.wk-hero .svh__idx:not(#_z){margin-top:32px!important}
+  html body section.wk-hero .svh__idx li a i:not(#_z){transition:background .3s ease}
+  html body section.wk-hero .svh__idx li.is-on a i:not(#_z){background:var(--c)!important}
+  html body section.wk-hero .svh__idx li:not(.is-on) a:not(#_z){color:rgba(0,0,0,.5)!important}
+  html body section.wk-hero .svh__media.svh__media:not(#_z){display:block!important;flex:1 1 auto!important;height:auto!important;min-height:150px!important;margin:24px -20px 0!important}
+  html body section.wk-hero .svh__media .wk-media__gl:not(#_z),html body section.wk-hero .svh__media .wk-media__word:not(#_z){display:none!important}
+  html body section.wk-hero .svh__media.is-m .wk-media__in img:not(#_z){opacity:0!important;transition:opacity .5s ease!important}
+  html body section.wk-hero .svh__media.is-m .wk-media__in img.is-m-on:not(#_z){opacity:1!important}
+  /* the yellow section's hand, a little smaller (85%) */
+  html body section.svhello .svhello__hand:not(#_z){width:596px!important;left:-264px!important}
+}
+@media (max-width:899px){
+  html body section.wk-hero .svh__media.is-m .wk-media__in:not(#_z),html body section.wk-hero .svh__media.is-m .wk-media__in img:not(#_z){visibility:visible!important;display:block!important}
+}
+@media (max-width:899px){
+  /* hero: the picture 320 tall (the hero is as tall as its content); the active discipline marked by black type only, every square black */
+  html body section.wk-hero .b30h__stage:not(#_z){height:auto!important;min-height:0!important}
+  html body section.wk-hero .svh__media.svh__media:not(#_z){flex:none!important;height:320px!important;min-height:0!important}
+  html body section.wk-hero .svh__idx li.is-on a i:not(#_z),html body section.wk-hero .svh__idx li a i:not(#_z){background:#000!important}
+  /* "Good things happen…": 40 less between the heading and the hand (everything under it moves up with it) */
+  html body section.svhello:not(#_z){height:737px!important}
+  html body section.svhello .svhello__hand:not(#_z){bottom:188px!important}
+  html body section.svhello .svhello__p:not(#_z){top:470px!important}
+  html body section.svhello > .b30h__btn:not(#_z){top:574px!important}
+}

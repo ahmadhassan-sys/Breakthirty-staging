@@ -1,0 +1,65 @@
+---
+/**
+ * Contact page — /contact
+ * Its own sections: components/contact/*  ·  content: src/data/contact.js
+ * Shared with the other pages: header, partners strip, closing line, footer
+ * (components/*, content: src/data/site.js).
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/pages/contact.css";   // all contact page styles, in order
+
+import ContactHero from "../components/contact/ContactHero.astro";
+import PartnersStrip from "../components/PartnersStrip.astro";
+import ContactForm from "../components/contact/ContactForm.astro";
+import Strip from "../components/closing/Strip.astro";
+import ClosingCta from "../components/closing/ClosingCta.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+
+import { seo, hero, form, sending, strip } from "../data/contact.js";
+import { nav, company, partnersStrip, closing, contact, footer } from "../data/site.js";
+import { partners, locations } from "../data/partners.js";
+import { contactSchema } from "../lib/schema.js";
+import { company as companyInfo } from "../data/site.js";
+
+/* What the page scripts (public/js) read. */
+const scriptContent = {
+  network: { partners, locations },        // the globe in the hero
+  contactPage: { form: sending },          // where the form sends, and its messages
+  contact: { heading: contact.heading, closing: contact.closing },
+};
+
+/* Page scripts, in the order they run. */
+const scripts = [
+  "core",            // scale, smooth scroll, headings, reveals (must be first)
+  "header",          // logo hover, header pixels
+  "hero-light",      // the hero's glow
+  "partners",
+  "contact",
+  "footer",
+  "details",         // small finishing touches across sections
+  "contact-globe",   // the office globe in the hero
+  "contact-page",    // hero glow and cover, the dithered hand, the form
+  "contact-hero",    // hero layout, the form's frame, the hero's drift and overlay
+  "contact-office",  // the office card: hovering a city on the globe
+  "strip",           // the dashed-letter strip's hover reveal
+  "contact-closing", // the closing words (must run last: it sits on top of the contact panel)
+  "contact-mobile"   // phones only (≤ 899px)
+];
+/* structured data: a contact page, and how to reach us (src/lib/schema.js) */
+const pageSeo = { ...seo, pageType: "ContactPage", schema: contactSchema(companyInfo, Astro.site) };
+---
+
+<BaseLayout seo={pageSeo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Contact", path: "/contact" }]}>
+  <ContactHero {...hero} nav={nav} />
+
+  <main class="b30-main" id="main">
+    <PartnersStrip {...partnersStrip} />
+    <ContactForm {...form} company={company} />
+    <Strip {...strip} />
+    <ClosingCta {...closing.cta} button={{ ...closing.cta.button, href: "#form" }} />
+    <Contact {...contact} />
+  </main>
+
+  <Footer {...footer} page="contact" />
+</BaseLayout>

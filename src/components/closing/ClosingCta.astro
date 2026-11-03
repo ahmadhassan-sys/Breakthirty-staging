@@ -1,0 +1,16 @@
+---
+/**
+ * The closing call to action, after the strip: an eyebrow, the heading and one button.
+ * Content: `closing.cta` in src/data/site.js · Styles: src/styles/closing.css
+ */
+import Button from "../ui/Button.astro";
+import Rich from "../ui/Rich.astro";
+const { eyebrow, heading, button } = Astro.props;
+---
+<section class="cta3" aria-labelledby="cta3-h">
+  <p class="cta3__eye ts__eye" data-reveal>{eyebrow}</p>
+  <h2 class="cta3__h" id="cta3-h" data-heading><Rich text={heading} /></h2>
+  <div class="cta3__btns">
+    <Button label={button.label} href={button.href} icon="target" />
+  </div>
+</section>

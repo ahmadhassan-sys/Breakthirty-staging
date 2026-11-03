@@ -1,0 +1,43 @@
+---
+/**
+ * Contact page · 1. Hero — header, the office globe, the title, the "scroll to the form" hint and the intro.
+ * Content: `hero` in src/data/contact.js (+ `nav` from src/data/site.js, offices from src/data/partners.js)
+ * Scripts: public/js/contact-globe.js, contact-page.js, contact-hero.js, contact-office.js, header.js
+ * Styles: src/styles/contact/hero.css, src/styles/contact/globe.css, src/styles/contact/page.css
+ */
+import Header from "../Header.astro";
+import Rich from "../ui/Rich.astro";
+
+const { nav, ariaLabel, title, hint, intro, globeLabel } = Astro.props;
+---
+<section class="b30h cth" aria-label={ariaLabel}>
+  <div class="b30h__pin">
+    <div class="b30h__stage cth__stage">
+      <span class="b30h__vline b30h__vline--34" aria-hidden="true"></span>
+      <i class="b30h__px" style="--x:82" aria-hidden="true"></i>
+      <i class="b30h__px" style="--x:960" aria-hidden="true"></i>
+      <i class="b30h__px" style="--x:1838" aria-hidden="true"></i>
+      <span class="b30h__vline b30h__vline--27" aria-hidden="true"></span>
+      {/* the hero colour: a soft hill of light under the globe that slowly shifts (styles/contact/page.css) */}
+      <div class="cth__sky" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+      {/* the office card: hovering a city on the globe writes its details in (public/js/contact-office.js; offices in src/data/partners.js) */}
+      <div class="cth__office" role="status" aria-live="polite"><b class="c1"></b><b class="c2"></b><b class="c3"></b><b class="c4"></b></div>
+      <canvas class="cth__glow" width="384" height="208" aria-hidden="true"></canvas>
+
+      <Header {...nav} page="contact" />
+
+      <div class="og og--hero" id="hero-globe" data-mode="partner">
+        <canvas class="og__canvas" aria-hidden="true"></canvas>
+        <div class="locs"></div>
+        <ul class="partner-links" aria-label={globeLabel} style="margin:0;padding:0;list-style:none"></ul>
+      </div>
+
+      <h1 class="cth__title" data-heading>{title.map((line, i) => [i > 0 ? " " : null, <span><Rich text={line} /></span>])}</h1>
+      <a class="cth__hint" href={hint.href}>{hint.label}</a>
+      <p class="cth__intro">{intro}</p>
+
+      <span class="b30h__vline b30h__vline--26" aria-hidden="true"></span>
+    </div>
+    <div class="cth__dim" aria-hidden="true"></div>
+  </div>
+</section>

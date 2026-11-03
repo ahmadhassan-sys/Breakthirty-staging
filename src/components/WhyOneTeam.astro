@@ -1,0 +1,18 @@
+---
+/**
+ * 5. Why one team — the short statement after the services.
+ * Content: `whyOneTeam` in src/data/home.js · (no script of its own)
+ * Styles: src/styles/why-one-team.css (loaded in order by the page's style list in src/styles/pages/)
+ */
+import Rich from "./ui/Rich.astro";
+import Button from "./ui/Button.astro";
+
+const { ariaLabel, text, cta, heading } = Astro.props;
+---
+<section class="b30sb" aria-label={ariaLabel}>
+  <div class="b30sb__l" data-speed="0.97">
+    <p data-reveal data-pair>{text}</p>
+    <Button label={cta.label} href={cta.href} icon={cta.icon} data-reveal="" data-pair="" style="--rd:260ms" />
+  </div>
+  <h2 class="b30sb__h" data-heading><Rich text={heading} /></h2>
+</section>

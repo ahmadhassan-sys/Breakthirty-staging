@@ -1,0 +1,46 @@
+---
+/**
+ * 2. Partners strip — the logo marquee under the hero.
+ * Content: `partnersStrip` in src/data/site.js (artwork in src/data/partners.js) · Script: public/js/partners.js
+ * Styles: src/styles/partners.css (loaded in order by the page's style list in src/styles/pages/)
+ */
+import { stripLogos } from "../data/partners.js";
+
+const { ariaLabel, label, logos } = Astro.props;
+
+/* The decorative pixels under the strip: one list per row, [x, y, colour] on the 1920-wide design. */
+const PIXEL_ROWS = [
+  [[112, 23, "#0b5238"], [357, 23, "#0e1633"], [784, 23, "#f3ea08"], [907, 23, "#f05252"], [1518, 23, "#f3ea08"], [1762, 23, "#f1678e"]],
+  [[234, 52, "#f3ea08"], [540, 52, "#f1d7e8"], [1029, 52, "#f3ea08"], [1212, 52, "#b4e3f7"], [1640, 52, "#f3ea08"]],
+  [[418, 80, "#6a7782"], [662, 80, "#f1678e"], [968, 80, "#d1e1d4"], [1396, 80, "#6a7782"], [1824, 80, "#3d5aa9"]],
+  [[173, 109, "#3d5aa9"], [295, 109, "#f3ea08"], [846, 109, "#0b5238"], [1151, 109, "#b4e3f7"], [1273, 109, "#f05252"], [1457, 109, "#0e1633"]],
+  [[82, 138, "#d1e1d4"], [479, 138, "#f1678e"], [601, 138, "#3d5aa9"], [723, 138, "#f3ea08"], [1090, 138, "#6a7782"], [1335, 138, "#f3ea08"], [1579, 138, "#f05252"], [1701, 138, "#f3ea08"]],
+];
+---
+<section class="b30p" id="partners" aria-label={ariaLabel}>
+  <div class="b30p__a">
+    <div class="b30p__label b30p__fade">{label}</div>
+    <div class="b30p__mq b30p__fade">
+      <ul class="b30p__track">
+        {logos.map((item) => {
+          const art = stripLogos[item.logo];
+          return (
+            <Fragment>
+              <li class="b30p__logo"><svg viewBox={art.viewBox} style={`width:${art.width}`} role="img" aria-label={item.logo}>{art.paths.map((d) => <path d={d} />)}</svg>{item.text ? <span>{item.text}</span> : null}</li>
+              <li class="b30p__sep" aria-hidden="true"></li>
+            </Fragment>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+  <div class="b30p__b"></div>
+  <div class="b30p__c"></div>
+  <div class="b30p__px" aria-hidden="true">
+    {PIXEL_ROWS.map((row) => (
+      <div class="b30p__row">
+        {row.map(([x, y, colour]) => <i style={`left:calc(${x}*var(--u));top:calc(${y}*var(--u));background:${colour}`}><b></b></i>)}
+      </div>
+    ))}
+  </div>
+</section>

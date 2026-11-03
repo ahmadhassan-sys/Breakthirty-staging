@@ -1,0 +1,5 @@
+---
+/** A "Visit …" button in the overview's details (opens in a new tab when `external`). */
+const { l } = Astro.props;
+---
+<a class="cz-pill" href={l.href} target={l.external ? "_blank" : undefined} rel={l.external ? "noopener" : undefined}>{l.label}</a>

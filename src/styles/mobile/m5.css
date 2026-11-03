@@ -1,0 +1,348 @@
+/* Phones, on top of the phone layer: the Figma type, 20px sides, 36px buttons, the footer (from the mobile designs, block b30-m5).
+   Phones only (≤ 899px): every rule sits inside max-width:899px, so desktop is untouched. */
+/* ===== Phones (≤ 899 px), on top of the phone layer: the Figma type, 20 px sides, 36 px buttons, our own footer ===== */
+@media (max-width:899px){
+  /* --- type, per the Figma (H1 32 · H2 26 · H5 19 · body 15 · small 14, all 1.2 / −2 %, body −1 %; labels Geist Mono 12) --- */
+  html body .b30h__title:not(#_z){font-size:32px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+  html body .b30h__intro p:not(#_z){font-size:15px!important;line-height:1.2!important;letter-spacing:-.01em!important;max-width:313px!important;margin-left:auto!important;margin-right:auto!important}
+  html body .work .work-head h2:not(#_z){font-size:26px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+  html body .work .work-head p:not(#_z){font-size:15px!important;line-height:1.2!important;letter-spacing:-.01em!important;max-width:302px}
+  html body .work .row h3:not(#_z){font-size:19px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+  html body .work .row .desc p:not(.num):not(#_z){font:400 14px/1.3 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;text-transform:none!important}
+  /* services: label, title, lede — centred */
+  html body #services .b30s__mobile:not(#_z){display:flex!important;flex-direction:column!important}
+  html body #services .b30s__mobile > .b30s__title:not(#_z){order:2;font-size:32px!important;line-height:1.2!important;letter-spacing:-.02em!important;text-align:center!important;margin:0 0 20px!important}
+  html body #services .b30s__mobile > .b30s__title br:not(#_z){display:none}
+  html body #services .b30s__mobile > .b30s__intro:not(#_z){display:contents!important}
+  html body #services .b30s__mobile .b30s__label:not(#_z){order:1;font:400 12px/1.2 var(--mono,"Geist Mono",monospace)!important;text-transform:uppercase;opacity:.6;text-align:center!important;margin:0 0 32px!important}
+  html body #services .b30s__mobile .b30s__lede:not(#_z){order:3;font-size:15px!important;line-height:1.2!important;letter-spacing:-.01em!important;text-align:center!important;max-width:287px!important;margin:0 auto!important}
+  html body #services .b30s__mobile > .m3:not(#_z){order:4}
+  html body #services .b30s__mobile > :is(.m-scene,.m-cards):not(#_z){order:5}
+  html body .b30sb__h:not(#_z){font-size:26px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+  html body .b30sb__l p:not(#_z){font-size:15px!important;line-height:1.2!important;letter-spacing:-.01em!important;max-width:287px;margin-left:auto!important;margin-right:auto!important}
+  html body .vision .vs-big:not(#_z){font-size:32px!important;line-height:1.2!important;letter-spacing:-.02em!important;max-width:315px!important;margin:0 auto!important}
+  
+  
+  
+  html body .nx-sec .nx__h:not(#_z){font-size:26px!important;line-height:1.2!important;letter-spacing:-.02em!important;max-width:350px;margin-left:auto!important;margin-right:auto!important}
+  html body .nx-sec .nx__b:not(#_z){font-size:14px!important;line-height:1.3!important;letter-spacing:-.02em!important;max-width:311px!important;margin-left:auto!important;margin-right:auto!important}
+  html body .nx-sec .nx__eye:not(#_z){font-size:12px!important;opacity:.6}
+  
+  
+  /* --- 20 px either side, every section --- */
+  
+  /* --- every button 36 px tall (the icon square and the label) --- */
+  
+  
+  
+}
+@media (max-width:899px){
+  /* --- our footer: the heading, the links in two columns (each link a comfortable tap), Get in touch, the legal line --- */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
+@media (max-width:899px){
+  /* the wordmark sits 72 px under the legal line */
+  
+  
+}
+@media (max-width:899px){
+  /* --- hero: the services wheel at the Figma size (416 across) with more of its arc showing --- */
+  html body .b30h .b30h__orbit:not(#_z),html body .b30h .b30h__ring:not(#_z){scale:.916}
+  html body .b30h .b30h__orbit:not(#_z){--fade-a:30%!important;--fade-b:44%!important}
+
+  /* --- testimonials: Figma type (quote 14 / 1.3, name 14, company 11), each card only as tall as its words --- */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  /* --- vision: only the vertical lines run the section; the two horizontal lines (with their corner pixels) cross the rock --- */
+  html body .vision .vs-rule:not(#_z),html body .vision .vs-rules:not(#_z),html body .vision .vs-px:not(#_z),html body .vision .pg-vx:not(#_z){display:none!important}
+  html body .vision .vs-rk:not(#_z){position:absolute;left:0;right:0;height:0;border-top:1px dashed rgba(0,0,0,.15);z-index:3;pointer-events:none}
+  html body .vision .vs-rk i:not(#_z){position:absolute;top:-3px;width:5px;height:5px;background:#000}
+}
+@media (max-width:899px){
+  html body section.pg:not(#_z),html body .b30-main > section.pg:not(#_z){margin-top:0!important}
+}
+@media (max-width:899px){
+  
+  html body .nx-sec:not(#_z){padding-top:0!important}
+}
+@media (max-width:899px){
+  /* --- selected work: 56 between the intro and the first project; no (01) numbers --- */
+  html body .work .work-body:not(#_z){margin-top:-14px!important}
+  html body .work .row .desc .num:not(#_z){display:none!important}
+  /* --- every pixel 4 px --- */
+  html body .work .rpx:not(#_z){width:4px!important;height:4px!important;margin:1px 0 0 1px!important}
+  html body .vision .vs-rk i:not(#_z){width:4px!important;height:4px!important;top:-2px!important}
+  html body #nx-grid[data-opt] .nx__px:not(#_z){width:4px!important;height:4px!important;margin:-1.5px 0 0 -1.5px!important}
+  html body .b30h__px:not(#_z){width:4px!important;height:4px!important}
+
+  /* --- scroll reveals on phones: pictures uncover from the bottom, text rises in --- */
+  
+  
+  html body .work .slot.m-rv:not(#_z){opacity:1;transform:none;clip-path:inset(100% 0 0 0);transition:clip-path 1.2s cubic-bezier(.16,1,.3,1)}
+  html body .work .slot.m-rv img:not(#_z){transform:scale(1.14);transition:transform 1.6s cubic-bezier(.16,1,.3,1)}
+  html body .work .slot.m-rv.is-in:not(#_z){clip-path:inset(0 0 0 0)}
+  html body .work .slot.m-rv.is-in img:not(#_z){transform:none}
+
+  /* --- services: the Figma colours and sizes (band #B4E3F7, section #B4E3F7 → white; card 264, name 23.4, story 12, list 10) --- */
+  html body #services .b30s__mobile.has-pxm:not(#_z){background:linear-gradient(180deg,transparent 0,transparent 188px,#B4E3F7 188px,#B4E3F7 63%,#fff 100%)!important}
+  html body #services .m3__st:not(#_z){background:transparent!important}
+  html body #services .m3 .b30s__face.m3__f:not(#_z){padding:20.6px!important;background:#fff!important;box-shadow:0 0 23.4px rgba(176,233,253,.5)}
+  html body #services .m3 .m3__f .svc__num:not(#_z){font-size:8px!important;opacity:.6}
+  html body #services .m3 .m3__f .svc__name:not(#_z){font-size:23.4px!important;line-height:1.2!important;letter-spacing:-.02em!important;margin-top:0!important}
+  html body #services .m3 .m3__f .svc__go:not(#_z){font-size:10px!important;padding:3.7px!important;height:18px!important;opacity:.5;border:.47px solid rgba(0,0,0,.2)!important;border-radius:3.7px!important}
+  html body #services .m3 .m3__f .svc__desc:not(#_z){font-size:12px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+  html body #services .m3 .m3__f .svc__list li:not(#_z){font-size:10px!important;line-height:1.2!important;padding-block:1.9px!important}
+  html body #services .m3 .m3__f .svc__body:not(#_z){margin-top:auto!important}
+  html body #services .m3 .m3__f .svc__body:not(#_z),html body #services .m3 .m3__f .svc__list:not(#_z){gap:0!important}
+  html body #services .m3 .m3__f .svc__list:not(#_z){margin-top:15px!important}
+  html body #services .m3 .m3__f:not(#_z){display:flex!important;flex-direction:column!important}
+
+  /* --- vision: a dashed line 64 above the heading; the side lines fade in under it and out at the foot --- */
+  html body .vision .vs-tl:not(#_z){position:absolute;left:0;right:0;height:0;border-top:1px dashed rgba(0,0,0,.15);z-index:3;pointer-events:none}
+  html body .vision .vs-tl i:not(#_z){position:absolute;top:-2px;width:4px;height:4px;background:#000}
+  html body .vision :is(.vs-side,.vs-vl):not(#_z){-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent var(--vtl,48px),#000 calc(var(--vtl,48px) + 1px),#000 82%,transparent 100%)!important;mask-image:linear-gradient(180deg,transparent 0,transparent var(--vtl,48px),#000 calc(var(--vtl,48px) + 1px),#000 82%,transparent 100%)!important}
+
+  /* --- testimonials: the Figma head (label · heading · copy · outlined Get in touch); dashed card frames; square dots --- */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  /* --- our network: the Partners / Global switch always under the body copy --- */
+  html body .nx-sec .nx__top > .nx__switch:not(#_z){display:flex!important;visibility:visible!important;opacity:1!important;position:static!important;transform:none!important;pointer-events:auto!important;gap:6px!important;justify-content:center!important;margin:0 auto!important;height:auto!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;width:auto!important}
+  html body .nx-sec .nx__top > .nx__switch .nx__thumb:not(#_z){display:none!important}
+  html body .nx-sec .nx__top > .nx__switch > button:not(#_z){all:unset;box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;height:21px!important;padding:0 8px!important;border-radius:6px!important;
+    font:400 10px/1.2 var(--mono,"Geist Mono",monospace)!important;text-transform:uppercase!important;letter-spacing:0!important;border:1px solid rgba(0,0,0,.15)!important;background:#fff!important;color:#000!important;cursor:pointer!important;min-width:64px!important}
+  html body .nx-sec .nx__top > .nx__switch > button[aria-pressed="true"]:not(#_z){background:#000!important;border-color:#000!important;color:#fff!important}
+}
+
+@media (max-width:899px){
+  /* --- services: the page's own scene (see #b30-m5js) --- */
+  html body #services .b30s__mobile.has-mc > :not(.mc):not(.b30s__pxm):not(.b30s__band):not(#_z){display:none!important}
+  html body #services .b30s__mobile.has-mc:not(#_z){display:block!important;padding:0!important;margin:0!important}
+  html body #services .mc:not(#_z){position:relative;left:0;width:100%;overflow:hidden}
+  html body #services .mc__k:not(#_z){position:absolute;left:0;top:0;width:390px;height:989px;transform-origin:0 0}
+  html body #services .mc__hd:not(#_z){position:absolute;left:40px;top:116px;width:311px;display:flex;flex-direction:column;align-items:center;text-align:center;color:#000}
+  html body #services .mc__eye:not(#_z){margin:0 0 32px;font:400 12px/1.2 var(--mono,"Geist Mono",monospace);text-transform:uppercase;opacity:.6}
+  html body #services .mc__h:not(#_z){margin:0 0 20px;font:400 32px/1.2 var(--sans,"BDO Grotesk",sans-serif);letter-spacing:-.02em;white-space:nowrap}
+  html body #services .mc__p:not(#_z){margin:0;max-width:287px;font:400 15px/1.2 var(--sans,"BDO Grotesk",sans-serif);letter-spacing:-.01em}
+  html body #services .mc__hand:not(#_z){position:absolute;left:0;top:0;width:auto;height:auto;transform-origin:0 0;z-index:3;pointer-events:none;user-select:none;will-change:transform}
+  html body #services .mc__hand.r:not(#_z){width:367px}html body #services .mc__hand.h:not(#_z){width:299px}
+  html body #services .mc__pxs:not(#_z){position:absolute;inset:0;z-index:2;pointer-events:none}
+  html body #services .mc__pxs i:not(#_z){position:absolute;display:block;will-change:transform,opacity}
+  html body #services .mc__box:not(#_z){position:absolute;left:0;top:0;width:264px;height:264px;transform-origin:50% 50%;perspective:1200px;z-index:4;will-change:transform}
+  html body #services .mc__cube:not(#_z){position:absolute;inset:0;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.65,0,.35,1)}
+  html body #services .mc .b30s__face.mc__f:not(#_z){position:absolute!important;inset:0!important;margin:0!important;padding:20.6px!important;box-sizing:border-box!important;aspect-ratio:auto!important;border:0!important;
+    background:#fff!important;transform:rotateY(calc(var(--i) * 90deg)) translateZ(132px);backface-visibility:hidden;-webkit-backface-visibility:hidden;visibility:visible!important;filter:none!important;
+    display:flex!important;flex-direction:column!important;justify-content:space-between!important;pointer-events:none;box-shadow:0 0 23.4px rgba(176,233,253,.5)}
+  html body #services .mc.is-live .mc__f.is-front:not(#_z){pointer-events:auto}
+  html body #services .mc .mc__f > *:not(#_z){opacity:var(--fc,0)}
+  html body #services .mc .mc__f .svc__head:not(#_z){position:relative;display:flex;justify-content:space-between;align-items:flex-start;padding-top:9.8px!important}
+  html body #services .mc .mc__f .svc__num:not(#_z){position:absolute!important;left:3.3px!important;top:0!important;font:400 8px/1.2 var(--mono,"Geist Mono",monospace)!important;opacity:.6;color:#0D1432;margin:0!important}
+  html body #services .mc .mc__f .svc__name:not(#_z){font:400 23.4px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;white-space:nowrap!important;margin:0!important}
+  html body #services .mc .mc__f .svc__go:not(#_z){display:flex;align-items:center;height:18px;padding:0 3.7px;border:.47px solid rgba(0,0,0,.15);border-radius:3.7px;font:400 10px/1 var(--mono,"Geist Mono",monospace);text-transform:uppercase;color:rgba(0,0,0,.5);text-decoration:none}
+  html body #services .mc .mc__f .svc__desc:not(#_z){font:400 12px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0 0 15px!important;min-height:0!important;max-width:none!important}
+  html body #services .mc .mc__f .svc__list:not(#_z){margin:0!important}
+  html body #services .mc .mc__f .svc__list li:not(#_z){font:400 10px/1.2 var(--mono,"Geist Mono",monospace)!important;padding:0 0 1.9px!important;margin:0 0 1.9px!important}
+  html body #services .mc .mc__f .svc__list li:not(#_z)::after{animation:none!important;transform:none!important}
+  html body #services .mc__dots:not(#_z){position:absolute;left:0;right:0;top:778px;display:flex;justify-content:center;gap:4px;z-index:5;opacity:0;transition:opacity .4s ease}
+  html body #services .mc.is-live .mc__dots:not(#_z){opacity:1}
+  html body #services .mc__dots button:not(#_z){all:unset;width:20px;height:24px;display:grid;place-items:center;cursor:pointer}
+  html body #services .mc__dots button:not(#_z)::before{content:"";width:4px;height:4px;background:#000;opacity:.3;transition:opacity .3s}
+  html body #services .mc__dots button[aria-pressed="true"]:not(#_z)::before{opacity:1}
+  html body #services .mc__k:not(#_z){touch-action:pan-y}
+}
+@media (max-width:899px){
+  /* --- hero: the services wheel's two circles drawn as the page's dashed outline, and the wheel lifted clear of the screen --- */
+  html body .b30h .b30h__ring circle:not(#_z){stroke:rgba(0,0,0,.15)!important;stroke-width:1px!important;vector-effect:non-scaling-stroke;stroke-dasharray:3 3}
+  html body .b30h .b30h__ring:not(#_z){-webkit-mask-image:linear-gradient(180deg,#000 26%,transparent 42%);mask-image:linear-gradient(180deg,#000 26%,transparent 42%)}
+  html body .b30h .b30h__orbit:not(#_z),html body .b30h .b30h__ring:not(#_z){translate:0 var(--ringY,0px)}
+  html body .b30h.no-wheel .b30h__orbit:not(#_z){visibility:visible!important;opacity:1!important}
+
+  /* --- selected work: 24 between the category and the title; 96 between the last project and services --- */
+  html body .work .row .kicker:not(#_z){margin-bottom:24px!important}
+  html body .work .row h3:not(#_z){margin-top:0!important}
+  html body .work .row .mhead:not(#_z){margin-top:0!important}
+
+  /* --- vision: room under the rock so its clouds aren't cut --- */
+  html body section.vision.vision:not(#_z){height:1085px!important}
+
+  /* --- testimonials: eyebrow · heading · button, centred; one framed band (two dashed verticals, two dashed horizontals, corner
+         pixels), each review laid out as in the Figma: the words, the portrait under them, then the name and Clutch --- */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  /* --- our network: the two buttons the same size, 24 tall, less padding --- */
+  html body .nx-sec .nx__top > .nx__switch > button:not(#_z){height:24px!important;width:76px!important;min-width:76px!important;padding:0!important}
+
+  /* --- outlines: the page's dashed hairline everywhere --- */
+  html body .work .row:not(#_z)::before,html body .work .row:not(#_z)::after{border-color:rgba(0,0,0,.15)!important}
+}
+@media (max-width:899px){
+  html body .work .row .kicker:not(#_z){margin-bottom:0!important}
+  html body .work .row h3:not(#_z){margin-top:16px!important}
+  html body section#services:not(#_z){margin-top:200px!important}
+  
+}
+@media (max-width:899px){
+  html body .b30h .b30h__ring circle:not(#_z){stroke-dasharray:10 10!important}
+  
+}
+@media (max-width:899px){
+  /* services: the hands in front of the growing box, the loose pixels under the hands */
+  html body #services .mc__pxs:not(#_z){z-index:2!important}
+  html body #services .mc__box:not(#_z){z-index:3!important}
+  html body #services .mc__hand:not(#_z){z-index:5!important}
+  /* testimonials: each frame as tall as its words, with the Figma air (22 above, 37 below) */
+  
+  /* let's talk: the same air above and below */
+  
+}
+
+@media (max-width:899px){
+  /* header: the page's dashed hairline under the bar */
+  
+  /* testimonials: the reviews swipe inside the frame (between its two verticals), all one height */
+  
+  
+  
+  /* our network: 32 more between the Partners / Global buttons and the graphic */
+  html body .nx-sec #nx-grid:not(#_z){margin-top:32px!important}
+}
+@media (max-width:899px){
+  /* hero wheel: the page's dashed hairline */
+  html body .b30h .b30h__ring circle:not(#_z){stroke:rgba(0,0,0,.15)!important;stroke-dasharray:10.1 10.1!important}
+  /* vision: the phone 24 above the rock, no status bar; the side lines dashed like the rest */
+  html body .vision .vs-stone:not(#_z){margin-top:62px!important}
+  html body .vision .vs-sbar:not(#_z){display:none!important}
+  html body .vision :is(.vs-side,.vs-vl):not(#_z){background:repeating-linear-gradient(180deg,rgba(0,0,0,.15) 0 3px,transparent 3px 6px)!important;width:1px!important}
+  /* testimonials: 120 words, then Read more; the portrait and the name side by side under a dashed rule */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* every vertical line that runs past its frame melts into the background at both ends */
+  
+}
+@media (max-width:899px){
+  html body .b30h .b30h__ring:not(#_z){z-index:4!important;pointer-events:none!important}
+  html body .b30h .b30h__ring circle:not(#_z){stroke-dasharray:3 3!important}
+}
+@media (max-width:899px){
+  html body .b30h .b30h__ring g:not(#_z),html body .b30h .b30h__ring circle:not(#_z){opacity:1!important;stroke-opacity:1!important}
+}
+@media (max-width:899px){
+  /* partner pixels: 5 × 5, crisp */
+  
+  
+  /* header: the logo 28 tall */
+  
+  /* case studies: each project sticks as the next one slides over it */
+  html body .work:not(#_z),html body .work .wrap:not(#_z),html body .work .work-body:not(#_z),html body .work #rows:not(#_z){overflow:visible!important}
+  html body .work .row:not(#_z){position:relative!important;top:auto!important}
+  /* testimonials: 64 shorter; no corner pixels */
+  
+  
+  
+  
+  
+  /* our network: the frame's four corner pixels */
+  html body .nx-sec #nx-grid > .nx__px:not(#_z){display:block!important;visibility:visible!important;opacity:1!important}
+}
+@media (max-width:899px){
+  /* the menu: the same logo as the header (28 tall, same place) and the same button size (Menu and Close the same width) */
+  
+  
+  
+  /* one white stripe in the footer (as on desktop): a white hairline across, white pixels where it meets the two side lines, which fade up */
+  
+  
+  
+  
+  
+  /* …and one in the hero: the header's hairline gets the desktop's pixels where the side lines would meet it */
+  html body .b30h .m-hst:not(#_z){position:absolute;left:0;right:0;top:64px;height:0;z-index:41;pointer-events:none}
+  html body .b30h .m-hst i:not(#_z){position:absolute;top:-2px;width:4px;height:4px;background:#000}
+  html body .b30h .m-hst i.l:not(#_z){left:18px}html body .b30h .m-hst i.c:not(#_z){left:calc(50% - 2px)}html body .b30h .m-hst i.r:not(#_z){right:18px}
+}
+
+@media (max-width:899px){
+  /* hero wheel: the words show over more of the arc (they sit a little lower now the band is wider) */
+  html body .b30h .b30h__orbit:not(#_z){--fade-a:42%!important;--fade-b:58%!important}
+  html body .b30h .b30h__ring:not(#_z){-webkit-mask-image:linear-gradient(180deg,#000 38%,transparent 56%)!important;mask-image:linear-gradient(180deg,#000 38%,transparent 56%)!important}
+  /* partner pixels: they fade in at full size (no growing from small) */
+  
+  
+  /* the last CTA: 32 more above and below */
+  
+}
+@media (max-width:899px){
+  /* hero wheel: the circles may run past the drawing's box (no mask; they fade by their own stroke), words untouched and draggable */
+  html body .b30h .b30h__ring:not(#_z){overflow:visible!important;-webkit-mask-image:none!important;mask-image:none!important}
+  html body .b30h .b30h__ring circle:not(#_z){stroke:url(#m-ring-fade)!important;stroke-opacity:1!important;stroke-width:1px!important;vector-effect:non-scaling-stroke;stroke-dasharray:3 3!important}
+  html body .b30h .b30h__ring g:not(#_z){stroke-opacity:1!important}
+  html body .b30h .b30h__words:not(#_z){transform:none!important}
+  html body .b30h .b30h__orbit:not(#_z){pointer-events:auto!important;touch-action:pan-y!important;visibility:visible!important;opacity:1!important}
+  html body .b30h.no-wheel .b30h__orbit:not(#_z),html body .b30h.no-wheel .b30h__ring:not(#_z){visibility:visible!important;opacity:1!important;display:block!important}
+  /* footer: no white stripe */
+  
+}
+@media (max-width:899px){
+  /* one roundness for every button box (10, as the Menu button) */
+  html body :is(.b30btn > span,.b30h__btn > i,.b30h__btn > span,.b30f__cta > *,.b30m__btn > *,.svm-cta .ic,.svm-cta .lb,.cta3 .b30btn > *):not(#_z){border-radius:10px!important}
+}
+

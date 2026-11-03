@@ -1,0 +1,38 @@
+---
+/**
+ * The pictures under a part or a feature, as a list of rows:
+ *   - wide: { image, alt, h?, mt? }          one full-width picture (h: 720 / 800 tall, mt: space above)
+ *   - pair: [ {image, alt, h?}, … ], mt?     two square pictures side by side
+ *   - labels: [Before, After]                small labels over the next row
+ *   - mono: "The System"                     a small caption
+ *   - sub: { heading, text, gap, mt?, media } a sub-block with its own heading and pictures
+ *   - space: 56, media: […]                  extra space above a group
+ *   - stack: { left: [{…}, {…}], right: {…} } two pictures stacked on the left, one tall on the right
+ * Any picture can also have `video: /assets/videos/….mp4` (its `image` is then the video's first frame),
+ *   `pos: "50% 22%"` (its focal point) and `class: "…"` (extra classes for that box).
+ * In place of a picture: `logo: /assets/….svg, alt, ss?: true` = the logo centred on a coloured tile.
+ */
+import Picture from "../parts/Picture.astro";
+const { items } = Astro.props;
+const cls = (base, p) => [base, p.h ? `cz-h${p.h}` : "", p.mt ? `cz-mt${p.mt}` : "", p.class || ""].filter(Boolean).join(" ");
+---
+{items.map((it) =>
+  it.wide ? (it.wide.logo
+      ? <div class={cls("cz-wide wb-logo", it.wide) + (it.wide.ss ? " wb-logo--ss" : "")} role="img" aria-label={it.wide.alt}><img src={it.wide.logo} alt="" /></div>
+      : <Picture class={cls("cz-wide", it.wide)} image={it.wide.image} alt={it.wide.alt} video={it.wide.video} pos={it.wide.pos} />)
+  : it.pair ? <div class={["cz-pair", it.mt ? `cz-mt${it.mt}` : ""].filter(Boolean).join(" ")}>{it.pair.map((p) => p.logo
+      ? <div class={cls("cz-sq wb-logo", p) + (p.ss ? " wb-logo--ss" : "")} role="img" aria-label={p.alt}><img src={p.logo} alt="" /></div>
+      : <Picture class={cls("cz-sq", p)} image={p.image} alt={p.alt} video={p.video} pos={p.pos} />)}</div>
+  : it.stack ? <div class={["cz-pair cz-stack", it.mt ? `cz-mt${it.mt}` : ""].filter(Boolean).join(" ")}>
+      <div class="cz-stack__l">{it.stack.left.map((p) => <Picture class="cz-sq cz-half" image={p.image} alt={p.alt} video={p.video} />)}</div>
+      <Picture class="cz-sq" image={it.stack.right.image} alt={it.stack.right.alt} video={it.stack.right.video} />
+    </div>
+  : it.labels ? <div class="cz-ab">{it.labels.map((l) => <p class="cz-mono16" data-reveal>{l}</p>)}</div>
+  : it.mono ? <p class="cz-mono16 cz-sys" data-reveal>{it.mono}</p>
+  : it.sub ? (() => {
+      const inner = <div class="cz-sub"><div class="cz-f__head"><p class="cz-sub__h" data-reveal>{it.sub.heading}</p><p class="cz-body" data-reveal>{it.sub.text}</p></div><div class={`cz-mt${it.sub.gap}`}><Astro.self items={it.sub.media} /></div></div>;
+      return it.sub.mt ? <div class={`cz-mt${it.sub.mt}`}>{inner}</div> : inner;
+    })()
+  : it.space ? <div class={`cz-mt${it.space}`}><Astro.self items={it.media} /></div>
+  : null
+)}

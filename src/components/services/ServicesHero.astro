@@ -1,0 +1,43 @@
+---
+/**
+ * Services page · 1. Hero — header, the two-line title, the picture frame, the discipline index and the intro.
+ * Content: `hero` + `disciplines` in src/data/services.js (+ `nav` from src/data/site.js)
+ * Scripts: public/js/services-hero.js (the picture), header.js, hero-light.js
+ * Styles: src/styles/hero.css, src/styles/services/hero.css (loaded in order by the page's style list in src/styles/pages/)
+ */
+import Header from "../Header.astro";
+import Rich from "../ui/Rich.astro";
+
+const { nav, title, intro, glow, media, indexLabel, disciplines } = Astro.props;
+---
+<section class="b30h wk-hero" aria-labelledby="sv-title">
+  <div class="b30h__pin">
+    <div class="b30h__stage">
+      <span class="b30h__vline b30h__vline--34" aria-hidden="true"></span>
+      <i class="b30h__px" style="--x:82" aria-hidden="true"></i>
+      <i class="b30h__px b30h__px--c" style="--x:960" aria-hidden="true"></i>
+      <i class="b30h__px" style="--x:1838" aria-hidden="true"></i>
+      <span class="b30h__vline b30h__vline--27" aria-hidden="true"></span>
+      {/* the hero colour: a soft hill of light at the lower right that slowly shifts (styles/services/page.css) */}
+      <div class="svh__sky" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+      <img class="b30h__glow" src={glow} alt="" aria-hidden="true" decoding="async" />
+      <div class="b30h__glowx" aria-hidden="true"></div>
+
+      <Header {...nav} page="services" />
+
+      <h1 class="svh__title" id="sv-title" data-heading><span><Rich text={title[0]} /></span> <span><Rich text={title[1]} /></span></h1>
+      <a class="svh__media" href={media.href} aria-label={media.label}><span class="wk-media__in"></span></a>
+      <nav class="svh__idx" aria-label={indexLabel}>
+        <ul>
+          {disciplines.map((d) => (
+            <li><a href={`#${d.id}`} style={`--c:${d.color}`}><i aria-hidden="true"></i><span>{d.name}</span></a></li>
+          ))}
+        </ul>
+      </nav>
+      <p class="svh__intro" data-reveal style="--rd:200ms">{intro}</p>
+
+      <span class="b30h__vline b30h__vline--26" aria-hidden="true"></span>
+    </div>
+    <div class="wk-hero__dim" aria-hidden="true"></div>
+  </div>
+</section>

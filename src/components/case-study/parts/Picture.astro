@@ -1,0 +1,13 @@
+---
+/**
+ * A case-study picture: a box with the image as its background. The images script (public/js/case-study/images.js)
+ * reads the background and plays the WebGL pixel reveal over it; without WebGL it wipes in with CSS.
+ * `class` = the box's own class (e.g. "cz-part__img"), `hero` = the hero's slower drift.
+ * `video` = an .mp4 that plays over the picture once it has come in (public/js/case-study-b/videos.js):
+ *   `image` is then the video's first frame (its poster), so the reveal and the video join up seamlessly.
+ *   Muted, looping, plays only while on screen; with reduced motion it stays on the poster.
+ */
+// `pos` = the picture's focal point (CSS background-position), e.g. "50% 22%"
+const { image, alt, class: cls = "", hero = false, video = "", pos = "" } = Astro.props;
+---
+<div class={`${cls} ph${video ? " ph--v" : ""}`.trim()} data-gl={hero ? "hero" : ""} role="img" aria-label={alt} style={`background-image:url(${image})${pos ? `;background-position:${pos}` : ""}`}>{video && <video class="ph__v" src={video} muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture></video>}</div>

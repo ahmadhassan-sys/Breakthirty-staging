@@ -1,0 +1,26 @@
+# Netlify redirects (permanent, so search engines move the old pages' standing to the new ones).
+# The old site's blog page → the new blog page; any old /blogs/<post> link → /blog/<post> (the posts keep their URLs).
+/blogs/all-blogs    /blog          301!
+/blogs              /blog          301!
+/blogs/*            /blog/:splat   301!
+# The old blog's tag pages (/blog-tags/<tag>) → the blog, where the same tags are filters
+/blog-tags           /blog          301!
+/blog-tags/*         /blog          301!
+
+# The old site's service pages → the matching discipline on the services page
+/services/shopify-development        /services#engineering   301!
+/services/cro                        /services#engineering   301!
+/services/seo                        /services#marketing     301!
+/services/amazon-seller-central      /services#marketing     301!
+/services/paid-search-and-social     /services#marketing     301!
+/services/email-marketing            /services#marketing     301!
+
+# The old site's other pages
+/contact-us          /contact   301!
+/email               /          301!
+/log-in              /          301!
+/sign-up             /          301!
+/reset-password      /          301!
+/update-password     /          301!
+/access-denied       /          301!
+/user-account        /          301!

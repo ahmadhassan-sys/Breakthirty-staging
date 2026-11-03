@@ -1,0 +1,71 @@
+---
+/**
+ * Services page ("What we do") — /services
+ * Its own sections: components/services/*  ·  content: src/data/services.js
+ * Shared with the homepage: header, partners strip, testimonials, closing line, footer
+ * (components/*, content: src/data/site.js).
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/pages/services.css";   // all services page styles, in order
+
+import ServicesHero from "../components/services/ServicesHero.astro";
+import PartnersStrip from "../components/PartnersStrip.astro";
+import ServicesList from "../components/services/ServicesList.astro";
+import SayHello from "../components/services/SayHello.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Strip from "../components/closing/Strip.astro";
+import ClosingCta from "../components/closing/ClosingCta.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+
+import { seo, hero, disciplines, list, hello, strip } from "../data/services.js";
+import { serviceIcons } from "../data/services-icons.js";
+import { nav, partnersStrip, testimonials, closing, contact, footer } from "../data/site.js";
+import { servicesSchema } from "../lib/schema.js";
+
+/* What the page scripts (public/js) read. */
+const heroImages = { default: [hero.media.cover] };
+disciplines.forEach((d) => { heroImages[d.id] = d.images; });
+const scriptContent = {
+  servicesPage: { icons: serviceIcons, heroImages, hoverWord: hero.media.hoverWord },
+  testimonials: { items: testimonials.items },
+  contact: { heading: contact.heading, closing: contact.closing },
+};
+
+/* Page scripts, in the order they run. */
+const scripts = [
+  "core",            // scale, smooth scroll, headings, reveals (must be first)
+  "header",          // logo hover, header pixels
+  "hero-light",      // the hero's glow and light
+  "partners",
+  "testimonials",
+  "contact",
+  "footer",
+  "details",         // small finishing touches across sections
+  "services-list",   // the disciplines and the sphere
+  "services-hero",   // the hero picture and the hero's drift
+  "strip",           // the dashed-letter strip's hover reveal
+  "contact-closing", // the closing words (must run last: it sits on top of the contact panel)
+  "mobile-layer",
+  "mobile-m5",
+  "services-mobile"   // phones only (≤ 899px)
+];
+/* structured data: the four disciplines as services (src/lib/schema.js) */
+const pageSeo = { ...seo, schema: servicesSchema(disciplines, Astro.site) };
+---
+
+<BaseLayout seo={pageSeo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Services", path: "/services" }]}>
+  <ServicesHero {...hero} nav={nav} disciplines={disciplines} />
+
+  <main class="b30-main" id="main">
+    <PartnersStrip {...partnersStrip} />
+    <ServicesList {...list} disciplines={disciplines} />
+    <SayHello {...hello} />
+    <Testimonials {...testimonials} />
+    <Strip {...strip} />
+    <ClosingCta {...closing.cta} />
+    <Contact {...contact} />
+  </main>
+
+  <Footer {...footer} page="services" />
+</BaseLayout>

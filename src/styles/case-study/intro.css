@@ -1,0 +1,17 @@
+/* Case study page · intro: breadcrumb, title, meta and lede */
+.cz-intro{padding-top:calc(164*var(--u))}
+.cz-crumb{margin:0 0 calc(64*var(--u));font:400 max(11px,calc(14*var(--u)))/1.2 var(--mono);text-transform:uppercase;color:rgba(0,0,0,.5)}
+.cz-crumb a{color:inherit;text-decoration:none}
+.cz-crumb a:hover{color:#000}
+.cz-crumb__on{color:#000}
+.cz-title{margin:0;font-weight:400;font-size:max(40px,calc(71*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.cz-intro__r{padding-left:calc(2*var(--u))}
+.cz-meta{margin:0;display:flex;flex-direction:column;gap:calc(48*var(--u));font-size:max(14px,calc(16*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.cz-meta div{display:flex;flex-direction:column;gap:calc(10*var(--u))}
+.cz-meta dd{margin:0;opacity:.5;display:flex;flex-direction:column;gap:calc(6*var(--u))}
+.cz-lede{margin:calc(196*var(--u)) 0 0;width:calc(646*var(--u));max-width:100%;font-size:max(22px,calc(36*var(--u)));line-height:1.2;letter-spacing:-.02em}
+@media (max-width:899px){
+  .cz-intro{padding-top:56px}
+  .cz-crumb{margin-bottom:24px}
+  .cz-lede{margin-top:32px;width:auto}
+}

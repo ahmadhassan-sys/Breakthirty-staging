@@ -1,0 +1,18 @@
+/* =====================================================================
+   Contact page styles, in cascade order. The shared files are the same
+   ones the homepage uses; the page's own files are in styles/contact/.
+   ===================================================================== */
+@import "../global.css";
+@import "../hero.css";               /* the shared hero frame + header */
+@import "../contact/globe.css";
+@import "../contact/hero.css";
+@import "../partners.css";
+@import "../contact/form.css";
+@import "../shared.css";
+@import "../closing.css";       /* after the testimonials: the Sketch/Make/Break/Scale strip and the call to action */
+@import "../contact.css";            /* the closing line before the footer */
+@import "../footer.css";
+@import "../theme.css";
+@import "../dark.css";
+@import "../contact/page.css";       /* Oct 2026: the hero colour, the office card, the chips' hover, the closing spacing (last) */
+@import "../mobile/contact.css";    /* phones (≤ 899px): the contact page (last) */

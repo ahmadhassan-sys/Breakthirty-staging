@@ -1,0 +1,73 @@
+---
+/**
+ * One page per case study: /work/<file name>, built from src/content/case-studies/<file name>.yaml.
+ * The file's `template` picks the design: a = ChartSight's layout, b = the layout with free-form sections
+ * (Construction Check, The Coupon Chaser, Weldon Brewster, Ethical Narrative).
+ * Shared with the other pages: header, closing call to action, closing band, footer (no dashed-letter strip on case studies).
+ */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/pages/case-study.css";   // all case study page styles, in order
+
+import TemplateA from "../../components/case-study/TemplateA.astro";
+import TemplateB from "../../components/case-study/TemplateB.astro";
+import { caseStudyCss } from "../../styles/case-study-sets.js";
+import ClosingCta from "../../components/closing/ClosingCta.astro";
+import Contact from "../../components/Contact.astro";
+import Footer from "../../components/Footer.astro";
+
+import { caseStudies, nextCase } from "../../lib/case-studies.js";
+import { caseStudySchema } from "../../lib/schema.js";
+import { labels, seo as seoBase } from "../../data/case-study.js";
+import { nav, closing, contact, footer } from "../../data/site.js";
+
+export async function getStaticPaths() {
+  return (await caseStudies()).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+const TEMPLATES = { a: TemplateA, b: TemplateB };
+const Template = TEMPLATES[data.template] || TemplateA;
+const next = await nextCase(data.next);
+
+const seo = {
+  title: data.seo.title,
+  description: data.seo.description,
+  ogTitle: data.seo.title,
+  ogDescription: data.seo.description,
+  themeColor: seoBase.themeColor,
+  image: data.hero.image,   // the case study's cover as its share picture
+  imageAlt: data.hero.label || data.name,
+  schema: caseStudySchema(entry, Astro.site),   // the project as a creative work (src/lib/schema.js)
+};
+
+/* what the page scripts (public/js) read */
+const scriptContent = {
+  contact: { heading: contact.heading, closing: contact.closing },
+};
+
+/* Page scripts, in the order they run. Each template has its own set: public/js/case-study/ (a), public/js/case-study-b/ (b) */
+const dir = data.template === "b" ? "case-study-b" : "case-study";
+const scripts = [
+  "core",                    // scale, smooth scroll, headings, reveals (must be first)
+  "header",                  // logo hover, header pixels
+  "contact",
+  "footer",
+  "details",
+  ...(data.template === "b" ? [`${dir}/videos`] : []),   // videos inside pictures (before images: it listens for the hero hand-off)
+  ...["images", "hero", "numbers", "how", "output"].map((f) => `${dir}/${f}`),   // pictures, hero, numbers, how we worked, tabs
+  "contact-closing",         // (must run last: it sits on top of the closing band)
+  "mobile-layer",
+  "mobile-m5",
+  "case-study-mobile"   // phones only (≤ 899px)
+];
+---
+
+<BaseLayout seo={seo} content={scriptContent} scripts={scripts} caseTransition pageCss={caseStudyCss(data.template, entry.id)} crumbs={[{ name: "Work", path: "/work" }, { name: data.name, path: `/work/${entry.id}` }]}>
+  <Template data={data} next={next} nav={nav} labels={labels}>
+    <ClosingCta {...closing.cta} />
+    <Contact {...contact} />
+  </Template>
+
+  <Footer {...footer} page="case-study" />
+</BaseLayout>

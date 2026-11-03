@@ -1,0 +1,493 @@
+/* The phone layer shared by the services, blog and case-study pages (from the mobile designs, block m-ref).
+   Phones only (≤ 899px): every rule sits inside max-width:899px, so desktop is untouched. */
+/* ===== Mobile fixes. Every rule is inside max-width:899px, so 900px and up (desktop) is untouched ===== */
+@media (max-width:899px){
+/* Work: odd rows kept the desktop 3-column placement (the :not(.flip) selector out-ranked the mobile one) */
+.work .row:not(.flip) .media,.work .row:not(.flip) .text{grid-column:1;grid-row:auto}
+.work .work-head.grid3{grid-template-columns:1fr}
+
+/* Services: the four mobile cards were hidden by the cube-only rule */
+#services .b30s__mobile .m-cards .b30s__face{visibility:visible!important}
+
+/* Partners network: header was locked to 76px (later desktop rule), so the orbit sat on the text */
+.nx-sec .nx .nx__top{height:auto!important}
+.nx-sec .nx__eye{font-size:12px;line-height:1.2}
+.nx-sec .nx__switch{position:relative!important;left:auto!important;right:auto!important;top:auto!important;align-self:flex-start;gap:8px!important;font-size:12px!important}
+.nx-sec .nx__switch button{width:96px!important;height:32px!important;padding:0 12px!important;border-radius:8px}
+
+/* Testimonials: quote was 3.7px and capped at 106px wide */
+
+
+
+/* each card: the quote, then the client side by side with a small portrait (not stacked) */
+
+
+
+
+
+
+
+
+
+
+/* CTA eyebrow ("Let's talk") was 2.8px */
+
+
+/* Contact stage is empty on mobile but kept its desktop padding: ~230px of blank white above the footer */
+
+
+/* Footer: heading squeezed to 126px; button pushed down onto the address */
+
+
+
+
+/* ---------- round 2 ---------- */
+/* Hero: the copy sits lower, in the free band between the nav and the scene (the scene is bottom-anchored, ~90vw tall) */
+.b30h .b30h__copy{padding-top:clamp(32px,calc((100svh - 102vw - 324px) * .55),150px)}
+
+/* Partners bar: just the ticker (no label), logos sized for a phone */
+
+
+
+
+
+
+
+
+
+/* Brand pixels (mobile layout from the reference): 25 squares of 7px on a staggered grid, built by script; each row
+   drifts sideways at its own pace as the band scrolls past. The desktop pattern is hidden here. */
+
+
+
+
+
+
+
+
+
+
+/* Selected work: kicker + year / image / headline / description / case-study button */
+.work .row,.work .row.flip{grid-template-columns:1fr auto;grid-template-areas:"k y" "m m" "h h" "d d" "c c";gap:0;align-items:start}
+.work .row .text,.work .row .media,.work .row .mhead,.work .row .mhead > div{display:contents}
+.work .row .kicker{grid-area:k;align-self:center;margin:0 16px 16px 0}
+.work .row .mhead .yr{grid-area:y;align-self:center;margin-bottom:16px}
+.work .row .slot{grid-area:m}
+.work .row .mhead h3{grid-area:h;margin-top:24px;max-width:none}
+.work .row .desc{grid-area:d;margin-top:14px;max-width:none}
+.work .row .desc .num{display:none}
+.work .row .cta{grid-area:c;justify-self:start;margin-top:24px}
+
+/* Network: the frame for the rings (built ~2.6x larger on phones, so only their upper arcs show, as on desktop) */
+.nx-sec .nx__grid{aspect-ratio:auto!important;height:440px!important}
+/* the ring names and logos at the rings' size */
+.nx-sec .nx-orbit__g{--u:calc(100vw / 1920 * 2.6)}
+/* Network (global): the globe takes the finger both ways (turn and tip), as the mouse does on desktop */
+.nx-sec:not(.is-partner) .nx__gl{touch-action:none}
+/* Network (global): globe labels readable */
+.nx-sec .nx__loc{font-size:11px!important}
+.nx-sec .nx__loc i{width:8px!important;height:8px!important;margin:-4px 0 0 -4px!important;box-shadow:0 0 0 5px rgba(52,87,186,.16)!important}
+.nx-sec .nx__loc b{left:12px!important;top:-12px!important;padding:5px 8px!important}
+.nx-sec .nx__loc b em{margin-left:6px!important}
+/* Network (global): no info card in the corner when a location is tapped */
+.nx-sec .nx__card{display:none!important}
+
+/* Testimonials to the marquee: less air */
+
+
+
+
+
+
+
+
+
+
+
+/* the strip slides as on desktop; the letters at a phone size */
+
+
+/* Services: the band is drawn by a canvas that builds as you arrive (as on desktop) */
+#services .b30s__mobile.has-pxm .b30s__band{display:none!important}
+#services .b30s__mobile.has-pxm{background:linear-gradient(180deg,transparent 0,transparent 188px,var(--b30s-mid) 188px,var(--b30s-mid) 100%)!important}
+#services .b30s__pxm{position:absolute;left:0;width:100%;z-index:0;pointer-events:none;display:block}
+#services .b30s__mobile.has-pxm > :not(.b30s__pxm){position:relative;z-index:1;top:auto!important;left:auto!important}
+/* Services: the pinned hands + cube scene */
+#services .b30s__mobile.has-m3{padding-bottom:0!important}
+#services .b30s__mobile.has-m3 .m-scene,#services .b30s__mobile.has-m3 .m-cards{display:none}
+#services .m3{height:100svh;min-height:640px;max-height:900px;margin:24px -20px 0;position:relative}
+#services .m3__st{position:relative;top:0;height:100%;overflow:hidden;background:linear-gradient(180deg,var(--b30s-mid) 0%,#e6f6fd 45%,#fff 92%);touch-action:pan-y}
+#services .m3__h{position:absolute;left:0;top:0;max-width:none;height:auto;transform-origin:50% 50%;will-change:transform;z-index:2;pointer-events:none;user-select:none}
+#services .m3__h.r{transform-origin:0 30%}#services .m3__h.h{transform-origin:100% 70%}
+#services .m3__box{position:absolute;left:0;top:0;width:var(--S);height:var(--S);transform-origin:50% 50%;perspective:1400px;z-index:3;will-change:transform}
+#services .m3__cube{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.65,0,.35,1)}
+#services .m3 .b30s__face.m3__f{position:absolute!important;inset:0!important;aspect-ratio:auto!important;margin:0;box-sizing:border-box;padding:22px!important;border:0!important;
+  background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0) 18%),radial-gradient(125% 105% at 50% 42%,#fff 60%,#eef6fc 100%)!important;
+  transform:rotateY(calc(var(--i) * 90deg)) translateZ(calc(var(--S) / 2));backface-visibility:hidden;-webkit-backface-visibility:hidden;visibility:visible!important;filter:none!important;pointer-events:none}
+#services .m3 .b30s__face.m3__f:nth-child(even){background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0) 18%),radial-gradient(125% 105% at 50% 42%,#fafcfe 55%,#e8f1f9 100%)!important}
+#services .m3.is-live .b30s__face.m3__f.is-front{pointer-events:auto}
+#services .m3 .m3__f > *{opacity:var(--fc,0)}
+#services .m3 .m3__f .svc__name{font-size:clamp(26px,7.6vw,34px);white-space:normal;margin-top:2px}
+#services .m3 .m3__f .svc__go{font-size:9px!important;padding:3px 6px!important;height:auto!important;min-height:0!important;line-height:1.2!important;letter-spacing:.04em}
+#services .m3 .m3__f .svc__head{align-items:flex-start}
+#services .m3 .m3__f .svc__body{margin-top:14px}
+#services .m3 .m3__f .svc__list{margin-top:14px}
+#services .m3 .m3__f .svc__desc{font-size:14px;line-height:1.25}
+#services .m3 .m3__f .svc__list li{font-size:11.5px;padding-block:4px}
+#services .m3 .m3__f .svc__head,#services .m3 .m3__f .svc__body{gap:10px}
+/* the four marks under the box: short upright lines, as on desktop (the current one solid) */
+#services .m3__ticks{position:absolute;left:50%;top:calc(50% + var(--S) / 2 + 28px);transform:translateX(-50%);display:flex;gap:0;z-index:4;opacity:0;transition:opacity .4s ease}
+#services .m3.is-live .m3__ticks{opacity:1}
+#services .m3__ticks button{all:unset;width:24px;height:30px;display:grid;place-items:center;cursor:pointer}
+#services .m3__ticks i{display:block;width:1.5px;height:10px;background:#000;opacity:.2;transition:opacity .3s ease}
+#services .m3__ticks button[aria-pressed="true"] i{opacity:1}
+#services .m3__st{cursor:pointer}
+#services .m3__box{height:var(--Sh,var(--S))}
+#services .m3__ticks{top:calc(50% + var(--Sh,var(--S)) / 2 + 28px)}
+/* Globe labels near the right edge open leftward */
+.nx-sec .nx__loc.m-flip b{left:auto!important;right:12px!important}
+
+/* Vision: a phone on the floating rock, in the desktop clouds and the desktop pink panel */
+section.vision.vision{--pw:min(56vw,230px);--ph:calc(var(--pw) * 2.05);--dt:240px;--sw:108vw;--sh:calc(var(--sw) * .483);--st:calc(var(--dt) + var(--ph) - var(--sh) * .13);height:calc(56px + var(--st) + var(--sh) + 24px)!important;overflow-x:clip}
+.vision .vs-panel{background:linear-gradient(180deg,#fff 0%,#FAD7FF 42%,#F8DDFC 80%,#fff 100%)!important}
+.vision .vs-dev{top:var(--dt)!important;width:var(--pw)!important;height:var(--ph)!important;--hh:var(--ph)!important;z-index:3}
+.vision .vs-frame{border-width:6px!important;border-radius:36px!important;-webkit-mask-image:none!important;mask-image:none!important}
+.vision .vs-dev .vs-os{left:7px!important;top:7px!important;right:7px!important;bottom:7px!important;border-radius:30px!important;--u:.5px}
+.vision .vs-dev .vs-os::before{content:"";position:absolute;left:50%;top:9px;width:56px;height:16px;border-radius:9px;background:#000;transform:translateX(-50%);z-index:9;pointer-events:none}
+.vision .vs-os .vs-scr{top:30px}
+.vision .vs-os .vs-ic{width:64px}
+.vision .vs-os .vs-ic svg{width:26px;height:26px}
+.vision .vs-os .vs-ic span{font-size:8px;letter-spacing:.03em;padding:2px 3px;text-align:center;line-height:1.15;white-space:normal}
+.vision .vs-os .vs-ic[style*="left:calc(35"]{left:6px!important}.vision .vs-os .vs-ic[style*="left:calc(141"]{left:74px!important}
+.vision .vs-os .vs-ic[style*="left:calc(247"]{left:142px!important}.vision .vs-os .vs-ic[style*="left:calc(353"]{left:6px!important;top:96px!important}
+.vision .vs-os .vs-back{font-size:10px;left:14px}
+.vision .vs-os .vs-h{font-size:15px;top:22px}
+.vision .vs-os .vs-x{width:16px;height:16px;right:16px;top:8px}
+.vision .vs-os .vs-pic figcaption{font-size:10px}
+/* "A little less chaos": the four cards stack down the phone instead of a 2 × 2 grid */
+.vision .vs-os .s-img .vs-cw{left:8%!important;width:84%!important;height:auto!important}
+.vision .vs-os .s-img .vs-cw:nth-of-type(1){top:46px!important;z-index:1}.vision .vs-os .s-img .vs-cw:nth-of-type(2){top:122px!important;z-index:2}
+.vision .vs-os .s-img .vs-cw:nth-of-type(3){top:198px!important;z-index:3}.vision .vs-os .s-img .vs-cw:nth-of-type(4){top:274px!important;z-index:4}
+.vision .vs-os .s-img .vs-card{width:100%;padding:9px 10px;gap:4px}
+.vision .vs-os .s-img .vs-card b{font-size:15px}.vision .vs-os .s-img .vs-card span{font-size:9.5px;line-height:1.25}
+/* the old open-bottom tablet's progressive blur is not used on the phone */
+.vision .vs-dev .vs-bl{display:none!important}
+/* the rock, its top tucked behind the phone's foot */
+.vision .vs-stone{display:block!important;position:absolute!important;left:50%!important;width:var(--sw)!important;height:auto!important;top:var(--st)!important;
+  transform:translateX(-50%) translateZ(0)!important;will-change:transform;z-index:2;pointer-events:none;opacity:1;clip-path:none!important;image-rendering:auto!important}
+.vision .vs-cloudm{position:absolute;left:-30vw;width:160vw;pointer-events:none;display:block}
+.vision .vs-cloudm.back{z-index:1;top:calc(var(--dt) + var(--ph) * .3);height:calc(var(--st) + var(--sh) + 40px - var(--dt) - var(--ph) * .3)}
+.vision .vs-cloudm.front{z-index:4;top:calc(var(--st) + var(--sh) * .25);height:calc(var(--sh) * .95)}
+
+/* Footer: the sky (clouds + wordmark) runs behind the whole footer, as on desktop, so nothing meets at a hard edge */
+
+
+
+
+/* Heading word swap on tap: the longer word may reflow the line instead of running off the screen */
+.b30-nowrap{white-space:normal!important}.b30-tmpbr{display:none}
+
+/* Hero: a faint on-brand tint in the top corners only (sky blue left, the vision pink right) */
+html:not(.dark) .b30h .b30h__stage{background:
+  radial-gradient(90% 34% at 0% 0%,rgba(176,233,253,.22) 0%,rgba(176,233,253,0) 100%),
+  radial-gradient(80% 30% at 100% 0%,rgba(250,215,255,.2) 0%,rgba(250,215,255,0) 100%),
+  #fff!important}
+
+/* Vision phone: a three-button nav bar at the foot of the screen (back · home · next), so no screen is a dead end */
+.vision .vs-os .vs-scr{bottom:44px}
+.vision .vs-os .s-view .vs-pic img{object-fit:contain;background:#fff}
+.vision .vs-os .vs-x2{display:none}
+.vision .vs-navm{position:absolute;left:0;right:0;bottom:0;height:44px;display:flex;justify-content:space-around;align-items:center;z-index:8;background:#fff;border-top:1px dashed rgba(0,0,0,.15);border-radius:0 0 30px 30px}
+.vision .vs-navm button{all:unset;width:44px;height:36px;display:grid;place-items:center;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.vision .vs-navm button[disabled]{opacity:.25;pointer-events:none}
+.vision .vs-navm svg{width:14px;height:14px;display:block}
+.vision .vs-navm button:active svg{transform:scale(.86)}
+
+/* Hero: copy and button centred */
+.b30h .b30h__copy{text-align:center}
+.b30h .b30h__title{margin-inline:auto}
+.b30h .b30h__intro{align-items:center}
+.b30h .b30h__intro p{margin-inline:auto}
+
+/* Nav (phones), per the mobile Figma: 64 px bar, 20 px sides, a hairline under it; MENU = 36 px icon square + black label, flush */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* "Stop briefing…": centred, like the hero */
+.b30sb.b30sb{align-items:center}
+.b30sb .b30sb__h{text-align:center;align-self:stretch;width:auto}
+.b30sb .b30sb__l{align-items:center;text-align:center}
+.b30sb .b30sb__l p{margin-inline:auto}
+
+/* Testimonials: the eyebrow above the heading, then the button; even spacing */
+
+
+
+
+/* "Building something?": an even rhythm (marquee · eyebrow · heading · button) */
+
+
+
+
+/* Vision phone: a status bar (time, signal, wi-fi, battery) and a faint wallpaper on the home screen */
+.vision .vs-sbar{position:absolute;left:0;right:0;top:0;height:34px;display:flex;justify-content:space-between;align-items:center;padding:0 20px 0 24px;z-index:9;pointer-events:none;
+  font:600 11px/1 "BDO Grotesk","Helvetica Neue",Arial,sans-serif;letter-spacing:.01em;color:#000}
+.vision .vs-sbar .r{display:flex;gap:4px;align-items:center}
+.vision .vs-sbar svg{display:block;height:9px;width:auto}
+.vision .vs-os[data-screen="home"]{background:linear-gradient(180deg,#eaf7fd 0%,#fff 46%,#fdf3ff 100%)}
+
+/* ===== Mobile type scale and spacing from the Figma (B30 · Mobile 420) =====
+   H3 40 · H4 32 · H5 24 (BDO Grotesk, 1.2, −2 %) · body 16 (−1 %) / 14 · mono 14 / 12 / 10 (caps), eyebrows rgba(13,20,50,.56) */
+.b30h .b30h__title{font-size:40px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+.b30h .b30h__intro p{font-size:16px!important;line-height:1.2!important;letter-spacing:-.01em!important}
+.b30h .b30h__intro{gap:24px!important;margin-top:16px!important}
+
+/* Selected work: the Figma work card (meta · title · button · image · number + story), more air between projects */
+.work.work{padding-top:64px!important;padding-bottom:24px!important}
+.work .work-head h2{font-size:40px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+.work .work-head p{font-size:16px!important;line-height:1.2!important;letter-spacing:-.01em!important;max-width:none!important}
+.work .work-head{gap:16px!important;padding-bottom:24px!important}
+.work .work-head p{color:rgba(0,0,0,.78)}
+/* Case studies, audited for a phone. One project = one read: meta → title → picture → story → action,
+   on an 8 px rhythm (16 · 24 · 24 · 28), the picture larger (4 : 3), the story at a reading size with air between lines,
+   and the same 48 px above and below every divider. */
+.work .row,.work .row.flip{grid-template-areas:"k y" "h h" "m m" "d d" "c c"!important;padding:40px 0 48px!important;border-top:0}
+.work .row + .row{margin-top:0}
+
+.work .row .kicker,.work .row .mhead .yr{font:400 12px/1.2 var(--mono,"Geist Mono",monospace)!important;margin:0 0 16px!important;letter-spacing:0!important}
+.work .row .kicker{text-transform:uppercase;color:#000;padding-right:16px}.work .row .mhead .yr{color:rgba(13,20,50,.56)}
+.work .row .mhead h3{font-size:24px!important;line-height:1.2!important;letter-spacing:-.02em!important;margin:0!important;max-width:none!important}
+.work .row .slot{margin-top:24px!important;aspect-ratio:4 / 3;height:auto!important}
+.work .row .slot img,.work .row .slot video,.work .row .slot canvas{width:100%!important;height:100%!important;object-fit:cover}
+.work .row .desc{margin-top:24px!important;display:flex;flex-direction:column;gap:10px}
+.work .row .desc .num{display:block!important;font:400 12px/1.2 var(--mono,"Geist Mono",monospace)!important;color:rgba(13,20,50,.56)}
+.work .row .desc p{font-size:15px!important;line-height:1.45!important;letter-spacing:-.01em!important;margin:0;color:rgba(0,0,0,.78);max-width:34em}
+.work .row .cta{margin:28px 0 0!important}
+.work .row .cta .ic{width:36px!important;height:36px!important;border-radius:10px!important}
+.work .row .cta .ic svg{left:9px!important;top:9px!important;width:18px!important;height:18px!important}
+.work .row .cta .lbl{height:36px!important;width:auto!important;padding:0 14px!important;border-radius:10px!important;font-size:11px!important;letter-spacing:.06em!important}
+
+/* Services: the cube faces as the Figma service card (01 · name H4 · story 14 · capabilities mono 12) */
+#services .m3 .b30s__face.m3__f{padding:22px!important}
+#services .m3 .m3__f .svc__num{font:400 12px/1.2 var(--mono,"Geist Mono",monospace)!important;color:rgba(13,20,50,.56)!important}
+#services .m3 .m3__f .svc__name{font-size:32px!important;line-height:1.2!important;letter-spacing:-.02em!important;margin-top:8px!important}
+#services .m3 .m3__f .svc__desc{font-size:14px!important;line-height:1.2!important;letter-spacing:-.02em!important;margin-top:16px!important}
+#services .m3 .m3__f .svc__list{margin-top:12px!important}
+#services .m3 .m3__f .svc__list li{font:400 12px/1.2 var(--mono,"Geist Mono",monospace)!important;padding:7px 0!important;border-bottom:1px solid rgba(0,0,0,.2)!important;text-transform:uppercase}
+#services .m3 .m3__f .svc__body{margin-top:0!important}
+/* the hands sit just under the intro (the scene slides up under it), not a screen further down */
+#services .b30s__mobile.has-m3 .b30s__intro,#services .b30s__mobile.has-m3 .b30s__title{z-index:3!important}
+#services .m3{margin-top:-14svh!important}
+#services .b30s__title{font-size:40px!important;line-height:1.2!important;letter-spacing:-.02em!important}
+
+/* "Stop briefing…": H4, centred, even gaps */
+.b30sb.b30sb{padding-top:72px!important;padding-bottom:88px!important;gap:24px!important}
+.b30sb .b30sb__h{font-size:32px!important;line-height:1.2!important;letter-spacing:-.02em!important;margin:0!important}
+.b30sb .b30sb__l{gap:24px!important;margin:0!important}
+.b30sb .b30sb__l p{font-size:16px!important;line-height:1.2!important;letter-spacing:-.01em!important;margin:0!important}
+.b30sb [data-speed]{translate:none!important}
+
+/* Vision phone: the four pictures are redrawn for the phone (no ×); the "little less chaos" × goes too (the nav bar has Back) */
+.vision .vs-os .s-img .vs-x{display:none!important}
+.vision .vs-os .s-view .vs-pic img{object-fit:cover!important}
+
+/* Network: centred, H4 */
+.nx-sec .nx__top{align-items:center!important;text-align:center!important}
+.nx-sec .nx__eye{text-align:center}
+.nx-sec .nx__h{font-size:32px!important;line-height:1.2!important;letter-spacing:-.02em!important;text-align:center!important;margin-inline:auto!important}
+.nx-sec .nx__h{white-space:nowrap!important}
+.nx-sec .nx__b{font-size:16px!important;line-height:1.2!important;letter-spacing:-.01em!important;text-align:center!important;margin-inline:auto!important}
+.nx-sec .nx__switch{align-self:center!important;margin-inline:auto!important}
+
+/* Testimonials: the Figma deck — swipe cards (quote · photo · name · company), "01 / 04" and a progress line */
+
+
+
+
+
+
+
+
+/* "Building something?": H4 */
+
+
+
+/* Footer: Figma columns (Services · Company · Socials, then New business · Address), H5 heading; every link a full-size tap target */
+
+
+
+
+
+
+
+
+
+
+
+/* socials as three icon buttons (the page's 44 px rounded button) */
+
+
+
+
+
+
+
+
+/* © line at the very bottom, under the wordmark, as on desktop */
+
+/* Privacy · Terms move up, under the buttons; only the © line stays under the wordmark */
+
+
+
+
+
+
+
+
+
+
+/* Testimonials (audited): the words lead, the person signs. One card per screen-width with the next one peeking,
+   explicit ← → controls beside a counter and progress line, full reviews on demand. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* testimonials: four dots; the current one stretches into a short bar */
+
+
+
+
+
+
+
+
+
+
+/* more air above the sections that open a new idea */
+.nx-sec .nx{padding-top:72px!important}
+
+
+/* Vision: no dotted underlines beneath the heading's three lines */
+.vision .vs-ul{display:none!important}
+
+/* Vision phone: Breakdown at the phone's full width, scrolling inside the screen */
+.vision .vs-os .s-view .vs-pic[data-pic="breakdown"]{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.vision .vs-os .s-view .vs-pic[data-pic="breakdown"] img{height:auto!important;object-fit:contain!important;display:block}
+/* Vision phone: the Sketch to Scale screen */
+.vision .vs-os[data-screen="sts"] .s-sts{opacity:1;visibility:visible;transform:none;transition:opacity .28s ease,transform .38s cubic-bezier(.16,1,.3,1),visibility 0s}
+.vision .s-sts{padding:16px 14px 0;box-sizing:border-box;font-family:"BDO Grotesk","Helvetica Neue",Arial,sans-serif}
+.vision .s-sts .sts__h{margin:0;font-size:17px;line-height:1.2;letter-spacing:-.02em;color:#000}
+.vision .s-sts .sts__s{margin:4px 0 12px;font:400 9px/1.2 var(--mono,"Geist Mono",monospace);text-transform:uppercase;color:rgba(13,20,50,.5)}
+.vision .s-sts .sts__l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.vision .s-sts li{display:grid;grid-template-columns:22px 1fr;gap:2px 8px;padding:8px 10px;background:#fff;border:1px solid rgba(0,0,0,.1);transition:background .35s ease,border-color .35s ease,transform .35s cubic-bezier(.16,1,.3,1)}
+.vision .s-sts li.on{background:var(--c);border-color:transparent;transform:translateX(3px)}
+.vision .s-sts li b{font:400 9px/1.6 var(--mono,"Geist Mono",monospace);color:rgba(13,20,50,.5)}
+.vision .s-sts li span{display:flex;flex-direction:column;gap:2px}
+.vision .s-sts li strong{font-weight:400;font-family:inherit;font-size:14px;line-height:1.1;letter-spacing:-.02em;color:#000}
+.vision .s-sts li em{font-style:normal;font-family:inherit;font-size:9.5px;line-height:1.25;color:rgba(0,0,0,.6)}
+.vision .s-sts li i{grid-column:1 / -1;height:2px;background:rgba(0,0,0,.08);margin-top:5px;overflow:hidden;display:block}
+.vision .s-sts li i u{display:block;height:100%;width:0;background:#000}
+.vision .s-sts li.on i u{width:100%;transition:width 1.55s linear}
+
+
+/* Nav: the wordmark at its own size (116 px), optically centred on the 36 px MENU button */
+
+
+
+
+
+
+/* Hero: no room under the button (short screens) → no wheel */
+.b30h.no-wheel .b30h__orbit{visibility:hidden!important;opacity:0!important}
+
+/* ---- Typography pass: one scale on phones ----
+   H3 40 · H4 32 · H5 24 (1.2, -2%) · body 16 / 14 (1.2; paragraphs 1.4) · labels Geist Mono 12 uppercase, no extra
+   spacing, rgba(13,20,50,.56) · button labels 12, .1em · footer links Geist Mono 14 as typed */
+html section.vision.vision{--vs-fs:40px}
+#services .b30s__lede{font-size:16px!important;line-height:1.2!important;letter-spacing:-.01em!important}
+.work .row .desc p{font-size:16px!important;line-height:1.4!important}
+
+
+/* labels */
+#services .b30s__label{font:400 12px/1.2 var(--mono,"Geist Mono",monospace)!important;letter-spacing:0!important;color:rgba(13,20,50,.56)!important}
+.nx-sec .nx__eye{letter-spacing:0!important;color:rgba(13,20,50,.56)!important}
+
+.work .row .desc .num{letter-spacing:0!important}
+
+
+#services .m3 .m3__f .svc__go{font-size:10px!important;color:rgba(13,20,50,.56)!important;letter-spacing:0!important}
+
+
+/* button labels */
+.work .row .cta .lbl{font-size:12px!important;letter-spacing:.1em!important}
+
+.nx-sec .nx__switch button{letter-spacing:.1em!important}
+/* footer and menu links: Geist Mono 14, as typed */
+
+
+}
+@media (min-width:900px){.vision .vs-cloudm{display:none!important}}
+
+@media (min-width:900px){.vision .vs-sbar,.vision .vs-navm,#services .m3,#services .b30s__pxm{display:none!important}}
+@media (max-width:899px){#services .m3__px{position:absolute;left:0;top:0;z-index:4;pointer-events:none;will-change:transform,opacity}}
+/* (from the designs' site block, phones only) */
+@media (max-width:899px){
+  /* blog: the featured post's title uses the full width */
+  html body .blg-feat .blg-feat__row > a,html body .blg-feat a:has(> .blg-feat__t){flex:1 1 100%!important;width:100%!important;max-width:none!important;min-width:0!important}
+  html body .blg-feat .blg-feat__t{width:auto!important;max-width:none!important}
+  html:root,html body{overflow-x:clip}
+}

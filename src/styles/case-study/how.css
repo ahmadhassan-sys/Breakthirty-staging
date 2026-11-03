@@ -1,0 +1,24 @@
+/* Case study page · how we worked: the green sky, the pixel band, the steps and the hand */
+.b30-main > section.cz-how{position:relative;margin-top:calc(578*var(--u));padding:calc(240*var(--u)) 0 calc(162*var(--u));
+  background:linear-gradient(180deg,#D1E0D4 0%,#D1E0D4 43.879%,#fff 100%)}
+.cz-band{position:absolute;left:0;bottom:100%;width:100%;height:calc(208*var(--u));pointer-events:none;display:block}
+.cz-how__head{position:relative;display:grid;grid-template-columns:calc(808*var(--u)) calc(606*var(--u));margin-left:calc(160*var(--u))}
+.cz-how__head .cz-lab{padding-top:calc(5*var(--u))}
+.cz-steps{list-style:none;margin:calc(96*var(--u)) 0 0;padding:0;position:relative}
+.cz-st{border-top:1px dashed rgba(0,0,0,.15)}
+.cz-st:last-child{border-bottom:1px dashed rgba(0,0,0,.15)}
+.cz-st__in{padding:calc(48*var(--u)) calc(163*var(--u)) calc(48*var(--u)) calc(973*var(--u))}
+.cz-st__n{margin:0;font-size:max(14px,calc(18*var(--u)));line-height:1.2;letter-spacing:-.01em}
+.cz-st__t{margin:calc(24*var(--u)) 0 0;font-weight:400;font-size:max(24px,calc(36*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.cz-st__d{margin:calc(32*var(--u)) 0 0;max-width:calc(513*var(--u));font-size:max(15px,calc(18*var(--u)));line-height:1.2;letter-spacing:-.01em}
+.cz-st__in{opacity:.22;transition:opacity .7s cubic-bezier(.22,1,.36,1)}
+.cz-st.on .cz-st__in{opacity:1}
+.cz-hand{position:absolute;left:0;top:0;width:calc(865*var(--u));height:auto;z-index:2;pointer-events:none;user-select:none;
+  will-change:transform;backface-visibility:hidden}
+@media (max-width:899px){
+  .cz-how{margin-top:140px;padding:72px 0 64px}
+  .cz-band{height:calc(208*var(--u))}
+  .cz-steps{margin-top:40px}
+  .cz-st__in{padding:28px 20px 28px 38vw}
+  .cz-hand{width:44vw}
+}

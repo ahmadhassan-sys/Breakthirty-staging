@@ -1,0 +1,44 @@
+---
+/**
+ * The "page not found" page (Netlify shows dist/404.html for any address that doesn't exist).
+ * Kept out of search results (noindex). Styles: the legal pages' (src/styles/pages/legal.css).
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/pages/legal.css";
+import Header from "../components/Header.astro";
+import ClosingCta from "../components/closing/ClosingCta.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import ArrowButton from "../components/blog/ArrowButton.astro";
+import { nav, closing, contact, footer } from "../data/site.js";
+
+const seo = { title: "Page not found | Breakthirty", description: "This page doesn't exist or has moved. Head back to the homepage, our work or the blog.", noindex: true };
+const scriptContent = { contact: { heading: contact.heading, closing: contact.closing } };
+const scripts = ["core", "header", "contact", "footer", "details", "services-hero", "contact-closing"];   // services-hero: shows the hero once laid out
+---
+
+<BaseLayout seo={seo} content={scriptContent} scripts={scripts}>
+  <section class="b30h wk-hero bp-hero lg-hero nf-hero" aria-labelledby="nf-title">
+    <div class="b30h__pin">
+      <div class="b30h__stage">
+        <span class="b30h__vline b30h__vline--27" aria-hidden="true"></span>
+        <Header {...nav} page="404" />
+        <h1 class="bp-title" id="nf-title" data-heading>This page doesn't exist (anymore).</h1>
+        <div class="bp-meta">
+          <p class="bp-desc" data-reveal>It may have moved when we rebuilt the site. These are a good place to start:</p>
+          <div class="nf-links" data-reveal style="--rd:120ms">
+            <ArrowButton label="Homepage" href="/" />
+            <ArrowButton label="Our work" href="/work" />
+            <ArrowButton label="The blog" href="/blog" />
+          </div>
+        </div>
+        <span class="b30h__vline b30h__vline--26" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+  <main class="b30-main" id="main">
+    <ClosingCta {...closing.cta} />
+    <Contact {...contact} />
+  </main>
+  <Footer {...footer} page="404" />
+</BaseLayout>

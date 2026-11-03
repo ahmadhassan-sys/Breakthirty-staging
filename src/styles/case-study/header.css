@@ -1,0 +1,16 @@
+/* Case study page · the header strip (the homepage header on white) and its dashed side lines */
+.cz-top{position:relative;height:calc(124*var(--u));background:#fff;z-index:6;font-family:var(--sans)}
+.cz-top .b30h__nav{position:absolute;inset:0 auto auto 0;width:100%;height:calc(124*var(--u));background-color:#fff}
+.cz-vl{position:absolute;top:0;width:1px;height:calc(1055*var(--u));z-index:7;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(0,0,0,.15) 22.8%,rgba(0,0,0,0) 100%);
+  -webkit-mask-image:repeating-linear-gradient(180deg,#000 0 2px,transparent 2px 4px);mask-image:repeating-linear-gradient(180deg,#000 0 2px,transparent 2px 4px)}
+.cz-vl.l{left:calc(82*var(--u))}
+.cz-vl.r{left:calc(1838*var(--u))}
+.cz-npx{position:absolute;top:calc(121*var(--u));width:6px;height:6px;margin-left:-3px;background:#000;z-index:8}
+.cz-npx.l{left:calc(82*var(--u))}
+.cz-npx.r{left:calc(1838*var(--u))}
+@media (max-width:899px){
+  .cz-top{height:64px}
+  .cz-top .b30h__nav{height:64px}
+  .cz-vl,.cz-npx{display:none}
+}

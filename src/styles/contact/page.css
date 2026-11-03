@@ -1,0 +1,64 @@
+/* =====================================================================
+   Contact page — Oct 2026 update
+   ===================================================================== */
+/* light only: the dark theme and its switch are gone from this page */
+.b30-theme,.b30-stars{display:none!important}
+
+/* hero colour: the services page's light (Figma B30 › 5184:662) in its own key — the hill sits a little left of
+   centre, under the globe, and leans rose and lilac rather than peach; it shifts slowly, on a loop */
+.cth .cth__glow{display:none!important}
+.cth__sky{opacity:.6;position:absolute;left:0;width:100%;bottom:calc(-163*var(--u));height:calc(1047*var(--u));z-index:1;overflow:hidden;pointer-events:none}
+.cth__sky i{position:absolute;left:calc(820*var(--u) - 1900*var(--u));top:calc(990*var(--u) - 960*var(--u));width:calc(3800*var(--u));height:calc(1920*var(--u));
+  border-radius:50%;will-change:transform,opacity;backface-visibility:hidden}
+.cth__sky .a{background:radial-gradient(closest-side,
+  #4A57C0 0%,#5B60C4 5%,#7A6CC6 9.5%,#A07FC4 14%,#C796C2 19%,#E4B2C6 24%,#F2CDCE 30%,#F8E0D6 36%,#FBEEE2 43%,#FDF7EF 52%,#FFFCF9 60%,rgba(255,255,255,0) 70%);
+  animation:ctSkyA 24s ease-in-out infinite alternate}
+.cth__sky .b{background:radial-gradient(closest-side,
+  #3D55BE 0%,#4F61C6 6%,#6E70CB 11%,#9585CC 16%,#BDA0CC 21%,#DCBED2 27%,#EDD6DB 33%,#F6E8E6 40%,#FBF4F1 48%,#FEFBF9 58%,rgba(255,255,255,0) 68%);
+  opacity:0;animation:ctSkyB 16s ease-in-out infinite alternate}
+.cth__sky .c{background:radial-gradient(closest-side,
+  #5A5BC0 0%,#7266C1 5%,#946FBE 10%,#BC80B8 15%,#DE9DB6 20%,#F0BDBC 26%,#F8D6C6 33%,#FCE7D3 40%,#FEF3E3 48%,#FFFBF3 58%,rgba(255,255,255,0) 68%);
+  opacity:0;animation:ctSkyC 20s ease-in-out -7s infinite alternate}
+@keyframes ctSkyA{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(calc(60*var(--u)),calc(-12*var(--u)),0) scale(1.035)}}
+@keyframes ctSkyB{0%,15%{opacity:0;transform:translate3d(calc(-40*var(--u)),0,0) scale(.99)}100%{opacity:.85;transform:translate3d(calc(30*var(--u)),calc(-10*var(--u)),0) scale(1.03)}}
+@keyframes ctSkyC{0%,20%{opacity:0;transform:translate3d(calc(50*var(--u)),calc(6*var(--u)),0) scale(1.02)}100%{opacity:.75;transform:translate3d(calc(-50*var(--u)),calc(-8*var(--u)),0) scale(.985)}}
+@media (prefers-reduced-motion:reduce){.cth__sky i{animation:none!important}}
+@media (max-width:899px){.cth__sky{height:70%;bottom:0}.cth__sky i{left:calc(50% - 900px);top:auto;bottom:-560px;width:1800px;height:1000px}}
+/* the heading sits the same 82 below the header's rule as the office card (and as the card sits from the side line) */
+@media (min-width:900px){ .cth .cth__title{top:calc(206*var(--u))!important} }
+/* the hero stays as it was (pinned while the page comes up over it); its content drifts up at 0.4 of the scroll —
+   the same movement as the services hero's — and the same black overlay rises to 16% (see the script) */
+.cth .cth__dim{opacity:var(--wk-dim,0)!important;z-index:20!important}
+/* the hero's side lines stay above the colour */
+.cth .b30h__vline{z-index:6!important}
+
+/* the globe's city tags: they answer the pointer — black on hover — and open the office card */
+.og.og--hero .loc .card{pointer-events:auto;cursor:pointer;transition:background-color .25s ease,color .25s ease,border-color .25s ease}
+.og.og--hero .loc .card .name,.og.og--hero .loc .card .time{transition:color .25s ease}
+.og.og--hero .loc.is-on .card,.og.og--hero .loc .card:hover{background:#000!important;border-color:#000!important}
+.og.og--hero .loc.is-on .card .name,.og.og--hero .loc .card:hover .name{color:#fff!important}
+.og.og--hero .loc.is-on .card .time,.og.og--hero .loc .card:hover .time{color:rgba(255,255,255,.6)!important}
+
+/* the office card, top right of the hero (the homepage's globe card: city, country, local time, phone) */
+.cth__office{position:absolute;right:calc(164*var(--u));top:calc(206*var(--u));width:calc(404*var(--u));height:calc(152*var(--u));z-index:25;box-sizing:border-box;
+  background:#fff;pointer-events:none;font:400 calc(16*var(--u))/1.35 var(--mono,"Geist Mono",monospace);letter-spacing:.02em;color:#000;
+  opacity:0;transform:translate3d(0,calc(6*var(--u)),0);transition:opacity .25s ease,transform .45s cubic-bezier(.16,1,.3,1);
+  background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.28) 0 2px,transparent 2px 4px),repeating-linear-gradient(90deg,rgba(0,0,0,.28) 0 2px,transparent 2px 4px),
+    repeating-linear-gradient(180deg,rgba(0,0,0,.28) 0 2px,transparent 2px 4px),repeating-linear-gradient(180deg,rgba(0,0,0,.28) 0 2px,transparent 2px 4px);
+  background-size:100% 1px,100% 1px,1px 100%,1px 100%;background-position:0 0,0 100%,0 0,100% 0;background-repeat:no-repeat}
+.cth__office.on{opacity:1;transform:none}
+.cth__office b{position:absolute;font-weight:400;white-space:pre}
+.cth__office .c1{left:calc(28*var(--u));top:calc(26*var(--u))}
+.cth__office .c2{left:calc(28*var(--u));top:calc(26*var(--u) + 1.35em);color:rgba(0,0,0,.55)}
+.cth__office .c3{right:calc(28*var(--u));top:calc(26*var(--u))}
+.cth__office .c4{left:calc(28*var(--u));bottom:calc(24*var(--u))}
+@media (max-width:899px){.cth__office{right:20px;top:84px;width:240px;height:112px;font-size:12px}.cth__office b{}.cth__office .c1,.cth__office .c2,.cth__office .c4{left:14px}.cth__office .c1,.cth__office .c3{top:12px}.cth__office .c3{right:14px}.cth__office .c4{bottom:12px}}
+
+/* "What do you need?": hovering a choice fills it black (as a chosen one is) */
+/* (a plain change of colour — no wipe) */
+.ctf__chip span{transition:background-color .2s ease,color .2s ease,border-color .2s ease}
+@media (hover:hover){ .ctf__chip:hover span{background-color:#000;border-color:#000!important;color:#fff} }
+
+/* closing CTA: 160 from "Get in touch" to the footer's white steps (40 + the band's 30 + 90) */
+@media (min-width:900px){ .cta3{padding-bottom:calc(40*var(--u))!important}
+  html body .b30-main > #contact.b30c,html body .b30-main > #contact.b30c.wk-cta-proof{height:calc(90*var(--u))!important;padding:0!important;margin-top:calc(30*var(--u))!important;min-height:0!important} }

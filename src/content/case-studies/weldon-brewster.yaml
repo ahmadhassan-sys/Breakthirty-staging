@@ -1,0 +1,261 @@
+# Weldon Brewster case study → /work/weldon-brewster
+# Layout: a list of sections (template b): see src/components/case-study/TemplateB.astro for the section types.
+# Headings: *word* = the highlighted word, a line break in the text = a line break on the page.
+# Its card on the Our Work page is the "weldon-brewster" entry in src/data/work.js.
+
+template: b
+name: Weldon Brewster
+seo:
+  title: Weldon Brewster case study | Breakthirty
+  description: A Los Angeles construction photographer, a new film studio and a private gallery he owns. We built the brands,
+    websites and software behind all three.
+hero:
+  image: /assets/videos/weldon-brewster/poster-banner.jpg        # the video's first frame
+  video: /assets/videos/weldon-brewster/banner.mp4
+  label: Weldon Brewster
+next: construction-check
+sections:
+- type: intro
+  title: Weldon Brewster
+  kind: Photography & Film
+  roles:
+  - AI solution design & build
+  - Full-stack engineering
+  - Data standardization
+  - Engagement — Over a year
+  lede: A Los Angeles construction photographer, a new film studio and a private gallery he owns. We built the brands, websites
+    and software behind all three.
+  ledeWide: true
+- type: demo
+  label: Showreel
+  mods:
+  - cz-demo--in
+  image: /assets/videos/weldon-brewster/poster-structural-stories-photo-collage.jpg   # the video's first frame
+  video: /assets/videos/weldon-brewster/structural-stories-photo-collage.mp4
+  alt: Structural Stories photo collage
+- type: overview
+  label: Project Overview
+  heading: We started with his photography brand. Then came a film studio, then a private gallery.
+  body:
+  - 'Weldon Brewster is a Los Angeles photographer with nearly four decades on construction sites and landmark builds, from
+    Frank Gehry’s The Grand in LA to the I-35 bridge in a Minnesota January. Since 2024 we’ve built three things for him,
+    in this order:'
+  - '01:  A rebrand and new website for Weldon Brewster Photography.
+
+    02: A brand-new brand and website for Structural Stories, the film studio he launched next.
+
+    03: A private gallery where his clients view and download their photos.'
+  details:
+  - label: Client
+    value: Weldon Brewster
+  - label: Industry
+    value: Architectural & industrial photography · Film
+  - label: Year
+    value: 2024 – Ongoing
+  detailsLabel: (Details)
+  links:
+  - label: Visit Structural Stories
+    href: '#'
+    external: true
+  - label: Visit Weldon Brewster
+    href: https://weldonbrewster.com
+    external: true
+- type: rule
+  mods: []
+- type: services
+  label: Services provided
+  heading: We built the brands, the websites and the private gallery behind Weldon Brewster.
+  list:
+  - Brand Strategy
+  - Brand Identity
+  - Graphic & Marketing Design
+  - UI/UX & Product Design
+  - Web & Frontend Development
+  - Custom Software Development
+  - Cloud & DevOps
+  - SEO & GEO
+  - Social Media Management
+- type: rule
+  mods:
+  - cz-rule--wb
+- type: challenge
+  label: The challenge
+  heading: His brand, his business and his tools had all fallen behind his work.
+  body:
+  - His photography brand didn’t feel as premium as his work. Then he started Structural Stories, a film studio for a different
+    kind of client, and it needed a name of its own.
+  - Every shoot was delivered through a hosted gallery service he couldn’t change. He couldn’t add features or organise his
+    photos his own way, and the archive kept growing.
+- type: beforeAfter
+  label: Before
+  mods:
+  - cz-ba--wb
+  caption: (Before)
+  single:                     # one wide picture under the caption
+    image: /assets/videos/weldon-brewster/poster-before.jpg
+    video: /assets/videos/weldon-brewster/before.mp4
+    alt: The old Weldon Brewster website
+- type: stat
+  mods:
+  - cz-stat--en
+  number:
+    value: 151 MP
+    count: 151
+    from: 144
+    suffix: ' MP'
+  text: Shot on a Phase One IQ4 150, four decades of work, from The Sphere to the 6th Street Bridge, fill a 250 TB archive.
+- type: how
+  label: How we worked
+  mods:
+  - cz-how--en
+  - cz-how--wb
+  heading: From first sketch to final upload, in five.
+  steps:
+  - title: Rebrand
+    text: Gave Weldon Brewster Photography a new identity that feels premium.
+  - title: Rebuild
+    text: Took weldonbrewster.com from wireframes to a full Webflow build.
+  - title: Launch
+    text: Created the Structural Stories brand, its website and everything around it.
+  - title: Build
+    text: Built the private gallery to replace the hosted gallery service.
+  - title: Support
+    text: Keep both sites and the gallery moving, on a standing weekly call.
+  headWide: true
+- type: output
+  label: The Output
+  mods:
+  - cz-out--wb
+  headMods: []
+  heading: What we built, in three parts.
+  navLabel: The three parts
+  tabsMods:
+  - cz-tabs--3
+  parts:
+  - kicker: Part 1
+    title: 'Weldon Brewster Photography: a rebrand that feels expensive'
+    body:
+    - 'The brief was one line: should not feel cheap, but expensive. We explored three identity directions and landed on a
+      mark where a camera lens and a photo frame form a W, on a quiet slate palette. Then we rebuilt weldonbrewster.com in
+      Webflow around his best projects.'
+    titleStyle: max-width:calc(514*var(--u))
+    headMt: 32
+    media:
+    - wide:
+        image: /assets/videos/weldon-brewster/poster-conceptual-breakdown.jpg
+        video: /assets/videos/weldon-brewster/conceptual-breakdown.mp4
+        alt: Conceptual breakdown of the Weldon Brewster mark
+    - pair:
+      - image: /assets/images/case-studies/weldon-brewster/weldon-portrait.jpg
+        alt: Silhouette of a construction worker in a hard hat and safety vest against a yellow sky
+        pos: 50% 22%
+      - logo: /assets/images/case-studies/weldon-brewster/logo-weldon-brewster.svg
+        alt: Weldon Brewster logo
+      mt: 24
+    - wide:
+        image: /assets/videos/weldon-brewster/poster-website-pages.jpg
+        video: /assets/videos/weldon-brewster/website-pages.mp4
+        alt: Pages from the new weldonbrewster.com
+        mt: 24
+    tab: Weldon Brewster Photography
+  - kicker: Part 2
+    title: 'Structural Stories: a new brand for a new studio'
+    body:
+    - 'Structural Stories makes films for construction and engineering firms, a different buyer from his photography clients.
+      So it got its own brand, voice and colours, a website built from scratch, and everything a client sees: landing page,
+      proposals, pitch decks, client agreements, business cards, email signatures and socials.'
+    - 'The brand stands on one idea: find the Blade of Grass in a billion-dollar build, the one detail everyone else walks
+      past. No sizzle reels, only proof that helps A/E/C firms win pursuits, hire talent and own their sector.'
+    headMt: 32
+    media:
+    - wide:
+        image: /assets/videos/weldon-brewster/poster-ss-mark-construction.jpg
+        video: /assets/videos/weldon-brewster/ss-mark-construction.mp4
+        alt: Construction of the Structural Stories mark
+    - pair:
+      - image: /assets/videos/weldon-brewster/poster-ss-color-palette.jpg
+        video: /assets/videos/weldon-brewster/ss-color-palette.mp4
+        alt: The Structural Stories colour palette
+      - logo: /assets/images/case-studies/weldon-brewster/logo-structural-stories.svg
+        alt: Structural Stories logo
+        ss: true
+      mt: 24
+    - wide:
+        image: /assets/videos/weldon-brewster/poster-ss-website-preview.jpg
+        video: /assets/videos/weldon-brewster/ss-website-preview.mp4
+        alt: Preview of the Structural Stories website
+        mt: 24
+    tab: Structural Stories
+  - kicker: Part 3
+    title: 'Private gallery: one he fully controls'
+    body:
+    - We built a custom web app at studio.weldonbrewster.com to replace the hosted service. Photos upload straight to his
+      own cloud storage, and large uploads pause and resume.
+    headMt: 32
+    media:
+    - sub:
+        heading: (What his clients see)
+        text: A private, password-protected link. They browse the shoot by timeline, index or grid, and download in original
+          or web quality.
+        gap: 56
+        media:
+        - wide:
+            image: /assets/videos/weldon-brewster/poster-studio-client-view.jpg
+            video: /assets/videos/weldon-brewster/studio-client-view.mp4
+            alt: The private gallery as his clients see it
+            class: wb-gal wb-gal--client
+    - sub:
+        heading: (What Weldon sees)
+        text: He invites his team, creates as many folders and galleries as he needs, and sees every view and download. Links
+          can expire or be reset, and deleted galleries wait 30 days before they’re gone.
+        gap: 112
+        media:
+        - wide:
+            image: /assets/videos/weldon-brewster/poster-studio-admin-view.jpg
+            video: /assets/videos/weldon-brewster/studio-admin-view.mp4
+            alt: The studio admin view Weldon uses
+            class: wb-gal wb-gal--admin
+        mt: 109
+    tab: Private Gallery
+- type: statement
+  mods:
+  - cz-say--wb
+  text: Then the photos needed a home of their own.
+- type: impact
+  label: Impact
+  mods: []
+  heading: Two brands live. One archive he owns.
+  rows:
+  - value: 2 brands
+    count: 2
+    from: 0
+    suffix: ' brands'
+    text: and two websites, live and maintained since 2024
+  - value: ~250 TB
+    count: 250
+    from: 243
+    prefix: '~'
+    suffix: ' TB'
+    text: of photos in a private gallery Weldon controls
+  - value: ~5× less
+    count: 5
+    from: 2
+    prefix: '~'
+    suffix: × less
+    text: to run than the hosted gallery service it replaced
+  - value: Weekly
+    roll: true
+    text: working call since 2024, where every list comes back done
+- type: outcome
+  label: The outcome
+  mods:
+  - cz-outcome--en
+  quote: “We meet every week, I bring the list, and it comes back done.”
+  person:
+    name: Weldon Brewster
+    role: Structural Stories
+    style: wb
+    photo: /assets/images/testimonial-weldon-brewster.jpg
+  more: “I change my mind, I redesign things, I show up with ideas out of left field, and the answer is always ‘okay, we can
+    do that,’ followed by something better than I pictured.”
+- type: next

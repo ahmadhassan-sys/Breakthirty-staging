@@ -1,0 +1,77 @@
+---
+/**
+ * Our Work page — /work
+ * Its own sections: components/work/*  ·  content: src/data/work.js
+ * Shared with the other pages: header, partners strip, testimonials, closing line, footer
+ * (components/*, content: src/data/site.js).
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/pages/work.css";   // all Our Work page styles, in order
+
+import WorkHero from "../components/work/WorkHero.astro";
+import PartnersStrip from "../components/PartnersStrip.astro";
+import WorkList from "../components/work/WorkList.astro";
+import { imageKey } from "../components/work/image-key.js";
+import WorkHello from "../components/work/WorkHello.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Strip from "../components/closing/Strip.astro";
+import ClosingCta from "../components/closing/ClosingCta.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+
+import { seo, hero, filters, featured, selected, hello, strip } from "../data/work.js";
+import { workCases } from "../lib/case-studies.js";
+import { nav, partnersStrip, testimonials, closing, contact, footer } from "../data/site.js";
+import { workListSchema } from "../lib/schema.js";
+
+/* The list: the case studies in src/content/case-studies/ first, then the entries in src/data/work.js */
+const cases = await workCases();
+
+/* What the page scripts (public/js) read: every picture by key, and the case studies for the hero's fan. */
+const tagLabel = Object.fromEntries(filters.items.map((f) => [f.key, f.tag]));
+const images = { featured: featured.cover };
+cases.forEach((c) => c.images.forEach((src, i) => { images[imageKey(c.id, i)] = src; }));
+const scriptContent = {
+  workPage: {
+    images,
+    cases: cases.map((c) => ({ id: c.id, name: c.name, href: c.href, imgs: c.images.map((_, i) => imageKey(c.id, i)), tl: c.tags.map((t) => tagLabel[t] || t) })),
+  },
+  testimonials: { items: testimonials.items },
+  contact: { heading: contact.heading, closing: contact.closing },
+};
+
+/* Page scripts, in the order they run. */
+const scripts = [
+  "core",            // scale, smooth scroll, headings, reveals (must be first)
+  "header",          // logo hover, header pixels
+  "hero-light",      // the hero's glow
+  "work-page",       // the fan of pages, filters, grid/index, picture hovers, the hand
+  "partners",
+  "testimonials",
+  "contact",
+  "footer",
+  "details",         // small finishing touches across sections
+  "work-hero",       // the hero's drift as the page scrolls over it
+  "strip",           // the dashed-letter strip's hover reveal
+  "contact-closing", // the closing words (must run last: it sits on top of the contact panel)
+  "work-mobile"   // phones only (≤ 899px)
+];
+/* structured data: this page lists the case studies (src/lib/schema.js) */
+const pageSeo = { ...seo, pageType: "CollectionPage", schema: workListSchema(cases, Astro.site) };
+---
+
+<BaseLayout seo={pageSeo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Work", path: "/work" }]}>
+  <WorkHero {...hero} nav={nav} />
+
+  <main class="b30-main" id="main">
+    <PartnersStrip {...partnersStrip} />
+    <WorkList filters={filters} featured={featured} selected={selected} cases={cases} />
+    <WorkHello {...hello} />
+    <Testimonials {...testimonials} />
+    <Strip {...strip} />
+    <ClosingCta {...closing.cta} />
+    <Contact {...contact} />
+  </main>
+
+  <Footer {...footer} page="work" />
+</BaseLayout>

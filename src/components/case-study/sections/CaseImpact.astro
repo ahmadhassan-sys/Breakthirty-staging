@@ -1,0 +1,16 @@
+---
+/** (06) The impact: heading and the list of figures. */
+import Label from "../parts/Label.astro";
+import Count from "../parts/Count.astro";
+import Rich from "../../ui/Rich.astro";
+const { n, labels, heading, rows } = Astro.props;
+---
+<section class="cz-impact" aria-labelledby="cz-imp-h">
+  <div class="cz-wrap cz-split">
+    <Label n={n} title={labels.impact} />
+    <h2 class="cz-h71" id="cz-imp-h" data-heading><Rich text={heading} /></h2>
+  </div>
+  <div class="cz-imp">{rows.map((r) => (
+    <div class="cz-imp__row"><p class="cz-imp__n" data-reveal><Count value={r.value} count={r.count} from={r.from} suffix={r.suffix} /></p><p class="cz-h36" data-heading>{r.text}</p></div>
+  ))}</div>
+</section>

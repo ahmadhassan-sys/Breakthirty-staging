@@ -1,0 +1,80 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Break Thirty contact form — an HTTP API that sends each form submission by email (Amazon SES).
+  Deploy: see README.md in this folder (sam build && sam deploy --guided).
+
+Parameters:
+  ToEmail:
+    Type: String
+    Default: ahmad.hassan@breakthirty.com
+    Description: Where every form submission is sent.
+  FromEmail:
+    Type: String
+    Default: "Break Thirty website <forms@breakthirty.com>"
+    Description: The sender. Its domain (breakthirty.com) must be a verified identity in Amazon SES in this region.
+  AllowedOrigins:
+    Type: CommaDelimitedList
+    Default: "https://www.breakthirty.com,https://breakthirty.com"
+    Description: Websites allowed to post the form (add a staging address here while testing).
+  MinFillMs:
+    Type: Number
+    Default: 3000
+    Description: A form sent faster than this after the page opened is treated as a bot (answered "ok", not sent).
+
+Globals:
+  Function:
+    Runtime: nodejs22.x
+    Architectures: [arm64]
+    MemorySize: 256
+    Timeout: 10
+
+Resources:
+  ContactApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowOrigins: !Ref AllowedOrigins
+        AllowMethods: [POST, OPTIONS]
+        AllowHeaders: [content-type]
+        MaxAge: 600
+      # no one can hammer it: 2 requests a second on average, bursts of 10
+      DefaultRouteSettings:
+        ThrottlingRateLimit: 2
+        ThrottlingBurstLimit: 10
+
+  ContactFormFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      CodeUri: ./
+      Description: Sends the website's contact form to the team by email (SES).
+      Environment:
+        Variables:
+          TO_EMAIL: !Ref ToEmail
+          FROM_EMAIL: !Ref FromEmail
+          ALLOWED_ORIGINS: !Join [",", !Ref AllowedOrigins]
+          MIN_FILL_MS: !Ref MinFillMs
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: [ses:SendEmail, ses:SendRawEmail]
+              Resource: !Sub "arn:${AWS::Partition}:ses:${AWS::Region}:${AWS::AccountId}:identity/*"
+      Events:
+        Submit:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref ContactApi
+            Path: /contact
+            Method: POST
+
+  ContactFormLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${ContactFormFunction}"
+      RetentionInDays: 30
+
+Outputs:
+  FormEndpoint:
+    Description: Put this in the website's .env as PUBLIC_FORM_ENDPOINT, then rebuild the site.
+    Value: !Sub "https://${ContactApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/contact"

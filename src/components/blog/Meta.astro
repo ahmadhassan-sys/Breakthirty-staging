@@ -1,0 +1,6 @@
+---
+/** Date · read time, with their icons (the cards, the "Must read" guide and the post's hero). */
+import { post as labels } from "../../data/blog.js";
+const { iso, date, minutes, rd } = Astro.props;
+---
+<div class="blg-meta" data-reveal style={rd != null ? `--rd:${rd}ms` : undefined}><span class="blg-meta__i"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5"/><path d="M2.5 8h15M6.5 2v4M13.5 2v4"/><path d="M6 11h2M9 11h2M12 11h2M6 14h2M9 14h2" stroke-width="1.5"/></svg><time datetime={iso}>{date}</time></span><i class="blg-meta__sep" aria-hidden="true"></i><span class="blg-meta__i"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 5.5V10l3 2"/></svg><span>{minutes} {labels.minRead}</span></span></div>

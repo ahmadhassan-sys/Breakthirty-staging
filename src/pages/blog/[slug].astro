@@ -1,0 +1,78 @@
+---
+/**
+ * A blog post — /blog/<file name> (the same URLs as the old site).
+ * One Markdown file per post in src/content/blog/; the article is shaped into the template by src/lib/rehype-blog.mjs.
+ * Words around the post: `post` in src/data/blog.js · its sections: components/blog/Post*.astro
+ */
+import { render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/pages/blog-post.css";   // all blog post styles, in order
+
+import { postSchema } from "../../lib/schema.js";
+import PostHero from "../../components/blog/PostHero.astro";
+import PartnersStrip from "../../components/PartnersStrip.astro";
+import PostBody from "../../components/blog/PostBody.astro";
+import PostMore from "../../components/blog/PostMore.astro";
+import Strip from "../../components/closing/Strip.astro";
+import ClosingCta from "../../components/closing/ClosingCta.astro";
+import Contact from "../../components/Contact.astro";
+import Footer from "../../components/Footer.astro";
+
+import { post as labels, strip } from "../../data/blog.js";
+import { posts, related } from "../../lib/blog.js";
+import { nav, partnersStrip, closing, contact, footer } from "../../data/site.js";
+
+export async function getStaticPaths() {
+  const all = await posts();
+  return all.map((p) => ({ params: { slug: p.id }, props: { id: p.id } }));
+}
+
+const all = await posts();
+const post = all.find((p) => p.id === Astro.props.id);
+const { data } = post.entry;
+const { Content, headings } = await render(post.entry);
+
+/* "You will read": one line per ## section (their ids are set by src/lib/rehype-blog.mjs as "<section>-h") */
+const toc = headings.filter((h) => h.depth === 2).map((h) => ({ id: h.slug.replace(/-h$/, ""), text: h.text }));
+
+const url = new URL(post.href, Astro.site).href;
+const image = new URL(data.image, Astro.site).href;
+const seo = {
+  title: data.seoTitle || data.title,
+  description: data.description,
+  image: data.image,
+  type: "article",
+  keywords: data.keywords,
+  published: post.iso,
+  modified: data.updated ? data.updated.toISOString().slice(0, 10) : undefined,
+  imageAlt: data.imageAlt || data.title,
+  // structured data: the post (and its FAQs when it has a FAQ section) — src/lib/schema.js
+  schema: postSchema({ post, data, minutes: post.minutes, words: post.entry.body.split(/\s+/).filter(Boolean).length, author: labels.author, site: Astro.site }),
+};
+
+const scriptContent = { contact: { heading: contact.heading, closing: contact.closing } };
+const scripts = [
+  "core", "header", "hero-light", "partners", "contact", "footer", "details",
+  "services-hero",   // the hero's drift (the services hero's)
+  "blog-post",       // pictures, "You will read", the FAQs, the hero's length, the GIF videos
+  "strip",
+  "contact-closing", // (must run last)
+  "mobile-layer",
+  "mobile-m5"   // phones only (≤ 899px)
+];
+---
+
+<BaseLayout seo={seo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Blog", path: "/blog" }, { name: data.title, path: post.href }]}>
+  <PostHero nav={nav} post={post} lead={data.lead || data.description} back={labels.back} />
+
+  <main class="b30-main" id="main">
+    <PartnersStrip {...partnersStrip} />
+    <PostBody toc={toc} labels={labels}><Content /></PostBody>
+    <PostMore heading={labels.more} posts={related(all, post)} />
+    <Strip {...strip} />
+    <ClosingCta {...closing.cta} />
+    <Contact {...contact} />
+  </main>
+
+  <Footer {...footer} page="blog" />
+</BaseLayout>

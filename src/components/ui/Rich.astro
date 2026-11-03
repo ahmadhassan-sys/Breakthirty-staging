@@ -1,0 +1,22 @@
+---
+/**
+ * Renders a short heading string with two formatting rules:
+ *   *word*  → <span class="b30-alt">word</span>   (the highlighted style)
+ *   \n      → <br>
+ * `alt` adds extra attributes to the highlighted span.
+ */
+interface Props { text: string; alt?: Record<string, string> }
+const { text, alt = {} } = Astro.props;
+
+type Part = { kind: "br" } | { kind: "alt"; value: string } | { kind: "text"; value: string };
+const parts: Part[] = [];
+String(text).split("\n").forEach((line, li) => {
+  if (li) parts.push({ kind: "br" });
+  line.split(/(\*[^*]+\*)/).forEach((part) => {
+    if (!part) return;
+    if (part.length > 2 && part.startsWith("*") && part.endsWith("*")) parts.push({ kind: "alt", value: part.slice(1, -1) });
+    else parts.push({ kind: "text", value: part });
+  });
+});
+---
+{parts.map((p) => (p.kind === "br" ? <br /> : p.kind === "alt" ? <span class="b30-alt" {...alt}>{p.value}</span> : p.value))}

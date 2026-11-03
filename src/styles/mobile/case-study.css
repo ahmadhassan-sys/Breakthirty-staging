@@ -1,0 +1,270 @@
+/* Case studies on phones, both templates (from the case-study mobile designs, block csm).
+   Phones only (≤ 899px): every rule sits inside max-width:899px, so desktop is untouched. */
+/* ===== CASE STUDY (ChartSight) — phones (≤ 899 px), from the Figma "Charsignt" mobile frame (5493:3795). Desktop untouched. ===== */
+@media (max-width:899px){
+  html:root:not(#_z),html body:not(#_z){overflow-x:clip!important}
+  /* --- header: the homepage's (logo + Menu), on a 80 bar with a dashed rule --- */
+  html body .cz-top:not(#_z){position:relative!important;height:auto!important;background:#fff!important;border-bottom:0!important;z-index:20}   /* (the header itself is the shared one: 80 tall with its own dashed rule, src/styles/hero.css) */
+  
+  html body .cz-top :is(.cz-vl,.cz-npx):not(#_z){display:none!important}
+  /* --- hero picture: full width, 364 tall, dashed side rules --- */
+  html body section.cz-hero:not(#_z){position:relative!important;height:364px!important;min-height:0!important;margin:0!important;overflow:hidden!important;border-left:1px dashed rgba(0,0,0,.15);border-right:1px dashed rgba(0,0,0,.15)}
+  html body section.cz-hero .cz-hero__img:not(#_z){position:absolute!important;inset:0!important;width:100%!important;height:100%!important;transform:none!important}
+  html body section.cz-hero :is(.cz-step,.cz-px):not(#_z){display:none!important}
+  html body section.cz-hero.cz-hero--full:not(#_z){height:auto!important;padding-bottom:48.9583%!important}   /* full hero: the whole 1920 × 940 frame */
+  /* the pixel rows under it (as on the homepage): 5 rows, 16 apart, built by the script */
+  html body .csm-px:not(#_z){position:relative;height:69px;margin:34px 0 0;pointer-events:none}
+  html body .csm-px i:not(#_z){position:absolute;width:5px;height:5px;display:block}
+  /* --- intro: breadcrumb, title, meta, lede --- */
+  html body section.cz-intro:not(#_z){padding:54px 20px 0!important;margin:0!important}
+  html body section.cz-intro .cz-wrap:not(#_z){padding:0!important;width:auto!important;max-width:none!important}
+  html body section.cz-intro .cz-crumb:not(#_z){font:400 12px/1.2 var(--mono,"Geist Mono",monospace)!important;text-transform:uppercase;margin:0 0 32px!important;color:#000!important;letter-spacing:0!important}
+  html body section.cz-intro .cz-crumb a:not(#_z){color:rgba(0,0,0,.5)!important}
+  html body section.cz-intro .cz-split:not(#_z){display:block!important}
+  html body section.cz-intro .cz-title:not(#_z){font:400 32px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0 0 40px!important}
+  html body section.cz-intro .cz-intro__r:not(#_z){display:block!important;width:auto!important;margin:0!important;padding:0!important}
+  html body section.cz-intro .cz-meta:not(#_z){display:flex!important;flex-direction:column!important;gap:32px!important;margin:0 0 40px!important}
+  html body section.cz-intro .cz-meta > div:not(#_z){display:flex!important;flex-direction:column!important;gap:10px!important}
+  html body section.cz-intro .cz-meta :is(dt,dd):not(#_z){margin:0!important;font:400 14px/1.3 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;color:#000!important}
+  html body section.cz-intro .cz-meta dd:not(#_z){opacity:.5;display:flex!important;flex-direction:column!important;gap:6px!important}
+  html body section.cz-intro .cz-lede:not(#_z){font:400 17px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0!important;max-width:350px!important;width:auto!important}
+  /* --- demo picture: 349 × 459 --- */
+  html body section.cz-demo:not(#_z){position:relative!important;margin:48px 20px 0!important;padding:0!important;height:459px!important;width:auto!important}
+  html body section.cz-demo .cz-demo__k:not(#_z),html body section.cz-demo .cz-c:not(#_z){display:none!important}
+  html body section.cz-demo .cz-demo__media:not(#_z){position:absolute!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important;transform:none!important}
+  /* --- the numbered sections: label (n + name), then the 26 heading, then 14 body --- */
+  html body section.cz-sec:not(#_z){padding:66px 19px 0!important;margin:0!important}
+  html body section.cz-sec .cz-wrap:not(#_z){padding:0!important;width:auto!important;max-width:none!important}
+  html body .cz-split:not(#_z){display:block!important}
+  html body .cz-lab:not(#_z){display:flex!important;flex-direction:column!important;gap:10px!important;margin:0 0 40px!important;width:auto!important;position:static!important}
+  html body .cz-lab__n:not(#_z){font:400 14px/1.3 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0!important;color:#000!important}
+  html body .cz-lab__t:not(#_z){font:400 17px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0!important;color:#000!important}
+  html body .cz-col:not(#_z){width:auto!important;margin:0!important;padding:0!important}
+  html body .cz-h50:not(#_z){font:400 26px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0!important;max-width:none!important}
+  html body .cz-body:not(#_z){font:400 14px/1.3 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:20px 0 0!important;max-width:none!important;width:auto!important;color:#000!important}
+  html body .cz-body p:not(#_z){margin:0!important}html body .cz-body p + p:not(#_z){margin-top:18px!important}
+  /* details */
+  html body .cz-details:not(#_z){margin:32px 0 0!important;width:auto!important}
+  html body .cz-dt:not(#_z){display:flex!important;justify-content:space-between!important;align-items:center!important;padding:16px 0!important;border:0!important;border-bottom:1px dashed rgba(0,0,0,.2)!important;font:400 14px/1.3 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;height:auto!important}
+  html body .cz-dt > span:last-child:not(#_z){font-size:12px!important;opacity:.6}
+  html body .cz-dt.cz-dt--h:not(#_z){height:49px!important;padding:0!important;border-bottom-color:rgba(0,0,0,.15)!important}
+  html body .cz-dt.cz-dt--h > span:first-child:not(#_z){font-size:14px!important;opacity:1}
+  html body .cz-pill:not(#_z){display:inline-flex!important;align-items:center!important;height:28px!important;padding:0 8px!important;border:1px solid rgba(0,0,0,.1)!important;border-radius:8px!important;font:400 12px/1.2 var(--mono,"Geist Mono",monospace)!important;text-transform:uppercase;color:rgba(0,0,0,.5)!important;background:none!important}
+  /* services chips */
+  html body .cz-chips:not(#_z){display:flex!important;flex-wrap:wrap!important;gap:12px!important;margin:32px 0 0!important;padding:0!important;list-style:none!important;max-width:335px}
+  html body .cz-chips li:not(#_z){display:flex!important;align-items:center!important;height:32px!important;padding:0 8px!important;border:1px solid rgba(0,0,0,.1)!important;border-radius:8px!important;font:400 12px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;white-space:nowrap;margin:0!important;background:none!important}
+  /* the rule between sections: a dashed line with a 5 px pixel at each end */
+  html body .cz-wrap--rule:not(#_z){padding:64px 19px 0!important;margin:0!important}
+  html body .cz-rule:not(#_z){position:relative!important;height:5px!important;width:auto!important;margin:0!important;background:none!important;border:0!important}
+  html body .cz-rule:not(#_z)::before{content:"";position:absolute;left:3px;right:3px;top:2px;border-top:1px dashed rgba(0,0,0,.15)}
+  html body .cz-rule:not(#_z)::after{content:"";position:absolute;left:0;top:0;width:5px;height:5px;background:#000;box-shadow:347px 0 0 #000}
+  html body .cz-rule i:not(#_z){display:none!important}
+  /* before / after */
+  html body section.cz-ba:not(#_z){padding:50px 21px 0!important;margin:0!important;height:auto!important}
+  html body section.cz-ba .cz-ba__frame:not(#_z){position:relative!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important;height:232px!important;width:auto!important;margin:0!important;transform:none!important}
+  html body section.cz-ba .cz-ba__img:not(#_z){position:relative!important;inset:auto!important;width:auto!important;height:232px!important;clip-path:none!important;transform:none!important}
+  html body section.cz-ba .cz-ba__lbl:not(#_z){display:flex!important;justify-content:space-between!important;margin:14px 0 0!important;font:400 11px/1.2 var(--mono,"Geist Mono",monospace)!important;text-transform:uppercase;position:static!important}
+  /* the stat */
+  html body section.cz-stat:not(#_z){padding:89px 21px 0!important;margin:0!important}
+  html body section.cz-stat .cz-wrap:not(#_z){padding:0!important}
+  html body section.cz-stat .cz-stat__n:not(#_z){font:400 96px/1 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0 0 40px!important}
+  /* --- how we worked: green, with the homepage-style pixel band above, steps in dashed rows, the hand --- */
+  html body section.cz-how:not(#_z){position:relative!important;margin:250px 0 0!important;padding:78px 0 96px!important;background:linear-gradient(180deg,#D1E0D3 23%,#fff 94%)!important;overflow:visible!important;height:auto!important}
+  html body section.cz-how > canvas.cz-band:not(#_z){display:none!important}
+  html body section.cz-how .csm-band:not(#_z){position:absolute;left:0;width:100%;pointer-events:none;display:block}
+  html body .cz-how__head:not(#_z){display:block!important;padding:0 20px!important;margin:0 0 40px!important;width:auto!important}
+  html body .cz-h71:not(#_z){font:400 32px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0!important;max-width:351px!important}
+  html body .cz-steps:not(#_z){display:block!important;margin:0!important;padding:0!important;list-style:none!important;width:100%!important}
+  html body .cz-st:not(#_z){position:relative!important;display:block!important;width:auto!important;height:auto!important;margin:0!important;padding:24px 20px!important;border:0!important;border-bottom:1px dashed rgba(0,0,0,.15)!important;border-right:1px dashed rgba(0,0,0,.15)!important;background:none!important;transform:none!important}
+  html body .cz-st:first-child:not(#_z){border-top:1px dashed rgba(0,0,0,.15)!important}
+  html body .cz-st__in:not(#_z){display:flex!important;flex-direction:column!important;gap:0!important;position:static!important;padding:0!important}
+  html body .cz-st__n:not(#_z){font:400 13px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.01em!important;margin:0 0 8px!important}
+  html body .cz-st__t:not(#_z){font:400 17px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0 0 16px!important}
+  html body .cz-st__d:not(#_z){font:400 14px/1.3 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0!important;max-width:208px!important;opacity:1!important}
+  html body section.cz-how .cz-hand:not(#_z){position:absolute!important;display:block!important;left:auto!important;right:-90px!important;top:440px!important;width:263px!important;height:auto!important;z-index:2;pointer-events:none}
+  /* --- output: four Part tabs, then the four parts --- */
+  html body section.cz-out:not(#_z){padding:96px 0 0!important;margin:0!important;height:auto!important}
+  html body .cz-out__head:not(#_z){padding:0 19px!important}
+  html body .cz-tabs:not(#_z){display:grid!important;grid-template-columns:repeat(4,1fr)!important;margin:0 19px 40px!important;border-top:1px dashed rgba(0,0,0,.15)!important;border-bottom:1px dashed rgba(0,0,0,.15)!important;position:static!important;width:auto!important;transform:none!important;background:none!important}
+  html body .cz-tab:not(#_z){display:flex!important;align-items:center!important;justify-content:center!important;height:49px!important;padding:0!important;font:400 10.67px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;color:#000!important;border:0!important;border-left:1px dashed rgba(0,0,0,.15)!important;text-decoration:none!important;background:none!important}
+  html body .cz-tab:first-child:not(#_z){border-left:0!important}
+  html body .cz-tab .cz-tab__bar:not(#_z){display:none!important}
+  html body .cz-parts:not(#_z){display:flex!important;flex-direction:column!important;gap:64px!important;padding:0 19px!important;margin:0!important}
+  html body .cz-part:not(#_z){display:flex!important;flex-direction:column!important;gap:0!important;padding:0!important;margin:0!important;border:0!important;position:static!important;height:auto!important;min-height:0!important}
+  html body .cz-part__k:not(#_z){align-self:flex-start;display:inline-flex!important;align-items:center;justify-content:center;width:57px;height:24px;box-sizing:border-box;margin:0 0 24px!important;padding:0!important;border:1px solid rgba(0,0,0,.15)!important;border-radius:8px!important;font:400 12px/1.2 var(--mono,"Geist Mono",monospace)!important;text-transform:uppercase;letter-spacing:0!important}
+  html body .cz-part__row:not(#_z){display:flex!important;flex-direction:column!important;gap:16px!important;margin:0 0 40px!important}
+  html body .cz-h36:not(#_z){font:400 19px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0!important;max-width:351px!important}
+  html body .cz-part__row .cz-body:not(#_z){margin:0!important}
+  html body .cz-part__img:not(#_z){position:relative!important;width:100%!important;height:237px!important;margin:0!important;transform:none!important;inset:auto!important}
+  /* --- the line on blue --- */
+  html body section.cz-say:not(#_z){position:relative!important;height:503px!important;margin:64px 0 0!important;padding:0!important;display:grid!important;place-items:center!important;background:linear-gradient(180deg,#fff 0,#B0E9FD 47.5%,#fff 95%)!important}
+  html body .cz-say__t:not(#_z){font:400 40px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;text-align:center!important;max-width:none !important;margin:0 auto!important}
+  /* --- impact: the label, the heading, then four dashed rows --- */
+  html body section.cz-impact:not(#_z){padding:96px 0 0!important;margin:0!important}
+  html body section.cz-impact .cz-wrap:not(#_z){padding:0 20px!important;margin:0 0 48px!important}
+  html body .cz-imp:not(#_z){display:block!important;margin:0!important;padding:0!important}
+  html body .cz-imp__row:not(#_z){display:flex!important;flex-direction:column!important;gap:20px!important;padding:24px 20px!important;margin:0!important;border:0!important;border-top:1px dashed rgba(0,0,0,.15)!important;border-right:1px dashed rgba(0,0,0,.15)!important;height:auto!important}
+  html body .cz-imp__row:last-child:not(#_z){border-bottom:1px dashed rgba(0,0,0,.15)!important}
+  html body .cz-imp__n:not(#_z){font:400 40px/1.1 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0!important}
+  html body .cz-imp__row .cz-h36:not(#_z){max-width:351px!important}
+  /* --- outcome --- */
+  html body section.cz-outcome:not(#_z){padding:128px 20px 0!important}
+  html body .cz-quote:not(#_z){margin:0!important;width:auto!important}
+  html body .cz-quote blockquote:not(#_z){margin:0!important}
+  html body .cz-q1:not(#_z){font:400 26px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0 0 32px!important}
+  html body .cz-q2:not(#_z){font:400 17px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0!important;opacity:1!important}
+  html body .cz-by:not(#_z){display:grid!important;grid-template-columns:auto!important;justify-items:start!important;gap:0!important;margin:52px 0 0!important}
+  html body .cz-ava:not(#_z){width:53px!important;height:56px!important;border-radius:10.5px!important;margin:0 0 24px!important}
+  html body .cz-by__n:not(#_z){font:400 15px/1.2 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.01em!important;margin:0 0 9px!important}
+  html body .cz-by__r:not(#_z){font:400 13px/1.1 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;opacity:1!important}
+  /* --- next case study: a dashed band, dashed uprights at the 20 px sides, the picture at the bottom --- */
+  html body section.cz-next:not(#_z){position:relative!important;margin:128px 0 0!important;padding:0!important;height:auto!important}
+  html body section.cz-next .cz-next__v:not(#_z){display:none!important}
+  html body .cz-next__band:not(#_z){position:relative!important;display:block!important;height:auto!important;padding:24px 33px 0!important;margin:0!important;border-top:1px dashed rgba(0,0,0,.15)!important;border-bottom:1px dashed rgba(0,0,0,.15)!important;background:none!important;width:auto!important}
+  html body .cz-next__band:not(#_z)::before,html body .cz-next__band:not(#_z)::after{content:"";position:absolute;top:-54px;bottom:-54px;width:0;border-left:1px dashed rgba(0,0,0,.15);pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 54px,#000 calc(100% - 54px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 54px,#000 calc(100% - 54px),transparent 100%)}
+  html body .cz-next__band:not(#_z)::before{left:20px}html body .cz-next__band:not(#_z)::after{right:20px}
+  html body .cz-next__band .cz-c:not(#_z){display:none!important}
+  html body .cz-next__l:not(#_z),html body .cz-next__r:not(#_z){position:static!important;width:auto!important;margin:0!important;padding:0!important}
+  html body .cz-next__r .cz-h50:not(#_z){margin:0 0 16px!important}
+  html body .cz-next__d:not(#_z){font:400 14px/1.3 var(--sans,"BDO Grotesk",sans-serif)!important;letter-spacing:-.02em!important;margin:0 0 32px!important;max-width:319px!important}
+  html body .cz-next__btn:not(#_z){margin:0!important}
+  html body .cz-next__img:not(#_z){position:relative!important;inset:auto!important;width:auto!important;height:253px!important;margin:50px -13px 0!important;transform:none!important}
+  /* --- the four moving words go on every screen size (see the desktop style) --- */
+  
+}
+@media (max-width:899px){
+  /* header: just the logo and Menu (as on the homepage) */
+  
+  
+  
+}
+@media (max-width:899px){
+  html body section.cz-ba .cz-ba__frame:not(#_z){grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
+  html body section.cz-ba .cz-ba__img:not(#_z){min-width:0!important;max-width:none!important;left:auto!important;right:auto!important;top:auto!important}
+  /* every step and every tab in full black (no "current" dimming on phones) */
+  html body .cz-tab:not(#_z),html body .cz-tab span:not(#_z){opacity:1!important;color:#000!important}
+  /* impact: numbers on the left */
+  html body .cz-imp__row:not(#_z){align-items:flex-start!important;text-align:left!important}
+  html body .cz-imp__row > *:not(#_z){text-align:left!important;width:auto!important;max-width:351px!important}
+  /* outcome + next: full-width text */
+  html body .cz-quote:not(#_z),html body .cz-quote blockquote:not(#_z),html body .cz-quote p:not(#_z),html body .cz-by:not(#_z){width:auto!important;max-width:351px!important;grid-column:auto!important}
+  html body section.cz-outcome .cz-wrap:not(#_z){padding:0!important}
+  html body .cz-next__r:not(#_z),html body .cz-next__r > *:not(#_z){width:auto!important;max-width:319px!important;grid-column:auto!important}
+}
+@media (max-width:899px){
+  /* every block 20 from the screen's sides */
+  html body main .cz-wrap:not(#_z){margin:0!important;padding:0!important;width:auto!important;max-width:none!important}
+  html body section.cz-intro:not(#_z),html body section.cz-sec:not(#_z),html body .cz-wrap--rule:not(#_z),html body section.cz-stat:not(#_z),html body section.cz-ba:not(#_z){padding-left:20px!important;padding-right:20px!important}
+  html body .cz-how__head:not(#_z),html body .cz-out__head:not(#_z),html body .cz-parts:not(#_z),html body section.cz-impact .cz-wrap:not(#_z){padding-left:20px!important;padding-right:20px!important}
+  html body .cz-tabs:not(#_z){margin-left:20px!important;margin-right:20px!important}
+  html body .cz-next__band:not(#_z){padding-left:20px!important;padding-right:20px!important}
+  html body .cz-next__img:not(#_z){margin-left:0!important;margin-right:0!important}
+  /* before / after: both inside the 20 px sides */
+  html body section.cz-ba .cz-ba__frame:not(#_z){width:100%!important;max-width:100%!important;overflow:hidden!important}
+  html body section.cz-ba .cz-ba__img:not(#_z){width:100%!important;max-width:100%!important}
+  html body section.cz-ba .cz-ba__img > *:not(#_z){max-width:100%!important}
+  /* how we worked: the hand comes in from the right and moves down to the step you're on; steps it has reached are black, the rest grey */
+  html body section.cz-how:not(#_z){overflow-x:clip!important}
+  html body section.cz-how .cz-hand:not(#_z){top:0!important;right:-36px!important;left:auto!important;width:200px!important;height:auto!important;transition:none!important;will-change:transform}
+  html body .cz-st:not(#_z),html body .cz-st *:not(#_z){transition:color .45s ease!important}
+  html body .cz-st:not(.is-reached):not(#_z),html body .cz-st:not(.is-reached) *:not(#_z){color:rgba(0,0,0,.35)!important}
+  html body .cz-st.is-reached:not(#_z),html body .cz-st.is-reached *:not(#_z){color:#000!important}
+  /* the four Part tabs stick at the top while the parts scroll; the part you're on in black */
+  html body .cz-tabs:not(#_z){position:-webkit-sticky!important;position:sticky!important;top:0!important;z-index:6!important;background:#fff!important}
+  html body .cz-tab:not(#_z),html body .cz-tab span:not(#_z){color:rgba(0,0,0,.4)!important;transition:color .3s ease}
+  html body .cz-tab.is-on:not(#_z),html body .cz-tab.is-on span:not(#_z){color:#000!important}
+}
+@media (max-width:899px){
+  /* before / after: each picture's drawing kept inside its own box (no running past the right side) */
+  html body section.cz-ba .cz-ba__img:not(#_z){position:relative!important;overflow:hidden!important}
+  html body section.cz-ba .cz-ba__img canvas:not(#_z){position:absolute!important;inset:0!important;left:0!important;top:0!important;width:100%!important;height:100%!important;transform:none!important;clip-path:none!important}
+  html body section.cz-out:not(#_z){overflow:visible!important}
+}
+@media (max-width:899px){
+  /* 20 px either side for everything */
+  html body section.cz-sec:not(#_z),html body .cz-wrap--rule:not(#_z),html body section.cz-ba:not(#_z),html body section.cz-stat:not(#_z){padding-left:20px!important;padding-right:20px!important}
+  html body .cz-out__head:not(#_z),html body .cz-parts:not(#_z){padding-left:20px!important;padding-right:20px!important}
+  html body .cz-tabs:not(#_z){margin-left:20px!important;margin-right:20px!important}
+  html body .cz-rule:not(#_z)::after{display:none!important}
+  html body .cz-rule:not(#_z){background:linear-gradient(#000,#000) left center/5px 5px no-repeat,linear-gradient(#000,#000) right center/5px 5px no-repeat!important}
+  /* every WebGL picture fills its own box exactly (never wider than it) */
+  html body main [data-gl]:not(#_z){overflow:hidden!important}
+  html body main [data-gl] > canvas:not(#_z){position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:100%!important;transform:none!important}
+  /* How we worked: the steps start grey; the hand points at the current one and every step it has reached turns black */
+  html body .cz-st:not(#_z){transition:none}
+  html body .cz-st .cz-st__in > *:not(#_z){color:#000!important;opacity:.3!important;transition:opacity .5s ease!important}
+  html body .cz-st.is-reached .cz-st__in > *:not(#_z){opacity:1!important}
+  html body section.cz-how .cz-hand:not(#_z){left:auto!important;right:-64px!important;width:262px!important;height:auto!important;top:0;transition:top .7s cubic-bezier(.16,1,.3,1)!important;rotate:0deg!important}
+  /* The Output: the Part tabs stick at the top while the parts scroll */
+  html body .cz-tabs:not(#_z){position:-webkit-sticky!important;position:sticky!important;top:0!important;z-index:6!important;background:#fff!important;box-shadow:-20px 0 0 #fff,20px 0 0 #fff}
+  html body .cz-part:not(#_z){scroll-margin-top:70px}
+}
+@media (max-width:899px){
+  html body .cz-st .cz-st__in > *:not(#_z){transition:opacity .5s ease!important}
+}
+@media (max-width:899px){
+  /* the hand is moved by its script (transform); it starts at the top of the section */
+  html body section.cz-how .cz-hand.cz-hand:not(#_z){top:0!important;transform:translate3d(0,0,0);transition:none!important}
+}
+@media (max-width:899px){
+  /* (the desktop dims every step but the current one on its row: not on phones — here the hand decides) */
+  html body .cz-st.cz-st:not(#_z),html body .cz-st .cz-st__in:not(#_z){opacity:1!important;filter:none!important}
+  html body section.cz-how .cz-hand.cz-hand:not(#_z){right:-92px!important;width:262px!important}
+}
+@media (max-width:899px){
+  /* the hand comes in from the right edge and points left at the step (the picture flipped; its arm runs off the screen) */
+  html body section.cz-how .cz-hand.cz-hand:not(#_z){width:420px!important;right:-262px!important;scale:-1 1}
+}
+@media (max-width:899px){
+  /* the hand: the script's own copy, smaller (320 wide), from the right edge; only the step it points at is black */
+  html body section.cz-how .cz-hand.cz-hand:not(#_z){display:none!important}
+  html body section.cz-how .csm-hand:not(#_z){position:absolute;top:0;right:-150px;width:320px;height:auto;z-index:2;pointer-events:none;will-change:transform;backface-visibility:hidden;transform:scaleX(-1)}
+  html body .cz-st .cz-st__in > *:not(#_z){opacity:.3!important}
+  html body .cz-st.csm-on .cz-st__in > *:not(#_z){opacity:1!important}
+  html body .cz-st.is-reached:not(.csm-on) .cz-st__in > *:not(#_z){opacity:.3!important}
+}
+@media (max-width:899px){
+  html body .cz-st.cz-st *:not(#_z),html body .cz-st.cz-st:not(.is-reached) *:not(#_z){color:#000!important}
+}
+@media (max-width:899px){
+  /* Ethical Narrative's "new brand" section, in the same phone layout as the rest */
+  html body section.cz-brand:not(#_z){padding:96px 20px 0!important;margin:0!important;height:auto!important}
+  html body section.cz-brand .cz-wrap:not(#_z){padding:0!important;width:auto!important;max-width:none!important}
+  html body section.cz-brand .cz-brand__head:not(#_z){display:block!important;margin:0 0 40px!important}
+  html body section.cz-brand .cz-wide:not(#_z){position:relative!important;width:100%!important;height:237px!important;margin:0!important;transform:none!important;inset:auto!important}
+  html body section.cz-brand > .cz-wrap > .cz-wide:not(#_z){margin:0 0 64px!important}
+  html body section.cz-brand .cz-feats:not(#_z){display:flex!important;flex-direction:column!important;gap:64px!important;margin:0!important;padding:0!important}
+  html body section.cz-brand .cz-f:not(#_z){display:flex!important;flex-direction:column!important;gap:40px!important;margin:0!important;padding:0!important;height:auto!important;position:static!important}
+  html body section.cz-brand .cz-f__head:not(#_z){display:flex!important;flex-direction:column!important;gap:16px!important;width:auto!important;position:static!important;margin:0!important}
+  html body section.cz-brand .cz-f__body:not(#_z){margin:0!important}
+  html body section.cz-brand .cz-f__media:not(#_z){display:flex!important;flex-direction:column!important;gap:0!important;width:auto!important;position:static!important;margin:0!important}
+  html body section.cz-brand .cz-ab:not(#_z){display:flex!important;justify-content:space-between!important;margin:24px 0 12px!important;width:auto!important}
+  html body section.cz-brand .cz-mono16:not(#_z){font:400 11px/1.2 var(--mono,"Geist Mono",monospace)!important;text-transform:uppercase;margin:0!important;width:auto!important;position:static!important}
+  html body section.cz-brand .cz-pair:not(#_z){display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:8px!important;width:auto!important;margin:0!important;height:auto!important}
+  html body section.cz-brand .cz-sq:not(#_z){position:relative!important;width:auto!important;height:auto!important;aspect-ratio:1/1;margin:0!important;transform:none!important}
+  /* stack (two small on the left, one square on the right): the left pair shares the square's height */
+  html body section.cz-brand .cz-stack__l:not(#_z){display:grid!important;grid-template-rows:1fr 1fr!important;gap:8px!important;height:auto!important}
+  html body section.cz-brand .cz-stack__l .cz-half:not(#_z){aspect-ratio:auto!important;height:auto!important}
+  html body section.cz-brand .cz-sys:not(#_z){margin:24px 0 12px!important}
+  html body section.cz-brand :is(.cz-mt104,.cz-mt64,.cz-mt72):not(#_z){margin-top:0!important}
+  /* tabs: as many columns as there are parts */
+  html body .cz-tabs:not(#_z){grid-template-columns:none!important;grid-auto-flow:column!important;grid-auto-columns:minmax(0,1fr)!important}
+}
+@media (max-width:899px){
+  html body section.cz-brand .cz-brand__head .cz-body:not(#_z){margin-top:20px!important}
+}
+/* services provided: black tags, white text (every case study) */
+@media (max-width:899px){
+  html body .cz-services .cz-chips li:not(#_z):not(#_y){background:#000!important;color:#fff!important;border-color:#000!important}
+}
+/* next case study (phones): the text sits 16 px inside the dashed side lines (which run 20 px from the screen's
+   sides); the picture still runs from line to line */
+@media (max-width:899px){
+  html body .cz-next__band:not(#_z):not(#_y){padding-left:36px!important;padding-right:36px!important}
+  html body .cz-next__img:not(#_z):not(#_y){margin-left:-16px!important;margin-right:-16px!important}
+}
+/* brand features (phones): a picture that follows another one (mt: 24 in the file) keeps the same 8 px gap as the
+   pairs' gap, instead of touching it */
+@media (max-width:899px){
+  html body section.cz-brand .cz-f__media > .cz-mt24:not(#_z){margin-top:8px!important}
+}

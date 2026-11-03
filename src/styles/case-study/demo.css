@@ -1,0 +1,15 @@
+/* Case study page · demo: the framed product picture */
+.b30-main > section.cz-demo{position:relative;margin:calc(164*var(--u)) 0 0 calc(82*var(--u));width:calc(1674*var(--u));height:calc(1096*var(--u));box-sizing:border-box;
+  border-left:1px dashed rgba(0,0,0,.15);border-right:1px dashed rgba(0,0,0,.15)}
+.cz-demo__k{position:absolute;left:calc(888*var(--u));top:calc(32*var(--u));margin:0;font:400 max(11px,calc(14*var(--u)))/1.2 var(--mono);text-transform:uppercase;color:rgba(0,0,0,.5)}
+.cz-demo__media{position:absolute;left:-1px;top:calc(106*var(--u));width:calc(1674*var(--u));height:calc(900*var(--u));box-sizing:border-box;overflow:hidden;border-top:1px dashed rgba(0,0,0,.15);border-bottom:1px dashed rgba(0,0,0,.15)}
+.cz-demo .cz-c.tl,.cz-demo .cz-c.bl{left:-3.5px}
+.cz-demo .cz-c.tr,.cz-demo .cz-c.br{right:-3.5px}
+.cz-demo .cz-c.tl,.cz-demo .cz-c.tr{top:calc(106*var(--u) - 3px)}
+.cz-demo .cz-c.bl,.cz-demo .cz-c.br{top:calc(1006*var(--u) - 3px)}
+@media (max-width:899px){
+  .b30-main > section.cz-demo{margin:56px 0 0;width:auto;height:auto;border:0}
+  .cz-demo__k{position:static;margin:0 20px 16px}
+  .cz-demo__media{position:relative;left:0;top:0;width:100%;height:62vw}
+  .cz-demo .cz-c{display:none}
+}

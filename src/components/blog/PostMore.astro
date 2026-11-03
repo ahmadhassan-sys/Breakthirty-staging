@@ -1,0 +1,8 @@
+---
+/** Blog post · 3. Discover More — three more guides (sharing a tag first). */
+import Card from "./Card.astro";
+const { heading, posts } = Astro.props;
+---
+<section class="blg bp-more" id="blogs" aria-labelledby="bp-more-h">
+  <div class="blg__in"><h2 class="blg-all__h" id="bp-more-h" data-heading>{heading}</h2><div class="blg-grid">{posts.map((p, i) => <Card post={p} i={i} />)}</div></div>
+</section>

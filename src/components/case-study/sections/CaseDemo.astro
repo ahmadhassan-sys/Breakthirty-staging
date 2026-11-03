@@ -1,0 +1,11 @@
+---
+/** Demo: the framed product picture (the overview's "View Demo" button jumps here). */
+import Picture from "../parts/Picture.astro";
+import Corners from "../parts/Corners.astro";
+const { label, image, alt, sectionLabel } = Astro.props;
+---
+<section class="cz-demo" id="demo" aria-label={sectionLabel}>
+  <p class="cz-demo__k">{label}</p>
+  <div class="cz-demo__media"><Picture class="cz-fill" image={image} alt={alt} /></div>
+  <Corners />
+</section>
