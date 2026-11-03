@@ -1,0 +1,81 @@
+---
+/**
+ * Legal pages — /legal/privacy-policy, /legal/terms-of-service (the old site's URLs).
+ * Laid out as a blog post (the design's terms.html / privacy.html): the post hero with a "Legal" pill, the line under the
+ * title and the last-updated date; the article with "You will read" (one line per ## section) and the audit card beside it.
+ * Text: src/content/legal/<name>.md (shaped like a post by src/lib/rehype-blog.mjs) · Styles: src/styles/pages/legal.css
+ * The footer's Privacy Policy and Terms links point here (src/data/site.js).
+ */
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/pages/legal.css";
+
+import Header from "../../components/Header.astro";
+import PartnersStrip from "../../components/PartnersStrip.astro";
+import ArrowButton from "../../components/blog/ArrowButton.astro";
+import Tags from "../../components/blog/Tags.astro";
+import PostBody from "../../components/blog/PostBody.astro";
+import ClosingCta from "../../components/closing/ClosingCta.astro";
+import Contact from "../../components/Contact.astro";
+import Footer from "../../components/Footer.astro";
+import { hero as svHero } from "../../data/services.js";
+import { post as labels } from "../../data/blog.js";
+import { nav, partnersStrip, closing, contact, footer } from "../../data/site.js";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("legal");
+  return pages.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content, headings } = await render(entry);
+
+/* "You will read": one line per ## section (their ids are set by src/lib/rehype-blog.mjs as "<section>-h") */
+const toc = headings.filter((h) => h.depth === 2).map((h) => ({ id: h.slug.replace(/-h$/, ""), text: h.text }));
+
+const seo = { title: data.seoTitle || data.title, description: data.description };
+const scriptContent = { contact: { heading: contact.heading, closing: contact.closing } };
+const scripts = [
+  "core", "header", "hero-light", "partners", "contact", "footer", "details",
+  "services-hero",   // the hero's drift (the services hero's)
+  "blog-post",       // "You will read" follows the reading position
+  "contact-closing", // (must run last)
+  "mobile-layer",
+  "mobile-m5"        // phones only (≤ 899px)
+];
+---
+
+<BaseLayout seo={seo} content={scriptContent} scripts={scripts} crumbs={[{ name: data.title, path: `/legal/${entry.id}` }]}>
+  <section class="b30h wk-hero bp-hero" aria-labelledby="bp-title">
+    <div class="b30h__pin">
+      <div class="b30h__stage">
+        <span class="b30h__vline b30h__vline--34" aria-hidden="true"></span>
+        <i class="b30h__px" style="--x:82" aria-hidden="true"></i><i class="b30h__px b30h__px--c" style="--x:960" aria-hidden="true"></i><i class="b30h__px" style="--x:1838" aria-hidden="true"></i>
+        <span class="b30h__vline b30h__vline--27" aria-hidden="true"></span>
+        <div class="svh__sky" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+        <img class="b30h__glow" src={svHero.glow} alt="" aria-hidden="true" decoding="async" /><div class="b30h__glowx" aria-hidden="true"></div>
+
+        <Header {...nav} page="legal" />
+
+        <ArrowButton class="bp-back" label="Back" href="/" back data-pt="" />
+        <h1 class="bp-title" id="bp-title" data-heading>{data.title}</h1>
+        <div class="bp-meta">
+          <Tags tags={["Legal"]} rd={100} />
+          <p class="bp-desc" data-reveal style="--rd:180ms">{data.lead || data.description}</p>
+          {data.updated && <div class="blg-meta" data-reveal style="--rd:260ms"><span class="blg-meta__i"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5"/><path d="M2.5 8h15M6.5 2v4M13.5 2v4"/><path d="M6 11h2M9 11h2M12 11h2M6 14h2M9 14h2" stroke-width="1.5"/></svg><time>Last updated {data.updated}</time></span></div>}
+        </div>
+        <span class="b30h__vline b30h__vline--26" aria-hidden="true"></span>
+      </div>
+      <div class="wk-hero__dim" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <main class="b30-main" id="main">
+    <PartnersStrip {...partnersStrip} />
+    <PostBody toc={toc} labels={labels}><Content /></PostBody>
+    <ClosingCta {...closing.cta} />
+    <Contact {...contact} />
+  </main>
+
+  <Footer {...footer} page="legal" />
+</BaseLayout>

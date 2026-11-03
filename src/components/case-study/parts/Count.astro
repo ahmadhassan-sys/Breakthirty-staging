@@ -1,0 +1,10 @@
+---
+/**
+ * A figure that rolls up when it scrolls in (numbers.js in public/js/case-study and case-study-b); plain text without `count` / `roll`.
+ * count / from: the number and where the roll starts · dec: decimals · prefix / suffix: e.g. "$" / "M+"
+ * roll: the words rise in letter by letter instead (e.g. "Hours")
+ */
+const { value, count, from, dec, prefix, suffix, roll } = Astro.props;
+---
+{count != null ? <span data-count={count} data-from={from ?? count} data-dec={dec} data-prefix={prefix} data-suffix={suffix}>{value}</span>
+  : roll ? <span data-roll>{value}</span> : value}

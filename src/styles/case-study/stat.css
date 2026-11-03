@@ -1,0 +1,15 @@
+/* Case study page · the big number */
+.cz-stat{padding-top:calc(260*var(--u))}
+.cz-stat .cz-split{margin-left:calc(157*var(--u));grid-template-columns:calc(815*var(--u)) calc(784*var(--u))}
+.cz-stat__n{margin:0;font-size:max(96px,calc(228*var(--u)));line-height:1;letter-spacing:-.02em;white-space:nowrap}
+[data-count]{display:inline-block;font-variant-numeric:tabular-nums;white-space:nowrap}
+.odo{display:inline-flex;align-items:flex-start;white-space:nowrap}
+.odo__c{display:inline-block;height:calc(var(--lh,1.1)*1em);overflow:hidden;vertical-align:top}
+.odo__s{display:flex;flex-direction:column;will-change:transform;transform:translate3d(0,calc(var(--k,0)*var(--lh,1.1)*-1em),0);
+  transition:transform var(--dur,2.4s) cubic-bezier(.65,0,.25,1) var(--dl,0s)}
+.odo__s > span{display:block;height:calc(var(--lh,1.1)*1em);line-height:calc(var(--lh,1.1)*1em)}
+.odo__x{display:inline-block;line-height:calc(var(--lh,1.1)*1em)}
+@media (max-width:899px){
+  .cz-stat .cz-split{margin:0 20px!important}
+  .cz-stat{padding-top:80px}
+}

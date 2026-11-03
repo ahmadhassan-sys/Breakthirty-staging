@@ -1,0 +1,14 @@
+---
+/** (07) The outcome: the client's quote. */
+import Label from "../parts/Label.astro";
+const { n, labels, quote, more, person } = Astro.props;
+---
+<section class="cz-sec cz-outcome">
+  <div class="cz-wrap cz-split">
+    <Label n={n} title={labels.outcome} />
+    <figure class="cz-quote">
+      <blockquote><p class="cz-q1" data-heading>{quote}</p>{more && <p class="cz-q2" data-reveal>{more}</p>}</blockquote>
+      <figcaption class="cz-by" data-reveal><span class="cz-ava" role="img" aria-label={person.name} style={`background-image:url(${person.photo})`}></span><span class="cz-by__n">{person.name}</span><span class="cz-by__r">{person.role}</span></figcaption>
+    </figure>
+  </div>
+</section>

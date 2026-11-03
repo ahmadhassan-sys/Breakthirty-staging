@@ -1,0 +1,38 @@
+.b30-main > .wk-hello{position:relative;height:calc(1203*var(--u));margin-top:calc(160*var(--u));overflow:hidden;background:transparent!important}
+.wk-hello__px{position:absolute;left:0;top:0;width:100%;display:block;pointer-events:none;z-index:1}
+.wk-hello__f{position:absolute;left:0;right:0;top:calc(193*var(--u));height:calc(1010*var(--u));
+  background:linear-gradient(180deg,rgba(250,215,255,0) 0,rgba(250,215,255,0) calc(241*var(--u)),#FAD7FF calc(241*var(--u)),#FAD7FF calc(271*var(--u)),#fff 100%)}
+html.dark .wk-hello__f{background:linear-gradient(180deg,rgba(46,22,54,0) 0,rgba(46,22,54,0) calc(241*var(--u)),#2E1636 calc(241*var(--u)),#2E1636 calc(271*var(--u)),rgba(13,20,50,0) 100%)}
+.wk-hello__h{position:absolute;left:calc(164*var(--u));top:calc(357*var(--u));width:calc(590*var(--u));margin:0;z-index:3;font-weight:400;font-size:max(30px,calc(50*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.wk-hello__p{position:absolute;left:calc(972*var(--u));top:calc(784*var(--u));width:calc(457*var(--u));margin:0;z-index:3;font-size:max(14px,calc(18*var(--u)));line-height:1.2;letter-spacing:-.01em}
+.wk-hello__btn{position:absolute;left:calc(972*var(--u));top:calc(914*var(--u));z-index:3}
+.wk-hello__hand{position:absolute;left:calc(910*var(--u));top:calc(245*var(--u));width:calc(1010*var(--u));height:calc(520*var(--u));z-index:2;pointer-events:none;
+  transform:translate3d(calc(760*var(--u)),calc(30*var(--u)),0) rotate(-3deg);opacity:0;transform-origin:100% 40%;transition:transform 1.9s cubic-bezier(.16,1,.3,1),opacity .7s ease-out}
+.wk-hello__hand.is-in{transform:none;opacity:1}
+.wk-hello__hand img{position:absolute;left:0;top:0;width:100%;height:100%;display:block;transform-origin:96% 45%;will-change:transform}
+html.dark .wk-hello__hand img{filter:brightness(.88) saturate(.85)}
+.wk-hello__f{background:linear-gradient(180deg,rgba(250,215,255,0) 0,rgba(250,215,255,0) calc(241*var(--u) - 2px),#FAD7FF calc(241*var(--u) - 2px),#FAD7FF calc(271*var(--u)),#fff 100%)!important}
+html.dark .wk-hello__f{background:linear-gradient(180deg,rgba(250,215,255,0) 0,rgba(250,215,255,0) calc(241*var(--u) - 2px),#FAD7FF calc(241*var(--u) - 2px),#FAD7FF 50%,
+  
+  #F8D4FE 55%,#F4CFFE 60%,#EDC6FC 65%,#E3BAFA 70%,#D4ABF6 75%,#BE9AEF 79.5%,#A28AE5 83.5%,#8478D6 87%,
+  rgba(98,94,190,.94) 90%,rgba(70,72,152,.8) 93%,rgba(42,48,112,.56) 96%,rgba(22,29,74,.26) 98.5%,rgba(11,17,45,0) 100%)!important}
+html.dark .wk-hello__h,html.dark .wk-hello__p{color:#0D1432!important}
+html.dark .wk-hello__hand img{filter:none!important}
+html.dark body .wk-hello a.wk-hello__btn .b30btn__ic,html.dark body .wk-hello a.wk-hello__btn .b30btn__lbl{background:transparent!important;border:1px solid rgba(13,20,50,.3)!important;color:#0D1432!important;box-shadow:none!important;animation:none!important}
+html.dark body .wk-hello a.wk-hello__btn:hover .b30btn__ic,html.dark body .wk-hello a.wk-hello__btn:hover .b30btn__lbl{border-color:rgba(13,20,50,.6)!important}
+html.dark .wk-hello__btn svg,html.dark .wk-hello__btn svg path{fill:#0D1432!important}
+@media (max-width:899px){.b30-main > .wk-hello{height:auto;min-height:760px;margin-top:80px;padding:200px 20px 64px}}
+@media (max-width:899px){.wk-hello__f{top:96px;height:auto;bottom:0}}
+@media (max-width:899px){.wk-hello__h,.wk-hello__p,.wk-hello__btn,.wk-hello__hand{position:relative;left:auto;top:auto;width:auto}}
+@media (max-width:899px){.wk-hello__h{font-size:clamp(30px,8.4vw,44px)}}
+@media (max-width:899px){.wk-hello__hand{width:118%;height:auto;aspect-ratio:1010/520;margin:28px -20px 0 auto;left:20px}}
+@media (max-width:899px){.wk-hello__p{margin-top:12px;font-size:16px}}
+@media (max-width:899px){.wk-hello__btn{margin-top:24px}}
+@media (prefers-reduced-motion:reduce){.wk-hello__hand{transform:none;opacity:1;transition:none}}
+/* dark theme: the homepage paints every section with the night; this one lets the page's own night show through */
+html.dark.dark .b30-main > section.wk-hello{background:transparent!important}
+/* Oct 2026: the dashed divider after this section is gone; the testimonials heading keeps its place */
+html body .b30-main > section.ts{margin-top:calc(45px + 63*var(--u))!important}
+@media (max-width:899px){html body .b30-main > section.ts{margin-top:113px!important}}
+html body .b30-main > section.ts{padding-top:0!important}
+@media (min-width:900px){html body .b30-main > section.ts{padding-bottom:calc(201*var(--u))!important}}

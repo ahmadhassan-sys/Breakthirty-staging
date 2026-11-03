@@ -1,0 +1,19 @@
+---
+/**
+ * One guide: picture, tags, title, summary, date · read time. `i` = its place in the grid (staggers the reveal by column).
+ * Styles: src/styles/blog/*.css (.blg-card) · Script: public/js/blog.js (picture hover, "Read" cursor)
+ */
+import Tags from "./Tags.astro";
+import Meta from "./Meta.astro";
+const { post, i = 0 } = Astro.props;
+const base = (i % 3) * 90;
+---
+<article class="blg-card" data-cats={post.tags.join("|")}>
+  <a class="blg-card__img blg-img" href={post.href} tabindex="-1" aria-hidden="true"><img class="blg-img__in" src={post.image} alt={post.imageAlt} loading="lazy" decoding="async" /></a>
+  <div class="blg-card__txt">
+    <Tags tags={post.tags} rd={base} />
+    <h3 class="blg-card__t" data-reveal style={`--rd:${base + 80}ms`}><a href={post.href}>{post.title}</a></h3>
+    <p class="blg-card__d" data-reveal style={`--rd:${base + 160}ms`}>{post.excerpt}</p>
+    <Meta iso={post.iso} date={post.dateLabel} minutes={post.minutes} rd={base + 220} />
+  </div>
+</article>

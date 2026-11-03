@@ -1,0 +1,19 @@
+---
+/**
+ * The strip after the testimonials: a few words in dashed pixel letters, running across the page.
+ * Each page has its own words: "Sketch. Make. Break. Scale." (homepage, case studies), "Sketched. Made. Broken. Scaled."
+ * (Our Work), "Design. Build. Grow. Automate." (services), "Talk. Sketch. Quote. Start." (contact).
+ * Hovering it plays the images' reveal under the cursor (public/js/strip.js).
+ * Content: `label` + `art` (which drawing, see ./strips.js) — `closing.strip` in src/data/site.js, or the page's own
+ * `strip` in its data file · Styles: src/styles/closing.css
+ */
+import { STRIPS } from "./strips.js";
+const { label, art = "sketch" } = Astro.props;
+const s = STRIPS[art] || STRIPS.sketch;
+const svg = { class: "mq__s", viewBox: `0 -1 ${s.w} ${s.h}`, width: String(s.w), height: String(s.h), "aria-hidden": "true", preserveAspectRatio: "xMinYMid meet" };
+const style = `--mq-w:${s.w};--mq-h:${s.h};--mq-dur:${s.dur}s`;
+---
+<section class="mq" aria-label={label} style={style} data-w={s.w} data-h={s.h} data-cells={JSON.stringify(s.cells)}>
+  {/* the same drawing twice, so the loop runs on without a gap */}
+  <div class="mq__t" aria-hidden="true"><svg {...svg}><path d={s.path} /></svg><svg {...svg}><path d={s.path} /></svg></div>
+</section>

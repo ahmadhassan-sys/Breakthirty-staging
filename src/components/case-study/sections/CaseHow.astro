@@ -1,0 +1,17 @@
+---
+/** (04) How we worked: the green pixel band, the steps and the pointing hand (public/js/case-study/how.js). */
+import Label from "../parts/Label.astro";
+import Rich from "../../ui/Rich.astro";
+const { n, labels, heading, steps, hand } = Astro.props;
+---
+<section class="cz-how" aria-labelledby="cz-how-h">
+  <canvas class="cz-band" aria-hidden="true"></canvas>
+  <div class="cz-how__head">
+    <Label n={n} title={labels.how} />
+    <h2 class="cz-h71" id="cz-how-h" data-heading><Rich text={heading} /></h2>
+  </div>
+  <ol class="cz-steps">{steps.map((s, i) => (
+    <li class="cz-st"><div class="cz-st__in"><p class="cz-st__n">({i + 1})</p><h3 class="cz-st__t" data-heading>{s.title}</h3><p class="cz-st__d">{s.text}</p></div></li>
+  ))}</ol>
+  <img class="cz-hand" src={hand} alt="" aria-hidden="true" draggable="false" />
+</section>

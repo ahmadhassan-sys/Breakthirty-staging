@@ -1,0 +1,10 @@
+---
+/** The header strip at the top of a case study: the site header on white, with the dashed side lines. */
+import Header from "../../Header.astro";
+const { nav } = Astro.props;
+---
+<div class="cz-top">
+  <Header {...nav} page="case-study" />
+  <span class="cz-vl l" aria-hidden="true"></span><span class="cz-vl r" aria-hidden="true"></span>
+  <i class="cz-npx l" aria-hidden="true"></i><i class="cz-npx r" aria-hidden="true"></i>
+</div>

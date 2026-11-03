@@ -1,0 +1,15 @@
+---
+/** (02) Services provided: heading and the service chips. */
+import Label from "../parts/Label.astro";
+import Rich from "../../ui/Rich.astro";
+const { n, labels, heading, list } = Astro.props;
+---
+<section class="cz-sec cz-services">
+  <div class="cz-wrap cz-split">
+    <Label n={n} title={labels.services} />
+    <div class="cz-col">
+      <h2 class="cz-h50" data-heading><Rich text={heading} /></h2>
+      <ul class="cz-chips">{list.map((s, i) => <li data-reveal style={`--rd:${140 + i * 60}ms`}>{s}</li>)}</ul>
+    </div>
+  </div>
+</section>

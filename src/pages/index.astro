@@ -1,0 +1,93 @@
+---
+/**
+ * Homepage. Each section is an Astro component (plain HTML, no JavaScript framework).
+ * Content: src/data/home.js (homepage sections) + src/data/site.js (shared sections).
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/pages/home.css"; // all homepage styles, in order
+
+import Hero from "../components/Hero.astro";
+import PartnersStrip from "../components/PartnersStrip.astro";
+import Work from "../components/Work.astro";
+import Services from "../components/Services.astro";
+import WhyOneTeam from "../components/WhyOneTeam.astro";
+import Vision from "../components/Vision.astro";
+import Network from "../components/Network.astro";
+import Testimonials from "../components/Testimonials.astro";
+import ClosingCta from "../components/closing/ClosingCta.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+
+import {
+  seo,
+  hero,
+  work,
+  services,
+  whyOneTeam,
+  vision,
+  network,
+} from "../data/home.js";
+import {
+  nav,
+  partnersStrip,
+  testimonials,
+  closing,
+  contact,
+  footer,
+} from "../data/site.js";
+import { partners, locations } from "../data/partners.js";
+import { homeWorkItems } from "../lib/case-studies.js";
+
+/* Selected Work: the case studies in src/content/case-studies/ first, then the entries in src/data/home.js */
+const workItems = await homeWorkItems();
+
+/* What the page scripts (public/js) read: lists they build on the page. */
+const scriptContent = {
+  hero: { orbitWords: hero.orbitWords },
+  work: { items: workItems, ctaLabel: work.ctaLabel },
+  services: { items: services.items },
+  network: { copy: network.copy, partners, locations },
+  testimonials: { items: testimonials.items },
+  vision: { rock: vision.rock },
+  contact: { heading: contact.heading, closing: contact.closing },
+};
+
+/* Page scripts, in the order they run. */
+const scripts = [
+  "core", // scale, smooth scroll, headings, reveals (must be first)
+  "hero", // the monitor, showreel and orbit
+  "header", // logo hover, header pixels
+  "hero-light", // the hero's glow and light
+  "partners",
+  "work",
+  "services",
+  "vision",
+  "network",
+  "testimonials",
+  "contact",
+  "footer",
+  "details", // small finishing touches across sections
+  "contact-closing", // the closing words (must run last: it sits on top of the contact panel)
+  "mobile-layer", // phones only (≤ 899px): the shared phone layer
+  "mobile-m5",
+];
+---
+
+<BaseLayout seo={seo} content={scriptContent} scripts={scripts} loader caseTransition>
+  {/* loader: the intro (globe → logo) on a fresh visit or reload */}
+  <Hero {...hero} nav={nav} />
+
+  <main class="b30-main" id="main">
+    <PartnersStrip {...partnersStrip} />
+    <Work {...work} items={workItems} />
+    <Services {...services} />
+    <WhyOneTeam {...whyOneTeam} />
+    <Vision {...vision} />
+    <Testimonials {...testimonials} />
+    <Network />
+    <ClosingCta {...closing.cta} />
+    <Contact {...contact} />
+  </main>
+
+  <Footer {...footer} page="home" />
+</BaseLayout>

@@ -1,0 +1,77 @@
+---
+/**
+ * 1. Hero — header, headline, the monitor with the showreel and the orbiting words.
+ * Content: `hero` in src/data/home.js (+ `nav` from src/data/site.js)
+ * Scripts: public/js/hero.js, header.js, hero-light.js
+ * Styles: src/styles/hero.css (loaded in order by the page's style list in src/styles/pages/)
+ */
+import Header from "./Header.astro";
+import Icon from "./ui/Icon.astro";
+
+const { ariaLabel, nav, title, intro, cta, orbitLabel, media } = Astro.props;
+---
+<section class="b30h" data-b30-hero aria-label={ariaLabel}>
+  <div class="b30h__pin">
+    <div class="b30h__stage">
+      <span class="b30h__vline b30h__vline--34" aria-hidden="true"></span>
+      <i class="b30h__px" style="--x:82" aria-hidden="true"></i>
+      <i class="b30h__px" style="--x:960" aria-hidden="true"></i>
+      <i class="b30h__px" style="--x:1838" aria-hidden="true"></i>
+      <span class="b30h__vline b30h__vline--27" aria-hidden="true"></span>
+      <img class="b30h__glow" src={media.glow} alt="" aria-hidden="true" decoding="async" />
+
+      <Header {...nav} page="home" />
+
+      <div class="b30h__copy">
+        <h1 class="b30h__title" data-heading><span>{title.line1}</span> <span><span class="b30h__sk b30-alt">{title.highlight}</span>{title.line2}</span></h1>
+        <div class="b30h__intro">
+          <p data-reveal style="--rd:260ms">{intro.map((line, i) => [i > 0 ? " " : null, <span>{line}</span>])}</p>
+          <a class="b30h__btn b30h__btn--line" href={cta.href} data-btn data-anim={cta.icon}><i><Icon name={cta.icon} /></i><span data-lbl>{cta.label}</span></a>
+        </div>
+      </div>
+
+      <div class="b30h__scene">
+        <div class="b30h__rig">
+          <svg class="b30h__ring" viewBox="0 0 1404 1404" aria-hidden="true">
+            <defs>
+              <linearGradient id="b30h-ring-fade" x1="702" y1="0" x2="702" y2="360" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#000" />
+                <stop offset="1" stop-color="#000" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#b30h-ring-fade)" stroke-opacity="0.15" stroke-width="1">
+              <circle cx="702" cy="702" r="701.5" />
+              <circle cx="702" cy="702" r="577.5" />
+            </g>
+          </svg>
+          <div class="b30h__orbit" role="img" aria-label={orbitLabel}>
+            <svg class="b30h__words" viewBox="0 0 1404 1404" aria-hidden="true"><path id="b30h-orbit-path" fill="none" /><g></g></svg>
+          </div>
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+            <filter id="b30-fgnight" color-interpolation-filters="sRGB">
+              <feComponentTransfer>
+                <feFuncR type="table" tableValues="0.02 0.4 0.54 0.58" />
+                <feFuncG type="table" tableValues="0.02 0.4 0.54 0.58" />
+                <feFuncB type="table" tableValues="0.03 0.42 0.57 0.62" />
+              </feComponentTransfer>
+            </filter>
+          </svg>
+          <div class="b30h__fg">
+            <img src={media.foreground} alt="" decoding="async" />
+            <canvas aria-hidden="true"></canvas>
+          </div>
+          <div class="b30h__screen">
+            <video muted autoplay loop playsinline preload="auto" disablepictureinpicture poster={media.reelPoster}
+              data-asset="b30-reel" data-video={media.reelVideo} data-video-small={media.reelVideoSmall} aria-label={media.reelLabel}></video>
+          </div>
+          <img class="b30h__bezel" src={media.bezel} alt="" decoding="async" />
+        </div>
+      </div>
+      <video class="b30h__fgsrc" data-asset="b30-fg" data-video={media.foregroundVideo} muted playsinline preload="auto" aria-hidden="true"></video>
+
+      <span class="b30h__vline b30h__vline--26" aria-hidden="true"></span>
+    </div>
+    {/* outside the stage, so the dim covers the whole screen even while the stage shrinks */}
+    <div class="b30h__dim" aria-hidden="true"></div>
+  </div>
+</section>

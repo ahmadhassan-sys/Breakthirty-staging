@@ -1,0 +1,12 @@
+---
+/** Before / after: two pictures side by side with their labels. */
+import Picture from "../parts/Picture.astro";
+const { before, after, sectionLabel } = Astro.props;
+---
+<section class="cz-ba" aria-label={sectionLabel}>
+  <div class="cz-ba__frame">
+    <Picture class="cz-ba__img a" image={before.image} alt={before.alt} />
+    <Picture class="cz-ba__img b" image={after.image} alt={after.alt} />
+  </div>
+  <div class="cz-ba__lbl"><span data-reveal>{before.label}</span><span data-reveal>{after.label}</span></div>
+</section>

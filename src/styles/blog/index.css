@@ -1,0 +1,190 @@
+/* The blog page (/blog) — from the design (Figma B30 › Blog). */
+/* =====================================================================
+   Blog page (Figma B30 › Blog Page 5218:1072)
+   ===================================================================== */
+/* hero (Figma B30 › Blog Page 5278:68): title top left, "Scroll to blogs" top right, a rule, then the "Must read" guide;
+   the services hero's colour, its foot pulled to the lower left-centre */
+.b30h.wk-hero.blg-hero{--wh:calc(1893*var(--u))}   /* 1300, then the strip laps the colour by 163 — the script lengthens it so the
+                                                        strip comes up only after the hero's copy and button have been seen */
+/* the hero's colour: the services hero's, sitting a little lower */
+.blg-hero .svh__sky i{top:calc(1180*var(--u) - 960*var(--u))!important}
+.blg-hero .wk-hero__dim{opacity:var(--blg-dim,0)!important}
+@media (min-width:900px){ .blg-hero .blg-h__t{top:calc(206*var(--u))!important;white-space:nowrap} }
+.blg-h__hint{position:absolute;right:calc(164*var(--u));top:calc(206*var(--u));z-index:5;font-size:max(13px,calc(14*var(--u)));line-height:1.2;letter-spacing:-.02em;color:#000;opacity:.5;text-decoration:none;transition:opacity .25s ease}
+.blg-h__hint:hover{opacity:1}
+.blg-h__rule{position:absolute!important;left:calc(79*var(--u));right:calc(79*var(--u));top:calc(486*var(--u));margin:0!important;z-index:5}
+.blg-h__feat{position:absolute;left:calc(166*var(--u));top:calc(573*var(--u));width:calc(1595*var(--u));z-index:5}
+.blg-hero .blg-feat a{color:inherit;text-decoration:none}
+.blg-hero .blg-feat__row{align-items:center;justify-content:flex-start;gap:calc(107*var(--u))}
+.blg-hero .blg-feat .blg-pill--flash{margin-bottom:calc(48*var(--u));align-self:flex-start}
+.blg-hero .blg-feat__l{min-height:0;justify-content:flex-start}
+.blg-hero .blg-feat__t{font-size:max(26px,calc(36*var(--u)));margin-bottom:0;max-width:calc(499*var(--u))}
+.blg-hero .blg-feat__top .blg-tags{margin-top:0}
+.blg-hero .blg-feat__b{margin-top:calc(101*var(--u))}
+.blg-hero .blg-feat__img{width:calc(852*var(--u));height:calc(547*var(--u))}
+@media (max-width:899px){
+  .b30h.wk-hero.blg-hero{--wh:auto}
+  .blg-h__hint{position:relative;right:auto;top:auto;display:inline-block;margin-top:16px}
+  .blg-h__rule{position:relative!important;left:auto;right:auto;top:auto;margin:32px 0 0!important}
+  .blg-h__feat{position:relative;left:auto;top:auto;width:auto;margin-top:40px}
+  .blg-hero .blg-feat__row{flex-direction:column-reverse;align-items:stretch;gap:28px}
+  .blg-hero .blg-feat__img{width:100%;height:auto;aspect-ratio:852/547}
+  .blg-hero .blg-feat__b{margin-top:24px}
+}
+
+/* page */
+.blg{position:relative;background:#fff;padding:calc(96*var(--u)) 0 0}
+.blg__in{width:calc(1598*var(--u));margin:0 auto}
+.blg [hidden]{display:none!important}
+.blg a{color:inherit;text-decoration:none}
+
+/* pills */
+.blg-tags{display:flex;flex-wrap:wrap;gap:calc(12*var(--u));margin:0;padding:0;list-style:none}
+.blg-pill{display:inline-flex;align-items:center;justify-content:center;height:max(26px,calc(32*var(--u)));padding:0 max(11px,calc(14.67*var(--u)));border-radius:max(8px,calc(10*var(--u)));
+  background:rgba(106,119,130,.1);font:400 max(11px,calc(12*var(--u)))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#000;white-space:nowrap}
+.blg-pill--flash{background:#F4EB02;font-size:max(12px,calc(14*var(--u)))}
+
+/* date · read time */
+.blg-meta{display:flex;align-items:center;gap:calc(16*var(--u));font-size:max(12px,calc(13.333*var(--u)));line-height:1.2;letter-spacing:-.02em;color:#000}
+.blg-meta__i{display:inline-flex;align-items:center;gap:calc(8*var(--u))}
+.blg-meta__i svg{width:max(16px,calc(20*var(--u)));height:max(16px,calc(20*var(--u)));flex:none}
+.blg-meta__sep{width:1px;height:max(14px,calc(17*var(--u)));background:rgba(0,0,0,.15)}
+
+/* images: placeholders for now (the homepage's case-study pictures); they wipe in from the top like the case study's */
+.blg-img{position:relative;display:block;overflow:hidden;background:#eef0f2}
+.blg-img__in{position:absolute;inset:0;background-size:cover;background-position:50% 50%;transform:scale(1.001);transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.blg-img{clip-path:inset(0 0 100% 0);transition:clip-path 1.3s cubic-bezier(.16,1,.3,1) .1s}
+.blg-img.in{clip-path:inset(0)}
+.blg-img:hover .blg-img__in,.blg-card:hover .blg-img__in{transform:scale(1.04)}
+
+/* must read: the image's hover (see the script) — the word rides with the cursor, in the buttons' mono type */
+.blg-img{cursor:none}
+.blg-gl{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2;pointer-events:none}
+.blg-word{position:absolute;left:0;top:0;z-index:3;pointer-events:none;color:#fff;mix-blend-mode:difference;font:400 max(11px,calc(14.667*var(--u)))/1 var(--mono);
+  letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;opacity:0;transition:opacity .25s ease}
+.blg-word.on{opacity:1}
+@media (hover:none){.blg-img{cursor:pointer}.blg-word{display:none}}
+/* must read */
+.blg-feat .blg-pill--flash{margin-bottom:calc(56*var(--u))}
+.blg-feat__row{display:flex;align-items:flex-end;justify-content:space-between;gap:calc(172*var(--u))}
+.blg-feat__l{display:flex;flex-direction:column;justify-content:space-between;width:calc(636*var(--u));min-height:calc(627*var(--u));flex:none}
+.blg-feat__top{display:flex;flex-direction:column;gap:calc(8*var(--u))}
+.blg-feat__t{margin:0 0 calc(8*var(--u));font-weight:400;font-size:max(32px,calc(50*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.blg-feat__b{display:flex;flex-direction:column;gap:calc(48*var(--u));margin-top:calc(60*var(--u))}
+.blg-feat__d{margin:0;width:calc(459*var(--u));font-size:max(15px,calc(18*var(--u)));line-height:1.2;letter-spacing:-.01em}
+.blg-feat__img{width:calc(782*var(--u));height:calc(619*var(--u));flex:none}
+.blg-rule{position:relative;height:6px;margin-top:calc(164*var(--u))}
+.blg-rule::before{content:"";position:absolute;left:1px;right:1px;top:50%;border-top:1px dashed rgba(0,0,0,.15)}
+.blg-rule i{position:absolute;top:0;width:6px;height:6px;background:#000}
+.blg-rule i:first-child{left:0}.blg-rule i:last-child{right:0}
+
+/* all guides */
+.blg-all{padding-top:0}
+/* categories: the guides' own tags; "All" first */
+.blg-cats{display:flex;flex-wrap:wrap;gap:calc(14*var(--u)) calc(20*var(--u));margin-top:calc(64*var(--u))}
+.blg-cat{display:inline-flex;align-items:center;justify-content:center;height:max(34px,calc(40*var(--u)));padding:0 max(10px,calc(12*var(--u)));border:max(.6px,calc(.75*var(--u))) solid rgba(0,0,0,.15);border-radius:max(8px,calc(10*var(--u)));
+  background:#fff;color:#000;font:400 max(11px,calc(12*var(--u)))/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;cursor:pointer;
+  transition:background-color .25s ease,color .25s ease,border-color .25s ease}
+.blg-cat:hover{border-color:#000}
+.blg-cat.on{background:#000;border-color:#000;color:#fff}
+.blg-card.is-out{display:none}
+.blg-card.is-in-f{animation:blgIn .6s cubic-bezier(.16,1,.3,1) both}
+@keyframes blgIn{from{opacity:0;transform:translateY(calc(24*var(--u)))}to{opacity:1;transform:none}}
+.blg-all__h{margin:0;font-weight:400;font-size:max(32px,calc(50*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.blg-grid{display:grid;grid-template-columns:repeat(3,1fr);column-gap:calc(48*var(--u));row-gap:calc(48*var(--u));margin-top:calc(96*var(--u))}
+.blg-card{display:flex;flex-direction:column;gap:calc(32*var(--u));min-width:0}
+.blg-card__img{height:calc(332*var(--u))}
+.blg-card__txt{display:flex;flex-direction:column}
+.blg-card__txt .blg-tags{margin-bottom:calc(20*var(--u))}
+.blg-card__t{margin:0 0 calc(16*var(--u));font-weight:400;font-size:max(20px,calc(25*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.blg-card__t a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .5s cubic-bezier(.16,1,.3,1)}
+.blg-card:hover .blg-card__t a,.blg-card__t a:focus-visible{background-size:100% 1px}
+.blg-card__d{margin:0 0 calc(24*var(--u));font-size:max(14px,calc(16*var(--u)));line-height:1.2;letter-spacing:-.02em;opacity:.6}
+.blg-feat__t a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .5s cubic-bezier(.16,1,.3,1)}
+.blg-feat__t a:hover,.blg-feat__t a:focus-visible{background-size:100% 1px}
+.blg-btn{border:0;padding:0;background:none;font:inherit}
+
+/* phones */
+@media (max-width:899px){
+  .blg{padding-top:72px}
+  .blg__in{width:auto;margin:0 20px}
+  .blg-feat .blg-pill--flash{margin-bottom:24px}
+  .blg-feat__row{flex-direction:column-reverse;align-items:stretch;gap:28px}
+  .blg-feat__l{width:auto;min-height:0}
+  .blg-feat__b{margin-top:24px;gap:24px}
+  .blg-feat__d{width:auto}
+  .blg-feat__img{width:100%;height:auto;aspect-ratio:782/619}
+  .blg-rule{margin-top:64px}
+  .blg-all{padding-top:64px}
+  .blg-grid{grid-template-columns:1fr;row-gap:48px;margin-top:32px}
+  .blg-card{gap:20px}
+  .blg-card__img{height:auto;aspect-ratio:500/332}
+  .blg-card__txt .blg-tags{margin-bottom:14px}
+  .blg-card__t{margin-bottom:10px}
+  .blg-card__d{margin-bottom:16px}
+  .blg-more{margin-top:48px}
+}
+@media (min-width:900px) and (max-width:1199px){ .blg-grid{grid-template-columns:repeat(2,1fr)} }
+@media (prefers-reduced-motion:reduce){.blg-img{clip-path:none!important;transition:none!important}.blg-img__in{transition:none}}
+
+/* the guides' images: the testimonials' black "Next" cursor, saying "Read" (in place of the word on the picture) */
+.blg-card .blg-word{display:none!important}
+.blg-cur b{font-weight:400}
+.blg-cur{position:fixed;left:0;top:0;width:calc(96*var(--u));height:calc(96*var(--u));min-width:72px;min-height:72px;margin:calc(-48*var(--u)) 0 0 calc(-48*var(--u));border-radius:50%;
+  background:#000;color:#fff;display:grid;place-items:center;pointer-events:none;z-index:9000;transform:scale(0);transition:transform .35s cubic-bezier(.16,1,.3,1);
+  font:400 max(10px,calc(12*var(--u)))/1 var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.blg-cur.on{transform:scale(1)}
+@media (hover:none){.blg-cur{display:none}}
+
+/* 320 from the last row of guides to the scrolling words */
+.blg + .mq{margin-top:calc(320*var(--u))!important}
+@media (max-width:899px){.blg + .mq{margin-top:120px!important}}
+
+/* the "Read" cursor: the site's cursor button (Figma 4382:3603) — a black, stepped pixel circle with the word inside */
+.blg-cur{width:max(76px,calc(108*var(--u)))!important;height:max(76px,calc(108*var(--u)))!important;min-width:0!important;min-height:0!important;
+  margin:calc(max(76px,calc(108*var(--u))) / -2) 0 0 calc(max(76px,calc(108*var(--u))) / -2)!important;border-radius:0!important;background:#000!important;color:#fff!important;
+  font:400 max(11px,calc(13*var(--u)))/1 var(--mono)!important;letter-spacing:.1em!important;text-transform:uppercase;
+  clip-path:polygon(25% 0,75% 0,75% 8.333%,83.333% 8.333%,83.333% 16.667%,91.667% 16.667%,91.667% 25%,100% 25%,100% 75%,91.667% 75%,91.667% 83.333%,83.333% 83.333%,83.333% 91.667%,75% 91.667%,75% 100%,25% 100%,25% 91.667%,16.667% 91.667%,16.667% 83.333%,8.333% 83.333%,8.333% 75%,0 75%,0 25%,8.333% 25%,8.333% 16.667%,16.667% 16.667%,16.667% 8.333%,25% 8.333%)}
+
+
+/* the hero's dark overlay waits for the partners strip: it only rises as the strip reaches the bottom of the screen */
+.wk-hero.blg-hero .wk-hero__dim{opacity:var(--blg-dim,0)!important}
+
+/* =====================================================================
+   Phones (≤ 899px): "All guides" + a Filter button; the categories open in a sheet from the bottom
+   (markup: src/components/blog/BlogList.astro · behaviour: public/js/blog.js). Desktop keeps the tag row.
+   ===================================================================== */
+@media (min-width:900px){ .blg-fbtn,.blg-sheet{display:none!important} }
+@media (max-width:899px){
+  html body #blogs .blg-all:not(#_z){display:grid!important;grid-template-columns:1fr auto;align-items:center;column-gap:12px}
+  html body #blogs .blg-all > :not(.blg-all__h):not(.blg-fbtn):not(#_z){grid-column:1 / -1}
+  html body #blogs .blg-all__h:not(#_z){grid-column:1;margin:0!important}
+  html body #blogs .blg-cats:not(#_z){display:none!important}
+  /* the button: the site's pair (icon square + label), outlined in white; filled black while a filter is on */
+  html body .blg-fbtn:not(#_z){grid-column:2;justify-self:end;margin:0;padding:0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent;font:inherit;color:#000}
+  html body .blg-fbtn :is(.b30btn__ic,.b30btn__lbl):not(#_z){background:#fff!important;color:#000!important;border:.67px solid rgba(0,0,0,.15)!important;border-radius:10px!important;box-sizing:border-box}
+  html body .blg-fbtn .b30btn__ic svg:not(#_z){width:16px;height:16px;display:block}
+  html body .blg-fbtn.is-active .b30btn__ic:not(#_z){background:#000!important;color:#fff!important;border-color:#000!important}
+  html body .blg-fbtn:active :is(.b30btn__ic,.b30btn__lbl):not(#_z){border-color:#000!important}
+
+  /* the sheet */
+  html.blg-sheet-on,html.blg-sheet-on body{overflow:hidden!important}
+  .blg-sheet{position:fixed;inset:0;z-index:9500}
+  .blg-sheet[hidden]{display:none}
+  .blg-sheet__bg{position:absolute;inset:0;background:rgba(13,20,50,.32);opacity:0;transition:opacity .35s ease}
+  .blg-sheet__p{position:absolute;left:0;right:0;bottom:0;max-height:min(86vh,720px);display:flex;flex-direction:column;background:#fff;color:#000;
+    border-radius:12px 12px 0 0;transform:translate3d(0,100%,0);transition:transform .42s cubic-bezier(.22,1,.36,1);padding-bottom:env(safe-area-inset-bottom)}
+  .blg-sheet.is-open .blg-sheet__bg{opacity:1}
+  .blg-sheet.is-open .blg-sheet__p{transform:none}
+  .blg-sheet__top{flex:none;display:flex;align-items:center;justify-content:space-between;height:64px;margin:0 20px;border-bottom:1px solid rgba(0,0,0,.15)}
+  .blg-sheet__t{margin:0;font:400 12px/1 var(--mono,"Geist Mono",monospace);letter-spacing:.06em;text-transform:uppercase;color:rgba(13,20,50,.6)}
+  .blg-sheet__x{all:unset;box-sizing:border-box;width:36px;height:36px;display:grid;place-items:center;border:1px solid #000;border-radius:8px;cursor:pointer;color:#000}
+  .blg-sheet__x:focus-visible,.blg-sheet__o:focus-visible{outline:2px solid #000;outline-offset:2px}
+  .blg-sheet__list{list-style:none;margin:0;padding:0 20px 12px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .blg-sheet__list li + li{border-top:1px dashed rgba(0,0,0,.15)}
+  .blg-sheet__o{all:unset;box-sizing:border-box;width:100%;height:50px;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .blg-sheet__o span{display:flex;align-items:center;gap:9px;font:400 16px/1.2 var(--sans,"BDO Grotesk",sans-serif);letter-spacing:-.01em}
+  .blg-sheet__o.on span::before{content:"";width:6px;height:6px;background:#000;flex:none}
+  .blg-sheet__o em{font:400 12px/1 var(--mono,"Geist Mono",monospace);font-style:normal;letter-spacing:.04em;color:rgba(13,20,50,.45)}
+}
+@media (max-width:899px) and (prefers-reduced-motion:reduce){ .blg-sheet__bg,.blg-sheet__p{transition:none} }

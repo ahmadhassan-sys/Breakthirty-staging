@@ -1,0 +1,22 @@
+/* =====================================================================
+   Homepage styles, in cascade order. The order matters: later files
+   override earlier ones, so add new files in the right place.
+   ===================================================================== */
+@import "../global.css";
+@import "../hero.css";
+@import "../partners.css";
+@import "../work.css";
+@import "../services.css";
+@import "../why-one-team.css";
+@import "../vision.css";
+@import "../network.css";
+@import "../shared.css";        /* rules shared by several sections (buttons etc.) */
+@import "../testimonials.css";
+@import "../closing.css";       /* after the testimonials: the Sketch/Make/Break/Scale strip and the call to action */
+@import "../contact.css";
+@import "../footer.css";
+@import "../theme.css";
+@import "../dark.css";          /* dark-theme overrides shared by several sections (last) */
+@import "../home-latest.css";     /* the latest homepage pass: network re-laid, text entrances */
+@import "../mobile/layer.css";      /* phones (≤ 899px): the shared phone layer */
+@import "../mobile/m5.css";         /* phones: type, sides, buttons, footer (on top of the layer) */

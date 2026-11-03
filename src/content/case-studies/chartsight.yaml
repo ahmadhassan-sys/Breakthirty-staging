@@ -1,0 +1,117 @@
+# ChartSight case study → /work/chartsight
+# Headings: *word* = the highlighted word. Pictures: paths in public/.
+# The homepage card that opens this page is the item with `case: "chartsight"` in src/data/home.js; its card on the
+# Our Work page is the "chartsight" entry in src/data/work.js.
+
+template: a
+name: ChartSight
+seo:
+  title: "ChartSight case study | Breakthirty"
+  description: "ChartSight reads a patient’s medical records and shows every injury and illness on a 3D body, in the order it happened."
+
+hero:
+  image: /assets/images/work-onboarding.webp
+  label: ChartSight
+
+intro:
+  type: "Healthcare & Claims"
+  roles:
+    - "AI solution design & build"
+    - "Full-stack engineering"
+    - "Data standardization"
+    - "Engagement — Over a year"
+  lede: "ChartSight reads a patient’s medical records and shows every injury and illness on a 3D body, in the order it happened."
+
+demo:
+  label: "(Demo)"
+  image: /assets/images/work-checkout.webp
+  alt: "Product demo"
+
+overview:
+  heading: "A patient’s whole medical history, at a glance. Every injury and illness shown on the body, in the order it happened."
+  body:
+    - "ChartSight helps teams who review medical and insurance claims. They used to read through stacks of records to understand what happened to a patient."
+    - "We built ChartSight so they can see it instead: it reads the records for them and shows every condition on a 3D model of the body, with a timeline of when each one happened."
+  details:
+    - { label: Client, value: ChartSight }
+    - { label: Industry, value: "Healthcare & Claims" }
+    - { label: Year, value: "2025" }
+  demoButton: "View Demo"
+
+services:
+  heading: "We built the AI, the 3D body and the app behind ChartSight."
+  list:
+    - "Document AI & NLP"
+    - "Generative AI & LLM Integration"
+    - "Data Engineering & Analytics"
+    - "Custom Software Development"
+    - "Web & Frontend Development"
+    - "Cloud & DevOps"
+    - "Prototyping & MVPs"
+
+challenge:
+  heading: "Medical records are long, messy and never the same twice."
+  body:
+    - "One case can include doctors’ reports, scanned pages, handwritten notes and spreadsheets, and no two are set out the same way."
+    - "Reviewers had to read all of it, then work out which part of the body each problem affected and when. It was slow work, and easy to miss something important."
+
+beforeAfter:
+  before: { image: /assets/images/work-agent.webp, label: Before, alt: "Before" }
+  after: { image: /assets/images/work-checkout.webp, label: After, alt: "After" }
+
+stat:
+  value: "1,079"
+  count: 1079
+  from: 1072
+  text: "Pages of medical records, on average behind a single California medical-legal report. Someone has to read every one of them."
+
+how:
+  heading: "How we got there, in five steps."
+  steps:
+    - { title: Listen, text: "Learned how reviewers work through a case today." }
+    - { title: Match, text: "Linked all 74,000+ ICD codes, the codes doctors use for every diagnosis, to their place on the body." }
+    - { title: Train, text: "Trained the AI model to read medical records, match each diagnosis to its ICD code and place it on the 3D body." }
+    - { title: Show, text: "Built the 3D body and the timeline, so reviewers can see the history." }
+    - { title: Manage, text: "Added tools to track costs, notes and reports for each claim." }
+
+output:
+  heading: "What we built, in four parts."
+  navLabel: "The four parts"
+  parts:
+    - tab: "Every ICD on the body"
+      title: "More than 74,000 ICD codes have a place on the body"
+      text: "Doctors label every illness and injury with an ICD code, and there are more than 74,000 of them. We matched each ICD code to the part of the body it affects, so any condition shows up in the right place."
+      image: /assets/images/work-launch.webp
+      alt: "Part 1"
+    - tab: "Reads any record"
+      title: "Reads any medical record"
+      text: "Reviewers add whatever they have: reports, scans, notes or spreadsheets. ChartSight’s AI reads them and lists every condition and date in one clear history, in order."
+      image: /assets/images/work-onboarding.webp
+      alt: "Part 2"
+    - tab: "Where and when"
+      title: "See where it happened, and when"
+      text: "A timeline shows the patient’s history year by year. Pick a year to see only what happened then, or click any part of the body for the full details."
+      image: /assets/images/work-checkout.webp
+      alt: "Part 3"
+    - tab: "Claims for every condition"
+      title: "Track the claim for every condition"
+      text: "Each condition has its own record: what it cost, labels like “claim related”, notes and documents. Reports add up the totals automatically."
+      image: /assets/images/work-agent.webp
+      alt: "Part 4"
+
+statement: "See the patient, not the paperwork."
+
+impact:
+  heading: "What changed for the people reviewing claims."
+  rows:
+    - { value: "74,000+", count: 74000, from: 73993, suffix: "+", text: "ICD codes matched to the right place on the body" }
+    - { value: "Any format", text: "of medical record read and turned into one clear history" }
+    - { value: "2,234", count: 2234, from: 2197, text: "parts of the body a reviewer can click to see details" }
+    - { value: "One screen", text: "to see where, when and how much, with no flipping between documents" }
+
+outcome:
+  quote: "“We meet every week, I bring the list, and it comes back done.”"
+  more: "“I change my mind, I redesign things, I show up with ideas out of left field, and the answer is always ‘okay, we can do that,’ followed by something better than I pictured.”"
+  person: { name: "John Doe Smith", role: CEO, photo: /assets/images/testimonial-evan-goldsmith.jpg }
+
+next: kind-over-matter

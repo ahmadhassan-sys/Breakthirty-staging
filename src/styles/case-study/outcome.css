@@ -1,0 +1,13 @@
+/* Case study page · outcome: the client quote */
+.cz-outcome{padding-top:calc(347*var(--u))}
+.cz-quote{margin:0}
+.cz-quote blockquote{margin:0}
+.cz-q1{margin:0;width:calc(767*var(--u));max-width:100%;font-size:max(28px,calc(50*var(--u)));line-height:1.1;letter-spacing:-.02em}
+.cz-q2{margin:calc(32*var(--u)) 0 0;font-size:max(17px,calc(25*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.cz-by{display:flex;flex-direction:column;align-items:flex-start;margin:calc(64*var(--u)) 0 0;line-height:1.1}
+.cz-ava{display:block;width:max(40px,calc(64*var(--u)));height:max(40px,calc(64*var(--u)));margin-bottom:calc(24*var(--u));border-radius:calc(8*var(--u));background-color:#F3EA08;background-size:cover;background-position:50% 10%}
+.cz-by__n{font-size:max(18px,calc(24*var(--u)));letter-spacing:-.02em}
+.cz-by__r{margin-top:calc(9*var(--u));font-size:max(14px,calc(16*var(--u)));letter-spacing:-.02em}
+@media (max-width:899px){
+  .cz-outcome{padding-top:80px}
+}

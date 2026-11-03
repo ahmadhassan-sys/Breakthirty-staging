@@ -1,0 +1,63 @@
+---
+/**
+ * The blog — /blog
+ * The "Must read" guide (the post with `featured: true`, else the newest) and every guide, newest first, with tag filters.
+ * Posts: src/content/blog/*.md · words: src/data/blog.js · its own sections: components/blog/*
+ * Shared with the other pages: header, partners strip, closing strip + call to action, footer (src/data/site.js).
+ * The old blog page (/blogs/all-blogs) redirects here (public/_redirects).
+ */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/pages/blog.css";   // all blog page styles, in order
+
+import BlogHero from "../../components/blog/BlogHero.astro";
+import PartnersStrip from "../../components/PartnersStrip.astro";
+import BlogList from "../../components/blog/BlogList.astro";
+import Strip from "../../components/closing/Strip.astro";
+import ClosingCta from "../../components/closing/ClosingCta.astro";
+import Contact from "../../components/Contact.astro";
+import Footer from "../../components/Footer.astro";
+
+import { seo, hero, list, strip } from "../../data/blog.js";
+import { posts, tagList } from "../../lib/blog.js";
+import { nav, partnersStrip, closing, contact, footer } from "../../data/site.js";
+import { blogSchema } from "../../lib/schema.js";
+
+const all = await posts();
+const featured = all.find((p) => p.featured) || all[0];
+const grid = all.filter((p) => p !== featured);
+
+const scriptContent = { contact: { heading: contact.heading, closing: contact.closing } };
+
+/* Page scripts, in the order they run. */
+const scripts = [
+  "core",            // scale, smooth scroll, headings, reveals (must be first)
+  "header",          // logo hover, header pixels
+  "hero-light",      // the hero's light
+  "partners",
+  "contact",
+  "footer",
+  "details",         // small finishing touches across sections
+  "services-hero",   // the hero's drift (the services hero's)
+  "blog",            // pictures, the "Read" cursor, the filters, the hero's length
+  "strip",           // the dashed-letter strip's hover reveal
+  "contact-closing", // the closing words (must run last: it sits on top of the contact panel)
+  "mobile-layer",
+  "mobile-m5"   // phones only (≤ 899px)
+];
+/* structured data: the blog and its posts (src/lib/schema.js) */
+const pageSeo = { ...seo, pageType: "CollectionPage", schema: blogSchema(all, Astro.site) };
+---
+
+<BaseLayout seo={pageSeo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Blog", path: "/blog" }]}>
+  <BlogHero {...hero} nav={nav} featured={featured} labels={hero.featured} />
+
+  <main class="b30-main" id="main">
+    <PartnersStrip {...partnersStrip} />
+    <BlogList {...list} posts={grid} total={all.length} tags={tagList(all)} />
+    <Strip {...strip} />
+    <ClosingCta {...closing.cta} />
+    <Contact {...contact} />
+  </main>
+
+  <Footer {...footer} page="blog" />
+</BaseLayout>

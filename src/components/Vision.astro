@@ -1,0 +1,57 @@
+---
+/**
+ * 6. Vision — "To take every idea from first sketch to full scale." on the opening panel.
+ * Content: `vision` in src/data/home.js · Script: public/js/vision.js
+ * Styles: src/styles/vision.css (loaded in order by the page's style list in src/styles/pages/)
+ */
+import { VS_FOLDER, VS_IMAGE } from "./ui/icon-data.js";
+
+const { statement, tablet } = Astro.props;
+const col = (i) => `left:calc(${35 + i * 106}*var(--u))`;   // icons sit in columns 106 apart
+const box = ([l, t, w, h]) => `left:calc(${l}*var(--u));top:calc(${t}*var(--u));width:calc(${w}*var(--u));height:calc(${h}*var(--u))`;
+const BACK = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14 8H2.5M7 3.5 2.5 8 7 12.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>`;
+const CLOSE = `<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 2l16 16M18 2 2 18" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>`;
+---
+<section class="vision" id="vision" aria-labelledby="vzTitle" data-vision>
+  <h2 class="vz-sr" id="vzTitle">{statement}</h2>
+  {/* The panel opens from 1590 wide to full width as you scroll; the big type sits on dashed rules. */}
+  <span class="vs-side l" aria-hidden="true"></span><span class="vs-side r" aria-hidden="true"></span>
+  <div class="vs-panel" aria-hidden="true">
+    <div class="vs-copy"><p class="vs-big">{statement}</p></div>
+    {/* The tablet: a little desktop (scripts: the end of public/js/vision.js). Content: vision.tablet in src/data/home.js */}
+    <div class="vs-dev"><i class="vs-frame"></i><div class="vs-os" data-screen="home">
+      <section class="vs-scr s-home" aria-label="Desktop">
+        {tablet.desktop.map((f, i) => (
+          <button type="button" class="vs-ic" data-open={f.open} data-two={f.label.includes("\n") ? "" : undefined} style={col(i)}><svg set:html={VS_FOLDER} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"></svg><span>{f.label.split("\n").map((l, i) => [i ? <br /> : null, l])}</span></button>
+        ))}
+      </section>
+      <section class="vs-scr s-bt" aria-label="BT folder">
+        <button type="button" class="vs-back"><Fragment set:html={BACK} /><span>{tablet.backLabel}</span></button>
+        <i class="vs-rule" aria-hidden="true"></i>
+        {tablet.bt.map((p, i) => (
+          <button type="button" class="vs-ic" data-view={p.key} style={col(i)} title={tablet.openHint}><svg set:html={VS_IMAGE} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"></svg><span>{p.file}</span></button>
+        ))}
+        <button type="button" class="vs-ic" data-img style={col(tablet.bt.length)} title={tablet.openHint}><svg set:html={VS_IMAGE} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"></svg><span>{tablet.process.file}</span></button>
+      </section>
+      <section class="vs-scr s-view" aria-label="Image">
+        {tablet.bt.map((p) => (
+          <figure class="vs-pic" data-pic={p.key}><img alt={p.alt} src={p.src} loading="lazy" decoding="async" /><figcaption>{p.file}</figcaption></figure>
+        ))}
+        <button type="button" class="vs-x vs-x2" aria-label="Close"><Fragment set:html={CLOSE} /></button>
+      </section>
+      <section class="vs-scr s-img" aria-label="Process">
+        <button type="button" class="vs-x" aria-label="Close"><Fragment set:html={CLOSE} /></button>
+        <p class="vs-h">{tablet.process.title}</p>
+        {tablet.process.cards.map((c) => (
+          <div class="vs-cw" style={box(c.box)}><div class="vs-card" style={`background:${c.color};transform:rotate(${c.rotate}deg)`}><b>{c.title}</b><span>{c.text}</span></div></div>
+        ))}
+      </section>
+    </div><b class="vs-bl b1"></b><b class="vs-bl b2"></b><b class="vs-bl b3"></b><b class="vs-bl b4"></b></div>
+  </div>
+  <div class="vs-rules" aria-hidden="true"></div>
+  <span class="vs-rule t" aria-hidden="true"></span><span class="vs-rule b" aria-hidden="true"></span>
+  <span class="vs-vl l" aria-hidden="true"></span><span class="vs-vl r" aria-hidden="true"></span>
+  <i class="vs-px l" aria-hidden="true"></i><i class="vs-px r" aria-hidden="true"></i>
+  <i class="vs-px b l" aria-hidden="true"></i><i class="vs-px b r" aria-hidden="true"></i>
+  <span class="pg-vx l" aria-hidden="true"></span><span class="pg-vx r" aria-hidden="true"></span>
+</section>

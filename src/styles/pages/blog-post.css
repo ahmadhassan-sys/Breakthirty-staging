@@ -1,0 +1,19 @@
+/* =====================================================================
+   A blog post (/blog/<post>) styles, in cascade order — the services page's frame, then the blog's own.
+   ===================================================================== */
+@import "../global.css";
+@import "../hero.css";               /* the shared hero frame + header */
+@import "../services/hero.css";      /* the blog uses the services hero (its title and light) */
+@import "../partners.css";
+@import "../shared.css";
+@import "../testimonials.css";
+@import "../closing.css";            /* the dashed-letter strip and the call to action */
+@import "../contact.css";
+@import "../footer.css";
+@import "../theme.css";
+@import "../dark.css";
+@import "../services/page.css";      /* the hero's light, light only */
+@import "../blog/post.css";
+@import "../blog/content.css";
+@import "../mobile/layer.css";      /* phones (≤ 899px): the shared phone layer */
+@import "../mobile/m5.css";         /* phones: type, sides, buttons, footer (on top of the layer) */

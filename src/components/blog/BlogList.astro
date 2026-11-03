@@ -1,0 +1,42 @@
+---
+/**
+ * Blog page · 2. All guides — the heading, the tag filters ("All" first) and the grid of guides.
+ * Content: `list` in src/data/blog.js + the posts · Script: public/js/blog.js (filters, picture hover)
+ * Phones: the tag row gives way to a Filter button that opens a sheet with every category and its number of guides
+ * (styles: the phone section of src/styles/blog/index.css).
+ */
+import Card from "./Card.astro";
+const { heading, all, filtersLabel, filterLabel = "Filter", sheetTitle = "Filter guides", closeLabel = "Close filters", posts, tags, total = posts.length } = Astro.props;   // total: every guide, the "Must read" one too
+// the phone sheet counts the guides each filter will actually show in the grid (most first)
+const count = (t) => posts.filter((p) => p.tags.includes(t)).length;
+const two = (n) => String(n).padStart(2, "0");
+---
+<section class="blg" id="blogs" aria-label="Blog posts">
+  <div class="blg__in">
+    <div class="blg-all">
+      <h2 class="blg-all__h" data-heading>{heading}</h2>
+      <!-- phones: one button instead of the tag row; it opens the sheet below -->
+      <button class="b30btn blg-fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="blg-sheet" data-reveal>
+        <span class="b30btn__ic"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" aria-hidden="true" shape-rendering="crispEdges"><path d="M2.5 3.5h11l-4.5 5v4l-2 1.5v-5.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="miter"/></svg></span>
+        <span class="b30btn__lbl">{filterLabel}</span>
+      </button>
+      <div class="blg-cats" role="toolbar" aria-label={filtersLabel} data-reveal>
+        <button class="blg-cat on" type="button" data-cat="" aria-pressed="true">{all} {String(total).padStart(2, "0")}</button>
+        {tags.map((t) => <button class="blg-cat" type="button" data-cat={t} aria-pressed="false">{t}</button>)}
+      </div>
+      <div class="blg-sheet" id="blg-sheet" role="dialog" aria-modal="true" aria-labelledby="blg-sheet-t" hidden>
+        <div class="blg-sheet__bg" data-close></div>
+        <div class="blg-sheet__p">
+          <div class="blg-sheet__top"><h3 class="blg-sheet__t" id="blg-sheet-t">{sheetTitle}</h3><button class="blg-sheet__x" type="button" aria-label={closeLabel} data-close><svg viewBox="0 0 10 10" width="10" height="10" aria-hidden="true"><path d="M1.5 1.5l7 7M8.5 1.5l-7 7" stroke="currentColor" stroke-width="1.2"/></svg></button></div>
+          <ul class="blg-sheet__list">
+            <li><button type="button" class="blg-sheet__o on" data-cat="" aria-pressed="true"><span>{all}</span><em>{two(posts.length)}</em></button></li>
+            {tags.filter((t) => count(t) > 0).sort((a, b) => count(b) - count(a) || a.localeCompare(b)).map((t) => <li><button type="button" class="blg-sheet__o" data-cat={t} aria-pressed="false"><span>{t}</span><em>{two(count(t))}</em></button></li>)}
+          </ul>
+        </div>
+      </div>
+      <div class="blg-grid">
+        {posts.map((p, i) => <Card post={p} i={i} />)}
+      </div>
+    </div>
+  </div>
+</section>

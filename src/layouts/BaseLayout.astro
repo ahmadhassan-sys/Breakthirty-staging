@@ -1,0 +1,177 @@
+---
+/**
+ * Base page shell: <head>, the global styles and the page scripts.
+ * The page scripts live in public/js (one file per section). Each page passes its own list;
+ * they run at the end of the body, in that order, after all the sections are on the page.
+ */
+
+interface Props {
+  seo: {
+    title: string; description: string; ogTitle?: string; ogDescription?: string; themeColor?: string;
+    image?: string;                    // share picture (path in public/ or a full URL)
+    type?: string;                     // og:type — "website" (default) or "article"
+    keywords?: string[];
+    published?: string; modified?: string;   // articles: ISO dates
+    jsonLd?: Record<string, unknown>;  // extra structured data for this page (blog posts)
+    pageType?: string;                 // schema.org type of the page: "WebPage" (default), "CollectionPage", "ContactPage"…
+    schema?: Record<string, unknown>[];  // extra nodes for the page's structured data graph (services, case studies, posts…)
+    imageAlt?: string;                 // the share picture's description
+    noindex?: boolean;                 // keep this page out of search results (the 404 page)
+  };
+  crumbs?: { name: string; path: string }[];   // breadcrumb trail after "Home" (for search results)
+  content: Record<string, unknown>;   // data the page scripts read (lists they build on the page)
+  scripts: string[];                  // page scripts from public/js, in the order they run
+  pageCss?: string;                   // page-only styles (case studies)
+  loader?: boolean;                   // the intro loader (public/js/b30-loader.js, which every page loads for its page transitions) — the homepage
+  caseTransition?: boolean;           // the case-study image transition (public/js/b30-case-transition.js) — the homepage and every case study
+}
+import { company, searchSetup } from "../data/site.js";
+const { seo, content, scripts, pageCss, loader = false, caseTransition = false, crumbs = [] } = Astro.props;
+/* canonical: this page on the live domain (astro.config.mjs `site`), without a trailing slash — as the old site's URLs */
+const canonical = new URL(Astro.url.pathname.replace(/(.)\/$/, "$1"), Astro.site).href;
+/* share picture: the page's own, else the site's (public/assets/images/og-default.jpg, 1200 × 630) */
+const shareImage = new URL(seo.image || "/assets/images/og-default.jpg", Astro.site).href;
+const site = Astro.site.href.replace(/\/$/, "");
+
+/* structured data on every page: the company and the website; a breadcrumb trail where the page passes one */
+const graph = [
+  {
+    "@type": "Organization",
+    "@id": `${site}/#organization`,
+    name: company.name,
+    legalName: company.legalName,
+    url: `${site}/`,
+    logo: new URL(company.logo, Astro.site).href,
+    email: company.email,
+    telephone: company.phoneHref.replace("tel:", ""),
+    address: { "@type": "PostalAddress", streetAddress: company.street, addressLocality: company.city, addressRegion: company.region, postalCode: company.postalCode, addressCountry: company.country },
+    description: searchSetup.description,
+    image: new URL("/assets/images/og-default.jpg", Astro.site).href,
+    contactPoint: { "@type": "ContactPoint", contactType: "sales", email: company.email, telephone: company.phoneHref.replace("tel:", ""), areaServed: searchSetup.areaServed, availableLanguage: "English" },
+    knowsAbout: searchSetup.knowsAbout,
+    sameAs: company.social,
+  },
+  { "@type": "WebSite", "@id": `${site}/#website`, url: `${site}/`, name: company.name, inLanguage: "en-US", publisher: { "@id": `${site}/#organization` } },
+];
+/* this page itself: what it is, which site it belongs to, its picture and its breadcrumb */
+const pageId = `${canonical}#webpage`;
+if (!seo.noindex) graph.push({
+  "@type": seo.pageType || "WebPage",
+  "@id": pageId,
+  url: canonical,
+  name: seo.title,
+  description: seo.description,
+  inLanguage: "en-US",
+  isPartOf: { "@id": `${site}/#website` },
+  about: { "@id": `${site}/#organization` },
+  primaryImageOfPage: { "@type": "ImageObject", url: shareImage },
+  ...(seo.published ? { datePublished: seo.published } : {}),
+  ...(seo.modified ? { dateModified: seo.modified } : {}),
+  ...(crumbs.length ? { breadcrumb: { "@id": `${canonical}#breadcrumb` } } : {}),
+});
+if (crumbs.length) graph.push({
+  "@type": "BreadcrumbList",
+  "@id": `${canonical}#breadcrumb`,
+  itemListElement: [{ name: "Home", path: "/" }, ...crumbs].map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: new URL(c.path, Astro.site).href.replace(/(.)\/$/, "$1") })),
+});
+/* the page's own nodes (services, case studies, posts, FAQs…) join the same graph */
+(seo.schema || []).forEach((n) => graph.push(n));
+const ld = { "@context": "https://schema.org", "@graph": graph };
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+{searchSetup.gtm && <script is:inline define:vars={{ id: searchSetup.gtm }}>
+  /* Google Tag Manager (the container from the old site: src/data/site.js searchSetup.gtm) — loads after the page, never blocks it */
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',id);
+</script>}
+{searchSetup.ga4 && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${searchSetup.ga4}`}></script>}
+{searchSetup.ga4 && <script is:inline define:vars={{ ga4: searchSetup.ga4 }}>
+  /* Google Analytics 4 (src/data/site.js searchSetup.ga4) — page views, scrolls, outbound clicks; the contact form also sends "contact_form_submit" */
+  window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
+  gtag("js", new Date()); gtag("config", ga4);
+</script>}
+<script is:inline define:vars={{ intro: loader }}>
+  /* public/js/b30-loader.js, on every page: the page transitions (one wave, on the page you arrive at — the page you
+     leave just whites out in a blink) and, on the homepage only, the intro loader. The intro plays once per visit: the
+     first time the homepage is opened (typed, bookmarked, from another site) — not again on a reload, not when you come
+     from another page of this site, not on the browser's back / forward. (A new visit = a new browser tab or window.) */
+  (function () {
+    var seen = false, pt = "", nav = "", inSite = false;
+    try { seen = sessionStorage.getItem("b30-intro") === "1"; pt = sessionStorage.getItem("b30-pt") || ""; } catch (e) {}
+    try { nav = performance.getEntriesByType("navigation")[0].type; } catch (e) {}
+    try { inSite = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) {}
+    window.B30_LOADER = !!intro && !seen && !pt && nav !== "back_forward" && !inSite;
+    if (window.B30_LOADER) { try { sessionStorage.setItem("b30-intro", "1"); } catch (e) {} }
+  })();
+</script>
+<script is:inline src="/js/b30-loader.js"></script>
+{caseTransition && <script is:inline src="/js/b30-case-transition.js"></script>}   {/* right after the loader, blocking: the clicked image grows full screen, then settles into the case study's hero */}
+<script is:inline>
+  /* theme: light only (the dark theme is retired). B30T gives scripts the current ink and paper colours */
+  (function () {
+    var d = false; try { localStorage.removeItem("b30-theme"); } catch (e) {}   /* light only: the dark theme and its switch are retired */
+    if (d) document.documentElement.classList.add("dark");
+    window.B30T = {
+      dark: function () { return document.documentElement.classList.contains("dark"); },
+      ink: function () { return this.dark() ? "#F2F1EE" : "#000"; },
+      paper: function () { return this.dark() ? "#000" : "#fff"; },
+      inkRGB: function () { return this.dark() ? [242, 241, 238] : [0, 0, 0]; },
+      paperRGB: function () { return this.dark() ? [0, 0, 0] : [255, 255, 255]; }
+    };
+  })();
+</script>
+<script is:inline>
+  /* the hero stays hidden until its script has laid it out: otherwise the raw markup (the monitor
+     full-size) shows for a moment while the page is still loading, then jumps to the real design */
+  document.documentElement.classList.add("b30h-pre"); setTimeout(() => document.documentElement.classList.remove("b30h-pre"), 6000);
+</script>
+<script is:inline>try{if(sessionStorage.getItem("b30-pt")==="__img")document.documentElement.classList.add("pt-img")}catch(e){}</script>   {/* (the pixel transition holds its own white: b30-loader.js) */}
+<style is:inline>html.pt-px::after{content:"";position:fixed;inset:0;background:#fff;z-index:10000}
+html:not(.b30l-on) [data-b30-loader],html:not(.b30l-on) .b30l-cur{display:none!important}   /* loader off: never flash its markup */
+html.b30h-pre .b30h{opacity:0!important}
+.b30h{transition:opacity .45s cubic-bezier(.22,1,.36,1)}</style>
+<title>{seo.title}</title>
+<meta name="theme-color" content={seo.themeColor || "#ffffff"} />
+<link rel="canonical" href={canonical} />
+<meta property="og:type" content={seo.type || "website"} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={seo.ogTitle || seo.title} />
+<meta property="og:description" content={seo.ogDescription || seo.description} />
+<meta property="og:site_name" content={company.name} />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content={shareImage} />
+<meta property="og:image:alt" content={seo.imageAlt || seo.ogTitle || seo.title} />
+{!seo.image && <meta property="og:image:width" content="1200" />}
+{!seo.image && <meta property="og:image:height" content="630" />}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@breakthirty" />
+<meta name="robots" content={seo.noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+{searchSetup.googleVerification && <meta name="google-site-verification" content={searchSetup.googleVerification} />}
+<link rel="alternate" type="application/rss+xml" title="The Break Thirty blog" href={new URL("/rss.xml", Astro.site).href} />
+<link rel="manifest" href="/site.webmanifest" />
+{seo.keywords && seo.keywords.length > 0 && <meta name="keywords" content={seo.keywords.join(", ")} />}
+{seo.published && <meta property="article:published_time" content={seo.published} />}
+{seo.modified && <meta property="article:modified_time" content={seo.modified} />}
+<script is:inline type="application/ld+json" set:html={JSON.stringify(ld).replace(/</g, "\\u003c")} />
+{seo.jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(seo.jsonLd).replace(/</g, "\\u003c")} />}
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+<meta name="description" content={seo.description} />
+<link rel="preload" href="/assets/fonts/bdo-grotesk.woff2" as="font" type="font/woff2" crossorigin />
+</head>
+<body>
+{searchSetup.gtm && <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${searchSetup.gtm}`} height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>}
+{pageCss && <style is:inline set:html={pageCss}></style>}   {/* page-only styles (case studies), after the bundled ones */}
+<slot />
+
+<script is:inline type="application/json" id="b30-content" set:html={JSON.stringify(content).replace(/</g, "\\u003c")} />
+<script is:inline src="/js/vendor/lenis.min.js"></script>  <!-- Lenis 1.1.20 (smooth scroll), served from the site -->
+{scripts.map((name) => <script is:inline src={`/js/${name}.js`}></script>)}
+</body>
+</html>

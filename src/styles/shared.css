@@ -1,0 +1,28 @@
+.b30h__btn span,.b30btn__lbl,.work .cta .lbl{justify-content:center}
+.b30h__btn,.b30btn,.work .cta{height:44px!important}
+.b30h__btn i,.b30btn__ic,.work .cta .ic{width:44px!important;height:44px;box-sizing:border-box}
+.b30h__btn span,.b30btn__lbl,.work .cta .lbl{height:44px;box-sizing:border-box}
+.b30h__btn i,.b30btn__ic,.work .cta .ic{background:transparent!important}
+.b30h__btn span,.b30btn__lbl,.work .cta .lbl{padding:0 max(11px,calc(var(--u) * 14.667))!important}
+
+/* =====================================================================
+   Phones (≤ 899px): buttons (icon square + label, 36 tall) and text reveals — one version for every page
+   (from the Our Work mobile design). Desktop is untouched: everything sits in the media queries below.
+   ===================================================================== */
+@media (max-width:899px){
+  html body :is(.b30btn,.b30h__btn,.work .cta):not(#_z){height:36px!important;min-height:36px!important;align-items:stretch!important;gap:2px!important}
+  html body :is(.b30btn .b30btn__ic,.b30h__btn > i,.work .cta .ic):not(#_z){width:36px!important;min-width:36px!important;height:36px!important;padding:0!important;display:grid!important;place-items:center!important;box-sizing:border-box!important}
+  html body :is(.b30btn .b30btn__lbl,.b30h__btn > span,.work .cta .lbl):not(#_z){height:36px!important;min-height:36px!important;display:flex!important;align-items:center!important;padding:0 10.67px!important;font:400 13px/1.2 var(--mono,"Geist Mono",monospace)!important;letter-spacing:.1em!important;text-transform:uppercase;box-sizing:border-box!important}
+  html body .m-rv:not(#_z){opacity:0;transform:translate3d(0,22px,0);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)}
+  html body .m-rv.is-in:not(#_z){opacity:1;transform:none}
+}
+@media (max-width:899px) and (prefers-reduced-motion:reduce){
+  html body .m-rv:not(#_z){opacity:1;transform:none;transition:none}
+}
+
+/* =====================================================================
+   The words that follow the cursor over pictures ("View", "Read", "Explore"…) — everywhere on the site:
+   a plain black label with white text, no blending with the picture (the cursors are black too: testimonials.css).
+   ===================================================================== */
+html body :is(.slot__word,.wk-media__word,.blg-word,.ts__word){mix-blend-mode:normal!important;color:#fff!important;background:#000!important;
+  padding:max(6px,calc(8*var(--u))) max(8px,calc(11*var(--u)))!important;border-radius:0!important;line-height:1!important}

@@ -1,0 +1,8 @@
+/* Case study page · the statement line */
+.cz-say{position:relative;height:calc(1200*var(--u));background:linear-gradient(180deg,#fff 0%,#B0E9FD 47.546%,#fff 95.093%)!important}
+.cz-say__t{position:absolute;left:50%;top:calc(425*var(--u));width:calc(890*var(--u));margin:0;transform:translateX(-50%);text-align:center;
+  font-weight:400;font-size:max(40px,calc(100*var(--u)));line-height:1.2;letter-spacing:-.02em}
+@media (max-width:899px){
+  .cz-say{height:520px}
+  .cz-say__t{top:50%;transform:translate(-50%,-50%);width:calc(100% - 40px)}
+}

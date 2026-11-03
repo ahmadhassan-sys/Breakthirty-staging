@@ -1,0 +1,25 @@
+---
+/**
+ * Site header — logo, links and the "Get in touch" button. Sits inside each page's hero.
+ * Content: `nav` in src/data/site.js · Script: public/js/header.js
+ * `page` is the current page key ("home", "services", "work", "contact") so links point to the right place.
+ */
+import Wordmark from "./ui/Wordmark.astro";
+import Icon from "./ui/Icon.astro";
+import { hrefFor, isOtherPage } from "./ui/links.js";
+
+const { homeLabel, links, cta, page } = Astro.props;
+const ctaHref = hrefFor(cta, page);
+---
+<header class="b30h__nav">
+  <a class="b30h__logo" href="/" aria-label={homeLabel}><Wordmark /></a>
+  <ul class="b30h__links">
+    {links.map((link) => {
+      const href = hrefFor(link, page);
+      return (
+        <li><a href={href} data-hscr aria-current={link.page === page ? "page" : undefined} data-pt={isOtherPage(href) ? "" : undefined}>{link.label}</a></li>
+      );
+    })}
+  </ul>
+  <a class="b30h__btn b30h__btn--solid" href={ctaHref} data-btn data-anim={cta.icon} data-pt={isOtherPage(ctaHref) ? "" : undefined}><i><Icon name={cta.icon} /></i><span data-lbl>{cta.label}</span></a>
+</header>

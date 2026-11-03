@@ -1,0 +1,32 @@
+---
+/**
+ * Testimonials — the slider; each card is built by the script from `testimonials.items`.
+ * Content: `testimonials` in src/data/site.js · Script: public/js/testimonials.js
+ * Styles: src/styles/testimonials.css (loaded in order by the page's style list in src/styles/pages/)
+ */
+import Button from "./ui/Button.astro";
+import Rich from "./ui/Rich.astro";
+
+const { heading, eyebrow, cta, verifiedBy, nextLabel, items } = Astro.props;
+const count = `01/${String(items.length).padStart(2, "0")}`;
+---
+<section class="ts" id="testimonials" aria-labelledby="ts-h" aria-roledescription="carousel">
+  <div class="ts__top">
+    <div class="ts__row1">
+      <h2 class="ts__h" id="ts-h" data-heading><Rich text={heading} /></h2>
+      <p class="ts__eye" data-reveal data-pair>{`${eyebrow} `}<span class="ts__count sr" aria-live="polite">{count}</span></p>
+    </div>
+    <Button label={cta.label} href={cta.href} icon="target" />
+  </div>
+  {/* Each testimonial sits in its own dashed frame; Next / drag slides the row to the left. */}
+  <div class="ts__sl" data-speed="0.985" role="group" aria-roledescription="carousel" aria-label={eyebrow}>
+    <div class="ts__trk"></div>
+    <template class="ts__vtpl">
+      <div class="ts__ver">
+        <img class="cl" src={verifiedBy.logo} alt={verifiedBy.name} width="212" height="60" loading="lazy" decoding="async" />
+        <span class="ok"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#1FAA59" /><path d="M4.8 8.2l2.1 2.1 4.3-4.4" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg><span>{verifiedBy.label}</span></span>
+      </div>
+    </template>
+  </div>
+  <div class="ts__cur" aria-hidden="true"><b>{nextLabel}</b></div>
+</section>

@@ -1,0 +1,5 @@
+# Every page may be crawled; the sitemap lists them all.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.breakthirty.com/sitemap.xml

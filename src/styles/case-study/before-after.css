@@ -1,0 +1,13 @@
+/* Case study page · before / after pictures */
+.cz-ba{margin-top:calc(164*var(--u))}
+.cz-ba__frame{position:relative;height:calc(800*var(--u));box-sizing:border-box;border-top:1px dashed rgba(0,0,0,.15);border-bottom:1px dashed rgba(0,0,0,.15)}
+.cz-ba__img{position:absolute;top:0;height:calc(799*var(--u) - 1px)}
+.cz-ba__img.a{left:calc(166*var(--u));width:calc(794*var(--u))}
+.cz-ba__img.b{left:calc(960*var(--u));width:calc(796*var(--u))}
+.cz-ba__lbl{display:flex;justify-content:space-between;margin:calc(16*var(--u)) calc(166*var(--u)) 0 calc(164*var(--u));font-size:max(14px,calc(16*var(--u)));line-height:1.2;letter-spacing:-.02em}
+@media (max-width:899px){
+  .cz-ba{margin-top:64px}
+  .cz-ba__frame{margin:0 20px;height:auto;display:grid;grid-template-columns:1fr 1fr;border:0}
+  .cz-ba__img{position:relative;left:auto!important;width:auto!important;height:auto;aspect-ratio:1}
+  .cz-ba__lbl{margin:12px 20px 0}
+}

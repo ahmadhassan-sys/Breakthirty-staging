@@ -1,0 +1,63 @@
+/* Case study · weldon-brewster: this page's own styles (loaded after base.css) */
+[data-count],[data-roll]{display:inline-block;white-space:nowrap}
+.odo__c{position:relative;display:inline-flex;justify-content:center;height:calc(var(--lh,1.1)*1em);clip-path:inset(0 -.5em);vertical-align:top;transition:width var(--dur,2.4s) cubic-bezier(.65,0,.25,1) var(--dl,0s)}
+.odo__m{position:absolute;visibility:hidden;white-space:nowrap}
+.odo__s > span{display:block;text-align:center;white-space:nowrap;height:calc(var(--lh,1.1)*1em);line-height:calc(var(--lh,1.1)*1em)}
+.cz-lede--wide{width:calc(735*var(--u))}
+.cz-pills{display:inline-flex;gap:calc(16*var(--u))}
+.cz-rule--wb{margin-top:calc(164*var(--u))}
+.cz-ba--wb .cz-ba__lbl--top{margin:0 calc(166*var(--u)) calc(48*var(--u)) calc(164*var(--u))}
+.cz-ba--wb .cz-ba__frame{height:calc(800*var(--u))}
+.b30-main > section.cz-how--wb{--how-bg:#F4EB02;--how-top:#EADF00;background:linear-gradient(180deg,#F4EB02 0%,#F4EB02 22%,#fff 58%);padding-bottom:0}
+.cz-how__head--wide{grid-template-columns:calc(808*var(--u)) calc(787*var(--u))}
+.cz-out--wb{padding-top:calc(387*var(--u))}
+.cz-tabs--3{grid-template-columns:repeat(3,1fr)}
+.cz-mt32{margin-top:calc(32*var(--u))}
+.cz-mt56{margin-top:calc(56*var(--u))}
+.cz-mt109{margin-top:calc(109*var(--u))}
+.cz-mt112{margin-top:calc(112*var(--u))}
+.cz-wide.cz-h800,.cz-sq.cz-h800{height:calc(800*var(--u))}
+.cz-sub__h{margin:0;font-size:max(18px,calc(25*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.b30-main > section.cz-say--wb{background:linear-gradient(180deg,#fff 0%,#D1E0D4 47.546%,#fff 95.093%)!important}
+.cz-say--wb .cz-say__t{width:calc(1014*var(--u))}
+@media (max-width:899px){.cz-lede--wide{width:auto}}
+@media (max-width:899px){.cz-pills{flex-wrap:wrap;justify-content:flex-end;gap:8px}}
+@media (max-width:899px){.cz-ba--wb .cz-ba__lbl--top{margin:0 20px 12px}}
+@media (max-width:899px){.cz-ba--wb .cz-ba__frame{height:auto}}
+@media (max-width:899px){.cz-how__head--wide{grid-template-columns:1fr}}
+@media (max-width:899px){.cz-out--wb{padding-top:80px}}
+@media (max-width:899px){.cz-wide.cz-h800{height:56vw}}
+@media (max-width:899px){.cz-sq.cz-h800{height:auto;aspect-ratio:784/800}}
+@media (max-width:899px){.cz-mt56,.cz-mt109,.cz-mt112{margin-top:24px}}
+@media (max-width:899px){.cz-say--wb .cz-say__t{width:calc(100% - 40px)}}
+.cz-ava--wb{background-image:url(/assets/images/testimonial-weldon-brewster.jpg)!important;background-position:50% 20%!important}
+/* ===== Weldon Brewster design (Nov 2026) ===== */
+/* the logos, centred on their brand colour */
+.wb-logo{display:flex;align-items:center;justify-content:center;background:#313F3F;overflow:hidden}
+.wb-logo > img{height:max(40px,calc(88*var(--u)));width:auto;display:block}
+.wb-logo--ss{background:#F2F2F2}.wb-logo--ss > img{height:max(60px,calc(148*var(--u)))}
+/* media at 1592 x 820 on the page's 164 margins */
+.cz-out--wb .cz-wide,.cz-out--wb .cz-sq{height:calc(820*var(--u))}
+.b30-main > section.cz-demo.cz-demo--in{height:calc(1016*var(--u))}
+.cz-demo.cz-demo--in .cz-demo__media{height:calc(820*var(--u))}
+.cz-demo.cz-demo--in .cz-c.bl,.cz-demo.cz-demo--in .cz-c.br{top:calc(926*var(--u) - 3px)}
+/* part 3: each gallery frame is the exact shape of its recording, so nothing is cut and nothing is left empty */
+.cz-out--wb .cz-wide.wb-gal{height:auto}
+.cz-out--wb .wb-gal--client{aspect-ratio:1920/1000}
+.cz-out--wb .wb-gal--admin{aspect-ratio:1920/954}
+/* before: one wide picture under a (Before) caption */
+.wb-ba__cap{margin:0 calc(166*var(--u)) calc(48*var(--u)) calc(164*var(--u));font:400 max(18px,calc(25*var(--u)))/1.2 "BDO Grotesk",var(--sans),sans-serif;letter-spacing:-.02em;color:#000}
+.wb-ba__frame{border-top:1px dashed rgba(0,0,0,.15);border-bottom:1px dashed rgba(0,0,0,.15)}
+.wb-ba__media{position:relative;width:calc(1592*var(--u));height:calc(820*var(--u));margin:0 0 0 calc(164*var(--u))}
+@media (max-width:899px){
+  html body .cz-out--wb .cz-wide:not(#_z){height:auto!important;aspect-ratio:1592/820}
+  html body .cz-out--wb .cz-sq:not(#_z){height:auto!important;aspect-ratio:784/820}
+  html body .cz-out--wb .cz-wide.wb-gal:not(#_z){height:auto!important}
+  html body .cz-out--wb .wb-gal--client:not(#_z){aspect-ratio:1920/1000!important}
+  html body .cz-out--wb .wb-gal--admin:not(#_z){aspect-ratio:1920/954!important}
+  html body .wb-ba__cap:not(#_z){margin:0 0 12px!important;font-size:18px!important}
+  html body .wb-ba__frame:not(#_z){border:0!important}
+  html body .wb-ba__media:not(#_z){width:100%!important;height:auto!important;margin:0!important;aspect-ratio:1592/820}
+}
+/* the logo tiles are not pictures: they show as they are too */
+[data-still] .wb-logo{clip-path:none!important;transition:none!important}

@@ -1,0 +1,29 @@
+/* Case study page · the output: sticky tabs and the parts */
+.cz-out{padding-top:calc(161*var(--u))}
+.cz-out__head{margin-left:calc(164*var(--u));grid-template-columns:calc(804*var(--u)) calc(606*var(--u))}
+.cz-tabs{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:repeat(4,1fr);margin:calc(164*var(--u)) calc(164*var(--u)) 0;height:calc(85*var(--u));min-height:56px;
+  background:#fff;border-top:1px dashed rgba(0,0,0,.15);border-bottom:1px dashed rgba(0,0,0,.15)}
+.cz-tab{position:relative;display:flex;align-items:center;justify-content:center;padding:8px;color:#000;text-decoration:none;border-right:1px dashed rgba(0,0,0,.15);
+  font-size:max(13px,calc(16*var(--u)));line-height:1.2;letter-spacing:-.02em;white-space:pre;overflow:hidden}
+.cz-tab:last-child{border-right:0}
+.cz-tab span{opacity:.4;transition:opacity .35s ease;text-overflow:ellipsis;overflow:hidden}
+.cz-tab:hover span,.cz-tab.on span{opacity:1}
+.cz-tab__bar{position:absolute;left:0;right:0;bottom:0;height:2px;z-index:2;background:#000;transform-origin:0 50%;transform:scaleX(var(--p,0));pointer-events:none}
+.cz-tab:focus-visible{outline:2px solid #3457BA;outline-offset:-2px}
+.cz-parts{margin:calc(120*var(--u)) calc(164*var(--u)) 0}
+.cz-part{scroll-margin-top:calc(85*var(--u) + 40px)}
+.cz-part + .cz-part{margin-top:calc(128*var(--u))}
+.cz-part__k{display:inline-flex;margin:0;padding:calc(4*var(--u)) calc(12*var(--u));border:1px solid rgba(0,0,0,.15);border-radius:8px;font:400 max(12px,calc(16*var(--u)))/1.2 var(--mono);text-transform:uppercase}
+.cz-part__row{display:grid;grid-template-columns:calc(808*var(--u)) calc(513*var(--u));margin-top:calc(32*var(--u))}
+.cz-part__row .cz-h36{max-width:calc(474*var(--u))}
+.cz-part__img{height:calc(720*var(--u));margin-top:calc(109*var(--u));overflow:hidden}
+@media (max-width:899px){
+  .cz-how__head,.cz-out__head{grid-template-columns:1fr;gap:24px;margin:0 20px}
+  .cz-out{padding-top:80px}
+  .cz-tabs{margin:40px 0 0;grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cz-tab{font-size:11px;padding:6px;white-space:normal;text-align:center}
+  .cz-parts{margin:40px 20px 0}
+  .cz-part__row{grid-template-columns:1fr;gap:16px}
+  .cz-part__img{height:56vw;margin-top:28px}
+  .cz-part + .cz-part{margin-top:64px}
+}

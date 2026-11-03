@@ -1,0 +1,28 @@
+/* Legal pages (privacy policy, terms): the blog post's white hero and article type, one readable column. */
+.b30h.wk-hero.bp-hero.lg-hero{--wh:calc(720*var(--u))}
+.lg-hero .bp-meta{top:calc(311*var(--u))}
+.lg-updated{margin:0;font:400 max(11px,calc(12*var(--u)))/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.55)}
+.lg{padding-top:calc(120*var(--u))}
+.lg__in{width:calc(1020*var(--u));margin:0 auto}
+.lg-art h2{margin:calc(72*var(--u)) 0 calc(24*var(--u));font-weight:400;font-size:max(24px,calc(32*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.lg-art h2:first-child{margin-top:0}
+.lg-art h3{margin:calc(40*var(--u)) 0 calc(16*var(--u));font-weight:400;font-size:max(19px,calc(24*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.lg-art h4{margin:calc(32*var(--u)) 0 calc(12*var(--u));font-weight:600;font-size:max(16px,calc(18*var(--u)));line-height:1.2}
+.lg-art p{margin:0 0 1.1em;opacity:.85}
+.lg-art ul,.lg-art ol{margin:0 0 1.2em;padding-left:1.3em}
+.lg-art li+li{margin-top:.3em}
+.lg-art a{color:inherit;text-decoration:underline;text-underline-offset:.18em}
+.lg + .mq{margin-top:calc(200*var(--u))!important}
+@media (max-width:899px){
+  .lg{padding-top:56px}
+  .lg__in{width:auto;margin:0 20px}
+  .lg-art h2{margin:48px 0 16px}.lg-art h3{margin:28px 0 12px}.lg-art h4{margin:24px 0 10px}
+  .lg + .mq{margin-top:96px!important}
+}
+
+/* the 404 page */
+.nf-links{display:flex;flex-wrap:wrap;gap:calc(12*var(--u))}
+.b30h.wk-hero.bp-hero.nf-hero{--wh:calc(760*var(--u))}
+.nf-hero + .b30-main > .cta3{margin-top:calc(120*var(--u))!important}
+@media (max-width:899px){.nf-links{gap:10px}}
+@media (max-width:899px){.lg-hero .bp-meta{padding-bottom:72px}}

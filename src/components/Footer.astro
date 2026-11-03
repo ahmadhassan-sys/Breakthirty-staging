@@ -1,0 +1,44 @@
+---
+/**
+ * Footer — the pixel wordmark, the closing line, link columns and the legal bar.
+ * Content: `footer` in src/data/site.js · Script: public/js/footer.js
+ * `page` is the current page key, so the links point to the right place.
+ * Styles: src/styles/footer.css (loaded in order by the page's style list in src/styles/pages/)
+ * The heading has no hover animation (its highlighted word doesn't swap).
+ */
+import Button from "./ui/Button.astro";
+import { hrefFor } from "./ui/links.js";
+
+const { wordmark, heading, columns, cta, copyright, legal, page } = Astro.props;
+---
+<footer class="b30f" id="footer" aria-labelledby="bt-footer-title">
+  <div class="b30f__in">
+    <div class="b30f__dim" aria-hidden="true"></div>
+    <div class="b30f__top"></div>
+    <i class="b30f__ln h" aria-hidden="true"></i><i class="b30f__ln v l" aria-hidden="true"></i>
+    <i class="b30f__ln v r" aria-hidden="true"></i><i class="b30f__ln sq l" aria-hidden="true"></i>
+    <i class="b30f__ln sq r" aria-hidden="true"></i>
+    <div class="b30f__cap" aria-hidden="true"></div>
+    <div class="bt-footer">
+      <canvas class="bt-canvas" aria-hidden="true"></canvas>
+      <h2 id="bt-footer-title" class="sr-only">{wordmark}</h2>
+      <div class="bt-fallback" aria-hidden="true"></div>
+    </div>
+    <div class="b30f__c">
+      <h2 class="b30f__h" data-heading="manual">{heading.before}<span>{heading.highlight}</span>{heading.after}<span class="b30f__h2">{heading.second}</span></h2>
+      {columns.map((col) => {
+        const Tag = col.nav ? "nav" : "div";
+        const pos = `left:calc(${col.x}*var(--u));top:calc(${col.y}*var(--u))`;
+        return (
+          <Tag class="b30f__col" style={pos} aria-label={col.nav ? col.title : undefined}><div class="b30f__t" data-fascii>{col.title}</div>{col.links
+            ? col.links.map((link) => (
+                <a href={hrefFor(link, page)} data-hscr data-fascii target={link.external ? "_blank" : undefined} rel={link.external ? "noopener" : undefined}>{link.label}</a>
+              ))
+            : <address data-fascii>{col.address}</address>}</Tag>
+        );
+      })}
+      <Button label={cta.label} href={cta.href} icon={cta.icon} class="b30f__cta" />
+      <div class="b30f__bar"><span data-fascii>© <span data-year>{copyright.year}</span>{copyright.text}</span><span class="b30f__legal">{legal.map((link, i) => [i > 0 ? <i></i> : null, <a href={link.href} data-hscr data-fascii>{link.label}</a>])}</span></div>
+    </div>
+  </div>
+</footer>

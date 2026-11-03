@@ -1,0 +1,16 @@
+---
+/**
+ * Contact — the closing section before the footer. The scripts write the closing words
+ * (`contact.closing`, and the older `contact.heading`) into the panel and animate them.
+ * Content: `contact` in src/data/site.js · Scripts: public/js/contact.js, contact-closing.js
+ * Styles: src/styles/contact.css (loaded in order by the page's style list in src/styles/pages/)
+ */
+const { heading, text } = Astro.props;
+---
+<section class="b30c" id="contact" aria-label={heading.join(" ")}>
+  <div class="b30c__in">
+    <p class="b30c__txt" data-heading>{text}</p>
+  </div>
+  <i class="b30c__st o l" aria-hidden="true"></i><i class="b30c__st i l" aria-hidden="true"></i>
+  <i class="b30c__st i r" aria-hidden="true"></i><i class="b30c__st o r" aria-hidden="true"></i>
+</section>

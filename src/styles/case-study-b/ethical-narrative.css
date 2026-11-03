@@ -1,0 +1,5 @@
+/* Case study · ethical-narrative: this page's own styles (loaded after base.css) */
+[data-count]{display:inline-block;font-variant-numeric:tabular-nums;white-space:nowrap}
+.odo__c{display:inline-block;height:calc(var(--lh,1.1)*1em);overflow:hidden;vertical-align:top}
+.odo__s > span{display:block;height:calc(var(--lh,1.1)*1em);line-height:calc(var(--lh,1.1)*1em)}
+.cz-ava--ap{background-image:url(/assets/images/testimonial-autumn-payne.jpg)!important}

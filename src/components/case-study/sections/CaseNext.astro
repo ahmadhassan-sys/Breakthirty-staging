@@ -1,0 +1,21 @@
+---
+/** The next case study: its number, name, summary, a button and its cover. */
+import Label from "../parts/Label.astro";
+import Picture from "../parts/Picture.astro";
+import Corners from "../parts/Corners.astro";
+import { ARROW } from "../../ui/icon-data.js";
+const { labels, next } = Astro.props;   // next = { n, name, text, href, image }
+---
+<section class="cz-next" aria-label={labels.next}>
+  <span class="cz-next__v l" aria-hidden="true"></span><span class="cz-next__v r" aria-hidden="true"></span>
+  <div class="cz-next__band">
+    <Corners />
+    <div class="cz-next__l"><Label n={next.n} title={labels.next} /></div>
+    <div class="cz-next__r">
+      <h2 class="cz-h50 cz-lh11" data-heading>{next.name}</h2>
+      <p class="cz-next__d" data-reveal>{next.text}</p>
+      <a class="b30btn b30btn--line cz-next__btn" href={next.href} data-btn data-anim="arrow" data-pt data-pt-label={labels.caseStudy}><span class="b30btn__ic"><svg viewBox="0 0 9 9" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">{ARROW.map(([x, y]) => <rect x={x} y={y} width="1" height="1" />)}</svg></span><span class="b30btn__lbl" data-lbl>{labels.viewCase}</span></a>
+    </div>
+    <Picture class="cz-next__img" image={next.image} alt={next.name} />
+  </div>
+</section>

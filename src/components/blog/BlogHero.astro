@@ -1,0 +1,51 @@
+---
+/**
+ * Blog page · 1. Hero — header, the two-line title, "Scroll to blogs", a rule, then the "Must read" guide.
+ * Content: `hero` in src/data/blog.js + the featured post · Styles: src/styles/blog/index.css · Script: public/js/blog.js
+ */
+import Header from "../Header.astro";
+import Tags from "./Tags.astro";
+import Meta from "./Meta.astro";
+import ArrowButton from "./ArrowButton.astro";
+import { hero as svHero } from "../../data/services.js";   // the same hero light as the services page
+
+const { nav, title, hint, featured, labels } = Astro.props;
+---
+<section class="b30h wk-hero blg-hero" aria-labelledby="bl-title">
+  <div class="b30h__pin">
+    <div class="b30h__stage">
+      <span class="b30h__vline b30h__vline--34" aria-hidden="true"></span>
+      <i class="b30h__px" style="--x:82" aria-hidden="true"></i><i class="b30h__px b30h__px--c" style="--x:960" aria-hidden="true"></i><i class="b30h__px" style="--x:1838" aria-hidden="true"></i>
+      <span class="b30h__vline b30h__vline--27" aria-hidden="true"></span>
+      <div class="svh__sky" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+      <img class="b30h__glow" src={svHero.glow} alt="" aria-hidden="true" decoding="async" /><div class="b30h__glowx" aria-hidden="true"></div>
+
+      <Header {...nav} page="blog" />
+
+      <h1 class="svh__title blg-h__t" id="bl-title" data-heading><span>{title[0]}</span> <span>{title[1]}</span></h1>
+      <a class="blg-h__hint" href={hint.href} data-hscr data-reveal style="--rd:200ms">{hint.label}</a>
+      <div class="blg-rule blg-h__rule" aria-hidden="true"><i></i><i></i></div>
+      {featured && (
+        <div class="blg-feat blg-h__feat">
+          <div class="blg-feat__row">
+            <div class="blg-feat__l">
+              <span class="blg-pill blg-pill--flash" data-reveal>{labels.pill}</span>
+              <div class="blg-feat__top">
+                <Meta iso={featured.iso} date={featured.dateLabel} minutes={featured.minutes} rd={60} />
+                <h2 class="blg-feat__t" data-heading><a href={featured.href}>{featured.title}</a></h2>
+                <Tags tags={featured.tags} rd={260} />
+              </div>
+              <div class="blg-feat__b">
+                <p class="blg-feat__d" data-reveal style="--rd:120ms">{featured.excerpt}</p>
+                <div data-reveal style="--rd:240ms"><ArrowButton class="blg-btn" label={labels.button} href={featured.href} /></div>
+              </div>
+            </div>
+            <a class="blg-feat__img blg-img" href={featured.href} aria-label={featured.title}><img class="blg-img__in" src={featured.image} alt={featured.imageAlt} decoding="async" fetchpriority="high" /></a>
+          </div>
+        </div>
+      )}
+      <span class="b30h__vline b30h__vline--26" aria-hidden="true"></span>
+    </div>
+    <div class="wk-hero__dim" aria-hidden="true"></div>
+  </div>
+</section>

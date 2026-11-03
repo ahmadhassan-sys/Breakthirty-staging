@@ -1,0 +1,12 @@
+/* Case study page · impact: the numbers list */
+.cz-impact .cz-split{grid-template-columns:calc(808*var(--u)) calc(767*var(--u))}
+.cz-imp{margin-top:calc(164*var(--u))}
+.cz-imp__row{display:grid;grid-template-columns:calc(806*var(--u)) calc(636*var(--u));align-items:center;padding:calc(80*var(--u)) 0 calc(80*var(--u)) calc(164*var(--u));
+  border-top:1px dashed rgba(0,0,0,.15)}
+.cz-imp__row:last-child{border-bottom:1px dashed rgba(0,0,0,.15)}
+.cz-imp__n{margin:0;font-size:max(48px,calc(100*var(--u)));line-height:1.1;letter-spacing:-.02em;white-space:nowrap}
+@media (max-width:899px){
+  .cz-split,.cz-split--out,.cz-stat .cz-split,.cz-impact .cz-split{grid-template-columns:1fr;gap:28px;margin-left:0!important}
+  .cz-imp{margin-top:40px}
+  .cz-imp__row{grid-template-columns:1fr;gap:12px;padding:32px 20px}
+}

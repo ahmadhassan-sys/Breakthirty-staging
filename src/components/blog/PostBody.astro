@@ -1,0 +1,22 @@
+---
+/**
+ * Blog post · 2. The article (the Markdown, shaped by src/lib/rehype-blog.mjs) and its sidebar:
+ * "You will read" (one line per ## section, follows the reading position) and the audit call to action.
+ */
+import ArrowButton from "./ArrowButton.astro";
+const { toc, labels } = Astro.props;   // toc = [{ id, text }]
+---
+<section class="bp" aria-label="Article">
+  <div class="bp__in">
+    <article class="bp-art"><slot /></article>
+    <aside class="bp-side" aria-label="On this page">
+      {toc.length > 0 && (
+        <nav class="bp-toc" aria-labelledby="bp-toc-h"><p class="bp-toc__h" id="bp-toc-h">{labels.toc}</p><ol class="bp-toc__l">{toc.map((s) => <li><a href={`#${s.id}`} data-sec={s.id}>{s.text}</a></li>)}</ol></nav>
+      )}
+      <div class="bp-cta"><div class="bp-cta__sky" aria-hidden="true"><i class="a"></i><i class="b"></i></div>
+        <p class="bp-cta__t">{labels.cta.text}</p>
+        <ArrowButton class="blg-btn" label={labels.cta.button.label} href={labels.cta.button.href} />
+      </div>
+    </aside>
+  </div>
+</section>

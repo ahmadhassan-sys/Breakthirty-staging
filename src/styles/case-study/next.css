@@ -1,0 +1,37 @@
+/* Case study page · next case study band */
+.cz-next{position:relative;margin-top:calc(136*var(--u));height:calc(1104*var(--u))}
+.cz-next__v{position:absolute;top:0;bottom:0;width:1px;background:repeating-linear-gradient(180deg,rgba(0,0,0,.15) 0 2px,transparent 2px 4px);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 calc(120*var(--u)),#000 calc(100% - 120*var(--u)),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 calc(120*var(--u)),#000 calc(100% - 120*var(--u)),transparent 100%)}
+.cz-next__v.l{left:calc(163*var(--u))}
+.cz-next__v.r{left:calc(1756*var(--u))}
+.cz-next__band{position:absolute;left:0;right:0;top:calc(120*var(--u));height:calc(864*var(--u));box-sizing:border-box;border-top:1px dashed rgba(0,0,0,.15);border-bottom:1px dashed rgba(0,0,0,.15)}
+.cz-next .cz-c.tl,.cz-next .cz-c.bl{left:calc(163*var(--u) - 3px)}
+.cz-next .cz-c.tr,.cz-next .cz-c.br{left:calc(1756*var(--u) - 3px)}
+.cz-next .cz-c.tl,.cz-next .cz-c.tr{top:-3.5px}
+.cz-next .cz-c.bl,.cz-next .cz-c.br{bottom:-3.5px}
+.cz-next__l{position:absolute;left:calc(205*var(--u));top:calc(95*var(--u))}
+.cz-next__r{position:absolute;left:calc(972*var(--u));top:calc(99*var(--u));width:calc(611*var(--u))}
+.cz-next__d{margin:calc(24*var(--u)) 0 0;width:calc(466*var(--u));max-width:100%;font-size:max(14px,calc(16*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.cz-next__btn{margin-top:calc(93*var(--u))}
+.cz-next__btn .b30btn__ic svg{width:18px;height:18px}
+.cz-next__img{position:absolute;left:calc(164*var(--u));top:calc(457*var(--u));width:calc(1590*var(--u));height:calc(406*var(--u))}
+.cz-hero__img,.cz-next__img,.cz-part__img,.cz-ba__img,.cz-demo__media .ph{clip-path:inset(0 0 100% 0);transition:clip-path 1.3s cubic-bezier(.16,1,.3,1) .1s}
+.cz-hero__img.in,.cz-next__img.in,.cz-part__img.in,.cz-ba__img.in,.cz-demo__media .ph.in{clip-path:inset(0)}
+.cz-part__img{position:relative}
+.ph.is-gl{background-image:none!important;background-color:transparent!important;clip-path:none!important;transition:none!important}
+.ph canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cz-hero{background:#fff}
+.b30-main > section.mq{margin-top:calc(200*var(--u))!important}
+@media (max-width:899px){
+  .cz-next{margin-top:80px;height:auto}
+  .cz-next__v,.cz-next .cz-c{display:none}
+  .cz-next__band{position:relative;top:0;height:auto;padding:48px 20px 0}
+  .cz-next__l,.cz-next__r,.cz-next__img{position:static;width:auto}
+  .cz-next__r{margin-top:28px}
+  .cz-next__img{height:46vw;margin:48px -20px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  .cz-rule::before,.cz-rule::after,.cz-rule i,.cz-next__img,.cz-part__img,.cz-ba__img,.cz-demo__media .ph{transition:none!important;transform:none!important;clip-path:none!important;opacity:1}
+}
+/* still pages (every case study by default): pictures show as they are — no wipe, no pixel reveal */
+[data-still] .ph,[data-still].cz-hero .ph{clip-path:none!important;transition:none!important}

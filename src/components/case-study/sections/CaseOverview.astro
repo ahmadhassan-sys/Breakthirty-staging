@@ -1,0 +1,19 @@
+---
+/** (01) Project overview: heading, two paragraphs and the details table. */
+import Label from "../parts/Label.astro";
+import Rich from "../../ui/Rich.astro";
+const { n, labels, heading, body, details, demoButton } = Astro.props;
+---
+<section class="cz-sec cz-overview">
+  <div class="cz-wrap cz-split">
+    <Label n={n} title={labels.overview} />
+    <div class="cz-col">
+      <h2 class="cz-h50" data-heading><Rich text={heading} /></h2>
+      <div class="cz-body cz-mt70" data-reveal>{body.map((p) => <p>{p}</p>)}</div>
+      <div class="cz-details" data-reveal>
+        <div class="cz-dt cz-dt--h"><span>{labels.details}</span><a class="cz-pill" href="#demo">{demoButton}</a></div>
+        {details.map((d) => <div class="cz-dt"><span>{d.label}</span><span>{d.value}</span></div>)}
+      </div>
+    </div>
+  </div>
+</section>

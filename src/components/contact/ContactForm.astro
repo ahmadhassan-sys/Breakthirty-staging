@@ -1,0 +1,57 @@
+---
+/**
+ * Contact page · 2. The form — company details on the left (with the dithered hand), the form on the right.
+ * Sending: a Netlify Form named "contact" — Netlify emails each submission to ahmad.hassan@breakthirty.com (see `sending` in src/data/contact.js).
+ * Netlify finds the form in the built HTML, so keep name="contact", data-netlify and the hidden fields below.
+ * Content: `form` in src/data/contact.js (+ `company` from src/data/site.js)
+ * Styles: src/styles/contact/form.css
+ */
+import Icon from "../ui/Icon.astro";
+
+const { heading, note, company, form } = Astro.props;
+// the fields come in one after another, 70ms apart (--rd below)
+---
+<section class="ctf" id="form" aria-labelledby="ctf-title">
+  <div class="ctf__head">
+    <h2 class="ctf__h" id="ctf-title" data-heading>{heading}</h2>
+    <p class="ctf__note" data-reveal>{note}</p>
+  </div>
+  <div class="ctf__row">
+    <div class="ctf__l">
+      <h3 class="ctf__k" data-heading>{form.contactLabel}</h3>
+      <ul class="ctf__info">
+        <li data-reveal style="--rd:200ms"><a href={`mailto:${company.email}`} data-hscr>{company.email}</a></li>
+        <li data-reveal style="--rd:270ms"><a href={company.phoneHref} data-hscr>{company.phone}</a></li>
+        <li data-reveal style="--rd:340ms"><address>{company.address}</address></li>
+      </ul>
+      <div class="ctf__hand" aria-hidden="true"><div class="ctf__handm"><div class="ctf__handp"><div class="ctf__handf"><canvas width="457" height="207"></canvas></div></div></div></div>
+    </div>
+    <div class="ctf__r">
+      <h3 class="ctf__k" data-heading>{form.writeLabel}</h3>
+      <form class="ctf__form" name="contact" method="POST" action="/contact?sent=1" data-netlify="true" netlify-honeypot="website" novalidate>
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="subject" value="New project enquiry from breakthirty.com" />
+        <input type="hidden" name="needs" value="" />
+        {form.fields.map((f, n) => (
+          <label class="ctf__f" data-reveal style={`--rd:${120 + n * 70}ms`}><span class="sr-only">{f.label}</span><input type={f.type} name={f.name} placeholder={f.label} autocomplete={f.autocomplete} inputmode={f.inputmode} required={f.required} /><i></i></label>
+        ))}
+        <fieldset class="ctf__need">
+          <legend data-reveal>{form.needsLabel}</legend>
+          <div class="ctf__chips">
+            {form.needs.map((need, k) => (
+              <label class="ctf__chip" data-reveal style={`--k:${k}`}><input type="checkbox" name="need" value={need} /><span>{need}</span></label>
+            ))}
+          </div>
+        </fieldset>
+        <label class="ctf__d" data-reveal><span class="ctf__dl">{form.detailsLabel}</span><span class="ctf__ta"><textarea name="details" rows="6"></textarea></span></label>
+        <div class="ctf__foot" data-reveal>
+          <button type="submit" class="b30h__btn b30h__btn--solid ctf__send" data-btn data-anim="phone"><i><Icon name="phone" /></i><span data-lbl>{form.sendLabel}</span></button>
+          <p class="ctf__legal">{form.legal.before}<a href={form.legal.href}>{form.legal.link}</a>{form.legal.after}</p>
+        </div>
+        <!-- left empty by people (it's hidden); bots fill it in, and Netlify then quietly drops the message -->
+        <div class="ctf__hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <p class="ctf__status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>

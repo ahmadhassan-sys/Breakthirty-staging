@@ -1,0 +1,23 @@
+/* Case study page · shared type, layout grid, image placeholders */
+.ph{background-color:#1c1c1c;background-size:cover;background-position:50% 50%;background-repeat:no-repeat}
+.cz-fill{position:absolute;inset:0}
+.cz-wrap{margin:0 calc(164*var(--u))}
+.cz-split{display:grid;grid-template-columns:calc(808*var(--u)) calc(784*var(--u));align-items:start}
+.cz-lab{display:flex;flex-direction:column;gap:calc(10*var(--u))}
+.cz-lab p{margin:0;line-height:1.2}
+.cz-lab__n{font-size:max(14px,calc(18*var(--u)));letter-spacing:-.01em}
+.cz-lab__t{font-size:max(18px,calc(25*var(--u)));letter-spacing:-.02em;white-space:nowrap}
+.cz-h71{margin:0;font-weight:400;font-size:max(36px,calc(71*var(--u)));line-height:1.1;letter-spacing:-.02em}
+.cz-h50{margin:0;font-weight:400;font-size:max(28px,calc(50*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.cz-h36{margin:0;font-weight:400;font-size:max(22px,calc(36*var(--u)));line-height:1.2;letter-spacing:-.02em}
+.cz-lh11{line-height:1.1}
+.cz-body{margin:0;font-size:max(15px,calc(18*var(--u)));line-height:1.2;letter-spacing:-.01em}
+.cz-body p{margin:0}
+.cz-body p + p{margin-top:1.2em}
+.cz-mt70{margin-top:calc(70*var(--u))}
+.cz-mt72{margin-top:calc(72*var(--u))}
+.cz-c{position:absolute;width:6px;height:6px;background:#000;z-index:3;pointer-events:none}
+@media (max-width:899px){
+  .cz-wrap{margin:0 20px}
+  .b30-main > section.mq{margin-top:64px!important}
+}

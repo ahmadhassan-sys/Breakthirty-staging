@@ -1,0 +1,52 @@
+/* =====================================================================
+   Blog — what the posts' real content needs on top of the design:
+   real pictures in place of the design's placeholders, pictures at their own proportions (screenshots aren't cropped),
+   GIFs as videos, bullet lists, tables, code, quotes, captions and links in the article.
+   ===================================================================== */
+/* pictures: an <img> fills the frame the placeholder filled */
+img.blg-img__in{width:100%;height:100%;object-fit:cover;display:block}
+
+/* the article's figures keep each picture's own shape (a fixed frame would crop the screenshots) */
+.bp-art .bp-fig{height:auto!important;background:none}
+.bp-art .bp-fig__in{position:relative;display:block;width:100%;background:#eef0f2;overflow:hidden}
+.bp-art .bp-fig__m{display:block;width:100%;height:auto;max-height:calc(900*var(--u))}
+.bp-art video.bp-fig__m{object-fit:contain;background:#eef0f2}
+.bp-art img.bp-fig__m{object-fit:contain}
+.bp-fig__cap{margin-top:calc(12*var(--u));font:400 max(11px,calc(12*var(--u)))/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:rgba(0,0,0,.55)}
+@media (max-width:899px){.bp-art .bp-fig{aspect-ratio:auto!important}.bp-art .bp-fig__m{max-height:none}.bp-fig__cap{margin-top:8px}}
+
+/* bullet lists (the design has numbered ones) */
+.bp-ul{margin:0 0 1.2em;padding-left:1.2em;list-style:none}
+.bp-ul > li{position:relative}
+.bp-ul > li::before{content:"";position:absolute;left:-1.05em;top:.5em;width:max(5px,calc(6*var(--u)));height:max(5px,calc(6*var(--u)));background:#000}
+.bp-ul li+li,.bp-ol li+li{margin-top:.35em}
+.bp-ul ul,.bp-ul ol,.bp-ol ul,.bp-ol ol{margin:.35em 0 0;padding-left:1.4em}
+.bp-ol{margin:0 0 1.2em}
+.bp-item > :last-child,.bp-faq__a > :last-child{margin-bottom:0}
+.bp-item > .bp-ul,.bp-item > .bp-ol{margin-bottom:1.2em}
+
+/* links in the article: underlined, the underline thickens on hover */
+.bp-art a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;transition:text-decoration-thickness .2s ease}
+.bp-art a:hover{text-decoration-thickness:2px}
+.bp-art strong{font-weight:600}
+
+/* tables: hairline rows, the mono type for the header; scroll sideways on small screens */
+.bp-table{margin:0 0 calc(32*var(--u));overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bp-table table{width:100%;border-collapse:collapse;font-size:max(14px,calc(16*var(--u)));line-height:1.3}
+.bp-table th{text-align:left;font:400 max(11px,calc(12*var(--u)))/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:calc(14*var(--u)) calc(16*var(--u));border-bottom:1px solid #000;white-space:nowrap}
+.bp-table td{padding:calc(14*var(--u)) calc(16*var(--u));border-bottom:1px dashed rgba(0,0,0,.15);vertical-align:top}
+.bp-table th:first-child,.bp-table td:first-child{padding-left:0}
+@media (max-width:899px){.bp-table table{min-width:560px}.bp-table th,.bp-table td{padding:10px 12px}}
+
+/* code */
+.bp-code{margin:0 0 calc(32*var(--u));padding:calc(24*var(--u));background:#0D1432;color:#F2F1EE;border-radius:max(10px,calc(16*var(--u)));overflow-x:auto;
+  font:400 max(12px,calc(14*var(--u)))/1.5 var(--mono)}
+.bp-code code{font:inherit;white-space:pre}
+.bp-art :not(pre) > code{font:400 .88em var(--mono);background:rgba(106,119,130,.1);padding:.1em .35em;border-radius:4px}
+
+/* quotes */
+.bp-quote{margin:0 0 1.2em;padding-left:calc(24*var(--u));border-left:2px solid #000;font-size:max(18px,calc(22*var(--u)))}
+.bp-quote p{margin:0}
+
+/* the smaller titles (#### in the Markdown) */
+.bp-art .bp-sub{margin-top:.4em}

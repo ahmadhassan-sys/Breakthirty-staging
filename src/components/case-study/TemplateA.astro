@@ -1,0 +1,50 @@
+---
+/**
+ * Case study · template A (Figma B30 › Case Study Page). Used by every case study whose file says `template: a`.
+ * Sections are numbered in order: (01) overview … (07) outcome. The page's shared closing parts (strip, call to
+ * action, closing band) come in through the slot, inside <main>.
+ * Content: src/content/case-studies/<name>.yaml · labels: src/data/case-study.js
+ * Styles: src/styles/case-study/*.css · Scripts: public/js/case-study/*.js
+ */
+import CaseTop from "./sections/CaseTop.astro";
+import CaseHero from "./sections/CaseHero.astro";
+import CaseIntro from "./sections/CaseIntro.astro";
+import CaseDemo from "./sections/CaseDemo.astro";
+import CaseOverview from "./sections/CaseOverview.astro";
+import CaseServices from "./sections/CaseServices.astro";
+import CaseChallenge from "./sections/CaseChallenge.astro";
+import CaseBeforeAfter from "./sections/CaseBeforeAfter.astro";
+import CaseStat from "./sections/CaseStat.astro";
+import CaseHow from "./sections/CaseHow.astro";
+import CaseOutput from "./sections/CaseOutput.astro";
+import CaseStatement from "./sections/CaseStatement.astro";
+import CaseImpact from "./sections/CaseImpact.astro";
+import CaseOutcome from "./sections/CaseOutcome.astro";
+import CaseNext from "./sections/CaseNext.astro";
+import Rule from "./parts/Rule.astro";
+
+const { data, next, nav, labels } = Astro.props;
+const still = data.still !== false;   // pictures simply show (no reveal animation), as on every case study
+const n = (i) => `(${String(i).padStart(2, "0")})`;
+---
+<CaseTop nav={nav} />
+<CaseHero {...data.hero} still={still} />
+
+<main class="b30-main" id="main" data-still={still ? "" : undefined}>
+  <CaseIntro name={data.name} intro={data.intro} labels={labels} />
+  <CaseDemo {...data.demo} sectionLabel={labels.demo} />
+  <CaseOverview n={n(1)} labels={labels} {...data.overview} />
+  <Rule />
+  <CaseServices n={n(2)} labels={labels} {...data.services} />
+  <Rule />
+  <CaseChallenge n={n(3)} labels={labels} {...data.challenge} />
+  <CaseBeforeAfter {...data.beforeAfter} sectionLabel={labels.beforeAfter} />
+  <CaseStat {...data.stat} />
+  <CaseHow n={n(4)} labels={labels} {...data.how} hand={labels.hand} />
+  <CaseOutput n={n(5)} labels={labels} {...data.output} />
+  <CaseStatement text={data.statement} />
+  <CaseImpact n={n(6)} labels={labels} {...data.impact} />
+  <CaseOutcome n={n(7)} labels={labels} {...data.outcome} />
+  <CaseNext labels={labels} next={next} />
+  <slot />
+</main>

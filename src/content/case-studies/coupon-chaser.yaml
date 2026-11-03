@@ -1,0 +1,239 @@
+# The Coupon Chaser case study → /work/coupon-chaser
+# Layout: a list of sections (template b): see src/components/case-study/TemplateB.astro for the section types.
+# Headings: *word* = the highlighted word, a line break in the text = a line break on the page.
+# Its card on the Our Work page is the "coupon-chaser" entry in src/data/work.js.
+
+template: b
+name: The Coupon Chaser
+seo:
+  title: The Coupon Chaser case study | Breakthirty
+  description: "A coupon site built from the stack up: every way to save at a store, only codes that work, checked by hand, on pages built to win search."
+hero:
+  image: /assets/images/case-studies/coupon-chaser/hero.jpg
+  label: The Coupon Chaser
+next: weldon-brewster
+sections:
+- type: intro
+  title: 'The Coupon
+
+    Chaser'
+  kind: Ecommerce, Affiliate
+  roles:
+  - AI solution design & build
+  - Full-stack engineering
+  - Data standardization
+  - Engagement — Over a year
+  lede: 'A coupon site, built from the stack up. Every way to save at a store, and only the codes that actually work. We built
+    all of it: the product, the software, the team that checks codes by hand, and the pages that win search.'
+  ledeWide: true
+- type: demo
+  label: Showreel
+  mods:
+  - cz-demo--in
+  image: /assets/images/case-studies/coupon-chaser/demo.jpg
+  alt: showreel
+- type: overview
+  label: Project Overview
+  heading: Coupon sites stop at the code. We built the rest of the stack.
+  body:
+  - The Coupon Chaser is a coupon site built from scratch. Shoppers get every way to save at a store, not just a code. Our
+    data team finds and verifies codes by hand every day, and a live checker on every brand page shows shoppers which codes
+    work right now. Break Thirty did all of it, from the first sketch to the daily run.
+  details:
+  - label: Client
+    value: The Coupon Chaser
+  - label: Industry
+    value: Ecommerce · Affiliate · Coupons & Deals
+  - label: Year
+    value: 2024 – Ongoing
+  detailsLabel: (Details)
+  link:
+    label: Visit The Coupon Chaser
+    href: https://thecouponchaser.com
+    external: true
+- type: rule
+  mods: []
+- type: services
+  label: Services provided
+  heading: Strategy, product, engineering and operations, all in house.
+  list:
+  - Brand Strategy
+  - Brand Identity
+  - Graphic & Marketing Design
+  - UI/UX & Product Design
+  - Web & Frontend Development
+  - Custom Software Development
+  - Cloud & DevOps
+  - SEO & GEO
+  - Social Media Management
+  - QA & Process Design
+- type: rule
+  mods:
+  - cz-rule--wb
+- type: challenge
+  label: The challenge
+  heading: The code was the easy part.
+  body:
+  - 'Coupon sites list codes. Most of those codes are dead by the time a shopper finds them. The hard part is everything around
+    the code: keeping it alive, showing whether the deal is any good, and explaining what happens after checkout.'
+- type: beforeAfter
+  label: Before and after
+  mods:
+  - cz-ba--wb
+  before:
+    image: /assets/images/case-studies/coupon-chaser/ba-a.jpg
+    alt: before
+  after:
+    image: /assets/images/case-studies/coupon-chaser/ba-b.jpg
+    alt: after
+  labels:
+  - Before
+  - After
+  labelsTop: true
+  labelsMono: true
+- type: stat
+  mods:
+  - cz-stat--en
+  - cz-stat--cc
+  number:
+    value: 76%+
+    count: 76
+    from: 69
+    suffix: '%+'
+  text: of online coupon codes don’t work. They’re expired, invalid or already used.
+- type: how
+  label: How we worked
+  mods:
+  - cz-how--en
+  - cz-how--cc
+  heading: Five stages, from the gap to the daily run.
+  steps:
+  - title: Discover
+    text: 'Studied the coupon market and found the gap: shoppers needed more than a list of codes.'
+  - title: Design
+    text: A clean, simple experience where shoppers find the right code in seconds.
+  - title: Build
+    text: The site, the backend, the admin panel and the automations behind it.
+  - title: Standardize
+    text: Hired and trained the data team, and wrote the SOPs they follow every day.
+  - title: Scale
+    text: Daily operations, plus brand pages built to win search.
+  headWide: true
+- type: output
+  label: The Work
+  mods:
+  - cz-out--cc
+  headMods:
+  - cz-out__head--cc
+  heading: 'Five parts. One promise: The code works.'
+  navLabel: The five parts
+  tabsMods:
+  - cz-tabs--5
+  parts:
+  - kicker: Part 1
+    title: Finding a store
+    body:
+    - Shoppers arrive in two ways. Some already know the store and type its name into the search bar. Others browse, starting
+      from a big category like Fashion and narrowing down until they reach the store they want. Either way, they land on the
+      same page, with one simple web address per store.
+    headMt: 32
+    media:
+    - wide:
+        image: /assets/images/case-studies/coupon-chaser/p1w.jpg
+        alt: finding a store
+        h: 800
+    tab: Finding a store
+  - kicker: Part 2
+    title: The brand page
+    body:
+    - 'Every store gets its own page, and this is where shoppers make up their minds. We laid it out in the order people actually
+      think: the best code at the top, then other ways to save like sales and student discounts, then the practical stuff,
+      such as returns and how to use a code at checkout.'
+    headMt: 32
+    media:
+    - wide:
+        image: /assets/images/case-studies/coupon-chaser/p2a.jpg
+        alt: brand page
+        h: 800
+    tab: Brand page
+  - kicker: Part 3
+    title: Live code check
+    body:
+    - 'Most of us know the routine: copy a code, paste it at checkout, see “invalid,” try the next one. We built a checker
+      into every brand page that tests the codes for you, in real time. One click, and each code is marked as working or not
+      working.'
+    headMt: 32
+    media:
+    - pair:
+      - image: /assets/images/case-studies/coupon-chaser/p3a.jpg
+        alt: checking codes
+        h: 800
+      - image: /assets/images/case-studies/coupon-chaser/p3b.jpg
+        alt: code results
+        h: 800
+    tab: Live code check
+  - kicker: Part 4
+    title: The data team
+    body:
+    - Software alone can’t keep codes accurate, so there’s a team of real people behind it. Every day they look for new codes,
+      test them by hand and remove the ones that have expired. They follow a written rulebook, so every code is handled the
+      same way, no matter who checks it.
+    headMt: 32
+    media:
+    - wide:
+        image: /assets/images/case-studies/coupon-chaser/p2b.jpg
+        alt: data team
+        h: 800
+    tab: Data team
+  - kicker: Part 5
+    title: Getting found on Google
+    body:
+    - 'Nobody types a coupon site’s address into their browser. They search Google for something like “Turo promo code.” SEO,
+      short for search engine optimization, is the work that helps our pages show up near the top of those results. Every
+      brand page is built to be the best answer: updated every month, easy to read and written by a real person.'
+    headMt: 32
+    media:
+    - wide:
+        image: /assets/images/case-studies/coupon-chaser/p3w.jpg
+        alt: search results
+        h: 800
+    tab: SEO
+- type: statement
+  mods:
+  - cz-say--cc
+  text: Shopping is broken. We rebuild the stack.
+- type: impact
+  label: Impact
+  mods: []
+  heading: Built to scale. Still checked by hand.
+  rows:
+  - value: 382k+
+    count: 382
+    from: 375
+    suffix: k+
+    text: stores on the platform
+  - value: 4.5M+
+    count: 4.5
+    from: 4.1
+    dec: 1
+    suffix: M+
+    text: '[What 4.5M+ measures]'
+  - value: 1 click
+    count: 1
+    from: 0
+    suffix: ' click'
+    text: to check which codes work on a brand page
+  - value: Daily
+    roll: true
+    text: live codes verified by hand
+- type: outcome
+  label: The outcome
+  mods:
+  - cz-outcome--en
+  quote: '“[Client quote: one line on what changed.]”'
+  person:
+    name: '[Name Surname]'
+    role: '[Title], The Coupon Chaser'
+    style: cc
+  more: “[A longer line from The Coupon Chaser team about working with Break Thirty.]”
+- type: next

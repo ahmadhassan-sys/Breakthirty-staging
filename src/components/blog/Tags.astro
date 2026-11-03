@@ -1,0 +1,5 @@
+---
+/** A post's tags as pills. */
+const { tags = [], rd } = Astro.props;
+---
+{tags.length > 0 && <ul class="blg-tags" data-reveal style={rd != null ? `--rd:${rd}ms` : undefined}>{tags.map((t) => <li class="blg-pill">{t}</li>)}</ul>}
