@@ -125,7 +125,6 @@
     if (!raf) raf = requestAnimationFrame(frame);
   }, { passive: true });
 })();
-<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): the brand pixels under the partners label — one version for every page (from the Our Work
@@ -175,5 +174,3 @@
     tick();
   }
 })();
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

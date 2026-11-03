@@ -297,7 +297,6 @@ html.dark .ts .ts__card:first-child{background-image:repeating-linear-gradient(1
 @media (min-width:900px){section.ts{padding-top:calc(152*var(--u))!important}}
 .ts__top > [data-btn]{align-self:flex-start;width:max-content!important;flex:none}
 .ts .ts__card [data-reveal]{will-change:opacity,transform}
-<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): the testimonials (the swipe deck) — one version for every page
@@ -465,5 +464,3 @@ html body .tsm__q p:not(#_z){text-align:left!important}
   html body .tsm__ph:not(#_z){width:56px!important;height:58px!important}
   html body .tsm__fr.p:not(#_z){display:none!important}
 }
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

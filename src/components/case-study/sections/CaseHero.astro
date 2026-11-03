@@ -2,18 +2,11 @@
 /** Hero: the full-width picture, two white steps rising into it and the pixel pattern (public/js/case-study/hero.js). */
 import Picture from "../parts/Picture.astro";
 import { HERO_PIXELS } from "../hero-pixels.js";
-<<<<<<< HEAD
 const { image, label, video, full = false, still = false } = Astro.props;
 // video: optional, plays over the picture (image = its first frame) · full: the whole 16:9 frame, no steps or pixels over it · still: no reveal
 ---
 <section class={["cz-hero", full ? "cz-hero--full" : ""].join(" ").trim()} aria-label={label} data-still={still ? "" : undefined}>
   <Picture class="cz-hero__img" image={image} alt={label} hero video={video} />
-=======
-const { image, label } = Astro.props;
----
-<section class="cz-hero" aria-label={label}>
-  <Picture class="cz-hero__img" image={image} alt={label} hero />
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   <span class="cz-step a" aria-hidden="true"></span><span class="cz-step b" aria-hidden="true"></span>
   <div class="cz-px" aria-hidden="true">{HERO_PIXELS.map((row, i) => (
     <div class="cz-px__row" data-i={i}>{row.px.map(([x, c]) => <i style={`left:calc(${x}*var(--u));top:calc(${row.y}*var(--u));background:${c}`}><b></b></i>)}</div>

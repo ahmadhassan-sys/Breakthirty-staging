@@ -17,9 +17,6 @@
 @import "../footer.css";
 @import "../theme.css";
 @import "../dark.css";          /* dark-theme overrides shared by several sections (last) */
-<<<<<<< HEAD
 @import "../home-latest.css";     /* the latest homepage pass: network re-laid, text entrances */
 @import "../mobile/layer.css";      /* phones (≤ 899px): the shared phone layer */
 @import "../mobile/m5.css";         /* phones: type, sides, buttons, footer (on top of the layer) */
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

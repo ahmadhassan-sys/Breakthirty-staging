@@ -351,11 +351,7 @@
     const active = step(); m.sx += (m.x - m.sx) * .22; m.sy += (m.y - m.sy) * .22; hv += ((m.inside ? 1 : 0) - hv) * Math.min(1, dt * 7);
     gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
     gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tT); gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, tN);
-<<<<<<< HEAD
     gl.uniform2f(U.uRes, cv.width, cv.height); gl.uniform2f(U.uM, m.sx, m.sy); gl.uniform1f(U.uHv, 0); /* the hover patch is off everywhere: the picture never changes under the cursor (only the black label follows it) */ gl.uniform1f(U.uK, Math.round(12 * cv.width / 609));
-=======
-    gl.uniform2f(U.uRes, cv.width, cv.height); gl.uniform2f(U.uM, m.sx, m.sy); gl.uniform1f(U.uHv, hv); gl.uniform1f(U.uK, Math.round(12 * cv.width / 609));
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     const busy = active || hv > .003; cv.classList.toggle('on', busy); img.classList.toggle('is-fx', busy);
     if (busy) raf = requestAnimationFrame(frame); else last = 0; };

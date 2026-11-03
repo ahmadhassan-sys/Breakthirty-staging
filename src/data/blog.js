@@ -17,18 +17,12 @@ export const hero = {
 };
 
 export const list = {
-<<<<<<< HEAD
   heading: "All Blogs",
   all: "All",          // the first filter; the number of guides is added after it
   filtersLabel: "Filter guides by category",
   filterLabel: "Filter",          // phones: the button that opens the filters
   sheetTitle: "Filter guides",    // phones: the filters' title
   closeLabel: "Close filters",
-=======
-  heading: "All guides",
-  all: "All",          // the first filter; the number of guides is added after it
-  filtersLabel: "Filter guides by category",
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 };
 
 /* ---------- Around every post ---------- */

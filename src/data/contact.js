@@ -41,16 +41,11 @@ export const form = {
     needs: ["Design", "Marketing", "Engineering", "Automation & AI", "Others"],
     detailsLabel: "Project Details",
     sendLabel: "Send a message",
-<<<<<<< HEAD
     legal: { before: "By sending, you agree to our ", link: "privacy policy", href: "/legal/privacy-policy", after: ". We only use your details to reply." },
-=======
-    legal: { before: "By sending, you agree to our ", link: "privacy policy", href: "#", after: ". We only use your details to reply." },
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   },
 };
 
 /* ---------- Sending (used by public/js/contact-page.js) ----------
-<<<<<<< HEAD
    On Netlify (the default): the form is a Netlify Form named "contact". Netlify keeps every submission and emails it
    to ahmad.hassan@breakthirty.com — set that once in Netlify: Site configuration → Forms → Form notifications → Email notification.
    Reply in the inbox goes straight to the visitor (Netlify sets Reply-To from the email field).
@@ -59,25 +54,17 @@ export const form = {
 export const sending = {
   endpoint: import.meta.env.PUBLIC_FORM_ENDPOINT || "",
   netlifyForm: "contact",   // the Netlify form name (must match name="…" on the <form> in ContactForm.astro)
-=======
-   The form opens the visitor's email app with the message filled in, addressed to `to`. */
-export const sending = {
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   to: company.email,
   subject: "New project",   // the email subject becomes "New project — <company or name>"
   messages: {
     noName: "Add your name so we know who to reply to.",
     badEmail: "That work email doesn’t look right.",
     badPhone: "That phone number looks too short.",
-<<<<<<< HEAD
     opening: "Opening your email app. Hit send and we’ll reply within a day.",
     sending: "Sending…",
     sent: "Thanks — it’s with us. We’ll reply within a day.",
     failed: "That didn’t go through. Email us at hello@breakthirty.com and we’ll reply within a day.",
     check: "Something in the form needs a look.",
-=======
-    sending: "Opening your email app. Hit send and we’ll reply within a day.",
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     noDetails: "(No details yet — rough is fine.)",
   },
 };

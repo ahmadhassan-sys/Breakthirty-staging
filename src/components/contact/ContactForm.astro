@@ -1,12 +1,8 @@
 ---
 /**
  * Contact page · 2. The form — company details on the left (with the dithered hand), the form on the right.
-<<<<<<< HEAD
  * Sending: a Netlify Form named "contact" — Netlify emails each submission to ahmad.hassan@breakthirty.com (see `sending` in src/data/contact.js).
  * Netlify finds the form in the built HTML, so keep name="contact", data-netlify and the hidden fields below.
-=======
- * Sending opens the visitor's email app with the message filled in (see public/js/contact-page.js).
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
  * Content: `form` in src/data/contact.js (+ `company` from src/data/site.js)
  * Styles: src/styles/contact/form.css
  */
@@ -32,14 +28,10 @@ const { heading, note, company, form } = Astro.props;
     </div>
     <div class="ctf__r">
       <h3 class="ctf__k" data-heading>{form.writeLabel}</h3>
-<<<<<<< HEAD
       <form class="ctf__form" name="contact" method="POST" action="/contact?sent=1" data-netlify="true" netlify-honeypot="website" novalidate>
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="subject" value="New project enquiry from breakthirty.com" />
         <input type="hidden" name="needs" value="" />
-=======
-      <form class="ctf__form" novalidate>
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
         {form.fields.map((f, n) => (
           <label class="ctf__f" data-reveal style={`--rd:${120 + n * 70}ms`}><span class="sr-only">{f.label}</span><input type={f.type} name={f.name} placeholder={f.label} autocomplete={f.autocomplete} inputmode={f.inputmode} required={f.required} /><i></i></label>
         ))}
@@ -56,11 +48,8 @@ const { heading, note, company, form } = Astro.props;
           <button type="submit" class="b30h__btn b30h__btn--solid ctf__send" data-btn data-anim="phone"><i><Icon name="phone" /></i><span data-lbl>{form.sendLabel}</span></button>
           <p class="ctf__legal">{form.legal.before}<a href={form.legal.href}>{form.legal.link}</a>{form.legal.after}</p>
         </div>
-<<<<<<< HEAD
         <!-- left empty by people (it's hidden); bots fill it in, and Netlify then quietly drops the message -->
         <div class="ctf__hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
         <p class="ctf__status" role="status" aria-live="polite"></p>
       </form>
     </div>

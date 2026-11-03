@@ -5,10 +5,7 @@
  * beforeAfter, stat, how, note, output, statement, brand, impact, outcome, next (each one: b/Section.astro).
  * Numbered sections (overview, services, challenge, how, output, brand, impact, outcome) count up (01)…(07) by
  * themselves. The shared closing parts come in through the slot, inside <main>.
-<<<<<<< HEAD
  * Pictures and videos simply show (no reveal animation), as on every case study; `still: false` in the file brings the reveal back.
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
  * Content: src/content/case-studies/<name>.yaml · Styles: src/styles/case-study-b/ · Scripts: public/js/case-study-b/
  */
 import CaseTop from "./sections/CaseTop.astro";
@@ -18,7 +15,6 @@ import Section from "./b/Section.astro";
 const { data, next, nav, labels } = Astro.props;
 const NUMBERED = new Set(["overview", "services", "challenge", "how", "output", "brand", "impact", "outcome"]);
 let k = 0;
-<<<<<<< HEAD
 const still = data.still !== false;
 const items = data.sections.map((s) => ({ s, n: NUMBERED.has(s.type) ? `(${String(++k).padStart(2, "0")})` : null }));
 ---
@@ -26,14 +22,6 @@ const items = data.sections.map((s) => ({ s, n: NUMBERED.has(s.type) ? `(${Strin
 <CaseHero {...data.hero} still={still} />
 
 <main class="b30-main" id="main" data-still={still ? "" : undefined}>
-=======
-const items = data.sections.map((s) => ({ s, n: NUMBERED.has(s.type) ? `(${String(++k).padStart(2, "0")})` : null }));
----
-<CaseTop nav={nav} />
-<CaseHero {...data.hero} />
-
-<main class="b30-main" id="main">
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   {items.map(({ s, n }) => <Section s={s} n={n} name={data.name} labels={labels} next={next} />)}
   <slot />
 </main>

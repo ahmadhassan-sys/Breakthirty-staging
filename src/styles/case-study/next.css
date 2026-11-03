@@ -33,8 +33,5 @@
 @media (prefers-reduced-motion:reduce){
   .cz-rule::before,.cz-rule::after,.cz-rule i,.cz-next__img,.cz-part__img,.cz-ba__img,.cz-demo__media .ph{transition:none!important;transform:none!important;clip-path:none!important;opacity:1}
 }
-<<<<<<< HEAD
 /* still pages (every case study by default): pictures show as they are — no wipe, no pixel reveal */
 [data-still] .ph,[data-still].cz-hero .ph{clip-path:none!important;transition:none!important}
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

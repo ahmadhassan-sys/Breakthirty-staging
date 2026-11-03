@@ -6,11 +6,7 @@
  *   a section named FAQ(s) / Frequently asked questions → its ### questions become <details class="bp-faq">
  *   a picture on its own line       → <figure class="bp-fig blg-img"> (an .mp4 plays like a GIF: muted, looping)
  * Picture sizes come from src/data/blog-media.json (so the page doesn't jump while they load).
-<<<<<<< HEAD
  * Only files in src/content/blog/ and src/content/legal/ are touched. Runs as a Sätteri hast plugin (Astro 7's Markdown processor), see astro.config.mjs.
-=======
- * Only files in src/content/blog/ are touched. Runs as a Sätteri hast plugin (Astro 7's Markdown processor), see astro.config.mjs.
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
  */
 import { readFileSync } from "node:fs";
 
@@ -84,11 +80,7 @@ const copy = (n) => {
 /* the Sätteri plugin: only for the blog's files; rebuilds the document once its tree is complete */
 export default function blogPlugin(ctx) {
   const path = ctx && ctx.fileURL ? decodeURIComponent(ctx.fileURL.pathname) : "";
-<<<<<<< HEAD
   if (!/content[\\/]+(blog|legal)[\\/]/.test(path)) return null;   // the blog posts and the legal pages (same template)
-=======
-  if (!/content[\\/]+blog[\\/]/.test(path)) return null;
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   return {
     name: "b30-blog",
     after(root, c) {

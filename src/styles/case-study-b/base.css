@@ -241,11 +241,7 @@
 .cz-f__media{margin-top:calc(109*var(--u))}
 .cz-ab{display:flex;justify-content:space-between;margin:calc(109*var(--u)) 0 calc(64*var(--u))}
 .cz-mono16{margin:0;font:400 max(12px,calc(16*var(--u)))/1.2 var(--sans);letter-spacing:-.01em;text-transform:uppercase}
-<<<<<<< HEAD
 .cz-sys{margin:calc(64*var(--u)) 0 calc(64*var(--u))}   /* "The System": 64 above and below, as in Figma */
-=======
-.cz-sys{margin-top:calc(128*var(--u))}
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 .cz-pair{display:grid;grid-template-columns:1fr 1fr;gap:calc(24*var(--u))}
 .cz-result{padding-top:calc(264*var(--u))}
 .cz-outcome--en{padding-top:calc(320*var(--u))}
@@ -268,7 +264,6 @@
 @media (max-width:899px){.cz-outcome--en{padding-top:80px}}
 .b30-main > section.cz-how--en{--how-bg:#B0E9FD;--how-top:#A3E2F8;background:linear-gradient(180deg,#B0E9FD 0%,#B0E9FD 43.879%,#fff 100%)}
 .cz-ava{background-image:url(/assets/images/testimonial-evan-goldsmith.jpg)}
-<<<<<<< HEAD
 
 /* ---------- videos inside pictures (Picture.astro `video`, public/js/case-study-b/videos.js) ---------- */
 .ph--v{position:relative}
@@ -306,5 +301,3 @@
   .cz-hero .cz-step.b{top:auto;bottom:0;height:calc(82*var(--u))}
   .cz-hero .cz-px{inset:auto 0 0 0;height:calc(1047*var(--u))}
 }
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

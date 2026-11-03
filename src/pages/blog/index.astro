@@ -20,10 +20,7 @@ import Footer from "../../components/Footer.astro";
 import { seo, hero, list, strip } from "../../data/blog.js";
 import { posts, tagList } from "../../lib/blog.js";
 import { nav, partnersStrip, closing, contact, footer } from "../../data/site.js";
-<<<<<<< HEAD
 import { blogSchema } from "../../lib/schema.js";
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 
 const all = await posts();
 const featured = all.find((p) => p.featured) || all[0];
@@ -44,7 +41,6 @@ const scripts = [
   "blog",            // pictures, the "Read" cursor, the filters, the hero's length
   "strip",           // the dashed-letter strip's hover reveal
   "contact-closing", // the closing words (must run last: it sits on top of the contact panel)
-<<<<<<< HEAD
   "mobile-layer",
   "mobile-m5"   // phones only (≤ 899px)
 ];
@@ -53,12 +49,6 @@ const pageSeo = { ...seo, pageType: "CollectionPage", schema: blogSchema(all, As
 ---
 
 <BaseLayout seo={pageSeo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Blog", path: "/blog" }]}>
-=======
-];
----
-
-<BaseLayout seo={seo} content={scriptContent} scripts={scripts} crumbs={[{ name: "Blog", path: "/blog" }]}>
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   <BlogHero {...hero} nav={nav} featured={featured} labels={hero.featured} />
 
   <main class="b30-main" id="main">

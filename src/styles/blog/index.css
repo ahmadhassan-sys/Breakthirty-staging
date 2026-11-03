@@ -149,7 +149,6 @@
 
 /* the hero's dark overlay waits for the partners strip: it only rises as the strip reaches the bottom of the screen */
 .wk-hero.blg-hero .wk-hero__dim{opacity:var(--blg-dim,0)!important}
-<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): "All guides" + a Filter button; the categories open in a sheet from the bottom
@@ -189,5 +188,3 @@
   .blg-sheet__o em{font:400 12px/1 var(--mono,"Geist Mono",monospace);font-style:normal;letter-spacing:.04em;color:rgba(13,20,50,.45)}
 }
 @media (max-width:899px) and (prefers-reduced-motion:reduce){ .blg-sheet__bg,.blg-sheet__p{transition:none} }
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

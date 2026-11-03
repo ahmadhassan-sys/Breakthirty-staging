@@ -4,23 +4,16 @@
 # Its card on the Our Work page is the "ethical-narrative" entry in src/data/work.js.
 
 template: b
-<<<<<<< HEAD
 still: true                 # pictures and videos show as they are (no reveal animation)
 strip: false                # no "Sketch. Make. Break. Scale." strip above the closing call to action
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 name: Ethical Narrative
 seo:
   title: Ethical Narrative case study | Breakthirty
   description: A storytelling agency using the power of kindness to shift culture and create meaningful change.
 hero:
-<<<<<<< HEAD
   image: /assets/videos/ethical-narrative/showreel.jpg        # the video's first frame
   video: /assets/videos/ethical-narrative/ethicalnarrativehero.mp4
   full: true                # the whole 16:9 video, nothing cropped
-=======
-  image: /assets/images/case-studies/ethical-narrative/hero.jpg
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   label: Ethical Narrative
 next: rivas-pro-details
 sections:
@@ -37,14 +30,9 @@ sections:
   label: Showreel
   mods:
   - cz-demo--in
-<<<<<<< HEAD
   image: /assets/videos/ethical-narrative/team.jpg
   video: /assets/videos/ethical-narrative/team.mp4
   alt: the Ethical Narrative team
-=======
-  image: /assets/images/case-studies/ethical-narrative/demo.jpg
-  alt: showreel
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 - type: overview
   label: Project Overview
   heading: A storytelling agency that needed a story of its own. We rebuilt the brand around it.
@@ -93,20 +81,12 @@ sections:
   mods:
   - cz-ba--en
   before:
-<<<<<<< HEAD
     image: /assets/videos/ethical-narrative/old-site.jpg
     video: /assets/videos/ethical-narrative/old-site.mp4
     alt: the old website
   after:
     image: /assets/images/case-studies/ethical-narrative/old-logo.jpg
     alt: the old logo
-=======
-    image: /assets/images/case-studies/ethical-narrative/old-a.jpg
-    alt: old brand
-  after:
-    image: /assets/images/case-studies/ethical-narrative/old-b.jpg
-    alt: old website
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   kicker: (Before)
 - type: stat
   mods:
@@ -147,16 +127,10 @@ sections:
   - They asked for a brand as warm and as powerful as the work they make. We started with positioning and messaging, then
     rebuilt the logo, colour, type and website around it.
   image:
-<<<<<<< HEAD
     image: /assets/videos/ethical-narrative/brand-strategy.jpg
     video: /assets/videos/ethical-narrative/brand-strategy.mp4
     alt: the brand strategy, in words
     h: 896
-=======
-    image: /assets/images/case-studies/ethical-narrative/brand.jpg
-    alt: the new brand
-    mt: 104
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   features:
   - title: The logo.
     body:
@@ -166,19 +140,13 @@ sections:
       up from a 16px favicon to a film title card, and repeats cleanly into the brand pattern.
     media:
     - wide:
-<<<<<<< HEAD
         image: /assets/videos/ethical-narrative/logo-exploration.jpg
         video: /assets/videos/ethical-narrative/logo-exploration.mp4
         alt: logo exploration
-=======
-        image: /assets/images/case-studies/ethical-narrative/logo.jpg
-        alt: the logo
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     - labels:
       - Before
       - After
     - pair:
-<<<<<<< HEAD
       - image: /assets/images/case-studies/ethical-narrative/logo-before.jpg
         alt: the old logo
       - image: /assets/images/case-studies/ethical-narrative/logo-after.jpg
@@ -195,17 +163,6 @@ sections:
         alt: the logo on a t-shirt
       - image: /assets/images/case-studies/ethical-narrative/browser.jpg
         alt: the logo in a browser tab
-=======
-      - image: /assets/images/case-studies/ethical-narrative/lb.png
-        alt: old logo
-      - image: /assets/images/case-studies/ethical-narrative/la.jpg
-        alt: new logo
-    - mono: The System
-    - wide:
-        image: /assets/images/case-studies/ethical-narrative/sys.jpg
-        alt: the logo system
-        mt: 64
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   - title: Calm blues, warmed by magenta.
     body:
     - Dark Blue and Blue carry the steadiness that funders, partners and policymakers expect, and do most of the heavy lifting.
@@ -213,15 +170,9 @@ sections:
       Spirit and Diamond keep layouts light, so the people and their stories stay in front.
     media:
     - wide:
-<<<<<<< HEAD
         image: /assets/videos/ethical-narrative/palette.jpg
         video: /assets/videos/ethical-narrative/palette.mp4
         alt: the colour palette
-=======
-        image: /assets/images/case-studies/ethical-narrative/col.jpg
-        alt: the colour palette
-        h: 720
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   - title: A serif, a sans, and a human voice.
     body:
     - A warm serif for headlines, a clear sans for reading, and a script for signatures and personal notes.
@@ -230,16 +181,10 @@ sections:
       story titles, so it always feels personal.
     media:
     - wide:
-<<<<<<< HEAD
         image: /assets/videos/ethical-narrative/typography.jpg
         video: /assets/videos/ethical-narrative/typography.mp4
         alt: typography
         h: 896
-=======
-        image: /assets/images/case-studies/ethical-narrative/type.jpg
-        alt: typography
-        h: 720
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   - title: Built from the mark.
     body:
     - A small kit of shapes that make any page, post or sticker feel like Ethical Narrative.
@@ -247,7 +192,6 @@ sections:
       adds texture, the badge works on stickers and avatars, ENSA fits tight spaces, and the sweep frames covers and dividers.
       Together they support the stories rather than compete with them.
     media:
-<<<<<<< HEAD
     - stack:
         left:
         - image: /assets/videos/ethical-narrative/pattern.jpg
@@ -273,18 +217,6 @@ sections:
         image: /assets/videos/ethical-narrative/website.jpg
         video: /assets/videos/ethical-narrative/website.mp4
         alt: the new Ethical Narrative website
-=======
-    - pair:
-      - image: /assets/images/case-studies/ethical-narrative/ma.jpg
-        alt: pattern
-      - image: /assets/images/case-studies/ethical-narrative/mb.jpg
-        alt: badge
-    - wide:
-        image: /assets/images/case-studies/ethical-narrative/mw.jpg
-        alt: graphic elements
-        h: 720
-        mt: 24
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 - type: impact
   label: The Result
   mods:

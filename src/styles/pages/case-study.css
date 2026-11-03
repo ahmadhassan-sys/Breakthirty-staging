@@ -14,9 +14,6 @@
 @import "../dark.css";
 /* The template's own styles (styles/case-study/ for template A, styles/case-study-b/ for template B) are added
    by the page itself, after these: see src/styles/case-study-sets.js */
-<<<<<<< HEAD
 @import "../mobile/layer.css";      /* phones (≤ 899px): the shared phone layer */
 @import "../mobile/m5.css";         /* phones: type, sides, buttons, footer (on top of the layer) */
 @import "../mobile/case-study.css"; /* phones: the case study (both templates) */
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

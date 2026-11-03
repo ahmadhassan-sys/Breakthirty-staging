@@ -30,11 +30,7 @@ const common = {
     }).optional(),
     work: z.object({ tags: z.array(z.string()), summary: z.string(), short: z.string(), images: z.array(z.string()).min(1) }).optional(),
   }).default({}),
-<<<<<<< HEAD
   hero: z.object({ image: z.string(), label: z.string(), video: z.string().optional(), full: z.boolean().optional() }),   // full: the whole 16:9 picture/video, nothing cropped or covered
-=======
-  hero: z.object({ image: z.string(), label: z.string() }),
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   next: z.string(),   // the id of the next case study (its page here, or its card on the Our Work page)
 };
 
@@ -76,11 +72,8 @@ const templateB = z.object({
   template: z.literal("b"),
   ...common,
   sections: z.array(z.object({ type: z.enum(SECTION_TYPES) }).passthrough()).min(1),
-<<<<<<< HEAD
   still: z.boolean().optional(),   // pictures and videos appear as they are (the default); false: the reveal animation comes back
   strip: z.boolean().optional(),   // (no longer used: case studies have no dashed-letter strip)
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 });
 
 const caseStudies = defineCollection({
@@ -119,10 +112,7 @@ const legal = defineCollection({
     title: z.string(),
     seoTitle: z.string().optional(),
     description: z.string(),
-<<<<<<< HEAD
     lead: z.string().optional(),      // the line under the title (else the description)
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     company: z.string().optional(),
     updated: z.string().optional(),   // as shown: "January 14, 2025"
   }),

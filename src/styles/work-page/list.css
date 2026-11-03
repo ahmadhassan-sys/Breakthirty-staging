@@ -1,9 +1,5 @@
 .b30-main > .wk-list{background:#fff;padding-bottom:1px}
-<<<<<<< HEAD
 .wk-fbar{position:sticky;top:0;z-index:30;margin-top:calc(96*var(--u));background:#fff}   /* under the "Selected work" heading */
-=======
-.wk-fbar{position:sticky;top:0;z-index:30;margin-top:calc(89*var(--u));background:#fff}
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 .wk-fbar::before{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background:#fff;opacity:0;transition:opacity .3s}
 .wk-fbar.is-stuck::before{opacity:1}
 .wk-fbar__in{position:relative;display:flex;align-items:center;justify-content:space-between;margin:0 calc(164*var(--u)) 0 calc(163*var(--u));
@@ -35,17 +31,10 @@
 .wk-media__gl{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
 .wk-media.is-gl .wk-media__in{visibility:hidden}
 .wk-media:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
-<<<<<<< HEAD
 .wk-sel{display:flex;flex-direction:row-reverse;justify-content:space-between;align-items:center;margin:calc(140*var(--u)) calc(164*var(--u)) 0 calc(163*var(--u))}   /* first in the list, under the partners strip: the heading on the left edge, the line of copy on the right edge (the filters bar's edges) */
 .wk-sel p{margin:0;width:calc(263*var(--u));font-size:calc(18*var(--u));line-height:1.2;letter-spacing:-.01em;text-align:right}   /* right-aligned against the container's right edge */
 .wk-sel h2{margin:0;font-weight:400;font-size:max(40px,calc(71*var(--u)));line-height:1.2;letter-spacing:-.02em;white-space:nowrap}
 .wk-views-box{position:relative;margin:calc(120*var(--u)) calc(164*var(--u)) 0 calc(163*var(--u))}
-=======
-.wk-sel{display:flex;justify-content:space-between;align-items:center;width:calc(1367*var(--u));margin:calc(196*var(--u)) 0 0 calc(163*var(--u))}
-.wk-sel p{margin:0;width:calc(301*var(--u));font-size:max(15px,calc(18*var(--u)));line-height:1.2;letter-spacing:-.01em}
-.wk-sel h2{margin:0;font-weight:400;font-size:max(40px,calc(71*var(--u)));line-height:1.2;letter-spacing:-.02em;white-space:nowrap}
-.wk-views-box{position:relative;margin:calc(196*var(--u)) calc(164*var(--u)) 0 calc(163*var(--u))}
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 .wk-grid,.wk-index{transition:opacity .32s ease,transform .5s var(--ease-out)}
 .wk-views-box.is-swapping .wk-grid,.wk-views-box.is-swapping .wk-index{opacity:0;transform:translate3d(0,calc(24*var(--u)),0)}
 .wk-views-box[data-view="grid"] .wk-index,.wk-views-box[data-view="index"] .wk-grid{display:none}
@@ -133,13 +122,8 @@ html.dark .wk-vcs svg{fill:#F2F1EE;color:#F2F1EE}
 @media (max-width:899px){.wk-feat__yr{justify-self:start;grid-row:1}}
 @media (max-width:899px){.wk-feat__p{margin-top:16px}}
 @media (max-width:899px){.wk-feat .wk-media{margin-top:40px;height:auto;aspect-ratio:1592/806}}
-<<<<<<< HEAD
 @media (max-width:899px){.wk-sel{width:auto;margin:0 20px;flex-direction:column-reverse;align-items:flex-start;gap:16px}}
 @media (max-width:899px){.wk-sel p{width:auto;text-align:left}}
-=======
-@media (max-width:899px){.wk-sel{width:auto;margin:96px 20px 0;flex-direction:column-reverse;align-items:flex-start;gap:16px}}
-@media (max-width:899px){.wk-sel p{width:auto}}
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 @media (max-width:899px){.wk-views-box{margin:56px 20px 0}}
 @media (max-width:899px){.wk-grid{grid-template-columns:1fr;row-gap:64px}}
 @media (max-width:899px){.wk-card .wk-media{height:auto;aspect-ratio:784/540}}

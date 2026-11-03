@@ -76,11 +76,7 @@ void main(){
     hv += ((m.inside ? 1 : 0) - hv) * Math.min(1, dt * 7);
     gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, dTex); gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, GW, GH, gl.RG, gl.FLOAT, disp);
     gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, T.tex);
-<<<<<<< HEAD
     gl.uniform2f(U.uRes, cw, ch); gl.uniform2f(U.uS, ...T.size); gl.uniform2f(U.uM, m.sx, m.sy); gl.uniform1f(U.uHv, 0); /* the hover patch is off everywhere: the picture never changes under the cursor (only the black label follows it) */ gl.uniform1f(U.uK, Math.round(12 * cw / 609));
-=======
-    gl.uniform2f(U.uRes, cw, ch); gl.uniform2f(U.uS, ...T.size); gl.uniform2f(U.uM, m.sx, m.sy); gl.uniform1f(U.uHv, hv); gl.uniform1f(U.uK, Math.round(12 * cw / 609));
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     word.classList.toggle('on', m.inside); word.style.translate = `calc(${(m.sx * r.width).toFixed(1)}px - 50%) calc(${(m.sy * r.height).toFixed(1)}px - 50%)`;
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     if (active || hv > .01) raf = requestAnimationFrame(frame);

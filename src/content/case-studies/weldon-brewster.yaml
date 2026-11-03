@@ -10,12 +10,8 @@ seo:
   description: A Los Angeles construction photographer, a new film studio and a private gallery he owns. We built the brands,
     websites and software behind all three.
 hero:
-<<<<<<< HEAD
   image: /assets/videos/weldon-brewster/poster-banner.jpg        # the video's first frame
   video: /assets/videos/weldon-brewster/banner.mp4
-=======
-  image: /assets/images/case-studies/weldon-brewster/hero.jpg
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   label: Weldon Brewster
 next: construction-check
 sections:
@@ -34,14 +30,9 @@ sections:
   label: Showreel
   mods:
   - cz-demo--in
-<<<<<<< HEAD
   image: /assets/videos/weldon-brewster/poster-structural-stories-photo-collage.jpg   # the video's first frame
   video: /assets/videos/weldon-brewster/structural-stories-photo-collage.mp4
   alt: Structural Stories photo collage
-=======
-  image: /assets/images/case-studies/weldon-brewster/demo.jpg
-  alt: showreel
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 - type: overview
   label: Project Overview
   heading: We started with his photography brand. Then came a film studio, then a private gallery.
@@ -96,7 +87,6 @@ sections:
   - Every shoot was delivered through a hosted gallery service he couldn’t change. He couldn’t add features or organise his
     photos his own way, and the archive kept growing.
 - type: beforeAfter
-<<<<<<< HEAD
   label: Before
   mods:
   - cz-ba--wb
@@ -105,22 +95,6 @@ sections:
     image: /assets/videos/weldon-brewster/poster-before.jpg
     video: /assets/videos/weldon-brewster/before.mp4
     alt: The old Weldon Brewster website
-=======
-  label: Before and after
-  mods:
-  - cz-ba--wb
-  before:
-    image: /assets/images/case-studies/weldon-brewster/ba-a.jpg
-    alt: before
-  after:
-    image: /assets/images/case-studies/weldon-brewster/ba-b.jpg
-    alt: after
-  labels:
-  - Before
-  - After
-  labelsTop: true
-  labelsMono: true
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 - type: stat
   mods:
   - cz-stat--en
@@ -168,7 +142,6 @@ sections:
     headMt: 32
     media:
     - wide:
-<<<<<<< HEAD
         image: /assets/videos/weldon-brewster/poster-conceptual-breakdown.jpg
         video: /assets/videos/weldon-brewster/conceptual-breakdown.mp4
         alt: Conceptual breakdown of the Weldon Brewster mark
@@ -184,19 +157,6 @@ sections:
         video: /assets/videos/weldon-brewster/website-pages.mp4
         alt: Pages from the new weldonbrewster.com
         mt: 24
-=======
-        image: /assets/images/case-studies/weldon-brewster/p1w.jpg
-        alt: photography brand
-        h: 800
-    - pair:
-      - image: /assets/images/case-studies/weldon-brewster/p1a.jpg
-        alt: logo
-        h: 800
-      - image: /assets/images/case-studies/weldon-brewster/p1b.jpg
-        alt: website
-        h: 800
-      mt: 24
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     tab: Weldon Brewster Photography
   - kicker: Part 2
     title: 'Structural Stories: a new brand for a new studio'
@@ -209,7 +169,6 @@ sections:
     headMt: 32
     media:
     - wide:
-<<<<<<< HEAD
         image: /assets/videos/weldon-brewster/poster-ss-mark-construction.jpg
         video: /assets/videos/weldon-brewster/ss-mark-construction.mp4
         alt: Construction of the Structural Stories mark
@@ -225,15 +184,6 @@ sections:
         image: /assets/videos/weldon-brewster/poster-ss-website-preview.jpg
         video: /assets/videos/weldon-brewster/ss-website-preview.mp4
         alt: Preview of the Structural Stories website
-=======
-        image: /assets/images/case-studies/weldon-brewster/p2a.jpg
-        alt: Structural Stories brand
-        h: 800
-    - wide:
-        image: /assets/images/case-studies/weldon-brewster/p2b.jpg
-        alt: Structural Stories website
-        h: 800
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
         mt: 24
     tab: Structural Stories
   - kicker: Part 3
@@ -249,21 +199,11 @@ sections:
           or web quality.
         gap: 56
         media:
-<<<<<<< HEAD
         - wide:
             image: /assets/videos/weldon-brewster/poster-studio-client-view.jpg
             video: /assets/videos/weldon-brewster/studio-client-view.mp4
             alt: The private gallery as his clients see it
             class: wb-gal wb-gal--client
-=======
-        - pair:
-          - image: /assets/images/case-studies/weldon-brewster/p3a.jpg
-            alt: client gallery
-            h: 800
-          - image: /assets/images/case-studies/weldon-brewster/p3b.jpg
-            alt: download view
-            h: 800
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     - sub:
         heading: (What Weldon sees)
         text: He invites his team, creates as many folders and galleries as he needs, and sees every view and download. Links
@@ -271,16 +211,10 @@ sections:
         gap: 112
         media:
         - wide:
-<<<<<<< HEAD
             image: /assets/videos/weldon-brewster/poster-studio-admin-view.jpg
             video: /assets/videos/weldon-brewster/studio-admin-view.mp4
             alt: The studio admin view Weldon uses
             class: wb-gal wb-gal--admin
-=======
-            image: /assets/images/case-studies/weldon-brewster/p3w.jpg
-            alt: gallery dashboard
-            h: 800
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
         mt: 109
     tab: Private Gallery
 - type: statement

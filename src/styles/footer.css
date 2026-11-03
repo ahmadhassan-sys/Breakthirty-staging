@@ -125,7 +125,6 @@ html.dark .b30f .b30f__in::after{display:none!important}
 html.dark .b30f__stripe{background:var(--night)!important}
 html.dark .b30f .bt-footer{-webkit-mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.5) calc(160*var(--u)),#000 calc(320*var(--u)));mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.5) calc(160*var(--u)),#000 calc(320*var(--u)))}
 #footer.b30f{position:relative;z-index:1;will-change:transform}
-<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): the footer — one version for every page
@@ -146,5 +145,3 @@ html.dark .b30f .bt-footer{-webkit-mask-image:linear-gradient(180deg,transparent
   html body .b30f .b30f__legal i:not(#_z){display:block!important;width:0!important;height:14px!important;background:none!important;border-left:1px dashed rgba(0,0,0,.45)!important}
   html body .b30f .bt-footer:not(#_z){margin-top:-99px!important;position:relative;z-index:1}
 }
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

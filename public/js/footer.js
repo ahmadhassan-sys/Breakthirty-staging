@@ -344,21 +344,13 @@ function b30FooterArt() {
     const x = c.getContext('2d', { willReadFrequently:true });
     const iw = logoImg.naturalWidth || 1593, ih = logoImg.naturalHeight || 278;
 
-<<<<<<< HEAD
     const MOB = matchMedia('(max-width: 899px)').matches;   // phones: the wordmark a touch wider and lower
     let w = cw*(MOB ? 0.92 : 0.83), h = w*ih/iw;
-=======
-    let w = cw*0.83, h = w*ih/iw;
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     const maxAsc = ch*0.24;
     if (h*LOGO_BASELINE > maxAsc){ h = maxAsc/LOGO_BASELINE; w = h*iw/ih; }
     w = Math.round(w); h = Math.round(h);
     const left = Math.round((cw - w)/2);
-<<<<<<< HEAD
     const baseline = MOB ? Math.round(ch - 104*scale) : Math.round(ch*0.815);   // phones: just above the © line; desktop: the descender of the y stays clear of the bottom rule
-=======
-    const baseline = Math.round(ch*0.815);   // the descender of the y stays clear of the bottom rule
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     const top = Math.round(baseline - h*LOGO_BASELINE);
 
     x.imageSmoothingEnabled = true;
@@ -882,7 +874,6 @@ function b30FooterArt() {
     if (shown && !h.classList.contains('is-in')) B30.setIn(h, true); else if (!shown && r.top > innerHeight && h.classList.contains('is-in')) B30.setIn(h, false); };
   addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(check); }, { passive: true }); addEventListener('resize', check); check();
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) B30.setIn(h, true); })();
-<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): the footer rising in — one version for every page (from the Our Work
@@ -905,5 +896,3 @@ function b30FooterArt() {
       el.classList.add('m-rv'); el.style.transitionDelay = (el.matches('.b30f__col') ? (i % 2) * 80 : 0) + 'ms'; io.observe(el); });
   }
 })();
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

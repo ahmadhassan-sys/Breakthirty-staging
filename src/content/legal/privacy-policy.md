@@ -2,10 +2,7 @@
 title: "Privacy Policy"
 seoTitle: "Privacy Policy | How Break Thirty™ Protects Your Data"
 description: "We're committed to protecting your privacy. Learn how we collect, use, and safeguard your information when you use our website or services."
-<<<<<<< HEAD
 lead: "How Break Thirty LLC collects, uses and protects the information you share with us."
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 company: "Breakthirty LLC"
 updated: "January 14, 2025"
 ---

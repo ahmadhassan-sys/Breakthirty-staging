@@ -16,9 +16,6 @@
 @import "../theme.css";
 @import "../dark.css";
 @import "../services/page.css";      /* this page's own dark sky (last) */
-<<<<<<< HEAD
 @import "../mobile/layer.css";      /* phones (≤ 899px): the shared phone layer */
 @import "../mobile/m5.css";         /* phones: type, sides, buttons, footer (on top of the layer) */
 @import "../mobile/services.css";   /* phones: the services page (last) */
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

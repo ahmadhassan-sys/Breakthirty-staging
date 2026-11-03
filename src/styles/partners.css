@@ -82,7 +82,6 @@ html.dark .b30p__c::after{background:rgba(255,255,255,.18)}
 @media (min-width:900px){html:not(.dark) body section.b30p,html.dark body section.b30p{background:transparent!important}}
 @media (min-width:900px){html body section.b30p .b30p__b::before,html body section.b30p .b30p__b::after{display:none!important}}
 html.dark body section.b30p .b30p__a,html.dark body section.b30p .b30p__b,html.dark body section.b30p .b30p__c{background:var(--night)!important;box-shadow:none!important;border:0!important}
-<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): the partners strip (label + brand pixels) — one version for every page
@@ -109,5 +108,3 @@ html body .b30p .b30p__c:not(#_z){display:none!important}
   .b30p .b30p__pxm.is-in i{opacity:1}
   .b30p .b30p__pxm i b{position:absolute;inset:0;background:inherit;display:block}
 }
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

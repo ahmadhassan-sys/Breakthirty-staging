@@ -8,10 +8,7 @@ import { render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/pages/blog-post.css";   // all blog post styles, in order
 
-<<<<<<< HEAD
 import { postSchema } from "../../lib/schema.js";
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 import PostHero from "../../components/blog/PostHero.astro";
 import PartnersStrip from "../../components/PartnersStrip.astro";
 import PostBody from "../../components/blog/PostBody.astro";
@@ -48,28 +45,9 @@ const seo = {
   keywords: data.keywords,
   published: post.iso,
   modified: data.updated ? data.updated.toISOString().slice(0, 10) : undefined,
-<<<<<<< HEAD
   imageAlt: data.imageAlt || data.title,
   // structured data: the post (and its FAQs when it has a FAQ section) — src/lib/schema.js
   schema: postSchema({ post, data, minutes: post.minutes, words: post.entry.body.split(/\s+/).filter(Boolean).length, author: labels.author, site: Astro.site }),
-=======
-  jsonLd: {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    mainEntityOfPage: url,
-    headline: data.title,
-    description: data.description,
-    image,
-    datePublished: post.iso,
-    dateModified: data.updated ? data.updated.toISOString().slice(0, 10) : post.iso,
-    keywords: data.keywords.join(", ") || undefined,
-    author: { "@type": "Organization", name: labels.author, url: Astro.site.href },
-    publisher: { "@id": new URL("/#organization", Astro.site).href },
-    articleSection: data.tags[0],
-    timeRequired: `PT${post.minutes}M`,
-    inLanguage: "en-US",
-  },
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 };
 
 const scriptContent = { contact: { heading: contact.heading, closing: contact.closing } };
@@ -79,11 +57,8 @@ const scripts = [
   "blog-post",       // pictures, "You will read", the FAQs, the hero's length, the GIF videos
   "strip",
   "contact-closing", // (must run last)
-<<<<<<< HEAD
   "mobile-layer",
   "mobile-m5"   // phones only (≤ 899px)
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 ];
 ---
 

@@ -7,7 +7,6 @@
  *   - mono: "The System"                     a small caption
  *   - sub: { heading, text, gap, mt?, media } a sub-block with its own heading and pictures
  *   - space: 56, media: […]                  extra space above a group
-<<<<<<< HEAD
  *   - stack: { left: [{…}, {…}], right: {…} } two pictures stacked on the left, one tall on the right
  * Any picture can also have `video: /assets/videos/….mp4` (its `image` is then the video's first frame),
  *   `pos: "50% 22%"` (its focal point) and `class: "…"` (extra classes for that box).
@@ -28,16 +27,6 @@ const cls = (base, p) => [base, p.h ? `cz-h${p.h}` : "", p.mt ? `cz-mt${p.mt}` :
       <div class="cz-stack__l">{it.stack.left.map((p) => <Picture class="cz-sq cz-half" image={p.image} alt={p.alt} video={p.video} />)}</div>
       <Picture class="cz-sq" image={it.stack.right.image} alt={it.stack.right.alt} video={it.stack.right.video} />
     </div>
-=======
- */
-import Picture from "../parts/Picture.astro";
-const { items } = Astro.props;
-const cls = (base, p) => [base, p.h ? `cz-h${p.h}` : "", p.mt ? `cz-mt${p.mt}` : ""].filter(Boolean).join(" ");
----
-{items.map((it) =>
-  it.wide ? <Picture class={cls("cz-wide", it.wide)} image={it.wide.image} alt={it.wide.alt} />
-  : it.pair ? <div class={["cz-pair", it.mt ? `cz-mt${it.mt}` : ""].filter(Boolean).join(" ")}>{it.pair.map((p) => <Picture class={cls("cz-sq", p)} image={p.image} alt={p.alt} />)}</div>
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   : it.labels ? <div class="cz-ab">{it.labels.map((l) => <p class="cz-mono16" data-reveal>{l}</p>)}</div>
   : it.mono ? <p class="cz-mono16 cz-sys" data-reveal>{it.mono}</p>
   : it.sub ? (() => {

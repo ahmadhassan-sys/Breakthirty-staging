@@ -4,7 +4,6 @@
 .b30h__btn span,.b30btn__lbl,.work .cta .lbl{height:44px;box-sizing:border-box}
 .b30h__btn i,.b30btn__ic,.work .cta .ic{background:transparent!important}
 .b30h__btn span,.b30btn__lbl,.work .cta .lbl{padding:0 max(11px,calc(var(--u) * 14.667))!important}
-<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): buttons (icon square + label, 36 tall) and text reveals — one version for every page
@@ -27,5 +26,3 @@
    ===================================================================== */
 html body :is(.slot__word,.wk-media__word,.blg-word,.ts__word){mix-blend-mode:normal!important;color:#fff!important;background:#000!important;
   padding:max(6px,calc(8*var(--u))) max(8px,calc(11*var(--u)))!important;border-radius:0!important;line-height:1!important}
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

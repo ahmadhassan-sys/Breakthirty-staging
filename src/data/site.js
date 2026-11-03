@@ -32,7 +32,6 @@ export const company = {
   ],
 };
 
-<<<<<<< HEAD
 /* ---------- Search engines and analytics (every page's <head>) ---------- */
 export const searchSetup = {
   // Google Search Console ownership — the same token as on the old site, so the verified property keeps working
@@ -47,8 +46,6 @@ export const searchSetup = {
   areaServed: "Worldwide",
 };
 
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 /* ---------- Header ---------- */
 export const nav = {
   homeLabel: "breakthirty home",
@@ -122,11 +119,7 @@ export const testimonials = {
       ],
       who: "Martin Rubio",
       org: "Promescent",
-<<<<<<< HEAD
       img: "/assets/images/testimonial-martin-rubio-2.jpg",
-=======
-      img: "/assets/images/testimonial-martin-rubio.jpg",
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     },
   ],
 };

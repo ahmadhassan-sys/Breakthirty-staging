@@ -325,10 +325,7 @@ void main(){
     } catch (err) { if (err) console.warn("Work media: WebGL unavailable, showing plain images.", err); }
     // hover input
     el.addEventListener("pointermove", (e) => {
-<<<<<<< HEAD
       return;   // the picture stays still under the cursor: only the black View button follows it (data-cur on the link)
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
       if (e.pointerType !== "mouse") return;
       const r = el.getBoundingClientRect(), M = m.mouse, x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
       if (M.px !== null) { M.vx = x - M.px; M.vy = y - M.py; }
@@ -340,10 +337,7 @@ void main(){
       let t = 0;
       const show = (i) => { m.imgs[m.k].classList.remove("is-on"); m.k = i; m.imgs[m.k].classList.add("is-on"); m.last = -1; };
       el.addEventListener("pointerenter", (e) => {
-<<<<<<< HEAD
         return;   // no flipping through the shots on hover: the picture stays the same
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
         if (REDUCED || (e.pointerType && e.pointerType !== "mouse")) return;
         clearInterval(t); show(1 % m.imgs.length);
         t = setInterval(() => show((m.k + 1) % m.imgs.length), CFG.hoverFrameMs);
@@ -401,11 +395,7 @@ void main(){
           gl.uniform2f(m.U.uRes, cw, ch); gl.uniform2f(m.U.uS, ...m.size[k]); gl.uniform1f(m.U.uR, e);
           const n = m.tex.length, nk = m.tex[(k + 1) % n] ? (k + 1) % n : k;   // the peek shows the shot after the one on screen
           gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, m.tex[nk]); gl.uniform2f(m.U.uSN, ...m.size[nk]); gl.activeTexture(gl.TEXTURE0);
-<<<<<<< HEAD
           gl.uniform2f(m.U.uM, M.sx, M.sy); gl.uniform1f(m.U.uHv, 0); /* the hover patch is off everywhere: the picture never changes under the cursor (only the black label follows it) */ gl.uniform1f(m.U.uK, Math.round(12 * cw / 609));
-=======
-          gl.uniform2f(m.U.uM, M.sx, M.sy); gl.uniform1f(m.U.uHv, m.hv); gl.uniform1f(m.U.uK, Math.round(12 * cw / 609));
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
           gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
           gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         } else {

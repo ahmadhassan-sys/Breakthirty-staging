@@ -317,7 +317,6 @@ html.dark .b30h__glow{display:block!important;mix-blend-mode:normal!important;ma
 html.dark .b30h__stage{background:var(--night)!important}
 .b30h__title .hw,.b30h__title .hw-i{display:inline-block!important}
 .b30h__title .b30-alt__ov{display:block}
-<<<<<<< HEAD
 
 /* =====================================================================
    Phones (≤ 899px): the header and its Menu — one version for every page
@@ -368,5 +367,3 @@ html body .b30h__nav .b30h__links:not(#_z){display:none!important}
 }
 /* phones: the header always runs the full width of the screen, whatever padding its hero frame has (blog, legal, 404) */
 @media (max-width:899px){ html body .b30h__stage > .b30h__nav:not(#_z){margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;width:auto!important;max-width:none!important} }
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313

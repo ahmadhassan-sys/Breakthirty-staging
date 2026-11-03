@@ -4,11 +4,7 @@
  * Content: src/data/home.js (homepage sections) + src/data/site.js (shared sections).
  */
 import BaseLayout from "../layouts/BaseLayout.astro";
-<<<<<<< HEAD
 import "../styles/pages/home.css"; // all homepage styles, in order
-=======
-import "../styles/pages/home.css";   // all homepage styles, in order
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 
 import Hero from "../components/Hero.astro";
 import PartnersStrip from "../components/PartnersStrip.astro";
@@ -18,15 +14,10 @@ import WhyOneTeam from "../components/WhyOneTeam.astro";
 import Vision from "../components/Vision.astro";
 import Network from "../components/Network.astro";
 import Testimonials from "../components/Testimonials.astro";
-<<<<<<< HEAD
-=======
-import Strip from "../components/closing/Strip.astro";
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 import ClosingCta from "../components/closing/ClosingCta.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 
-<<<<<<< HEAD
 import {
   seo,
   hero,
@@ -44,10 +35,6 @@ import {
   contact,
   footer,
 } from "../data/site.js";
-=======
-import { seo, hero, work, services, whyOneTeam, vision, network } from "../data/home.js";
-import { nav, partnersStrip, testimonials, closing, contact, footer } from "../data/site.js";
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 import { partners, locations } from "../data/partners.js";
 import { homeWorkItems } from "../lib/case-studies.js";
 
@@ -67,17 +54,10 @@ const scriptContent = {
 
 /* Page scripts, in the order they run. */
 const scripts = [
-<<<<<<< HEAD
   "core", // scale, smooth scroll, headings, reveals (must be first)
   "hero", // the monitor, showreel and orbit
   "header", // logo hover, header pixels
   "hero-light", // the hero's glow and light
-=======
-  "core",            // scale, smooth scroll, headings, reveals (must be first)
-  "hero",            // the monitor, showreel and orbit
-  "header",          // logo hover, header pixels
-  "hero-light",      // the hero's glow and light
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   "partners",
   "work",
   "services",
@@ -86,7 +66,6 @@ const scripts = [
   "testimonials",
   "contact",
   "footer",
-<<<<<<< HEAD
   "details", // small finishing touches across sections
   "contact-closing", // the closing words (must run last: it sits on top of the contact panel)
   "mobile-layer", // phones only (≤ 899px): the shared phone layer
@@ -96,15 +75,6 @@ const scripts = [
 
 <BaseLayout seo={seo} content={scriptContent} scripts={scripts} loader caseTransition>
   {/* loader: the intro (globe → logo) on a fresh visit or reload */}
-=======
-  "details",         // small finishing touches across sections
-  "strip",           // the dashed-letter strip's hover reveal
-  "contact-closing", // the closing words (must run last: it sits on top of the contact panel)
-];
----
-
-<BaseLayout seo={seo} content={scriptContent} scripts={scripts} loader>   {/* loader: the intro (globe → logo) on a fresh visit or reload */}
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
   <Hero {...hero} nav={nav} />
 
   <main class="b30-main" id="main">
@@ -113,14 +83,8 @@ const scripts = [
     <Services {...services} />
     <WhyOneTeam {...whyOneTeam} />
     <Vision {...vision} />
-<<<<<<< HEAD
     <Testimonials {...testimonials} />
     <Network />
-=======
-    <Network />
-    <Testimonials {...testimonials} />
-    <Strip {...closing.strip} />
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     <ClosingCta {...closing.cta} />
     <Contact {...contact} />
   </main>

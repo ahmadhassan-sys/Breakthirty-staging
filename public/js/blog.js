@@ -76,11 +76,7 @@ void main(){
     hv += ((m.inside ? 1 : 0) - hv) * Math.min(1, dt * 7);
     gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, dTex); gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, GW, GH, gl.RG, gl.FLOAT, disp);
     gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, T.tex);
-<<<<<<< HEAD
     gl.uniform2f(U.uRes, cw, ch); gl.uniform2f(U.uS, ...T.size); gl.uniform2f(U.uM, m.sx, m.sy); gl.uniform1f(U.uHv, 0); /* the hover patch is off everywhere: the picture never changes under the cursor (only the black label follows it) */ gl.uniform1f(U.uK, Math.round(12 * cw / 609));
-=======
-    gl.uniform2f(U.uRes, cw, ch); gl.uniform2f(U.uS, ...T.size); gl.uniform2f(U.uM, m.sx, m.sy); gl.uniform1f(U.uHv, hv); gl.uniform1f(U.uK, Math.round(12 * cw / 609));
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
     word.classList.toggle('on', m.inside); word.style.translate = `calc(${(m.sx * r.width).toFixed(1)}px - 50%) calc(${(m.sy * r.height).toFixed(1)}px - 50%)`;
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     if (active || hv > .01) raf = requestAnimationFrame(frame);
@@ -131,7 +127,6 @@ void main(){
   });
 })();
 
-<<<<<<< HEAD
 /* phones: the Filter button opens a sheet of categories (with how many guides each shows). Picking one runs the same
    filter as the tag row above (still on the page, hidden on phones), closes the sheet and brings the list into view. */
 (() => {
@@ -173,8 +168,6 @@ void main(){
   matchMedia('(min-width: 900px)').addEventListener('change', (m) => { if (m.matches) set(false); });   // turned to a wide screen: the tag row is back
 })();
 
-=======
->>>>>>> f0e7d935b7adba6199409368d09b447496a99313
 /* blog hero: the partners strip (same steps, pattern and animation) comes into view after 1000 px of scroll; the hero's
    dark overlay only starts once the strip is 100 px up from the bottom of the screen, then rises to the usual 16 %. */
 (() => {
